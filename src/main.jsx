@@ -120,7 +120,7 @@ function HomePage() {
         <div className="hero-copy reveal">
           <p className="eyebrow">Software engineer / builder / community voice</p>
           <h1>
-            Hi, I'm <span className="hero-name">Kelly Chen.</span>
+            Hi, I'm <span className="hero-name">Kelly Chen</span>
           </h1>
           <p className="hero-intro">
             I build reliable systems, study how product decisions shape everyday

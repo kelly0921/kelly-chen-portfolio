@@ -199,7 +199,10 @@ h1 {
 
 .hero-name {
   position: relative;
+  isolation: isolate;
   display: inline-block;
+  margin-bottom: -0.14em;
+  padding-bottom: 0.14em;
   color: var(--text);
   font-family: Manrope, Inter, system-ui, sans-serif;
   font-weight: 880;
@@ -210,10 +213,11 @@ h1 {
 
 .hero-name::after {
   position: absolute;
+  z-index: -1;
   right: -0.03em;
-  bottom: -0.02em;
+  bottom: 0.02em;
   left: -0.02em;
-  height: 0.08em;
+  height: 0.07em;
   border-radius: 999px;
   background: var(--rose);
   content: "";
