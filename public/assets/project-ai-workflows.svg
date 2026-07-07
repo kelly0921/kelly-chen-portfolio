@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">AI workflow preview</title>
+  <desc id="desc">A workflow mockup showing prompts, generated sections, review states, and final output.</desc>
+  <rect width="960" height="620" rx="36" fill="#f3f5ff"/>
+  <rect x="88" y="84" width="784" height="452" rx="30" fill="#fff" stroke="#d8e1ed"/>
+  <rect x="120" y="120" width="210" height="380" rx="22" fill="#111827"/>
+  <text x="150" y="166" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="800" fill="#fff">Prompt</text>
+  <rect x="150" y="196" width="142" height="10" rx="5" fill="#94a3b8"/>
+  <rect x="150" y="222" width="118" height="10" rx="5" fill="#64748b"/>
+  <rect x="150" y="276" width="132" height="38" rx="12" fill="#2563eb"/>
+  <text x="174" y="301" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" fill="#fff">Generate</text>
+  <rect x="372" y="122" width="198" height="146" rx="22" fill="#f8fafc" stroke="#d8e1ed"/>
+  <rect x="604" y="122" width="198" height="146" rx="22" fill="#f8fafc" stroke="#d8e1ed"/>
+  <rect x="372" y="304" width="198" height="146" rx="22" fill="#f8fafc" stroke="#d8e1ed"/>
+  <rect x="604" y="304" width="198" height="146" rx="22" fill="#ecfdf5" stroke="#b7e4d8"/>
+  <text x="402" y="164" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#111827">Draft sections</text>
+  <text x="634" y="164" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#111827">Review logic</text>
+  <text x="402" y="346" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#111827">Refine style</text>
+  <text x="634" y="346" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#0f766e">Publish-ready</text>
+  <rect x="402" y="190" width="118" height="9" rx="5" fill="#cbd5e1"/>
+  <rect x="402" y="214" width="86" height="9" rx="5" fill="#e2e8f0"/>
+  <rect x="634" y="190" width="92" height="9" rx="5" fill="#cbd5e1"/>
+  <rect x="634" y="214" width="120" height="9" rx="5" fill="#e2e8f0"/>
+  <path d="M482 276v28M572 196h32M572 378h32" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+  <path d="m694 394 22 22 50-60" fill="none" stroke="#0f766e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
