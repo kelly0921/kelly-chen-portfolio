@@ -502,14 +502,6 @@ h1 {
   text-transform: uppercase;
 }
 
-.signal-header i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--teal);
-  box-shadow: 0 0 0 6px rgba(47, 184, 168, 0.14);
-}
-
 .working-board {
   position: relative;
   z-index: 1;

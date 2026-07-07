@@ -338,7 +338,6 @@ function PersonalSnapshot() {
       <div className="signal-panel" aria-hidden="true">
         <div className="signal-header">
           <span>Working board</span>
-          <i />
         </div>
         <div className="working-board">
           <article className="board-note board-note-primary">
