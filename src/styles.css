@@ -195,18 +195,19 @@ h1 {
 
 .hero h1 {
   color: var(--text);
-  font-weight: 400;
+  font-size: clamp(3.25rem, 7.25vw, 6.65rem);
+  font-weight: 500;
 }
 
 .hero-name {
   position: relative;
   isolation: isolate;
   display: inline-block;
-  margin-bottom: -0.14em;
-  padding-bottom: 0.14em;
+  margin-bottom: -0.09em;
+  padding-bottom: 0.09em;
   color: var(--text);
   font-family: Manrope, Inter, system-ui, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   transform: rotate(-0.8deg);
   transform-origin: left bottom;
   animation: nameWriteIn 740ms 240ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
@@ -216,9 +217,9 @@ h1 {
   position: absolute;
   z-index: -1;
   right: -0.03em;
-  bottom: 0.02em;
+  bottom: 0.015em;
   left: -0.02em;
-  height: 0.07em;
+  height: 0.065em;
   border-radius: 999px;
   background: var(--rose);
   content: "";
