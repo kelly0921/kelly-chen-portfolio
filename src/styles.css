@@ -200,13 +200,26 @@ h1 {
 .hero-name {
   position: relative;
   display: inline-block;
-  border-bottom: 0.08em solid var(--rose);
   color: var(--text);
   font-family: Manrope, Inter, system-ui, sans-serif;
   font-weight: 880;
   transform: rotate(-0.8deg);
   transform-origin: left bottom;
-  animation: nameMarkIn 760ms 260ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  animation: nameWriteIn 740ms 240ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+.hero-name::after {
+  position: absolute;
+  right: -0.03em;
+  bottom: -0.02em;
+  left: -0.02em;
+  height: 0.08em;
+  border-radius: 999px;
+  background: var(--rose);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: nameUnderlineWrite 860ms 680ms cubic-bezier(0.22, 0.9, 0.2, 1) both;
 }
 
 .hero-intro,
@@ -524,6 +537,10 @@ h1 {
   --note-accent: var(--teal);
   --note-tint: var(--mint);
   --note-rotation: 0deg;
+  --note-enter-x: 0px;
+  --note-enter-y: -18px;
+  --note-delay: 120ms;
+  --tape-rotation: -3deg;
   position: relative;
   overflow: visible;
   border: 1px solid color-mix(in srgb, var(--note-accent) 16%, var(--border));
@@ -536,7 +553,8 @@ h1 {
   box-shadow:
     0 18px 30px rgba(48, 55, 72, 0.13),
     0 3px 0 rgba(255, 255, 255, 0.42) inset;
-  animation: notePlaceIn 720ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  transform-origin: center center;
+  animation: notePlaceIn 640ms var(--note-delay) cubic-bezier(0.18, 0.9, 0.18, 1) both;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -552,8 +570,10 @@ h1 {
     linear-gradient(90deg, rgba(255, 253, 249, 0.28), rgba(255, 253, 249, 0.82), rgba(255, 253, 249, 0.34)),
     rgba(255, 248, 239, 0.78);
   content: "";
+  opacity: 0;
   box-shadow: 0 6px 12px rgba(48, 55, 72, 0.08);
-  transform: rotate(-3deg);
+  transform: rotate(var(--tape-rotation));
+  animation: tapePress 320ms calc(var(--note-delay) + 430ms) ease-out both;
 }
 
 .board-note::after {
@@ -599,19 +619,23 @@ h1 {
   --note-accent: var(--blue);
   --note-tint: var(--sky);
   --note-rotation: -1.2deg;
+  --note-enter-x: -18px;
+  --note-delay: 220ms;
   margin-right: 38px;
 }
 
 .board-note:nth-child(2) {
   --note-rotation: 1.4deg;
+  --note-enter-x: 20px;
+  --note-enter-y: -16px;
+  --note-delay: 520ms;
   margin-left: 42px;
-  animation-delay: 120ms;
 }
 
 .board-note:nth-child(2)::before {
   left: auto;
   right: 24px;
-  transform: rotate(2.4deg);
+  --tape-rotation: 2.4deg;
 }
 
 .board-note:nth-child(3) {
@@ -619,12 +643,14 @@ h1 {
   --note-accent: var(--rose);
   --note-tint: var(--peach);
   --note-rotation: -1.5deg;
-  animation-delay: 220ms;
+  --note-enter-x: -14px;
+  --note-enter-y: -14px;
+  --note-delay: 820ms;
 }
 
 .board-note:nth-child(3)::before {
   left: 28px;
-  transform: rotate(-1.6deg);
+  --tape-rotation: -1.6deg;
 }
 
 .board-note:nth-child(4) {
@@ -632,13 +658,15 @@ h1 {
   --note-accent: var(--gold);
   --note-tint: var(--butter);
   --note-rotation: 1.1deg;
-  animation-delay: 320ms;
+  --note-enter-x: 16px;
+  --note-enter-y: -12px;
+  --note-delay: 1120ms;
 }
 
 .board-note:nth-child(4)::before {
   left: auto;
   right: 34px;
-  transform: rotate(3deg);
+  --tape-rotation: 3deg;
 }
 
 .section-heading {
@@ -1528,9 +1556,14 @@ li {
 .project-visual::after {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(110deg, transparent 0 34%, rgba(255, 255, 255, 0.36) 46%, transparent 58%),
+    rgba(255, 255, 255, 0.1);
   pointer-events: none;
   content: "";
+  opacity: 0;
+  transform: translateX(-34%);
+  animation: previewGlint 920ms 520ms ease-out both;
 }
 
 .project-visual img {
@@ -1982,17 +2015,33 @@ dd {
   }
 }
 
-@keyframes nameMarkIn {
+@keyframes nameWriteIn {
   from {
-    border-bottom-color: transparent;
     opacity: 0;
-    transform: translateY(10px) rotate(0deg);
+    clip-path: inset(0 100% 0 0);
+    transform: translateY(8px) rotate(0deg);
   }
 
   to {
-    border-bottom-color: var(--rose);
     opacity: 1;
+    clip-path: inset(0 0 0 0);
     transform: translateY(0) rotate(-0.8deg);
+  }
+}
+
+@keyframes nameUnderlineWrite {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  26% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
   }
 }
 
@@ -2033,12 +2082,45 @@ dd {
 @keyframes notePlaceIn {
   from {
     opacity: 0;
-    transform: translateY(-12px) rotate(var(--note-rotation));
+    transform: translate(var(--note-enter-x), var(--note-enter-y)) rotate(var(--note-rotation));
+  }
+
+  72% {
+    opacity: 1;
+    transform: translate(0, 2px) rotate(var(--note-rotation));
   }
 
   to {
     opacity: 1;
     transform: translateY(0) rotate(var(--note-rotation));
+  }
+}
+
+@keyframes tapePress {
+  from {
+    opacity: 0;
+    transform: translateY(-2px) rotate(var(--tape-rotation));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--tape-rotation));
+  }
+}
+
+@keyframes previewGlint {
+  from {
+    opacity: 0;
+    transform: translateX(-40%);
+  }
+
+  36% {
+    opacity: 0.78;
+  }
+
+  to {
+    opacity: 0.18;
+    transform: translateX(40%);
   }
 }
 
