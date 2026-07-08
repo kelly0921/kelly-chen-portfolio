@@ -148,17 +148,17 @@ function HomePage() {
       </section>
 
       <section className="section-shell">
-        <SectionHeading eyebrow="Start here" title="Pathways Through My Work" />
-        <div className="pathway-list">
+        <SectionHeading eyebrow="What I do" title="Work, Voice, Community" />
+        <div className="pillar-grid">
           {pillars.map((pillar) => (
-            <PathwayLink key={pillar.id} {...pillar} />
+            <PillarCard key={pillar.id} {...pillar} />
           ))}
         </div>
       </section>
 
       <section className="section-shell">
         <SectionHeading eyebrow="Featured" title="Selected Highlights" />
-        <div className="highlight-list">
+        <div className="highlight-grid">
           {highlights.map((item) => (
             <HighlightCard key={item.title} {...item} />
           ))}
@@ -213,6 +213,13 @@ function ProjectsPage() {
       />
       <ProjectSection title="Built / In Progress" projects={built} />
       <ProjectSection title="Startup Concepts" projects={concepts} fintech />
+      <PageCTA
+        eyebrow="Open to conversation"
+        title="Fintech, Product, AI"
+        body="I like talking with people who care about reducing product friction and turning rough ideas into useful workflows."
+        href="https://github.com/kelly0921"
+        label="View GitHub"
+      />
     </>
   );
 }
@@ -227,7 +234,7 @@ function SpeakingPage() {
       />
       <section className="section-shell">
         <SectionHeading eyebrow="Featured Events" title="Where I Show Up" />
-        <div className="event-list">
+        <div className="event-grid">
           {speakingEvents.map((event) => (
             <EventCard key={event.event} {...event} />
           ))}
@@ -235,7 +242,7 @@ function SpeakingPage() {
       </section>
       <section className="section-shell topic-section">
         <SectionHeading eyebrow="Available Topics" title="What I Can Speak About" />
-        <div className="topic-chip-list">
+        <div className="topic-grid">
           {availableTopics.map((topic) => (
             <TopicCard key={topic.title} {...topic} />
           ))}
@@ -253,7 +260,6 @@ function SpeakingPage() {
 }
 
 function CommunityPage() {
-  const [featuredCommunity, ...communityArchive] = communityWork;
   const communityStats = [
     { label: 'Members', value: '70+' },
     { label: 'Executive board', value: '8' },
@@ -288,13 +294,9 @@ function CommunityPage() {
         </div>
       </section>
       <section className="section-shell">
-        <SectionHeading eyebrow="Featured Story" title={featuredCommunity.title} />
-        <FeaturedCommunityStory {...featuredCommunity} stats={communityStats} />
-      </section>
-      <section className="section-shell">
         <SectionHeading eyebrow="Community archive" title="Leadership, Access, Events" />
-        <div className="community-list">
-          {communityArchive.map((item) => (
+        <div className="community-grid">
+          {communityWork.map((item) => (
             <CommunityCard key={item.title} {...item} />
           ))}
         </div>
@@ -312,8 +314,8 @@ function MediaPage() {
         body="A home for useful links, opportunity collections, LinkedIn highlights, and future newsletter resources."
       />
       <section className="section-shell">
-        <SectionHeading eyebrow="Publication list" title="Useful Collections" />
-        <div className="publication-list">
+        <SectionHeading eyebrow="Resource areas" title="Useful Collections" />
+        <div className="media-grid">
           {mediaChannels.map((group) => (
             <MediaChannel key={group.title} {...group} />
           ))}
@@ -429,16 +431,16 @@ function PageHero({ eyebrow, title, body }) {
   );
 }
 
-function PathwayLink({ id, title, description, href }) {
+function PillarCard({ id, title, description, href }) {
   return (
-    <a className={`pathway-link pillar-${id}`} href={href}>
-      <div className="pathway-link-top">
+    <article className={`pillar-card pillar-${id}`}>
+      <div className="pillar-card-top">
         <SignatureMark variant={id} />
         <span className="pillar-label">{title}</span>
       </div>
       <p>{description}</p>
-      <span className="text-arrow">Explore</span>
-    </a>
+      <a href={href}>Explore</a>
+    </article>
   );
 }
 
@@ -455,10 +457,8 @@ function SignatureMark({ variant }) {
 function HighlightCard({ type, title, description, href }) {
   return (
     <article className="highlight-card">
-      <div>
-        <span>{type}</span>
-        <h3>{title}</h3>
-      </div>
+      <span>{type}</span>
+      <h3>{title}</h3>
       <p>{description}</p>
       <a href={href}>Read more</a>
     </article>
@@ -520,8 +520,6 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
 }
 
 function ProjectCard({ title, mark, status, description, image, imageAlt, problem, user, role, learned, tags, index }) {
-  const isConcept = status.toLowerCase().includes('concept') || title.toLowerCase().includes('payment');
-
   return (
     <article className={`project-card project-showcase${index % 2 === 1 ? ' reverse' : ''}`}>
       <div className="project-visual">
@@ -555,15 +553,6 @@ function ProjectCard({ title, mark, status, description, image, imageAlt, proble
           </div>
         </dl>
         <TagCloud tags={tags} />
-        {isConcept ? (
-          <aside className="inline-interest-note">
-            <strong>Interested in this idea?</strong>
-            <span>
-              I like comparing notes with people thinking about checkout friction,
-              small sellers, payments, and product adoption.
-            </span>
-          </aside>
-        ) : null}
       </div>
     </article>
   );
@@ -584,45 +573,29 @@ function ProjectMark({ mark, title }) {
 function EventCard({ event, role, topic, location, audience, description }) {
   return (
     <article className="event-card">
-      <time>{location}</time>
-      <div>
-        <span>{role}</span>
-        <h3>{event}</h3>
-        <p>{topic}</p>
-        <p>{description}</p>
-      </div>
-      <em>{audience}</em>
+      <span>{role}</span>
+      <h3>{event}</h3>
+      <p>{topic}</p>
+      <dl>
+        <div>
+          <dt>Location</dt>
+          <dd>{location}</dd>
+        </div>
+        <div>
+          <dt>Audience</dt>
+          <dd>{audience}</dd>
+        </div>
+      </dl>
+      <p>{description}</p>
     </article>
   );
 }
 
 function TopicCard({ title, description }) {
   return (
-    <span className="topic-card" title={description}>
-      {title}
-    </span>
-  );
-}
-
-function FeaturedCommunityStory({ title, role, timeframe, scale, summary, action, impact, tags, stats }) {
-  return (
-    <article className="featured-community-story">
-      <div className="community-story-copy">
-        <p className="eyebrow">{role} / {timeframe}</p>
-        <p>{summary}</p>
-        <p>{action}</p>
-        <blockquote>{impact}</blockquote>
-        <TagCloud tags={tags} />
-      </div>
-      <aside className="community-story-metrics" aria-label={`${title} metrics`}>
-        <strong>{scale}</strong>
-        {stats.slice(1).map((stat) => (
-          <span key={stat.label}>
-            <b>{stat.value}</b>
-            {stat.label}
-          </span>
-        ))}
-      </aside>
+    <article className="topic-card">
+      <h3>{title}</h3>
+      <p>{description}</p>
     </article>
   );
 }
@@ -630,23 +603,28 @@ function FeaturedCommunityStory({ title, role, timeframe, scale, summary, action
 function CommunityCard({ title, type, role, timeframe, scale, summary, action, impact, tags }) {
   return (
     <article className="community-card">
-      <time>{timeframe}</time>
-      <div>
-        <span>{type}</span>
-        <h3>{title}</h3>
-        <p>{summary}</p>
+      <span>{type}</span>
+      <h3>{title}</h3>
+      <div className="community-card-meta">
+        <strong>{role}</strong>
+        <time>{timeframe}</time>
+        <em>{scale}</em>
       </div>
       <dl className="community-card-details">
         <div>
-          <dt>Role</dt>
-          <dd>{role}</dd>
+          <dt>What</dt>
+          <dd>{summary}</dd>
+        </div>
+        <div>
+          <dt>What I did</dt>
+          <dd>{action}</dd>
         </div>
         <div>
           <dt>Impact</dt>
           <dd>{impact}</dd>
         </div>
       </dl>
-      <em>{scale}</em>
+      <TagCloud tags={tags} />
     </article>
   );
 }
@@ -654,11 +632,8 @@ function CommunityCard({ title, type, role, timeframe, scale, summary, action, i
 function MediaChannel({ title, description, posts }) {
   return (
     <article className="media-card">
-      <time>Ongoing</time>
-      <div>
-        <span>{title}</span>
-        <p>{description}</p>
-      </div>
+      <span>{title}</span>
+      <p>{description}</p>
       <ul>
         {posts.map((post) => (
           <li key={post}>{post}</li>

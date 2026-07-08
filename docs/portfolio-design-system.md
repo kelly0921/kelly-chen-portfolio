@@ -19,8 +19,8 @@ Use these public sections as the long-term information architecture:
 The homepage should introduce Kelly first, then make the breadth legible:
 
 - Personal hero with "Hi, I'm Kelly Chen." The first screen should feel authored and warm, not resume-like: keep the content concise, use the Option H heading treatment for Kelly's name (clean bold type with a confident rose underline tilt), and include a compressed version of Kelly's story that connects engineering, fintech/product curiosity, and access-minded community work. Avoid adding extra hero chips or thesis lines that crowd the first screen.
-- Pathway links for the five main pillars, presented as an editorial list rather than a large card grid.
-- Featured highlights that show evidence across multiple areas, preferably as a structured list with concise proof points.
+- "What I do" cards for the five main pillars.
+- Featured highlights that show evidence across multiple areas.
 - A compact Field Notes section can add personal authorship through polished pinned-note cards, restrained tabs, and small technical annotations.
 - A personality collage can show Kelly's working style, curiosity, and values in short authored notes.
 - Recently, for current public-ready activity.
@@ -29,19 +29,18 @@ The homepage should introduce Kelly first, then make the breadth legible:
 ## Visual Rules
 
 - Keep the overall style editorial, organized, and personal.
-- Do not turn every piece of content into a card. Each page should have one primary storytelling format, such as a timeline, case-study section, archive list, publication list, or featured story. Use cards only when they genuinely improve scanning.
 - Personal logo direction: use a refined overlapping `KC` monogram that feels editorial, fashionable, warm, and personal rather than like a software product icon. Favor warm ink, rose, cream, and soft canvas tones over harsh black/blue contrast. Avoid unexplained accent lines, busy frames, dots, rails, or startup-style icon systems. Keep it readable at small sizes for the navbar, favicon, and future social cards.
 - Navbar direction: keep the desktop navigation visually centered on the page, with the brand anchored left. A full-width header divider is helpful for structure, but avoid a separate short underline beneath the nav rail. Use a clean editorial floating rail with subtle hover/active underline motion, not dots, sticky-note/tape details, or a heavy scrapbook treatment. On smaller screens, fall back to a horizontal scroll row.
 - Page headers should be concise mastheads, not long marketing headlines. Use one- to three-word titles with supporting context in the body copy.
 - Avoid making the site feel like a SaaS, fintech startup, or product dashboard.
 - Favor a bright pastel color system with confident contrast. Avoid gradient-heavy styling and avoid using every pastel as a full-card fill at the same time.
 - Favor restrained technical accents with a signature feel: subtle networks, proof strips, timelines, soft color blocks, clear metadata, and confident pastel signals.
-- Homepage pillar navigation should be clean pathway links, not a dense grid of tiles. Keep the original compact abstract signature marks, but favor editorial rows, text links, and clear descriptions over boxed surfaces.
+- Homepage pillar cards should be clean category tiles, not sticky notes. Use the original compact abstract signature marks, a restrained accent line, and clear descriptions. Avoid wordy badges, tape tabs, folded corners, or heavy paper treatment here.
 - Use scrapbook influence only as a controlled personal layer: hero board notes, page-level field notes, tiny connector marks, and occasional annotations. Sticky-note treatments should feel realistic and polished through subtle paper texture, translucent tape, folded corners, and soft lifted shadows. Avoid applying tape/folded-corner styling to every card; professional cards should usually use clean borders, accent lines, and strong hierarchy instead.
 - Carry the field-note system across pages through small page-level marks and section-specific accent colors. The pattern should feel selective and intentional, not like every section has the same decorative idea.
 - Page header notes should use section-specific labels such as Work Notes, Build Notes, Speaking Notes, Access Notes, and Share Notes. They sit beside page headers to orient the reader quickly. They are not internal notes or placeholders; they are polished one-sentence signals that explain how to read that section.
 - The homepage should teach the reader in order: who Kelly is, what areas she works across, proof/highlights, personality/field notes, current threads, then contact. Avoid a separate "My Story" section if the hero and personality notes already explain the throughline.
-- Project pages should be image-led case studies. Each project should pair a polished screen preview, product mockup, or real screenshot with problem, audience, idea, role, status, learning, and a skills/tech list. Interest CTAs should appear as subtle inline notes inside relevant project sections, not loud standalone cards.
+- Project pages should be image-led. Each project should have a polished screen preview, product mockup, or real screenshot paired with a concise description and skills/tech list.
 - Project cards can include small product/concept marks near the title, similar in restraint to company logo tiles. These should identify the build or concept, not compete with the screenshot/mockup.
 - Portraits should be used sparingly. Avoid large hero portrait cards, especially casual selfie crops, because they can make the first screen feel like a personal profile instead of a professional portfolio. If using a headshot, place it in a restrained About/contact context or crop it as a small supporting identity detail.
 - Avoid childish visual cues: chunky cartoon outlines, sticker-like shadows, pixel blocks, loud yellow/coral accents, and overly playful interface details.
@@ -49,10 +48,10 @@ The homepage should introduce Kelly first, then make the breadth legible:
 - Header and graphic motion should stay selective: heading accents can draw in, the hero name underline can settle in, page hero corner marks can trace in, and compact icons can respond on hover. Avoid looping attention-grabbing effects on text, buttons, or content cards; continuous motion should be limited to quiet background/technical graphics.
 - Hero board sticky notes can use a brief staggered "placed on the board" entrance. Keep it soft and one-time; do not use sticker-style pop effects across regular content cards.
 - Use fintech, QR, receipt, or payment motifs only inside relevant project/SkanPay contexts.
-- Speaking should read as a speaker archive or event list with event name, role, topic, location/date, audience, and a short description. Speaking topics should be chips or a simple list, not individual cards.
+- Speaking can use event badges, dates, venues, and talk cards.
 - Community can use access, pathway, and organizing language.
-- Community should start with a strong featured story for major access/community work, then continue into a compact archive list of initiatives. Use impact numbers and narrative before resource links.
-- Content should feel like a publication/resource list: title, status/date, topic, short summary, and links/resources. Avoid blog-card grids or a resource-store feel.
+- Community should scale like an archive of initiatives: start with a short overview and impact stats, then use one consistent repeatable card format for every initiative, including major ones like Girls Who Code. Each card should include role, timeframe, scale, what it was, what Kelly did, impact, and tags. Avoid isolating one initiative into a custom layout unless it has a strong visual case study with images.
+- Content can feel like a public learning desk: LinkedIn sparks, newsletter polish, practical resources, and useful reference lists.
 - Experience should stay professional and easy to scan.
 - Experience cards can include small, muted company logo tiles near the organization name. Keep them consistent, compact, and secondary to the role/date hierarchy; official logo image files can replace text tiles later if desired.
 
