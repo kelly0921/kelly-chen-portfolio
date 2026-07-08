@@ -672,13 +672,10 @@ function MediaChannel({ title, description, posts }) {
   );
 }
 
-function ProjectAction({ title, body, href, label }) {
+function ProjectAction({ body, href, label }) {
   return (
     <aside className="project-action">
-      <div>
-        <strong>{title}</strong>
-        <p>{body}</p>
-      </div>
+      <p>{body}</p>
       <a href={href} target="_blank" rel="noreferrer">
         {label}
       </a>

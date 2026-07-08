@@ -270,21 +270,18 @@ export const projects = [
 
 export const projectActions = {
   SkanPay: {
-    title: 'Demo available by request',
     body:
       'I can walk through the checkout concept, coupon redemption flow, and the product questions behind merchant adoption.',
     label: 'Ask to See the Demo',
     href: 'https://www.linkedin.com/in/kellychen0921/',
   },
   'QR payments for small sellers': {
-    title: 'Flow walkthrough',
     body:
       'This concept is useful for conversations around lightweight seller tools, trust, checkout setup, and small-business payment behavior.',
     label: 'Ask to See the Flow',
     href: 'https://www.linkedin.com/in/kellychen0921/',
   },
   'AI-assisted website workflows': {
-    title: 'Workflow walkthrough',
     body:
       'I can share how I use AI tools to move from rough idea to structured pages, review states, visual direction, and production-ready iteration.',
     label: 'Ask to See the Workflow',
