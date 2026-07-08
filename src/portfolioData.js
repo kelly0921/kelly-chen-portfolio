@@ -231,6 +231,7 @@ export const projects = [
     user: 'Customers, merchants, restaurants, small sellers, and staff handling checkout.',
     role: 'Co-founder, product thinker, payment flow researcher, patent contributor.',
     learned: 'Reducing friction is not just a technical problem. It depends on user flow, trust, onboarding, and merchant behavior.',
+    proof: 'Product thinking across checkout systems, merchant onboarding, and fintech user experience.',
     tags: ['QR payments', 'Product strategy', 'Checkout', 'MVP', 'Fintech'],
   },
   {
@@ -246,6 +247,7 @@ export const projects = [
     user: 'Street artists, garage sales, pop-up sellers, student fundraisers, and local vendors.',
     role: 'Product flow and MVP concept exploration.',
     learned: 'The best checkout flow is often the one that removes a step people did not want to take.',
+    proof: 'Ability to simplify payment flows for nontechnical sellers and reason through real adoption barriers.',
     tags: ['Merchant tools', 'QR codes', 'Apple Pay', 'Google Pay', 'Small sellers'],
   },
   {
@@ -261,22 +263,30 @@ export const projects = [
     user: 'Builders, students, small teams, and people turning ideas into working prototypes.',
     role: 'Prototype builder and product thinker.',
     learned: 'AI is most useful when paired with taste, review, and a concrete workflow.',
+    proof: 'Ability to turn ambiguous ideas into structured, reviewable web prototypes with AI-assisted iteration.',
     tags: ['AI tools', 'Web workflows', 'Product prototypes'],
   },
 ];
 
-export const projectInterestNotes = {
+export const projectActions = {
   SkanPay: {
-    title: 'Interested in this idea?',
+    title: 'Ask to See the Demo',
     body:
-      'I am exploring checkout friction, coupon redemption, QR payment flows, and how small sellers adopt payment tools. If you are building or researching in this space, I would love to compare notes.',
+      'I can walk through the checkout concept, coupon redemption flow, and the product questions behind merchant adoption.',
     label: 'Connect on LinkedIn',
     href: 'https://www.linkedin.com/in/kellychen0921/',
   },
   'QR payments for small sellers': {
-    title: 'Interested in this idea?',
+    title: 'Ask to See the Flow',
     body:
-      'This concept sits at the intersection of small business payments, lightweight checkout, and trust. I am especially interested in pilots, user research, and merchant behavior.',
+      'This concept is useful for conversations around lightweight seller tools, trust, checkout setup, and small-business payment behavior.',
+    label: 'Connect on LinkedIn',
+    href: 'https://www.linkedin.com/in/kellychen0921/',
+  },
+  'AI-assisted website workflows': {
+    title: 'Ask to See the Workflow',
+    body:
+      'I can share how I use AI tools to move from rough idea to structured pages, review states, visual direction, and production-ready iteration.',
     label: 'Connect on LinkedIn',
     href: 'https://www.linkedin.com/in/kellychen0921/',
   },

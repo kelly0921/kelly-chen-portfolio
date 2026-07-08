@@ -11,7 +11,7 @@ import {
   navItems,
   personalityNotes,
   pillars,
-  projectInterestNotes,
+  projectActions,
   projects,
   skillGroups,
   speakingEvents,
@@ -525,8 +525,8 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
   );
 }
 
-function ProjectCard({ title, mark, status, description, image, imageAlt, problem, user, role, learned, tags, index }) {
-  const interestNote = projectInterestNotes[title];
+function ProjectCard({ title, mark, status, description, image, imageAlt, problem, user, role, learned, proof, tags, index }) {
+  const projectAction = projectActions[title];
 
   return (
     <article className={`project-card project-showcase${index % 2 === 1 ? ' reverse' : ''}`}>
@@ -559,9 +559,13 @@ function ProjectCard({ title, mark, status, description, image, imageAlt, proble
             <dt>Learned</dt>
             <dd>{learned}</dd>
           </div>
+          <div>
+            <dt>Proves</dt>
+            <dd>{proof}</dd>
+          </div>
         </dl>
         <TagCloud tags={tags} />
-        {interestNote ? <InterestNote {...interestNote} /> : null}
+        {projectAction ? <ProjectAction {...projectAction} /> : null}
       </div>
     </article>
   );
@@ -668,9 +672,9 @@ function MediaChannel({ title, description, posts }) {
   );
 }
 
-function InterestNote({ title, body, href, label }) {
+function ProjectAction({ title, body, href, label }) {
   return (
-    <aside className="interest-note">
+    <aside className="project-action">
       <div>
         <strong>{title}</strong>
         <p>{body}</p>
