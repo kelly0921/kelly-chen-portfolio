@@ -265,6 +265,23 @@ export const projects = [
   },
 ];
 
+export const projectInterestNotes = {
+  SkanPay: {
+    title: 'Interested in this idea?',
+    body:
+      'I am exploring checkout friction, coupon redemption, QR payment flows, and how small sellers adopt payment tools. If you are building or researching in this space, I would love to compare notes.',
+    label: 'Connect on LinkedIn',
+    href: 'https://www.linkedin.com/in/kellychen0921/',
+  },
+  'QR payments for small sellers': {
+    title: 'Interested in this idea?',
+    body:
+      'This concept sits at the intersection of small business payments, lightweight checkout, and trust. I am especially interested in pilots, user research, and merchant behavior.',
+    label: 'Connect on LinkedIn',
+    href: 'https://www.linkedin.com/in/kellychen0921/',
+  },
+};
+
 export const speakingEvents = [
   {
     event: 'Harvard WECode 2024',
@@ -301,6 +318,27 @@ export const speakingEvents = [
     audience: 'Student builders and early-career technologists',
     description:
       'Participated in and supported spaces where students could build projects, present ideas, and learn through collaboration.',
+  },
+];
+
+export const communityResources = [
+  {
+    title: 'Conference Access Starter Pack',
+    status: 'Access',
+    description:
+      'A practical guide for finding women-in-tech conferences, funding, travel support, and application timelines.',
+  },
+  {
+    title: 'Student Opportunity Tracker',
+    status: 'Organization',
+    description:
+      'A simple tracker for fellowships, conferences, scholarships, programs, deadlines, and follow-up steps.',
+  },
+  {
+    title: 'Women-in-Tech Funding Guide',
+    status: 'Funding',
+    description:
+      'A curated resource around sponsorship, travel grants, campus funding, and outreach scripts for students.',
   },
 ];
 
@@ -381,7 +419,7 @@ export const communityWork = [
 
 export const mediaChannels = [
   {
-    title: 'Opportunity Library',
+    title: 'Free Resources',
     description: 'Curated fellowships, conferences, scholarships, programs, and useful links for students finding their next step.',
     posts: [
       'Fellowships and conferences worth tracking',
@@ -399,8 +437,8 @@ export const mediaChannels = [
     ],
   },
   {
-    title: 'Newsletter / Guides',
-    description: 'Future home for more polished explainers, templates, and paid or free resource packs if the audience fit is clear.',
+    title: 'Future Resource Packs',
+    description: 'A future home for deeper guides, templates, and newsletter resources if the free archive proves useful.',
     posts: [
       'Student opportunity guides',
       'Fintech and AI starter notes',

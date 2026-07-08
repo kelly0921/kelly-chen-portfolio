@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './styles.css';
 import {
   communityWork,
+  communityResources,
   experiences,
   availableTopics,
   highlights,
@@ -10,6 +11,7 @@ import {
   navItems,
   personalityNotes,
   pillars,
+  projectInterestNotes,
   projects,
   skillGroups,
   speakingEvents,
@@ -301,6 +303,10 @@ function CommunityPage() {
           ))}
         </div>
       </section>
+      <section className="section-shell resource-strip-section">
+        <SectionHeading eyebrow="Resources" title="Resources From This Work" />
+        <ResourceList items={communityResources} />
+      </section>
     </>
   );
 }
@@ -311,7 +317,7 @@ function MediaPage() {
       <PageHero
         eyebrow="Content"
         title="Resource Desk"
-        body="A home for useful links, opportunity collections, LinkedIn highlights, and future newsletter resources."
+        body="A home for free resources, opportunity collections, LinkedIn highlights, and future resource packs."
       />
       <section className="section-shell">
         <SectionHeading eyebrow="Resource areas" title="Useful Collections" />
@@ -323,8 +329,8 @@ function MediaPage() {
       </section>
       <PageCTA
         eyebrow="Content direction"
-        title="Built From What I Share"
-        body="The goal is not a traditional blog index. It is a practical archive of links, lessons, and resources people can return to."
+        title="Get My Opportunity Notes"
+        body="The first version of this is a practical public archive. If the resources become useful to people, I may turn the strongest guides into a newsletter, templates, or deeper resource packs."
         href="https://www.linkedin.com/in/kellychen0921/"
         label="View LinkedIn"
       />
@@ -520,6 +526,8 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
 }
 
 function ProjectCard({ title, mark, status, description, image, imageAlt, problem, user, role, learned, tags, index }) {
+  const interestNote = projectInterestNotes[title];
+
   return (
     <article className={`project-card project-showcase${index % 2 === 1 ? ' reverse' : ''}`}>
       <div className="project-visual">
@@ -553,6 +561,7 @@ function ProjectCard({ title, mark, status, description, image, imageAlt, proble
           </div>
         </dl>
         <TagCloud tags={tags} />
+        {interestNote ? <InterestNote {...interestNote} /> : null}
       </div>
     </article>
   );
@@ -629,6 +638,22 @@ function CommunityCard({ title, type, role, timeframe, scale, summary, action, i
   );
 }
 
+function ResourceList({ items }) {
+  return (
+    <div className="resource-list">
+      {items.map((item) => (
+        <article className="resource-row" key={item.title}>
+          <span>{item.status}</span>
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 function MediaChannel({ title, description, posts }) {
   return (
     <article className="media-card">
@@ -640,6 +665,20 @@ function MediaChannel({ title, description, posts }) {
         ))}
       </ul>
     </article>
+  );
+}
+
+function InterestNote({ title, body, href, label }) {
+  return (
+    <aside className="interest-note">
+      <div>
+        <strong>{title}</strong>
+        <p>{body}</p>
+      </div>
+      <a href={href} target="_blank" rel="noreferrer">
+        {label}
+      </a>
+    </aside>
   );
 }
 

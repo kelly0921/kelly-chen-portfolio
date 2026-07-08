@@ -1638,6 +1638,36 @@ li {
   margin: 0;
 }
 
+.interest-note {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+
+.interest-note strong {
+  color: var(--text);
+}
+
+.interest-note p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.interest-note a {
+  color: var(--blue);
+  font-weight: 820;
+}
+
+.interest-note a::after {
+  content: " ->";
+}
+
 .fintech-section .project-card {
   --card-accent: var(--gold);
   --card-tint: var(--butter);
@@ -1798,6 +1828,42 @@ dd {
 
 .media-card ul {
   margin-bottom: 0;
+}
+
+.resource-strip-section {
+  padding-top: 28px;
+}
+
+.resource-list {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.resource-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.22fr) minmax(0, 1fr);
+  gap: clamp(16px, 3vw, 34px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+
+.resource-row span {
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.resource-row h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.resource-row p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.58;
 }
 
 .page-cta {
@@ -2349,6 +2415,11 @@ dd {
 
   .project-showcase.reverse .project-visual {
     order: 0;
+  }
+
+  .resource-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .experience-heading {

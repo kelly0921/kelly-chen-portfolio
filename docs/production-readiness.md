@@ -17,6 +17,9 @@ This file tracks private follow-up items for Kelly's portfolio. These notes shou
 - Main contact CTA now leads with LinkedIn, with GitHub and Resume as secondary links. Add email later only if Kelly wants a public email on the site.
 - Add more personal visual assets over time, such as speaking photos, WECode photos, conference images, or event collages.
 - Add real LinkedIn post links and a Substack/newsletter URL when those channels are public-ready.
+- Add public download or signup links for the future resource layer: Conference Access Starter Pack, Student Opportunity Tracker, and Women-in-Tech Funding Guide.
+- Decide whether future resources should stay free public links, become a Substack/newsletter funnel, or live as paid template packs on a lightweight platform such as Gumroad, Ko-fi, or a custom checkout.
+- Add the same embedded "Interested in this idea?" prompt to BeamCash once the project content is added to the live portfolio.
 - Current profile photo can stay for now, but upgrade later to a cleaner professional headshot with softer front-facing light, wider crop, and a simpler background.
 - Updated resume PDF has replaced the placeholder at `public/Kelly-Chen-Resume.pdf`. Leadership & Activities have been mapped selectively into Community, Speaking, and Projects instead of duplicated as a generic resume list.
 
