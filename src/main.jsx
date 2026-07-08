@@ -210,7 +210,7 @@ function ProjectsPage() {
     <>
       <PageHero
         eyebrow="Projects"
-        title="Selected Builds"
+        title="Projects & Prototypes"
         body="Built work, active explorations, and startup concepts, shown with visual context and the skills behind each idea."
       />
       <ProjectSection title="Built / In Progress" projects={built} />
