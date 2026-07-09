@@ -18,6 +18,7 @@ This file tracks private follow-up items for Kelly's portfolio. These notes shou
 - For speaking pictures, use one strong visual per event first, placed at the top of that event card: Kelly-owned photos, speaker promo graphics, accepted-session screenshots, or approved media-kit assets. Avoid copying official conference website photos unless usage permission is clear.
 - If Kelly adds 5+ club or speaking photos, place them in `speakingMoments` as a compact Speaking Moments gallery instead of adding multiple images inside each event card.
 - For Content, use LinkedIn post links or pasted post text to generate categorized resources such as conference kits, outreach scripts, opportunity trackers, and application checklists.
+- Conference Strategy Series currently has content through Day 11. Day 12-15 are not drafted yet; keep that gap in docs until the remaining posts or final resource kit are ready.
 - Main contact CTA now leads with LinkedIn, with GitHub and Resume as secondary links. Add email later only if Kelly wants a public email on the site.
 - Add more personal visual assets over time, such as speaking photos, WECode photos, conference images, or event collages.
 - Add real LinkedIn post links and a Substack/newsletter URL when those channels are public-ready.

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 import {
+  conferenceSeries,
   communityWork,
   communityResources,
   experiences,
@@ -343,6 +344,9 @@ function MediaPage() {
         title="Resource Desk"
         body="A public archive for posts, opportunity resources, conference kits, templates, and practical notes from what I am learning and sharing."
       />
+      <section className="section-shell">
+        <ConferenceSeries series={conferenceSeries} />
+      </section>
       <section className="section-shell">
         <SectionHeading eyebrow="Library" title="Content Collections" />
         <div className="media-grid">
@@ -709,6 +713,40 @@ function ResourceList({ items }) {
         </article>
       ))}
     </div>
+  );
+}
+
+function ConferenceSeries({ series }) {
+  return (
+    <article className="conference-series">
+      <div className="conference-series-intro">
+        <span>{series.label}</span>
+        <h2>{series.title}</h2>
+        <p>{series.description}</p>
+        <strong>{series.status}</strong>
+      </div>
+      <div className="conference-phase-grid">
+        {series.phases.map((phase) => (
+          <section className="conference-phase" key={phase.title}>
+            <h3>{phase.title}</h3>
+            <p>{phase.description}</p>
+            <ul>
+              {phase.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+      <div className="conference-kit">
+        <span>Resource kit</span>
+        <ul>
+          {series.kit.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </article>
   );
 }
 

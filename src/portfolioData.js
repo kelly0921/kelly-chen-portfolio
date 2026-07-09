@@ -482,6 +482,38 @@ export const mediaChannels = [
   },
 ];
 
+export const conferenceSeries = {
+  label: 'Featured series',
+  title: 'Conference Strategy Series',
+  status: '11-part series',
+  description:
+    'A no-sugarcoat guide to deciding whether tech conferences are worth it, getting funded, reading sponsor signals, and turning events into career leverage.',
+  phases: [
+    {
+      title: 'Reality Check',
+      description: 'Signal inflation, student stage, DEI budget shifts, AI hiring, and the real question of whether a conference is worth it.',
+      items: ['ROI filter', 'Underclassmen vs. upperclassmen', 'DEI budget shifts', 'AI and systems thinking'],
+    },
+    {
+      title: 'Strategy & ROI',
+      description: 'How to compare conferences against referrals and internships, read sponsor intent, and spend your time where signal is highest.',
+      items: ['Career lever comparison', 'Sponsor hierarchy', 'Resume parsability', 'Technical positioning'],
+    },
+    {
+      title: 'Execution',
+      description: 'The practical moves before and during the event: funding, private rooms, social signup windows, follow-up, workshops, and peer intel.',
+      items: ['Funding sources', 'Pre-conference outreach', 'Social layer', 'Conference-day checklist'],
+    },
+  ],
+  kit: [
+    'Conference ROI filter',
+    'Funding source tracker',
+    'Sponsor research checklist',
+    'Pre-conference outreach checklist',
+    'Follow-up message templates',
+  ],
+};
+
 export const skillGroups = [
   { title: 'Languages', items: ['C++', 'Java', 'Python', 'JavaScript', 'SQL'] },
   { title: 'Backend / Systems', items: ['Systems design', 'Spring Boot', 'REST APIs', 'Apache Kafka', 'Cassandra', 'MongoDB'] },
