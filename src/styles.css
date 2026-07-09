@@ -1827,6 +1827,36 @@ dd {
   content: " ->";
 }
 
+.speaking-moment-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.speaking-moment {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--paper);
+  aspect-ratio: 4 / 5;
+}
+
+.speaking-moment img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.speaking-moment figcaption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
 .community-card span {
   color: var(--rose);
   font-size: 0.76rem;
@@ -1841,7 +1871,7 @@ dd {
 }
 
 .media-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .community-card strong {

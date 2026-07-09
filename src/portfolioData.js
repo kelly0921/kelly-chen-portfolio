@@ -44,37 +44,37 @@ export const highlights = [
   {
     type: 'Experience',
     title: 'Software Engineer at Bloomberg',
-    description: 'Working in Fixed Income - Private Securities with C++ and systems design.',
+    description: 'Fixed income systems, C++, and private securities.',
     href: '#experience',
   },
   {
     type: 'Experience',
     title: 'Software Engineering Intern at JPMorgan Chase',
-    description: 'Built CIU onboarding automation with React, Spring Boot, Cassandra, and Kafka, reducing onboarding from hours to minutes.',
+    description: 'Onboarding automation across React, Spring Boot, Kafka, and Cassandra.',
     href: '#experience',
   },
   {
     type: 'Community',
     title: 'Organized access to Harvard WECode',
-    description: 'Helped 15 students attend a fully funded women-in-tech conference experience through outreach, funding, logistics, and community coordination.',
+    description: 'Helped 15 students access a fully funded women-in-tech conference.',
     href: '#community',
   },
   {
     type: 'Project',
     title: 'SkanPay / QR payment concept',
-    description: 'Explored a single-scan payment and redemption flow for coupons, gift cards, small sellers, and checkout friction.',
+    description: 'Single-scan checkout thinking for coupons, gift cards, and sellers.',
     href: '#projects',
   },
   {
     type: 'Speaking',
     title: 'Public speaking & events',
-    description: 'Presented, facilitated, represented, and organized through conferences, tech programs, student groups, and ambassador roles.',
+    description: 'Conference talks, workshops, student events, and ambassador work.',
     href: '#speaking',
   },
   {
     type: 'Content',
     title: 'LinkedIn to newsletter ideas',
-    description: 'Turns short posts, opportunity lists, and lessons from events into a stronger public archive across notes and resources.',
+    description: 'Turning posts and opportunity lists into reusable resources.',
     href: '#media',
   },
 ];
@@ -337,6 +337,8 @@ export const speakingEvents = [
   },
 ];
 
+export const speakingMoments = [];
+
 export const communityResources = [
   {
     title: 'Conference Access Starter Pack',
@@ -435,30 +437,43 @@ export const communityWork = [
 
 export const mediaChannels = [
   {
-    title: 'Free Resources',
-    description: 'Curated fellowships, conferences, scholarships, programs, and useful links for students finding their next step.',
+    type: 'Resource kit',
+    title: 'Conference Access Kit',
+    description: 'A future starter kit for finding conferences, funding, travel support, and application timelines.',
     posts: [
-      'Fellowships and conferences worth tracking',
-      'Application resources I wish more students knew about',
-      'Programs for students exploring software, fintech, and AI',
+      'Conference tracker',
+      'Funding and travel checklist',
+      'Outreach message templates',
     ],
   },
   {
-    title: 'LinkedIn Highlights',
-    description: 'A selected archive of public posts, event takeaways, career lessons, and resource threads.',
+    type: 'Posts',
+    title: 'LinkedIn Notes',
+    description: 'A selected archive of posts, reflections, career lessons, and opportunity-sharing threads.',
     posts: [
-      'Opportunity-sharing posts',
-      'Women-in-tech and conference reflections',
-      'Fintech, product, and early-career lessons',
+      'Opportunity roundups',
+      'Women-in-tech reflections',
+      'Early-career engineering lessons',
     ],
   },
   {
-    title: 'Future Resource Packs',
-    description: 'A future home for deeper guides, templates, and newsletter resources if the free archive proves useful.',
+    type: 'Templates',
+    title: 'Student Opportunity Library',
+    description: 'Reusable guides and trackers for students navigating programs, fellowships, and technical communities.',
     posts: [
-      'Student opportunity guides',
-      'Fintech and AI starter notes',
-      'Templates, checklists, and repeat-use resources',
+      'Opportunity tracker',
+      'Application planning checklist',
+      'Programs worth watching',
+    ],
+  },
+  {
+    type: 'Ideas',
+    title: 'Fintech & AI Notes',
+    description: 'Informal notes from product experiments, payment concepts, AI-assisted builds, and technical learning.',
+    posts: [
+      'QR payment ideas',
+      'AI-assisted workflow notes',
+      'Product friction observations',
     ],
   },
 ];

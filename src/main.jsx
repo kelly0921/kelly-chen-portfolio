@@ -15,6 +15,7 @@ import {
   projects,
   skillGroups,
   speakingEvents,
+  speakingMoments,
 } from './portfolioData';
 
 const routes = ['home', 'experience', 'projects', 'speaking', 'community', 'media'];
@@ -255,6 +256,16 @@ function SpeakingPage() {
           ))}
         </div>
       </section>
+      {speakingMoments.length ? (
+        <section className="section-shell">
+          <SectionHeading eyebrow="Moments" title="Speaking Moments" />
+          <div className="speaking-moment-grid">
+            {speakingMoments.map((moment) => (
+              <SpeakingMoment key={moment.src} {...moment} />
+            ))}
+          </div>
+        </section>
+      ) : null}
       <section className="section-shell topic-section">
         <SectionHeading eyebrow="Available Topics" title="What I Can Speak About" />
         <div className="topic-grid">
@@ -330,10 +341,10 @@ function MediaPage() {
       <PageHero
         eyebrow="Content"
         title="Resource Desk"
-        body="A home for free resources, opportunity collections, LinkedIn highlights, and future resource packs."
+        body="A public archive for posts, opportunity resources, conference kits, templates, and practical notes from what I am learning and sharing."
       />
       <section className="section-shell">
-        <SectionHeading eyebrow="Resource areas" title="Useful Collections" />
+        <SectionHeading eyebrow="Library" title="Posts, Kits, Resources" />
         <div className="media-grid">
           {mediaChannels.map((group) => (
             <MediaChannel key={group.title} {...group} />
@@ -638,6 +649,15 @@ function EventCard({ event, role, topic, subtitle, focus, date, format, location
   );
 }
 
+function SpeakingMoment({ src, alt, caption }) {
+  return (
+    <figure className="speaking-moment">
+      <img src={src} alt={alt} loading="lazy" />
+      {caption ? <figcaption>{caption}</figcaption> : null}
+    </figure>
+  );
+}
+
 function TopicCard({ title, description }) {
   return (
     <article className="topic-card">
@@ -692,10 +712,11 @@ function ResourceList({ items }) {
   );
 }
 
-function MediaChannel({ title, description, posts }) {
+function MediaChannel({ type, title, description, posts }) {
   return (
     <article className="media-card">
-      <span>{title}</span>
+      <span>{type}</span>
+      <h3>{title}</h3>
       <p>{description}</p>
       <ul>
         {posts.map((post) => (
