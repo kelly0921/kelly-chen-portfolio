@@ -15,7 +15,7 @@ This file tracks private follow-up items for Kelly's portfolio. These notes shou
 - Replace the project preview illustrations with real screenshots or demo images when those projects become public-ready.
 - Add measurable project proof where possible: demo links, screenshots, short case-study outcomes, architecture notes, or patents/public filings if shareable.
 - Add dates, roles, or photo proof for speaking/community items where public-ready, especially WECode, Women in Computer Science, ambassador work, and hackathon/program involvement.
-- For speaking pictures, use one strong visual per event first: Kelly-owned photos, speaker promo graphics, accepted-session screenshots, or approved media-kit assets. Avoid copying official conference website photos unless usage permission is clear.
+- For speaking pictures, use one strong visual per event first, placed at the top of that event card: Kelly-owned photos, speaker promo graphics, accepted-session screenshots, or approved media-kit assets. Avoid copying official conference website photos unless usage permission is clear.
 - Main contact CTA now leads with LinkedIn, with GitHub and Resume as secondary links. Add email later only if Kelly wants a public email on the site.
 - Add more personal visual assets over time, such as speaking photos, WECode photos, conference images, or event collages.
 - Add real LinkedIn post links and a Substack/newsletter URL when those channels are public-ready.

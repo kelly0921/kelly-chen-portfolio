@@ -297,11 +297,11 @@ export const speakingEvents = [
     topic: 'The Unspoken Playbook',
     subtitle: 'Building Career Leverage as an Emerging Engineer',
     focus: 'Moving from "Doing Everything Right" to Scaling Your Impact',
-    date: 'Conference: April 10-11, 2026',
+    date: 'April 10-11, 2026',
     format: '60-minute in-person workshop-style talk',
     location: 'Hilton Albany, Albany, NY',
     description:
-      'A practical session at the ACM New York Celebration of Women in Computing on moving beyond checking the right boxes and learning how to build leverage through technical growth, community, storytelling, and intentional opportunity selection.',
+      'An in-person workshop version of the talk, built around reflection, discussion, and practical career-leverage exercises.',
     href: 'https://www.nycwic.org/',
   },
   {
@@ -315,7 +315,7 @@ export const speakingEvents = [
     format: '20-minute virtual talk during the Career Growth Summit',
     location: 'Virtual-first global conference',
     description:
-      'A focused version of the talk for Women in Tech Global Conference, centered on translating effort into visible growth, stronger positioning, and more durable career momentum.',
+      'A concise virtual version focused on turning effort into visible growth, stronger positioning, and more durable career momentum.',
     href: 'https://www.womentech.net/women-tech-conference',
   },
   {
@@ -329,7 +329,7 @@ export const speakingEvents = [
     format: '30-minute flash talk session',
     location: 'NCWIT Career Fair',
     description:
-      'A concise career-leverage session designed for a fast-moving career fair setting, with concrete ways to make experience, projects, and community work compound.',
+      'A fast-moving version designed for a career fair setting, with concrete ways to make experience, projects, and community work compound.',
   },
 ];
 

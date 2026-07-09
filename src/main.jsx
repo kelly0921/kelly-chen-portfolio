@@ -239,7 +239,7 @@ function SpeakingPage() {
       />
       {upcomingEvents.length ? (
         <section className="section-shell">
-          <SectionHeading eyebrow="Upcoming" title="Upcoming Talks" />
+          <SectionHeading eyebrow="Next" title="Scheduled Talk" />
           <div className="event-grid event-grid-featured">
             {upcomingEvents.map((event) => (
               <EventCard key={event.event} {...event} />
@@ -596,14 +596,21 @@ function ProjectMark({ mark, title }) {
   );
 }
 
-function EventCard({ event, role, topic, subtitle, focus, date, format, location, description, href }) {
+function EventCard({ event, role, topic, subtitle, focus, date, format, location, description, href, image, imageAlt }) {
   return (
     <article className="event-card">
+      {image ? (
+        <figure className="event-photo">
+          <img src={image} alt={imageAlt || `${event} visual`} loading="lazy" />
+        </figure>
+      ) : null}
       <span>{role}</span>
       <h3>{event}</h3>
-      <p>{topic}</p>
-      {subtitle ? <p className="event-subtitle">{subtitle}</p> : null}
-      {focus ? <p className="event-focus">{focus}</p> : null}
+      <div className="event-talk">
+        <p>{topic}</p>
+        {subtitle ? <p>{subtitle}</p> : null}
+        {focus ? <p>{focus}</p> : null}
+      </div>
       <dl>
         <div>
           <dt>Date</dt>
