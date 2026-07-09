@@ -17,9 +17,10 @@ import {
   skillGroups,
   speakingEvents,
   speakingMoments,
+  webPilotCaseStudy,
 } from './portfolioData';
 
-const routes = ['home', 'experience', 'projects', 'speaking', 'community', 'media'];
+const routes = ['home', 'experience', 'projects', 'webpilot', 'speaking', 'community', 'media'];
 
 const pageNotes = {
   Experience: {
@@ -67,6 +68,8 @@ function App() {
         return <ExperiencePage />;
       case 'projects':
         return <ProjectsPage />;
+      case 'webpilot':
+        return <WebPilotCaseStudyPage />;
       case 'speaking':
         return <SpeakingPage />;
       case 'community':
@@ -88,6 +91,8 @@ function App() {
 }
 
 function Navbar({ activeRoute }) {
+  const navActiveRoute = activeRoute === 'webpilot' ? 'projects' : activeRoute;
+
   return (
     <header className="site-header">
       <a className="brand" href="#home" aria-label="Kelly Chen home">
@@ -101,7 +106,7 @@ function Navbar({ activeRoute }) {
           item.href.startsWith('#') ? (
             <a
               key={item.label}
-              className={activeRoute === item.href.slice(1) ? 'active' : ''}
+              className={navActiveRoute === item.href.slice(1) ? 'active' : ''}
               href={item.href}
             >
               {item.label}
@@ -332,6 +337,126 @@ function CommunityPage() {
         <SectionHeading eyebrow="Resources" title="Resources From This Work" />
         <ResourceList items={communityResources} />
       </section>
+    </>
+  );
+}
+
+function WebPilotCaseStudyPage() {
+  const caseStudy = webPilotCaseStudy;
+
+  return (
+    <>
+      <PageHero
+        eyebrow={caseStudy.eyebrow}
+        title={caseStudy.title}
+        body={caseStudy.subtitle}
+      />
+      <section className="case-study-summary section-shell">
+        <a className="back-link" href="#projects">Back to Projects</a>
+        <div className="case-study-meta">
+          <div>
+            <span>Status</span>
+            <strong>{caseStudy.status}</strong>
+          </div>
+          <div>
+            <span>Role</span>
+            <strong>{caseStudy.role}</strong>
+          </div>
+        </div>
+        <TagCloud tags={caseStudy.stack} />
+      </section>
+      <section className="case-study-section section-shell">
+        <div className="case-study-two-column">
+          <article>
+            <p className="eyebrow">Overview</p>
+            <h2>From AI Output To Website Operations</h2>
+            <p>{caseStudy.overview}</p>
+          </article>
+          <article>
+            <p className="eyebrow">Problem</p>
+            <h2>Generic Advice Is Not Enough</h2>
+            <p>{caseStudy.problem}</p>
+          </article>
+        </div>
+      </section>
+      <section className="case-study-section section-shell">
+        <SectionHeading eyebrow="Build" title="What I Built" />
+        <ul className="case-study-list">
+          {caseStudy.whatIBuilt.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
+      <section className="case-study-section section-shell">
+        <SectionHeading eyebrow="Product" title="Product Decisions" />
+        <div className="decision-grid">
+          {caseStudy.productDecisions.map((decision) => (
+            <article className="decision-item" key={decision.title}>
+              <h3>{decision.title}</h3>
+              <p>{decision.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="case-study-section section-shell">
+        <SectionHeading eyebrow="Screenshots" title="Workflow Screens" />
+        <div className="screenshot-stack">
+          {caseStudy.images.map((image) => (
+            <figure className="case-screenshot" key={image.title}>
+              <img src={image.src} alt={image.alt} loading="lazy" />
+              <figcaption>
+                <strong>{image.title}</strong>
+                {image.caption}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+      <section className="case-study-section section-shell">
+        <div className="case-study-two-column">
+          <article>
+            <p className="eyebrow">Technical Highlights</p>
+            <h2>Built For Reviewable AI Work</h2>
+            <ul className="case-study-list compact">
+              {caseStudy.technicalHighlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+          <figure className="workflow-diagram">
+            <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
+          </figure>
+        </div>
+      </section>
+      <section className="case-study-section section-shell">
+        <div className="case-study-two-column">
+          <article>
+            <p className="eyebrow">Learned</p>
+            <h2>What This Project Taught Me</h2>
+            <ul className="case-study-list compact">
+              {caseStudy.lessons.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+          <article>
+            <p className="eyebrow">Next Steps</p>
+            <h2>Where It Goes Next</h2>
+            <ul className="case-study-list compact">
+              {caseStudy.nextSteps.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
+      <PageCTA
+        eyebrow="Project conversation"
+        title="Want To Talk Through WebPilot?"
+        body="I can walk through the product decisions, local MVP architecture, AI workflow design, and how the screenshots map to the operator experience."
+        href="https://www.linkedin.com/in/kellychen0921/"
+        label="Connect on LinkedIn"
+      />
     </>
   );
 }
@@ -776,10 +901,12 @@ function MediaChannel({ type, status, title, description, posts }) {
 }
 
 function ProjectAction({ body, href, label }) {
+  const isExternal = href.startsWith('http');
+
   return (
     <aside className="project-action">
       <p>{body}</p>
-      <a href={href} target="_blank" rel="noreferrer">
+      <a href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noreferrer' : undefined}>
         {label}
       </a>
     </aside>

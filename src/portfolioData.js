@@ -302,7 +302,7 @@ export const projectActions = {
     body:
       'I can walk through how WebPilot turns audit evidence, client notes, and AI outputs into implementation-ready website operations work.',
     label: 'View Case Study',
-    href: 'https://www.linkedin.com/in/kellychen0921/',
+    href: '#webpilot',
   },
   Tandem: {
     body:
@@ -310,6 +310,86 @@ export const projectActions = {
     label: 'Explore Concept',
     href: 'https://www.linkedin.com/in/kellychen0921/',
   },
+};
+
+export const webPilotCaseStudy = {
+  eyebrow: 'WebPilot',
+  title: 'AI Website Operations Platform',
+  subtitle:
+    'A local MVP that helps consultants turn messy website audits, client notes, and page content into structured recommendations, client-ready delivery, and implementation work.',
+  status: 'Local MVP / active prototype',
+  role: 'Product strategist, full-stack builder, AI workflow designer, and local MVP validator',
+  stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js API routes', 'OpenAI API', 'Google PageSpeed Insights', 'Local JSON storage'],
+  overview:
+    'WebPilot is an internal-first website operations platform for people improving client websites over time. Instead of acting like a one-time AI generator, it organizes website context, AI tasks, saved outputs, client requests, delivery readiness, and implementation handoff into one guided workflow.',
+  problem:
+    'Small businesses and nonprofits often know their websites need improvement, but they do not know what to fix first, what assets are missing, how to rewrite pages, or how to turn recommendations into real implementation work. Traditional audits can be too broad, while generic AI tools produce advice that still needs structure, review, and follow-through.',
+  whatIBuilt: [
+    'Organization and website management built around the website as the core unit of work.',
+    'Reusable AI task generation for audits, SEO, copywriting, FAQs, accessibility, donation pages, and WordPress-ready content.',
+    'Editable AI outputs with review and approval statuses so generated work becomes a reusable asset, not a disposable response.',
+    'Client-ready delivery view with QA checks, client requests, and implementation handoff.',
+    'Page capture, PageSpeed evidence, local backup/restore, and workflow smoke testing for a more reliable internal MVP.',
+  ],
+  productDecisions: [
+    {
+      title: 'Website-first, not project-first',
+      text: 'I centered the product around websites because clients and consultants think in terms of improving a website, not managing abstract projects.',
+    },
+    {
+      title: 'Service-first MVP',
+      text: 'I positioned WebPilot as an internal tool for delivering better client work before turning it into customer-facing SaaS.',
+    },
+    {
+      title: 'Human-reviewed AI',
+      text: 'I avoided treating AI output as final. WebPilot keeps generated work editable, reviewable, versioned, and tied to delivery readiness.',
+    },
+    {
+      title: 'Manual capture before full crawling',
+      text: 'Instead of overbuilding automation early, I supported manual page capture, pasted copy, PageSpeed evidence, and structured context.',
+    },
+  ],
+  technicalHighlights: [
+    'Reusable AI engine and prompt template architecture with prompt version tracking.',
+    'Structured AIOutput model with model, prompt version, status, generated sections, and review state.',
+    'Local JSON storage with atomic write improvements plus backup and restore flows.',
+    'Google PageSpeed Insights integration for supporting technical evidence.',
+    'Health endpoint and smoke test workflow for local validation.',
+  ],
+  images: [
+    {
+      title: 'Dashboard',
+      src: '/assets/project-webpilot-dashboard.png',
+      alt: 'WebPilot dashboard showing internal website operations, backup, and production readiness checks.',
+      caption: 'The internal operations hub tracks readiness before using the tool for client website work.',
+    },
+    {
+      title: 'Website Command Center',
+      src: '/assets/project-webpilot-command-center.png',
+      alt: 'WebPilot website command center showing guided workflow steps and reusable website context.',
+      caption: 'The core workflow keeps context, AI tasks, delivery, and implementation connected to a specific website.',
+    },
+    {
+      title: 'Client Delivery View',
+      src: '/assets/project-webpilot-delivery-view.png',
+      alt: 'WebPilot client delivery view showing package readiness checks and approval workflow.',
+      caption: 'The delivery view turns generated recommendations into a reviewable package with QA and follow-up steps.',
+    },
+  ],
+  workflowImage: {
+    src: '/assets/project-webpilot-workflow-diagram.svg',
+    alt: 'WebPilot workflow diagram showing intake, AI generation, review, delivery, and implementation handoff.',
+  },
+  lessons: [
+    'The highest-value AI product is often not the generator itself, but the workflow around it.',
+    'Useful AI tools need context collection, review states, client delivery, implementation tracking, and follow-up.',
+    'A smaller internal MVP can be more valuable than a broad SaaS surface when the goal is to validate real service work.',
+  ],
+  nextSteps: [
+    'Validate the workflow with real client website improvement projects.',
+    'Add hosted storage, authentication, and stronger automated tests.',
+    'Explore a customer-facing portal after the internal operator workflow is proven.',
+  ],
 };
 
 export const speakingEvents = [

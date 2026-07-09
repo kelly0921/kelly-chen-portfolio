@@ -1713,6 +1713,177 @@ li {
   transform: translateY(-2px);
 }
 
+.page-hero-webpilot {
+  --page-accent: var(--teal);
+  --page-tint: var(--mint);
+}
+
+.case-study-summary {
+  display: grid;
+  gap: 22px;
+  border-bottom: 1px solid var(--border);
+  padding-top: 28px;
+  padding-bottom: 34px;
+}
+
+.back-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-bottom: 1px solid var(--teal);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 780;
+}
+
+.case-study-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 0.35fr) minmax(0, 0.65fr);
+  gap: 16px;
+}
+
+.case-study-meta div {
+  border-top: 3px solid var(--teal);
+  background: rgba(255, 255, 255, 0.42);
+  padding-top: 14px;
+}
+
+.case-study-meta span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.case-study-meta strong {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.case-study-section {
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+.case-study-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(26px, 5vw, 56px);
+  align-items: start;
+}
+
+.case-study-two-column article {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.case-study-two-column h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.75rem, 3vw, 2.55rem);
+}
+
+.case-study-two-column p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.68;
+}
+
+.case-study-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 28px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.case-study-list.compact {
+  grid-template-columns: 1fr;
+}
+
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.decision-item {
+  border-top: 3px solid var(--teal);
+  padding-top: 16px;
+}
+
+.decision-item:nth-child(2) {
+  border-top-color: var(--indigo);
+}
+
+.decision-item:nth-child(3) {
+  border-top-color: var(--rose);
+}
+
+.decision-item:nth-child(4) {
+  border-top-color: var(--gold);
+}
+
+.decision-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+}
+
+.decision-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.screenshot-stack {
+  display: grid;
+  gap: 30px;
+}
+
+.case-screenshot {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(220px, 0.28fr);
+  gap: clamp(20px, 4vw, 42px);
+  align-items: center;
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 26px;
+}
+
+.case-screenshot:nth-child(even) img {
+  order: 2;
+}
+
+.case-screenshot img,
+.workflow-diagram img {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #f8fafc;
+  box-shadow: 0 22px 54px rgba(15, 23, 42, 0.1);
+}
+
+.case-screenshot figcaption {
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.case-screenshot figcaption strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 1.08rem;
+}
+
+.workflow-diagram {
+  margin: 0;
+}
+
 .fintech-section .project-card {
   --card-accent: var(--gold);
   --card-tint: var(--butter);
@@ -2533,17 +2704,24 @@ dd {
   .page-hero,
   .personality-collage,
   .cta-section,
-  .community-overview {
+  .community-overview,
+  .case-study-two-column,
+  .case-screenshot {
     grid-template-columns: 1fr;
   }
 
   .pillar-grid,
   .collage-notes,
   .conference-phase-grid,
+  .decision-grid,
   .topic-grid,
   .community-grid,
   .media-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-screenshot:nth-child(even) img {
+    order: 0;
   }
 
   .skills-panel {
@@ -2681,6 +2859,9 @@ dd {
 
   .pillar-grid,
   .collage-notes,
+  .case-study-meta,
+  .case-study-list,
+  .decision-grid,
   .event-grid,
   .topic-grid,
   .community-stat-grid,
