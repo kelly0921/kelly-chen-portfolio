@@ -738,13 +738,16 @@ function ConferenceSeries({ series }) {
           </section>
         ))}
       </div>
-      <div className="conference-kit">
-        <span>Resource kit</span>
-        <ul>
-          {series.kit.map((item) => (
-            <li key={item}>{item}</li>
+      <div className="conference-takeaways">
+        <span>What Readers Get</span>
+        <div>
+          {series.takeaways.map((item) => (
+            <p key={item.label}>
+              <strong>{item.label}</strong>
+              {item.text}
+            </p>
           ))}
-        </ul>
+        </div>
       </div>
     </article>
   );

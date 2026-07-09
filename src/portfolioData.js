@@ -437,14 +437,14 @@ export const communityWork = [
 
 export const mediaChannels = [
   {
-    type: 'Resource kit',
-    status: 'Planned collection',
-    title: 'Conference Access Kit',
-    description: 'A future starter kit for finding conferences, funding, travel support, and application timelines.',
+    type: 'Series',
+    status: 'In progress',
+    title: 'Conference Strategy Notes',
+    description: 'Practical posts on conference ROI, funding, sponsor signals, and how students can turn events into leverage.',
     posts: [
-      'Conference tracker',
-      'Funding and travel checklist',
-      'Outreach message templates',
+      'Conference ROI',
+      'Funding options',
+      'Sponsor signals',
     ],
   },
   {
@@ -505,12 +505,19 @@ export const conferenceSeries = {
       items: ['Funding sources', 'Pre-conference outreach', 'Social layer', 'Conference-day checklist'],
     },
   ],
-  kit: [
-    'Conference ROI filter',
-    'Funding source tracker',
-    'Sponsor research checklist',
-    'Pre-conference outreach checklist',
-    'Follow-up message templates',
+  takeaways: [
+    {
+      label: 'Decide',
+      text: 'Know when a conference is worth the cost, and when another career move has better ROI.',
+    },
+    {
+      label: 'Prepare',
+      text: 'Read the sponsor list, funding paths, and attendee rooms before you spend your energy.',
+    },
+    {
+      label: 'Convert',
+      text: 'Turn conversations into useful follow-ups, technical signal, and longer-term career leverage.',
+    },
   ],
 };
 

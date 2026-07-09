@@ -1951,7 +1951,7 @@ dd {
 }
 
 .conference-series-intro span,
-.conference-kit span {
+.conference-takeaways span {
   color: var(--gold);
   font-size: 0.74rem;
   font-weight: 850;
@@ -2016,15 +2016,14 @@ dd {
   line-height: 1.58;
 }
 
-.conference-phase ul,
-.conference-kit ul {
+.conference-phase ul {
   margin: 0;
   padding-left: 18px;
   color: var(--text);
   line-height: 1.65;
 }
 
-.conference-kit {
+.conference-takeaways {
   display: grid;
   grid-template-columns: minmax(150px, 0.22fr) minmax(0, 1fr);
   gap: clamp(16px, 3vw, 34px);
@@ -2032,10 +2031,23 @@ dd {
   padding-top: 18px;
 }
 
-.conference-kit ul {
+.conference-takeaways div {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.conference-takeaways p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.conference-takeaways strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 0.96rem;
 }
 
 .media-card-meta {
@@ -2657,8 +2669,8 @@ dd {
   }
 
   .conference-series-intro,
-  .conference-kit,
-  .conference-kit ul {
+  .conference-takeaways,
+  .conference-takeaways div {
     grid-template-columns: 1fr;
   }
 
