@@ -344,7 +344,7 @@ function MediaPage() {
         body="A public archive for posts, opportunity resources, conference kits, templates, and practical notes from what I am learning and sharing."
       />
       <section className="section-shell">
-        <SectionHeading eyebrow="Library" title="Posts, Kits, Resources" />
+        <SectionHeading eyebrow="Library" title="Content Collections" />
         <div className="media-grid">
           {mediaChannels.map((group) => (
             <MediaChannel key={group.title} {...group} />
@@ -712,10 +712,13 @@ function ResourceList({ items }) {
   );
 }
 
-function MediaChannel({ type, title, description, posts }) {
+function MediaChannel({ type, status, title, description, posts }) {
   return (
     <article className="media-card">
-      <span>{type}</span>
+      <div className="media-card-meta">
+        <span>{type}</span>
+        {status ? <em>{status}</em> : null}
+      </div>
       <h3>{title}</h3>
       <p>{description}</p>
       <ul>

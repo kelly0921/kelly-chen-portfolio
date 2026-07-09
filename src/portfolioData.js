@@ -44,37 +44,37 @@ export const highlights = [
   {
     type: 'Experience',
     title: 'Software Engineer at Bloomberg',
-    description: 'Fixed income systems, C++, and private securities.',
+    description: 'Working in Fixed Income - Private Securities with C++ and systems design.',
     href: '#experience',
   },
   {
     type: 'Experience',
     title: 'Software Engineering Intern at JPMorgan Chase',
-    description: 'Onboarding automation across React, Spring Boot, Kafka, and Cassandra.',
+    description: 'Built CIU onboarding automation with React, Spring Boot, Cassandra, and Kafka, reducing onboarding from hours to minutes.',
     href: '#experience',
   },
   {
     type: 'Community',
     title: 'Organized access to Harvard WECode',
-    description: 'Helped 15 students access a fully funded women-in-tech conference.',
+    description: 'Helped 15 students attend a fully funded women-in-tech conference experience through outreach, funding, logistics, and community coordination.',
     href: '#community',
   },
   {
     type: 'Project',
     title: 'SkanPay / QR payment concept',
-    description: 'Single-scan checkout thinking for coupons, gift cards, and sellers.',
+    description: 'Explored a single-scan payment and redemption flow for coupons, gift cards, small sellers, and checkout friction.',
     href: '#projects',
   },
   {
     type: 'Speaking',
     title: 'Public speaking & events',
-    description: 'Conference talks, workshops, student events, and ambassador work.',
+    description: 'Presented, facilitated, represented, and organized through conferences, tech programs, student groups, and ambassador roles.',
     href: '#speaking',
   },
   {
     type: 'Content',
     title: 'LinkedIn to newsletter ideas',
-    description: 'Turning posts and opportunity lists into reusable resources.',
+    description: 'Turns short posts, opportunity lists, and lessons from events into a stronger public archive across notes and resources.',
     href: '#media',
   },
 ];
@@ -438,6 +438,7 @@ export const communityWork = [
 export const mediaChannels = [
   {
     type: 'Resource kit',
+    status: 'Planned collection',
     title: 'Conference Access Kit',
     description: 'A future starter kit for finding conferences, funding, travel support, and application timelines.',
     posts: [
@@ -448,6 +449,7 @@ export const mediaChannels = [
   },
   {
     type: 'Posts',
+    status: 'Public archive',
     title: 'LinkedIn Notes',
     description: 'A selected archive of posts, reflections, career lessons, and opportunity-sharing threads.',
     posts: [
@@ -458,6 +460,7 @@ export const mediaChannels = [
   },
   {
     type: 'Templates',
+    status: 'Reusable tools',
     title: 'Student Opportunity Library',
     description: 'Reusable guides and trackers for students navigating programs, fellowships, and technical communities.',
     posts: [
@@ -468,6 +471,7 @@ export const mediaChannels = [
   },
   {
     type: 'Ideas',
+    status: 'Working notes',
     title: 'Fintech & AI Notes',
     description: 'Informal notes from product experiments, payment concepts, AI-assisted builds, and technical learning.',
     posts: [

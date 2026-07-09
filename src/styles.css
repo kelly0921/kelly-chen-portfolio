@@ -1935,6 +1935,33 @@ dd {
   margin-bottom: 0;
 }
 
+.media-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.media-card-meta span,
+.media-card-meta em {
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 850;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.media-card-meta em {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.68);
+  color: var(--ink-soft);
+  padding: 5px 8px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .resource-strip-section {
   padding-top: 28px;
 }
