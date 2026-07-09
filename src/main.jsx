@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 import {
+  beamCashCaseStudy,
   conferenceSeries,
   communityWork,
   communityResources,
@@ -20,7 +21,7 @@ import {
   webPilotCaseStudy,
 } from './portfolioData';
 
-const routes = ['home', 'experience', 'projects', 'webpilot', 'speaking', 'community', 'media'];
+const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'speaking', 'community', 'media'];
 
 const pageNotes = {
   Experience: {
@@ -68,8 +69,10 @@ function App() {
         return <ExperiencePage />;
       case 'projects':
         return <ProjectsPage />;
+      case 'beamcash':
+        return <ProjectCaseStudyPage caseStudy={beamCashCaseStudy} />;
       case 'webpilot':
-        return <WebPilotCaseStudyPage />;
+        return <ProjectCaseStudyPage caseStudy={webPilotCaseStudy} />;
       case 'speaking':
         return <SpeakingPage />;
       case 'community':
@@ -91,7 +94,7 @@ function App() {
 }
 
 function Navbar({ activeRoute }) {
-  const navActiveRoute = activeRoute === 'webpilot' ? 'projects' : activeRoute;
+  const navActiveRoute = ['beamcash', 'webpilot'].includes(activeRoute) ? 'projects' : activeRoute;
 
   return (
     <header className="site-header">
@@ -341,9 +344,7 @@ function CommunityPage() {
   );
 }
 
-function WebPilotCaseStudyPage() {
-  const caseStudy = webPilotCaseStudy;
-
+function ProjectCaseStudyPage({ caseStudy }) {
   return (
     <>
       <PageHero
@@ -369,12 +370,12 @@ function WebPilotCaseStudyPage() {
         <div className="case-study-two-column">
           <article>
             <p className="eyebrow">Overview</p>
-            <h2>From AI Output To Website Operations</h2>
+            <h2>{caseStudy.overviewTitle}</h2>
             <p>{caseStudy.overview}</p>
           </article>
           <article>
             <p className="eyebrow">Problem</p>
-            <h2>Generic Advice Is Not Enough</h2>
+            <h2>{caseStudy.problemTitle}</h2>
             <p>{caseStudy.problem}</p>
           </article>
         </div>
@@ -399,10 +400,10 @@ function WebPilotCaseStudyPage() {
         </div>
       </section>
       <section className="case-study-section section-shell">
-        <SectionHeading eyebrow="Screenshots" title="Workflow Screens" />
+        <SectionHeading eyebrow="Screenshots" title={caseStudy.screenshotTitle} />
         <div className="screenshot-stack">
           {caseStudy.images.map((image) => (
-            <figure className="case-screenshot" key={image.title}>
+            <figure className={`case-screenshot${image.kind === 'mobile' ? ' case-screenshot-mobile' : ''}`} key={image.title}>
               <img src={image.src} alt={image.alt} loading="lazy" />
               <figcaption>
                 <strong>{image.title}</strong>
@@ -416,7 +417,7 @@ function WebPilotCaseStudyPage() {
         <div className="case-study-two-column">
           <article>
             <p className="eyebrow">Technical Highlights</p>
-            <h2>Built For Reviewable AI Work</h2>
+            <h2>{caseStudy.technicalTitle}</h2>
             <ul className="case-study-list compact">
               {caseStudy.technicalHighlights.map((item) => (
                 <li key={item}>{item}</li>
@@ -452,8 +453,8 @@ function WebPilotCaseStudyPage() {
       </section>
       <PageCTA
         eyebrow="Project conversation"
-        title="Want To Talk Through WebPilot?"
-        body="I can walk through the product decisions, local MVP architecture, AI workflow design, and how the screenshots map to the operator experience."
+        title={caseStudy.ctaTitle}
+        body={caseStudy.ctaBody}
         href="https://www.linkedin.com/in/kellychen0921/"
         label="Connect on LinkedIn"
       />

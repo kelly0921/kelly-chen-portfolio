@@ -1,0 +1,32 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">BeamCash product flow diagram</title>
+  <desc id="desc">Diagram showing seller setup, QR sign generation, buyer checkout, payment confirmation, and seller dashboard flow.</desc>
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <text x="80" y="100" font-family="Inter,Segoe UI,Arial" font-size="44" font-weight="900" fill="#101828">BeamCash Product Flow</text>
+  <text x="80" y="140" font-family="Inter,Segoe UI,Arial" font-size="18" font-weight="600" fill="#667085">How sellers create a code and customers complete checkout.</text>
+  <defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#16a34a"/></marker></defs>
+  <g font-family="Inter,Segoe UI,Arial">
+    <rect x="80" y="250" width="170" height="120" rx="18" fill="#f8fafc" stroke="#d0d5dd"/>
+    <text x="165" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">Seller Setup</text>
+    <text x="165" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">Profile, photo,</text><text x="165" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">payout readiness</text>
+    <rect x="315" y="250" width="170" height="120" rx="18" fill="#f8fafc" stroke="#d0d5dd"/>
+    <text x="400" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">QR Sign</text>
+    <text x="400" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">Branded code</text><text x="400" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">to display</text>
+    <rect x="550" y="250" width="170" height="120" rx="18" fill="#ecfdf3" stroke="#98dcb7"/>
+    <text x="635" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">Buyer Checkout</text>
+    <text x="635" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#087443">Scan, amount,</text><text x="635" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#087443">payment method</text>
+    <rect x="785" y="250" width="170" height="120" rx="18" fill="#f8fafc" stroke="#d0d5dd"/>
+    <text x="870" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">Confirmation</text>
+    <text x="870" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">Payment, tip,</text><text x="870" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">or donation</text>
+    <rect x="1010" y="250" width="150" height="120" rx="18" fill="#f8fafc" stroke="#d0d5dd"/>
+    <text x="1085" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">Dashboard</text>
+    <text x="1085" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">Activity and</text><text x="1085" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">code access</text>
+  </g>
+  <line x1="250" y1="310" x2="305" y2="310" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+  <line x1="485" y1="310" x2="540" y2="310" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+  <line x1="720" y1="310" x2="775" y2="310" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+  <line x1="955" y1="310" x2="1000" y2="310" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="84" y="520" width="1032" height="120" rx="24" fill="#101828"/>
+  <text x="600" y="574" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="26" font-weight="900" fill="#ffffff">Core product idea</text>
+  <text x="600" y="615" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="18" font-weight="600" fill="#d0d5dd">Make in-person payment feel credible before a customer ever reaches checkout.</text>
+</svg>

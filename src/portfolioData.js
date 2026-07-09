@@ -241,8 +241,9 @@ export const projects = [
     status: 'In-progress local MVP',
     description:
       'A mobile-first QR payment MVP that helps local sellers, performers, and vendors accept payments through branded checkout pages.',
-    image: '/assets/project-qr-sellers.svg',
-    imageAlt: 'BeamCash product preview showing a seller QR sign, amount entry, and mobile checkout.',
+    image: '/assets/project-beamcash-seller-dashboard-mobile.png',
+    imageFit: 'contain',
+    imageAlt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
     problem: 'Small in-person sellers lose payments when customers do not carry cash, use different payment apps, or hesitate to scan an unbranded QR code.',
     user: 'Street performers, food vendors, pop-up shops, handmade sellers, nonprofits, and donation-based groups.',
     role: 'Founder, product builder, mobile app developer, and payment UX designer.',
@@ -296,7 +297,7 @@ export const projectActions = {
     body:
       'I can share the seller setup, branded QR sign, buyer checkout flow, and the Stripe-ready payment architecture behind the MVP.',
     label: 'View Case Study',
-    href: 'https://www.linkedin.com/in/kellychen0921/',
+    href: '#beamcash',
   },
   WebPilot: {
     body:
@@ -312,6 +313,103 @@ export const projectActions = {
   },
 };
 
+export const beamCashCaseStudy = {
+  eyebrow: 'BeamCash',
+  title: 'QR Payments For Local Sellers',
+  subtitle:
+    'A mobile-first payment MVP that helps local sellers, performers, vendors, and donation-based groups accept in-person payments through branded QR checkout.',
+  status: 'In-progress local MVP',
+  role: 'Founder, product builder, mobile app developer, and payment UX designer',
+  stack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'Stripe-ready architecture', 'QR generation', 'Express backend'],
+  overview:
+    'BeamCash is designed for small in-person sellers who need a fast, professional way to get paid without asking customers to join another app. Sellers create a payment profile, generate a branded BeamCash QR sign, and let buyers scan into a mobile checkout flow.',
+  overviewTitle: 'From QR Code To Trusted Checkout',
+  problem:
+    'Small sellers often lose payments because checkout is awkward. Customers may not carry cash, may not use the same payment app, or may hesitate when a QR code feels random or untrustworthy. BeamCash reduces that friction by pairing seller identity, branded signage, amount selection, and a familiar checkout flow.',
+  problemTitle: 'Payment Friction Costs Small Sellers',
+  whatIBuilt: [
+    'Seller profile setup with business type, photo, category, intro, and payment message.',
+    'Seller dashboard with balance summary, recent payment stats, QR access, and payout readiness state.',
+    'Branded BeamCash QR signage that changes language by seller type: pay, tip, or give.',
+    'Buyer checkout flow with seller profile, preset/custom amount selection, payment confirmation, and test payment support.',
+    'Local/backend hybrid MVP architecture with mock payment services and Stripe PaymentSheet / Connect integration direction.',
+  ],
+  productDecisions: [
+    {
+      title: 'Trust Before Payment',
+      text: 'The QR code is part of the product experience. It needs to look branded and seller-specific before a buyer feels comfortable entering payment details.',
+    },
+    {
+      title: 'Seller Setup Stays Lightweight',
+      text: 'The seller flow collects enough identity and payment context to feel credible without overwhelming small sellers before they can generate a code.',
+    },
+    {
+      title: 'Stripe Underneath, BeamCash In Front',
+      text: 'The product should feel like a BeamCash checkout experience while Stripe remains the processor and payout infrastructure underneath.',
+    },
+    {
+      title: 'Mock Now, Real Payments Later',
+      text: 'The MVP keeps test payments and mock services available while preserving a path toward PaymentSheet, Connect onboarding, hosted checkout URLs, and production storage.',
+    },
+  ],
+  technicalHighlights: [
+    'Expo Router mobile app structure with TypeScript models for merchants, payments, payouts, and notifications.',
+    'QR generation and branded sign capture for printable or shareable seller signage.',
+    'Buyer checkout state and amount selection flow designed around future Stripe PaymentSheet integration.',
+    'Backend setup and local persistence layer for MVP development without requiring production hosting too early.',
+    'Payment alerts settings for future push and voice notification concepts.',
+  ],
+  images: [
+    {
+      title: 'Home Entry',
+      src: '/assets/project-beamcash-home-mobile.png',
+      alt: 'BeamCash home screen with logo, seller-focused tagline, and code creation actions.',
+      caption: 'The app starts with a simple seller-oriented entry point: create or recover a BeamCash code.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Seller Dashboard',
+      src: '/assets/project-beamcash-seller-dashboard-mobile.png',
+      alt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
+      caption: 'The seller dashboard keeps QR access, payment stats, payout state, and branded signage in one place.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Buyer Checkout',
+      src: '/assets/project-beamcash-buyer-checkout-mobile.png',
+      alt: 'BeamCash checkout screen showing a seller profile and payment amount options.',
+      caption: 'The buyer flow is designed to feel familiar: confirm the seller, choose an amount, and send support.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Find My Code',
+      src: '/assets/project-beamcash-find-code-mobile.png',
+      alt: 'BeamCash find code screen for recovering an existing seller payment code.',
+      caption: 'The recovery flow helps sellers return to their payment code without rebuilding their setup.',
+      kind: 'mobile',
+    },
+  ],
+  workflowImage: {
+    src: '/assets/project-beamcash-product-flow.svg',
+    alt: 'BeamCash product flow from seller setup to QR checkout and payment confirmation.',
+  },
+  screenshotTitle: 'Mobile Product Screens',
+  technicalTitle: 'Built For QR Payment Flows',
+  lessons: [
+    'Payment UX depends on trust, not just transaction speed.',
+    'A branded QR sign can be the difference between a random code and a credible checkout moment.',
+    'A payment MVP needs clean boundaries between test flows, future processor integrations, payout readiness, and legal production requirements.',
+  ],
+  nextSteps: [
+    'Decide whether BeamCash should be framed publicly as a solo project, startup concept, or launch-ready product direction.',
+    'Add production hosting, authentication, public checkout URLs, image storage, and real Stripe configuration when ready.',
+    'Test the flow with real sellers or performers to validate trust, signage, and checkout behavior.',
+  ],
+  ctaTitle: 'Want To Talk Through BeamCash?',
+  ctaBody:
+    'I can walk through the seller flow, buyer checkout, branded QR signage, and how the MVP is structured around future payment processing and payout infrastructure.',
+};
+
 export const webPilotCaseStudy = {
   eyebrow: 'WebPilot',
   title: 'AI Website Operations Platform',
@@ -322,8 +420,10 @@ export const webPilotCaseStudy = {
   stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js API routes', 'OpenAI API', 'Google PageSpeed Insights', 'Local JSON storage'],
   overview:
     'WebPilot is an internal-first website operations platform for people improving client websites over time. Instead of acting like a one-time AI generator, it organizes website context, AI tasks, saved outputs, client requests, delivery readiness, and implementation handoff into one guided workflow.',
+  overviewTitle: 'From AI Output To Website Operations',
   problem:
     'Small businesses and nonprofits often know their websites need improvement, but they do not know what to fix first, what assets are missing, how to rewrite pages, or how to turn recommendations into real implementation work. Traditional audits can be too broad, while generic AI tools produce advice that still needs structure, review, and follow-through.',
+  problemTitle: 'Generic Advice Is Not Enough',
   whatIBuilt: [
     'Organization and website management built around the website as the core unit of work.',
     'Reusable AI task generation for audits, SEO, copywriting, FAQs, accessibility, donation pages, and WordPress-ready content.',
@@ -380,6 +480,8 @@ export const webPilotCaseStudy = {
     src: '/assets/project-webpilot-workflow-diagram.svg',
     alt: 'WebPilot workflow diagram showing intake, AI generation, review, delivery, and implementation handoff.',
   },
+  screenshotTitle: 'Workflow Screens',
+  technicalTitle: 'Built For Reviewable AI Work',
   lessons: [
     'The highest-value AI product is often not the generator itself, but the workflow around it.',
     'Useful AI tools need context collection, review states, client delivery, implementation tracking, and follow-up.',
@@ -390,6 +492,9 @@ export const webPilotCaseStudy = {
     'Add hosted storage, authentication, and stronger automated tests.',
     'Explore a customer-facing portal after the internal operator workflow is proven.',
   ],
+  ctaTitle: 'Want To Talk Through WebPilot?',
+  ctaBody:
+    'I can walk through the product decisions, local MVP architecture, AI workflow design, and how the screenshots map to the operator experience.',
 };
 
 export const speakingEvents = [

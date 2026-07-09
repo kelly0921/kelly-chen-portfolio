@@ -1718,6 +1718,11 @@ li {
   --page-tint: var(--mint);
 }
 
+.page-hero-beamcash {
+  --page-accent: var(--gold);
+  --page-tint: var(--butter);
+}
+
 .case-study-summary {
   display: grid;
   gap: 22px;
@@ -1866,6 +1871,11 @@ li {
   border-radius: 18px;
   background: #f8fafc;
   box-shadow: 0 22px 54px rgba(15, 23, 42, 0.1);
+}
+
+.case-screenshot-mobile img {
+  max-width: 360px;
+  justify-self: center;
 }
 
 .case-screenshot figcaption {
