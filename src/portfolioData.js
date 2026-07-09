@@ -237,12 +237,13 @@ export const projects = [
   {
     group: 'Built / In Progress',
     title: 'BeamCash',
-    mark: { text: 'BC', label: 'BeamCash', tone: 'gold' },
+    mark: { text: 'BC', label: 'BeamCash', tone: 'gold', src: '/assets/project-beamcash-icon.svg' },
     status: 'In-progress local MVP',
     description:
       'A mobile-first QR payment MVP that helps local sellers, performers, and vendors accept payments through branded checkout pages.',
     image: '/assets/project-beamcash-seller-dashboard-mobile.png',
     imageFit: 'contain',
+    imageFrame: 'phone',
     imageAlt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
     problem: 'Small in-person sellers lose payments when customers do not carry cash, use different payment apps, or hesitate to scan an unbranded QR code.',
     user: 'Street performers, food vendors, pop-up shops, handmade sellers, nonprofits, and donation-based groups.',

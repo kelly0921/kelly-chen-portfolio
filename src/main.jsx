@@ -682,12 +682,17 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
   );
 }
 
-function ProjectCard({ title, mark, status, description, image, imageFit, imageAlt, problem, user, role, learned, proof, tags, index }) {
+function ProjectCard({ title, mark, status, description, image, imageFit, imageFrame, imageAlt, problem, user, role, learned, proof, tags, index }) {
   const projectAction = projectActions[title];
+  const visualClasses = [
+    'project-visual',
+    imageFit === 'contain' ? 'project-visual-contain' : '',
+    imageFrame === 'phone' ? 'project-visual-phone' : '',
+  ].filter(Boolean).join(' ');
 
   return (
     <article className={`project-card project-showcase${index % 2 === 1 ? ' reverse' : ''}`}>
-      <div className={`project-visual${imageFit === 'contain' ? ' project-visual-contain' : ''}`}>
+      <div className={visualClasses}>
         <img src={image} alt={imageAlt} loading="lazy" />
       </div>
       <div className="project-copy">
