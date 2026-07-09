@@ -295,12 +295,13 @@ export const speakingEvents = [
     role: 'In-person workshop speaker',
     topic: 'Building Career Leverage as an Emerging Engineer',
     subtitle: 'Moving from "Doing Everything Right" to Scaling Your Impact',
-    date: '2026',
+    date: 'Conference: April 10-11, 2026',
     format: '60-minute in-person workshop-style talk',
-    location: 'ACM New York Celebration of Women in Computing',
+    location: 'Hilton Albany, Albany, NY',
     audience: 'Women in computing, students, and emerging technologists',
     description:
-      'A practical session on moving beyond checking the right boxes and learning how to build leverage through technical growth, community, storytelling, and intentional opportunity selection.',
+      'A practical session at the ACM New York Celebration of Women in Computing on moving beyond checking the right boxes and learning how to build leverage through technical growth, community, storytelling, and intentional opportunity selection.',
+    href: 'https://www.nycwic.org/',
   },
   {
     event: 'Women in Tech Global Conference 2026',
@@ -308,11 +309,12 @@ export const speakingEvents = [
     topic: 'Building Career Leverage as an Emerging Engineer',
     subtitle: 'Moving from "Doing Everything Right" to Scaling Your Impact',
     date: 'May 14, 2026',
-    format: '20-minute virtual talk',
-    location: 'Virtual',
+    format: '20-minute virtual talk during the Career Growth Summit',
+    location: 'Virtual-first global conference',
     audience: 'Global women-in-tech and early-career engineering audience',
     description:
-      'A focused version of the talk built for a virtual audience, centered on translating effort into visible growth, stronger positioning, and more durable career momentum.',
+      'A focused version of the talk for Women in Tech Global Conference, centered on translating effort into visible growth, stronger positioning, and more durable career momentum.',
+    href: 'https://www.womentech.net/women-tech-conference',
   },
   {
     event: 'NCWIT Career Fair',

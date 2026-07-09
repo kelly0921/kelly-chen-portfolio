@@ -1773,6 +1773,16 @@ dd {
   font-weight: 760;
 }
 
+.event-link {
+  color: var(--indigo);
+  font-size: 0.92rem;
+  font-weight: 820;
+}
+
+.event-link::after {
+  content: " ->";
+}
+
 .community-card span {
   color: var(--rose);
   font-size: 0.76rem;

@@ -583,7 +583,7 @@ function ProjectMark({ mark, title }) {
   );
 }
 
-function EventCard({ event, role, topic, subtitle, date, format, location, audience, description }) {
+function EventCard({ event, role, topic, subtitle, date, format, location, audience, description, href }) {
   return (
     <article className="event-card">
       <span>{role}</span>
@@ -609,6 +609,11 @@ function EventCard({ event, role, topic, subtitle, date, format, location, audie
         </div>
       </dl>
       <p>{description}</p>
+      {href ? (
+        <a className="event-link" href={href} target="_blank" rel="noreferrer">
+          Event site
+        </a>
+      ) : null}
     </article>
   );
 }
