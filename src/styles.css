@@ -1712,6 +1712,10 @@ dd {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.event-grid-featured {
+  grid-template-columns: minmax(0, 0.68fr);
+}
+
 .topic-section {
   padding-top: 18px;
 }
@@ -1771,6 +1775,12 @@ dd {
   margin-top: -4px;
   color: var(--text);
   font-weight: 760;
+}
+
+.event-focus {
+  margin-top: -8px;
+  color: var(--muted);
+  font-style: italic;
 }
 
 .event-link {

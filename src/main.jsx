@@ -227,6 +227,9 @@ function ProjectsPage() {
 }
 
 function SpeakingPage() {
+  const upcomingEvents = speakingEvents.filter((event) => event.status === 'Upcoming');
+  const pastEvents = speakingEvents.filter((event) => event.status !== 'Upcoming');
+
   return (
     <>
       <PageHero
@@ -234,10 +237,20 @@ function SpeakingPage() {
         title="Speaking & Events"
         body="Workshops, virtual talks, flash sessions, and conversations about building career leverage as an emerging engineer."
       />
+      {upcomingEvents.length ? (
+        <section className="section-shell">
+          <SectionHeading eyebrow="Upcoming" title="Upcoming Talks" />
+          <div className="event-grid event-grid-featured">
+            {upcomingEvents.map((event) => (
+              <EventCard key={event.event} {...event} />
+            ))}
+          </div>
+        </section>
+      ) : null}
       <section className="section-shell">
-        <SectionHeading eyebrow="Speaker Archive" title="Conference Talks" />
+        <SectionHeading eyebrow="Speaker Archive" title="Past Talks" />
         <div className="event-grid">
-          {speakingEvents.map((event) => (
+          {pastEvents.map((event) => (
             <EventCard key={event.event} {...event} />
           ))}
         </div>
@@ -583,13 +596,14 @@ function ProjectMark({ mark, title }) {
   );
 }
 
-function EventCard({ event, role, topic, subtitle, date, format, location, audience, description, href }) {
+function EventCard({ event, role, topic, subtitle, focus, date, format, location, description, href }) {
   return (
     <article className="event-card">
       <span>{role}</span>
       <h3>{event}</h3>
       <p>{topic}</p>
       {subtitle ? <p className="event-subtitle">{subtitle}</p> : null}
+      {focus ? <p className="event-focus">{focus}</p> : null}
       <dl>
         <div>
           <dt>Date</dt>
@@ -602,10 +616,6 @@ function EventCard({ event, role, topic, subtitle, date, format, location, audie
         <div>
           <dt>Location</dt>
           <dd>{location}</dd>
-        </div>
-        <div>
-          <dt>Audience</dt>
-          <dd>{audience}</dd>
         </div>
       </dl>
       <p>{description}</p>
