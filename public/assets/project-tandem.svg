@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Tandem dating product concept preview</title>
+  <desc id="desc">A dating product concept mockup showing ambition archetypes, compatibility signals, and curated match cards.</desc>
+  <rect width="960" height="620" rx="36" fill="#fff4df"/>
+  <rect x="92" y="78" width="776" height="464" rx="34" fill="#fffdf9" stroke="#eadfce"/>
+  <path d="M158 162c42-50 114-52 156 0 42-52 114-50 156 0" fill="none" stroke="#e58aa4" stroke-width="12" stroke-linecap="round"/>
+  <text x="158" y="226" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="800" fill="#1f2430">Complementary fit</text>
+  <text x="158" y="266" font-family="Inter,Arial,sans-serif" font-size="18" fill="#606977">Career rhythm, risk tolerance, and long-term goals.</text>
+  <rect x="158" y="318" width="178" height="112" rx="24" fill="#fff0e6" stroke="#eadfce"/>
+  <text x="188" y="360" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#1f2430">Builder</text>
+  <text x="188" y="392" font-family="Inter,Arial,sans-serif" font-size="15" fill="#606977">High risk</text>
+  <text x="188" y="416" font-family="Inter,Arial,sans-serif" font-size="15" fill="#606977">High velocity</text>
+  <rect x="368" y="318" width="178" height="112" rx="24" fill="#f2efff" stroke="#eadfce"/>
+  <text x="398" y="360" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#1f2430">Anchor</text>
+  <text x="398" y="392" font-family="Inter,Arial,sans-serif" font-size="15" fill="#606977">Stable rhythm</text>
+  <text x="398" y="416" font-family="Inter,Arial,sans-serif" font-size="15" fill="#606977">Long-term focus</text>
+  <rect x="578" y="318" width="178" height="112" rx="24" fill="#e8faf3" stroke="#eadfce"/>
+  <text x="608" y="360" font-family="Inter,Arial,sans-serif" font-size="18" font-weight="800" fill="#1f2430">Operator</text>
+  <text x="608" y="392" font-family="Inter,Arial,sans-serif" font-size="15" fill="#606977">Execution</text>
+  <text x="608" y="416" font-family="Inter,Arial,sans-serif" font-size="15" fill="#606977">Shared systems</text>
+  <rect x="578" y="126" width="218" height="126" rx="28" fill="#ffffff" stroke="#eadfce"/>
+  <circle cx="626" cy="174" r="24" fill="#e58aa4"/>
+  <circle cx="690" cy="174" r="24" fill="#8775f6"/>
+  <path d="M638 213h112" stroke="#2fb8a8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M638 232h74" stroke="#efbd58" stroke-width="8" stroke-linecap="round"/>
+  <text x="612" y="114" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="800" fill="#e58aa4">CURATED MATCH</text>
+</svg>

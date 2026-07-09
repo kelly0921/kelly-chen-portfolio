@@ -10,8 +10,8 @@ This file tracks private follow-up items for Kelly's portfolio. These notes shou
 
 - Add Kelly's real public contact email if she wants email as a visible CTA.
 - Confirm LinkedIn links for top Content posts from `https://www.linkedin.com/in/kellychen0921/`.
-- Add real project or GitHub links for SkanPay, QR payment MVPs, code samples, demos, or writeups.
-- Add public demo links, Loom walkthroughs, or case-study pages for SkanPay, QR payments for small sellers, and AI-assisted website workflows when they are ready to share openly.
+- Add real project or GitHub links for SkanPay, BeamCash, WebPilot, Tandem, code samples, demos, or writeups.
+- Add public demo links, Loom walkthroughs, or case-study pages for SkanPay, BeamCash, WebPilot, and Tandem when they are ready to share openly.
 - Replace the project preview illustrations with real screenshots or demo images when those projects become public-ready.
 - Add measurable project proof where possible: demo links, screenshots, short case-study outcomes, architecture notes, or patents/public filings if shareable.
 - Add dates, roles, or photo proof for speaking/community items where public-ready, especially WECode, Women in Computer Science, ambassador work, and hackathon/program involvement.
@@ -24,7 +24,6 @@ This file tracks private follow-up items for Kelly's portfolio. These notes shou
 - Add real LinkedIn post links and a Substack/newsletter URL when those channels are public-ready.
 - Add public download or signup links for the future resource layer: Conference Access Starter Pack, Student Opportunity Tracker, and Women-in-Tech Funding Guide.
 - Decide whether future resources should stay free public links, become a Substack/newsletter funnel, or live as paid template packs on a lightweight platform such as Gumroad, Ko-fi, or a custom checkout.
-- Add the same embedded "Interested in this idea?" prompt to BeamCash once the project content is added to the live portfolio.
 - Current profile photo can stay for now, but upgrade later to a cleaner professional headshot with softer front-facing light, wider crop, and a simpler background.
 - Updated resume PDF has replaced the placeholder at `public/Kelly-Chen-Resume.pdf`. Leadership & Activities have been mapped selectively into Community, Speaking, and Projects instead of duplicated as a generic resume list.
 

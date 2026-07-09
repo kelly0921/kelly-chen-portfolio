@@ -1645,6 +1645,11 @@ li {
   --project-mark-tint: var(--lilac);
 }
 
+.project-mark-rose {
+  --project-mark-accent: var(--rose);
+  --project-mark-tint: var(--peach);
+}
+
 .project-copy > p {
   margin: 0;
 }
