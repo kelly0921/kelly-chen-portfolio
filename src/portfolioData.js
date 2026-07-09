@@ -258,6 +258,7 @@ export const projects = [
     description:
       'An AI website operations dashboard that helps consultants turn audits, client notes, and page content into actionable recommendations and implementation plans.',
     image: '/assets/project-webpilot-command-center.png',
+    imageFit: 'contain',
     imageAlt: 'WebPilot website command center showing guided workflow steps and reusable website context.',
     problem: 'Small businesses and nonprofits often know their websites need work, but they do not know what to fix first or how to turn an audit into implementation.',
     user: 'Website consultants, small nonprofits, local businesses, and agencies managing website improvement work.',

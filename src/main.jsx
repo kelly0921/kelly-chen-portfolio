@@ -556,12 +556,12 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
   );
 }
 
-function ProjectCard({ title, mark, status, description, image, imageAlt, problem, user, role, learned, proof, tags, index }) {
+function ProjectCard({ title, mark, status, description, image, imageFit, imageAlt, problem, user, role, learned, proof, tags, index }) {
   const projectAction = projectActions[title];
 
   return (
     <article className={`project-card project-showcase${index % 2 === 1 ? ' reverse' : ''}`}>
-      <div className="project-visual">
+      <div className={`project-visual${imageFit === 'contain' ? ' project-visual-contain' : ''}`}>
         <img src={image} alt={imageAlt} loading="lazy" />
       </div>
       <div className="project-copy">

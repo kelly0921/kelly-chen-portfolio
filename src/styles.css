@@ -1581,6 +1581,14 @@ li {
   transition: transform 420ms ease;
 }
 
+.project-visual-contain {
+  background: #f8fafc;
+}
+
+.project-visual-contain img {
+  object-fit: contain;
+}
+
 .project-showcase:hover .project-visual img {
   transform: scale(1.025);
 }
