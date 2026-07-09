@@ -435,7 +435,6 @@ h1 {
 }
 
 .signal-panel,
-.highlight-card,
 .pillar-card,
 .experience-card,
 .project-card,
@@ -759,7 +758,6 @@ h1 {
 }
 
 .pillar-card:hover,
-.highlight-card:hover,
 .project-card:hover,
 .event-card:hover,
 .community-card:hover,
@@ -769,15 +767,7 @@ h1 {
   box-shadow: var(--shadow);
 }
 
-.highlight-card:hover {
-  border-color: transparent;
-  border-top-color: var(--border);
-  transform: none;
-  box-shadow: none;
-}
-
 .pillar-label,
-.highlight-card span,
 .project-card > span,
 .event-card > span,
 .community-card > span,
@@ -953,7 +943,6 @@ h1 {
 }
 
 .pillar-card p,
-.highlight-card p,
 .project-card p,
 .event-card p,
 .community-card p,
@@ -962,8 +951,7 @@ h1 {
   line-height: 1.62;
 }
 
-.pillar-card a,
-.highlight-card a {
+.pillar-card a {
   color: var(--blue);
   font-weight: 820;
 }
@@ -993,7 +981,6 @@ h1 {
   --pillar-tint: var(--butter);
 }
 
-.highlight-grid,
 .project-grid,
 .event-grid,
 .community-grid,
@@ -1002,11 +989,6 @@ h1 {
   gap: 18px;
 }
 
-.highlight-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.highlight-card,
 .project-card,
 .event-card,
 .community-card,
@@ -1016,23 +998,6 @@ h1 {
   padding: 22px;
   position: relative;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.highlight-card {
-  border-color: transparent;
-  border-top: 1px solid var(--border);
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  padding: 20px 0;
-}
-
-.highlight-card::before {
-  display: none;
-}
-
-.highlight-card::after {
-  display: none;
 }
 
 .project-card::before,
@@ -1058,11 +1023,6 @@ h1 {
   display: none;
 }
 
-.highlight-card {
-  --card-accent: var(--blue);
-  --card-tint: var(--sky);
-}
-
 .event-card {
   --card-accent: var(--indigo);
   --card-tint: var(--lilac);
@@ -1078,7 +1038,6 @@ h1 {
   --card-tint: var(--butter);
 }
 
-.highlight-card h3,
 .project-card h3,
 .event-card h3,
 .community-card h3,
@@ -1087,6 +1046,58 @@ h1 {
   margin: 10px 0;
   font-size: 1.22rem;
   line-height: 1.22;
+}
+
+.highlight-list {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.highlight-row {
+  display: grid;
+  grid-template-columns: 52px minmax(190px, 0.72fr) minmax(0, 1fr) auto;
+  gap: clamp(14px, 2.4vw, 28px);
+  align-items: start;
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+
+.highlight-index {
+  color: var(--teal);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.highlight-row span:not(.highlight-index) {
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.highlight-row h3 {
+  margin: 6px 0 0;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.highlight-row p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.highlight-row a {
+  color: var(--blue);
+  font-size: 0.92rem;
+  font-weight: 820;
+  white-space: nowrap;
+}
+
+.highlight-row a::after {
+  content: " ->";
 }
 
 .community-overview {
@@ -2103,7 +2114,7 @@ dd {
 
 .reveal,
 .pillar-card,
-.highlight-card,
+.highlight-row,
 .experience-card,
 .project-card,
 .event-card,
@@ -2112,7 +2123,7 @@ dd {
   animation: riseIn 620ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
 }
 
-.highlight-card:nth-child(2),
+.highlight-row:nth-child(2),
 .project-card:nth-child(2),
 .event-card:nth-child(2),
 .community-card:nth-child(2),
@@ -2120,7 +2131,7 @@ dd {
   animation-delay: 70ms;
 }
 
-.highlight-card:nth-child(3),
+.highlight-row:nth-child(3),
 .community-card:nth-child(3),
 .media-card:nth-child(3) {
   animation-delay: 120ms;
@@ -2312,7 +2323,6 @@ dd {
   }
 
   .pillar-grid,
-  .highlight-grid,
   .collage-notes,
   .topic-grid,
   .community-grid,
@@ -2454,7 +2464,6 @@ dd {
   }
 
   .pillar-grid,
-  .highlight-grid,
   .collage-notes,
   .event-grid,
   .topic-grid,
@@ -2484,6 +2493,16 @@ dd {
   .resource-row {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+
+  .highlight-row {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 10px 14px;
+  }
+
+  .highlight-row p,
+  .highlight-row a {
+    grid-column: 2;
   }
 
   .experience-heading {

@@ -300,6 +300,8 @@ export const speakingEvents = [
     date: 'April 10-11, 2026',
     format: '60-minute in-person workshop-style talk',
     location: 'Hilton Albany, Albany, NY',
+    image: '/assets/speaking-nycwic-2026.jpg',
+    imageAlt: 'Kelly Chen speaking at NYCWiC with her presentation projected on screen.',
     description:
       'An in-person workshop version of the talk, built around reflection, discussion, and practical career-leverage exercises.',
     href: 'https://www.nycwic.org/',
@@ -314,6 +316,8 @@ export const speakingEvents = [
     date: 'May 14, 2026',
     format: '20-minute virtual talk during the Career Growth Summit',
     location: 'Virtual-first global conference',
+    image: '/assets/speaking-womentech-global-2026.jpg',
+    imageAlt: 'Women in Tech Global Conference 2026 speaker graphic for Kelly Chen.',
     description:
       'A concise virtual version focused on turning effort into visible growth, stronger positioning, and more durable career momentum.',
     href: 'https://www.womentech.net/women-tech-conference',

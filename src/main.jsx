@@ -160,9 +160,9 @@ function HomePage() {
 
       <section className="section-shell">
         <SectionHeading eyebrow="Featured" title="Selected Highlights" />
-        <div className="highlight-grid">
-          {highlights.map((item) => (
-            <HighlightCard key={item.title} {...item} />
+        <div className="highlight-list">
+          {highlights.map((item, index) => (
+            <HighlightCard key={item.title} index={index} {...item} />
           ))}
         </div>
       </section>
@@ -239,7 +239,7 @@ function SpeakingPage() {
       />
       {upcomingEvents.length ? (
         <section className="section-shell">
-          <SectionHeading eyebrow="Next" title="Scheduled Talk" />
+          <SectionHeading eyebrow="Next" title="Upcoming Talk" />
           <div className="event-grid event-grid-featured">
             {upcomingEvents.map((event) => (
               <EventCard key={event.event} {...event} />
@@ -473,13 +473,16 @@ function SignatureMark({ variant }) {
   );
 }
 
-function HighlightCard({ type, title, description, href }) {
+function HighlightCard({ type, title, description, href, index }) {
   return (
-    <article className="highlight-card">
-      <span>{type}</span>
-      <h3>{title}</h3>
+    <article className="highlight-row">
+      <span className="highlight-index">{String(index + 1).padStart(2, '0')}</span>
+      <div>
+        <span>{type}</span>
+        <h3>{title}</h3>
+      </div>
       <p>{description}</p>
-      <a href={href}>Read more</a>
+      <a href={href}>Explore</a>
     </article>
   );
 }
