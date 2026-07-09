@@ -1630,6 +1630,12 @@ li {
   transform: translateY(-2px) rotate(-2deg);
 }
 
+.project-mark img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
 .project-mark-teal {
   --project-mark-accent: var(--teal);
   --project-mark-tint: var(--mint);

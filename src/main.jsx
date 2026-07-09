@@ -606,10 +606,11 @@ function ProjectMark({ mark, title }) {
   const text = mark?.text || title.slice(0, 2).toUpperCase();
   const tone = mark?.tone || 'teal';
   const label = mark?.label || title;
+  const src = mark?.src;
 
   return (
     <span className={`project-mark project-mark-${tone}`} aria-label={`${label} mark`} title={label}>
-      {text}
+      {src ? <img src={src} alt="" loading="lazy" /> : text}
     </span>
   );
 }
