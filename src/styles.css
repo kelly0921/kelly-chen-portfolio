@@ -1935,6 +1935,30 @@ dd {
   margin-bottom: 0;
 }
 
+.media-card li {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: baseline;
+}
+
+.media-card li span {
+  min-width: 0;
+}
+
+.media-card li em {
+  flex: 0 0 auto;
+  border: 1px solid rgba(33, 37, 52, 0.12);
+  border-radius: 999px;
+  padding: 2px 8px;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
 .conference-series {
   display: grid;
   gap: 24px;

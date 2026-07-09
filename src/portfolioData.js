@@ -442,9 +442,9 @@ export const mediaChannels = [
     title: 'Conference Strategy Notes',
     description: 'Practical posts on conference ROI, funding, sponsor signals, and how students can turn events into leverage.',
     posts: [
-      'Conference ROI',
-      'Funding options',
-      'Sponsor signals',
+      { label: 'Conference ROI', format: 'Read' },
+      { label: 'Funding options', format: 'Read' },
+      { label: 'Sponsor signals', format: 'Read' },
     ],
   },
   {
@@ -453,9 +453,9 @@ export const mediaChannels = [
     title: 'LinkedIn Notes',
     description: 'A selected archive of posts, reflections, career lessons, and opportunity-sharing threads.',
     posts: [
-      'Opportunity roundups',
-      'Women-in-tech reflections',
-      'Early-career engineering lessons',
+      { label: 'Opportunity roundups', format: 'Read' },
+      { label: 'Women-in-tech reflections', format: 'Read' },
+      { label: 'Early-career engineering lessons', format: 'Read' },
     ],
   },
   {
@@ -464,9 +464,9 @@ export const mediaChannels = [
     title: 'Student Opportunity Library',
     description: 'Reusable guides and trackers for students navigating programs, fellowships, and technical communities.',
     posts: [
-      'Opportunity tracker',
-      'Application planning checklist',
-      'Programs worth watching',
+      { label: 'Opportunity tracker', format: 'Template' },
+      { label: 'Application planning checklist', format: 'Template' },
+      { label: 'Programs worth watching', format: 'Guide' },
     ],
   },
   {
@@ -475,9 +475,9 @@ export const mediaChannels = [
     title: 'Fintech & AI Notes',
     description: 'Informal notes from product experiments, payment concepts, AI-assisted builds, and technical learning.',
     posts: [
-      'QR payment ideas',
-      'AI-assisted workflow notes',
-      'Product friction observations',
+      { label: 'QR payment ideas', format: 'Note' },
+      { label: 'AI-assisted workflow notes', format: 'Note' },
+      { label: 'Product friction observations', format: 'Note' },
     ],
   },
 ];

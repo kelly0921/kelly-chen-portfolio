@@ -764,7 +764,10 @@ function MediaChannel({ type, status, title, description, posts }) {
       <p>{description}</p>
       <ul>
         {posts.map((post) => (
-          <li key={post}>{post}</li>
+          <li key={post.label ?? post}>
+            <span>{post.label ?? post}</span>
+            {post.format ? <em>{post.format}</em> : null}
+          </li>
         ))}
       </ul>
     </article>
