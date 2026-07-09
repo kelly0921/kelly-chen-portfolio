@@ -1767,6 +1767,12 @@ dd {
   position: relative;
 }
 
+.event-subtitle {
+  margin-top: -4px;
+  color: var(--text);
+  font-weight: 760;
+}
+
 .community-card span {
   color: var(--rose);
   font-size: 0.76rem;

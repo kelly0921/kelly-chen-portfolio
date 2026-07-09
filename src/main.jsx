@@ -232,10 +232,10 @@ function SpeakingPage() {
       <PageHero
         eyebrow="Speaking"
         title="Speaking & Events"
-        body="Talks, panels, workshops, ambassador work, presentations, and event moments."
+        body="Workshops, virtual talks, flash sessions, and conversations about building career leverage as an emerging engineer."
       />
       <section className="section-shell">
-        <SectionHeading eyebrow="Featured Events" title="Where I Show Up" />
+        <SectionHeading eyebrow="Speaker Archive" title="Conference Talks" />
         <div className="event-grid">
           {speakingEvents.map((event) => (
             <EventCard key={event.event} {...event} />
@@ -583,13 +583,22 @@ function ProjectMark({ mark, title }) {
   );
 }
 
-function EventCard({ event, role, topic, location, audience, description }) {
+function EventCard({ event, role, topic, subtitle, date, format, location, audience, description }) {
   return (
     <article className="event-card">
       <span>{role}</span>
       <h3>{event}</h3>
       <p>{topic}</p>
+      {subtitle ? <p className="event-subtitle">{subtitle}</p> : null}
       <dl>
+        <div>
+          <dt>Date</dt>
+          <dd>{date}</dd>
+        </div>
+        <div>
+          <dt>Format</dt>
+          <dd>{format}</dd>
+        </div>
         <div>
           <dt>Location</dt>
           <dd>{location}</dd>

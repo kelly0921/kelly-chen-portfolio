@@ -291,40 +291,40 @@ export const projectActions = {
 
 export const speakingEvents = [
   {
-    event: 'Harvard WECode 2024',
-    role: 'Distinguished Fellow Leadership Award',
-    topic: 'Women in tech, student access, conference outreach',
-    location: 'Cambridge, MA',
-    audience: 'Students and women-in-tech community members',
+    event: 'ACM NYCWiC 2026',
+    role: 'In-person workshop speaker',
+    topic: 'Building Career Leverage as an Emerging Engineer',
+    subtitle: 'Moving from "Doing Everything Right" to Scaling Your Impact',
+    date: '2026',
+    format: '60-minute in-person workshop-style talk',
+    location: 'ACM New York Celebration of Women in Computing',
+    audience: 'Women in computing, students, and emerging technologists',
     description:
-      'Recognized through Harvard WECode while helping expand access to women-in-tech conference opportunities.',
+      'A practical session on moving beyond checking the right boxes and learning how to build leverage through technical growth, community, storytelling, and intentional opportunity selection.',
   },
   {
-    event: 'Women in Computer Science events',
-    role: 'Organizer / Facilitator',
-    topic: 'Student community, career pathways, opportunity sharing',
-    location: 'Lehigh University',
-    audience: 'Computer science students and campus community',
+    event: 'Women in Tech Global Conference 2026',
+    role: 'Virtual speaker',
+    topic: 'Building Career Leverage as an Emerging Engineer',
+    subtitle: 'Moving from "Doing Everything Right" to Scaling Your Impact',
+    date: 'May 14, 2026',
+    format: '20-minute virtual talk',
+    location: 'Virtual',
+    audience: 'Global women-in-tech and early-career engineering audience',
     description:
-      'Supported events and conversations that helped students find resources, build confidence, and connect with technical opportunities.',
+      'A focused version of the talk built for a virtual audience, centered on translating effort into visible growth, stronger positioning, and more durable career momentum.',
   },
   {
-    event: 'Cyber Sentinel Ambassador work',
-    role: 'Ambassador / Representative',
-    topic: 'Cybersecurity opportunities and student awareness',
-    location: 'Student and program communities',
-    audience: 'Students exploring cybersecurity and tech pathways',
+    event: 'NCWIT Career Fair',
+    role: 'Flash talk speaker',
+    topic: 'Building Career Leverage as an Emerging Engineer',
+    subtitle: 'Moving from "Doing Everything Right" to Scaling Your Impact',
+    date: 'August 5, 2026',
+    format: 'Upcoming 30-minute flash talk session',
+    location: 'NCWIT Career Fair',
+    audience: 'Students and early-career technologists exploring career paths',
     description:
-      'Shared cybersecurity-related opportunities and helped make technical programs more visible to students.',
-  },
-  {
-    event: 'Hackathons and student programs',
-    role: 'Presenter / Organizer / Participant',
-    topic: 'Building, collaboration, and technical problem solving',
-    location: 'Campus and tech community events',
-    audience: 'Student builders and early-career technologists',
-    description:
-      'Participated in and supported spaces where students could build projects, present ideas, and learn through collaboration.',
+      'A concise career-leverage session designed for a fast-moving career fair setting, with concrete ways to make experience, projects, and community work compound.',
   },
 ];
 
