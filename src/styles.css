@@ -2630,7 +2630,7 @@ dd {
 
 .library-controls {
   display: grid;
-  grid-template-columns: minmax(240px, 1.6fr) repeat(5, minmax(132px, 1fr)) auto;
+  grid-template-columns: minmax(240px, 1.6fr) repeat(6, minmax(118px, 1fr)) auto;
   gap: 10px;
   align-items: end;
   border: 1px solid var(--border);
@@ -2763,7 +2763,7 @@ dd {
 .opportunity-record dl,
 .detail-watchlist dl {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   margin: 0;
 }
@@ -2852,7 +2852,7 @@ dd {
 
 .detail-meta-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -2896,6 +2896,13 @@ dd {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 14px 0;
+}
+
+.detail-source-note {
+  border: 1px solid color-mix(in srgb, var(--rose) 22%, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--peach) 52%, rgba(255, 255, 255, 0.72));
+  padding: 12px;
 }
 
 .detail-link {

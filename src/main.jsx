@@ -570,6 +570,7 @@ function MediaPage() {
 function OpportunityLibraryPage() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('all');
+  const [classYear, setClassYear] = useState('all');
   const [audience, setAudience] = useState('all');
   const [season, setSeason] = useState('all');
   const [funding, setFunding] = useState('all');
@@ -595,14 +596,15 @@ function OpportunityLibraryPage() {
 
       const matchesQuery = !normalizedQuery || searchableText.includes(normalizedQuery);
       const matchesCategory = category === 'all' || opportunity.category === category;
+      const matchesClassYear = classYear === 'all' || opportunity.classYears?.includes(classYear);
       const matchesAudience = audience === 'all' || opportunity.audience.includes(audience);
       const matchesSeason = season === 'all' || opportunity.season === season;
       const matchesFunding = funding === 'all' || opportunity.fundingAvailable === funding;
       const matchesStatus = status === 'all' || opportunity.status === status;
 
-      return matchesQuery && matchesCategory && matchesAudience && matchesSeason && matchesFunding && matchesStatus;
+      return matchesQuery && matchesCategory && matchesClassYear && matchesAudience && matchesSeason && matchesFunding && matchesStatus;
     });
-  }, [audience, category, funding, query, season, status]);
+  }, [audience, category, classYear, funding, query, season, status]);
 
   useEffect(() => {
     if (!filteredOpportunities.length) {
@@ -621,6 +623,7 @@ function OpportunityLibraryPage() {
   const clearFilters = () => {
     setQuery('');
     setCategory('all');
+    setClassYear('all');
     setAudience('all');
     setSeason('all');
     setFunding('all');
@@ -665,6 +668,7 @@ function OpportunityLibraryPage() {
             />
           </label>
           <LibrarySelect label="Category" value={category} onChange={setCategory} options={opportunityFilters.categories} />
+          <LibrarySelect label="Year" value={classYear} onChange={setClassYear} options={opportunityFilters.classYears} />
           <LibrarySelect label="Audience" value={audience} onChange={setAudience} options={opportunityFilters.audiences} />
           <LibrarySelect label="Season" value={season} onChange={setSeason} options={opportunityFilters.seasons} />
           <LibrarySelect label="Funding" value={funding} onChange={setFunding} options={opportunityFilters.funding} />
@@ -745,6 +749,10 @@ function OpportunityCard({ opportunity, selected, onSelect }) {
       </div>
       <dl>
         <div>
+          <dt>Year</dt>
+          <dd>{opportunity.classYears?.join(', ') || 'Verify'}</dd>
+        </div>
+        <div>
           <dt>Season</dt>
           <dd>{opportunity.season}</dd>
         </div>
@@ -779,6 +787,7 @@ function OpportunityDetail({ opportunity }) {
       </div>
       <div className="detail-meta-grid">
         <DetailMetric label="Category" value={opportunity.category} />
+        <DetailMetric label="Year" value={opportunity.classYears?.join(', ') || 'Verify'} />
         <DetailMetric label="Season" value={opportunity.season} />
         <DetailMetric label="Funding" value={opportunity.fundingAvailable} />
         <DetailMetric label="Confidence" value={confidenceLabels[opportunity.confidenceLevel]} />
@@ -800,7 +809,7 @@ function OpportunityDetail({ opportunity }) {
         <dl>
           <div>
             <dt>Expected opening</dt>
-            <dd>{opportunity.expectedOpeningMonth}</dd>
+            <dd>{opportunity.openDate || opportunity.expectedOpeningMonth}</dd>
           </div>
           <div>
             <dt>Deadline</dt>
@@ -816,6 +825,12 @@ function OpportunityDetail({ opportunity }) {
           </div>
         </dl>
       </section>
+      {opportunity.sourceNote ? (
+        <section className="detail-source-note">
+          <h3>Source note</h3>
+          <p>{opportunity.sourceNote}</p>
+        </section>
+      ) : null}
       <TagCloud tags={opportunity.audience} />
       <a className="button primary detail-link" href={opportunity.applicationUrl} target="_blank" rel="noreferrer">
         View Source
