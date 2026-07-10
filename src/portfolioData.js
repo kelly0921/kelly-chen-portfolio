@@ -334,9 +334,9 @@ export const projectActions = {
   },
   Tandem: {
     body:
-      'Tandem is currently a validation MVP: a landing page, Ambition Archetype quiz, and waitlist flow for ambitious NYC singles. It is not a live dating app yet.',
+      'Tandem is live as a validation site with a landing page, Ambition Archetype quiz, and waitlist flow for ambitious NYC singles. It is not a full dating app yet.',
     primaryLabel: 'Join the Tandem Waitlist',
-    primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=Join%20the%20Tandem%20waitlist',
+    primaryHref: 'https://tandem-dating.pages.dev/tandem/',
     secondaryLabel: 'Learn More',
     secondaryHref: '#tandem',
   },
@@ -545,7 +545,7 @@ export const tandemCaseStudy = {
   role: 'Product strategist, validation MVP builder, brand direction lead, and archetype-system designer',
   stack: ['Product strategy', 'Landing page', 'Ambition Archetype quiz', 'Tally embed', 'Local CSV/JSON export', 'Analytics hooks'],
   overview:
-    'Tandem is a validation-first NYC dating experiment for ambitious singles ages 21-30. The first version is a public landing page, Ambition Archetype quiz, and waitlist flow designed to test whether ambition and life-direction compatibility can become a meaningful dating signal.',
+    'Tandem is a validation-first NYC dating experiment for ambitious singles ages 21-30. The live first version is a public landing page, Ambition Archetype quiz, and waitlist flow designed to test whether ambition and life-direction compatibility can become a meaningful dating signal.',
   overviewTitle: 'A Dating Experiment Built Around Direction',
   problem:
     'Dating apps often focus on photos, prompts, location, hobbies, and job titles. They rarely capture the deeper compatibility signals that matter to people still forming their career identities: ambition type, lifestyle rhythm, risk tolerance, emotional maturity, relationship intention, and future direction.',
@@ -582,7 +582,7 @@ export const tandemCaseStudy = {
       title: 'Concept Brand Card',
       src: '/assets/project-tandem.svg',
       alt: 'Tandem concept card introducing a dating product for complementary ambition.',
-      caption: 'Because Tandem is not built yet, the portfolio uses a simple concept card instead of fake app screenshots.',
+      caption: 'The portfolio keeps the visual intentionally brand-led while the live validation site tests positioning, quiz intent, and waitlist demand.',
     },
   ],
   workflowImage: {
@@ -605,15 +605,15 @@ export const tandemCaseStudy = {
     'Dating products need emotional clarity and safety; the brand cannot feel like finance, networking, or fake startup hype.',
   ],
   nextSteps: [
-    'Connect the real Tally form URL and replace the fallback form before public launch.',
+    'Use the live validation site to gather waitlist interest, quiz completions, and qualitative feedback from the first NYC audience.',
     'Add a real analytics provider such as Plausible, Google Analytics, or Google Tag Manager.',
-    'Deploy with Cloudflare Pages, add Open Graph preview metadata, and complete one final mobile polish pass.',
+    'Refine the launch funnel, Open Graph preview metadata, and mobile polish as early users interact with the site.',
   ],
   ctaTitle: 'Join The Tandem Waitlist',
   ctaBody:
-    'Tandem is still an early validation MVP. The current goal is to learn whether ambitious NYC singles ages 21-30 want a dating experience built around lifestyle, ambition, and future direction.',
+    'Tandem is live as an early validation MVP. The current goal is to learn whether ambitious NYC singles ages 21-30 want a dating experience built around lifestyle, ambition, and future direction.',
   ctaLabel: 'Join the Tandem Waitlist',
-  ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=Join%20the%20Tandem%20waitlist',
+  ctaHref: 'https://tandem-dating.pages.dev/tandem/',
 };
 
 export const speakingEvents = [
