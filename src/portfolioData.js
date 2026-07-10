@@ -277,18 +277,18 @@ export const projects = [
     group: 'Startup Concept',
     title: 'Tandem',
     mark: { src: '/assets/tandem-reference-mark-centered.png', label: 'Tandem', tone: 'rose' },
-    status: 'Early concept / validation stage',
+    status: 'Early validation MVP',
     description:
-      'An early-stage dating concept for ambitious NYC singles, exploring matches based on career archetype, risk tolerance, lifestyle rhythm, and long-term compatibility.',
+      'A NYC dating experiment for ambitious singles in their 20s, testing whether ambition type, lifestyle rhythm, risk tolerance, and future direction can become meaningful dating signals.',
     image: '/assets/project-tandem.svg',
     imageFit: 'contain',
-    imageAlt: 'Tandem concept card introducing a dating product for complementary ambition.',
-    problem: 'Most dating apps optimize for surface-level signals, but ambitious professionals often need compatibility around career rhythm, risk tolerance, and future goals.',
-    user: 'NYC singles ages 24-35 who are career-driven, dating intentionally, and interested in long-term partnership.',
-    role: 'Product strategist, concept developer, validation planner, and archetype-system designer.',
-    learned: 'Early consumer products need trust, emotional framing, and validation before product complexity.',
-    proof: 'Ability to turn a cultural insight into a testable product thesis, landing-page funnel, quiz strategy, waitlist plan, and manual matching experiment.',
-    tags: ['Product strategy', 'Consumer app', 'Dating tech', 'MVP validation', 'UX research'],
+    imageAlt: 'Tandem concept card for Dating for Complementary Ambition.',
+    problem: 'Most dating apps ask what someone does, but not what era of life they are in or what kind of partner energy complements their direction.',
+    user: 'Ambitious NYC singles ages 21-30: students, new grads, interns, early-career professionals, startup employees, creators, and side-project builders.',
+    role: 'Product strategist, validation MVP builder, brand direction lead, and archetype-system designer.',
+    learned: 'For consumer products, validation should test trust, emotional framing, and demand before building accounts, matching, chat, or app infrastructure.',
+    proof: 'Built a landing page, Ambition Archetype quiz and waitlist flow, Tally-ready integration, local CSV/JSON export fallback, and lightweight analytics hooks.',
+    tags: ['Validation MVP', 'Landing page', 'Ambition archetypes', 'Tally-ready', 'Consumer research'],
   },
 ];
 
@@ -317,7 +317,7 @@ export const projectActions = {
   },
   Tandem: {
     body:
-      'Tandem is currently a validation-first concept around complementary ambition, archetype-based matching, and a curated NYC launch wedge.',
+      'Tandem is currently a validation MVP: a landing page, Ambition Archetype quiz, and waitlist flow for ambitious NYC singles. It is not a live dating app yet.',
     primaryLabel: 'Join the Tandem Waitlist',
     primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=Join%20the%20Tandem%20waitlist',
     secondaryLabel: 'Learn More',
@@ -517,41 +517,41 @@ export const tandemCaseStudy = {
   eyebrow: 'Tandem',
   title: 'Dating For Complementary Ambition',
   subtitle:
-    'An early-stage dating product concept for ambitious NYC singles who care about career, lifestyle, risk, and building a future.',
-  status: 'Early concept / validation stage',
-  role: 'Product strategist, concept developer, validation planner, and archetype-system designer',
-  stack: ['Product strategy', 'Consumer research', 'Landing page funnel', 'Tally or Typeform', 'Airtable or Google Sheets', 'Manual matching'],
+    'An early-stage NYC dating experiment for ambitious singles in their 20s who care about lifestyle, ambition, and future direction.',
+  status: 'Early validation MVP',
+  role: 'Product strategist, validation MVP builder, brand direction lead, and archetype-system designer',
+  stack: ['Product strategy', 'Landing page', 'Ambition Archetype quiz', 'Tally embed', 'Local CSV/JSON export', 'Analytics hooks'],
   overview:
-    'Tandem is a curated NYC dating experiment for ambitious singles who want more than surface-level dating app matches. Most dating apps ask what you do. Tandem asks what kind of life you are building.',
-  overviewTitle: 'A Dating Concept Built Around Life Strategy',
+    'Tandem is a validation-first NYC dating experiment for ambitious singles ages 21-30. The first version is a public landing page, Ambition Archetype quiz, and waitlist flow designed to test whether ambition and life-direction compatibility can become a meaningful dating signal.',
+  overviewTitle: 'A Dating Experiment Built Around Direction',
   problem:
-    'Dating apps often focus on photos, prompts, location, hobbies, and job titles. They rarely capture the deeper compatibility signals that matter to ambitious professionals: career archetype, risk tolerance, lifestyle rhythm, relationship intention, emotional maturity, and long-term goals.',
+    'Dating apps often focus on photos, prompts, location, hobbies, and job titles. They rarely capture the deeper compatibility signals that matter to people still forming their career identities: ambition type, lifestyle rhythm, risk tolerance, emotional maturity, relationship intention, and future direction.',
   problemTitle: 'Surface-Level Matching Misses The Real Fit',
   buildEyebrow: 'Validation',
-  buildTitle: 'Validation Plan',
+  buildTitle: 'Validation MVP',
   whatIBuilt: [
-    'Define the first launch wedge around ambitious NYC singles ages 24-35 who are dating intentionally.',
-    'Create a lightweight validation funnel: landing page, Ambition Archetype quiz, waitlist, and follow-up research.',
-    'Use a third-party form such as Tally, with Typeform as an alternative, so quiz questions and matching criteria can change quickly.',
-    'Store early responses in Airtable or Google Sheets before building custom signup infrastructure.',
-    'Explore optional manual matching or invite-only NYC events only if enough qualified users join the waitlist.',
+    'Built a public landing page that explains the thesis, status, and quiz call to action.',
+    'Developed the Ambition Archetype quiz and waitlist flow to test compatibility around career mode, risk, lifestyle, and partner energy.',
+    'Added a Tally embed path for public launch, while keeping a local CSV and JSON export fallback for early testing.',
+    'Instrumented lightweight analytics hooks around landing views, CTA clicks, quiz starts, waitlist completion, mixer interest, and export events.',
+    'Kept the MVP intentionally scoped to landing page, quiz, and waitlist only, avoiding premature app features.',
   ],
   productDecisions: [
     {
       title: 'Validate Before Building',
-      text: 'The first version is intentionally not a mobile app. The goal is to test whether people want this matching thesis before investing in a full product.',
+      text: 'The first version is intentionally not a dating app. It has no accounts, swiping, matching, chat, payments, or backend database. The goal is to test demand before investing in product complexity.',
     },
     {
       title: 'Start With NYC',
-      text: 'NYC offers a dense mix of founders, operators, tech workers, finance professionals, creators, and ambitious young professionals, making it a focused launch market.',
+      text: 'NYC offers a dense mix of students, interns, new grads, startup employees, creators, side-project builders, and young professionals, making it a focused launch market for intentional dating.',
     },
     {
-      title: 'Quiz As Hook And Research',
-      text: 'The Ambition Archetype quiz gives users a reason to engage while collecting structured compatibility and demand signals.',
+      title: 'Archetypes As Research',
+      text: 'Builder, Anchor, Accelerator, Creator, Operator, and Explorer archetypes give users a warm way to engage while collecting structured signals about ambition and lifestyle compatibility.',
     },
     {
-      title: 'Dating-First, Not LinkedIn Dating',
-      text: 'The product should stay human and relationship-oriented, avoiding income-based, elitist, or transactional framing.',
+      title: 'Dating-First, Not Corporate',
+      text: 'The tone should feel warm, premium, intentional, and honest: ambitious without sounding corporate, NYC-coded without cliche, and never framed as LinkedIn dating.',
     },
   ],
   images: [
@@ -567,28 +567,28 @@ export const tandemCaseStudy = {
     alt: 'Tandem validation flow from portfolio or landing page to Ambition Archetype quiz, waitlist, response database, and manual matching.',
   },
   screenshotEyebrow: 'Concept Visual',
-  screenshotTitle: 'Placeholder Branding',
+  screenshotTitle: 'Connected Intent Brand Direction',
   technicalTitle: 'Lightweight MVP Funnel',
   technicalHighlights: [
-    'Portfolio or landing page explains the thesis and drives people to the quiz.',
-    'Embedded Tally form collects Ambition Archetype and waitlist data without custom form infrastructure.',
-    'Airtable or Google Sheets keeps early validation data editable and easy to review.',
-    'Manual matching can test the quality of the thesis before any algorithm or app build.',
-    'No income question in the first version, to avoid making the product feel transactional or low-trust.',
+    'Public landing page explains the thesis, audience, and transparent early-validation status.',
+    'Tally-ready quiz path can replace the local fallback form before public traffic.',
+    'Local fallback form stores submissions in the visitor browser and supports CSV/JSON export.',
+    'Analytics events track landing views, CTA clicks, quiz intent, waitlist completion, mixer interest, and exports.',
+    'Validation target is 100 qualified NYC singles ages 21-30 completing the quiz and joining the waitlist.',
   ],
   lessons: [
     'A cultural insight becomes stronger when it is translated into a testable product hypothesis.',
-    'Early consumer validation should reduce uncertainty before product complexity increases.',
-    'Trust, positioning, and emotional safety matter as much as matching mechanics in dating products.',
+    'Early consumer validation should measure trust, intent, and qualified demand before product complexity increases.',
+    'Dating products need emotional clarity and safety; the brand cannot feel like finance, networking, or fake startup hype.',
   ],
   nextSteps: [
-    'Create a public-facing Tandem landing page with the core positioning and validation framing.',
-    'Build the 2-minute Ambition Archetype quiz in Tally and connect responses to Airtable or Google Sheets.',
-    'Use LinkedIn, Instagram, TikTok, alumni networks, NYC tech communities, and friends-of-friends to reach 100 qualified NYC waitlist signups.',
+    'Connect the real Tally form URL and replace the fallback form before public launch.',
+    'Add a real analytics provider such as Plausible, Google Analytics, or Google Tag Manager.',
+    'Deploy with Cloudflare Pages, add Open Graph preview metadata, and complete one final mobile polish pass.',
   ],
   ctaTitle: 'Join The Tandem Waitlist',
   ctaBody:
-    'Tandem is still a validation-stage concept. The next step is a lightweight landing page and 2-minute Ambition Archetype quiz to understand whether ambitious NYC singles want this kind of matching experience.',
+    'Tandem is still an early validation MVP. The current goal is to learn whether ambitious NYC singles ages 21-30 want a dating experience built around lifestyle, ambition, and future direction.',
   ctaLabel: 'Join the Tandem Waitlist',
   ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=Join%20the%20Tandem%20waitlist',
 };
@@ -844,10 +844,10 @@ export const mediaChannels = [
 ];
 
 export const opportunitySystems = {
-  eyebrow: 'Tools from this work',
+  eyebrow: 'Tools from the notes',
   title: 'Opportunity Systems',
   description:
-    'A practical layer growing out of my conference notes, community work, and student resource sharing: helping emerging engineers know what to watch, when to prepare, and how to turn access into leverage.',
+    'The conference series is turning into a practical resource layer: a library, tracker ideas, and planning tools that help emerging engineers know what to watch, when to prepare, and how to turn access into leverage.',
   cta: {
     label: 'Follow the notes on LinkedIn',
     href: 'https://www.linkedin.com/in/kellychen0921/',
@@ -890,21 +890,56 @@ export const conferenceSeries = {
   status: '11-part series',
   description:
     'A no-sugarcoat guide to deciding whether tech conferences are worth it, getting funded, reading sponsor signals, and turning events into career leverage.',
+  primaryCta: {
+    label: 'Read on LinkedIn',
+    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
+  },
+  brief: [
+    {
+      label: 'For',
+      text: 'Students and emerging engineers deciding where to spend time, money, and attention.',
+    },
+    {
+      label: 'Format',
+      text: 'Short LinkedIn posts that can later become a conference kit, planner, and resource pack.',
+    },
+    {
+      label: 'Core idea',
+      text: 'Conferences are not automatically worth it. They work when you use them for leverage, not just effort.',
+    },
+  ],
   phases: [
     {
+      kicker: 'Phase 1',
       title: 'Reality Check',
       description: 'Signal inflation, student stage, DEI budget shifts, AI hiring, and the real question of whether a conference is worth it.',
-      items: ['ROI filter', 'Underclassmen vs. upperclassmen', 'DEI budget shifts', 'AI and systems thinking'],
+      posts: [
+        { day: 'Day 1', title: 'Is a conference worth it for you this year?' },
+        { day: 'Day 2', title: 'Underclassmen vs. upperclassmen: conferences are not equal' },
+        { day: 'Day 3', title: 'How budget cuts changed the room' },
+        { day: 'Day 4', title: 'Why systems thinking is becoming the stronger signal' },
+        { day: 'Day 5', title: 'Paying out of pocket? Use the skin-in-the-game filter' },
+      ],
     },
     {
+      kicker: 'Phase 2',
       title: 'Strategy & ROI',
       description: 'How to compare conferences against referrals and internships, read sponsor intent, and spend your time where signal is highest.',
-      items: ['Career lever comparison', 'Sponsor hierarchy', 'Resume parsability', 'Technical positioning'],
+      posts: [
+        { day: 'Day 6', title: 'ROI breakdown: conferences vs. referrals vs. internships' },
+        { day: 'Day 7', title: 'The quiet mistakes students make before day one' },
+        { day: 'Day 8', title: 'What sponsor tiers actually tell you' },
+        { day: 'Day 9', title: 'How to stay visible when resume systems filter by data' },
+      ],
     },
     {
+      kicker: 'Phase 3',
       title: 'Execution',
       description: 'The practical moves before and during the event: funding, private rooms, social signup windows, follow-up, workshops, and peer intel.',
-      items: ['Funding sources', 'Pre-conference outreach', 'Social layer', 'Conference-day checklist'],
+      posts: [
+        { day: 'Day 10', title: 'How to navigate workshops, panels, peers, and the social layer' },
+        { day: 'Day 11', title: 'Where conference funding actually comes from' },
+      ],
     },
   ],
   takeaways: [

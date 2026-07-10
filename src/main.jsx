@@ -524,32 +524,20 @@ function MediaPage() {
     <>
       <PageHero
         eyebrow="Content"
-        title="Resource Desk"
-        body="A public archive for posts, opportunity resources, conference kits, templates, and practical notes from what I am learning and sharing."
+        title="Content & Resources"
+        body="Practical notes, conference strategy, opportunity resources, and reusable tools from what I am learning, building, and sharing."
       />
-      <section className="section-shell">
+      <section className="section-shell content-map-section">
+        <ContentMap />
+      </section>
+      <section className="section-shell content-feature-section">
         <ConferenceSeries series={conferenceSeries} />
       </section>
       <section className="section-shell opportunity-section">
         <OpportunitySystems systems={opportunitySystems} />
       </section>
       <section className="section-shell">
-        <div className="opportunity-library-teaser">
-          <div>
-            <p className="eyebrow">Phase 1 build</p>
-            <h2>Student Opportunity Library</h2>
-            <p>
-              A searchable seed library for high-signal fellowships, scholarships, technical communities,
-              training programs, and conference funding paths.
-            </p>
-          </div>
-          <a className="button primary" href="#opportunities">
-            Open Library
-          </a>
-        </div>
-      </section>
-      <section className="section-shell">
-        <SectionHeading eyebrow="Library" title="Content Collections" />
+        <SectionHeading eyebrow="Browse" title="Content Shelves" />
         <div className="media-grid">
           {mediaChannels.map((group) => (
             <MediaChannel key={group.title} {...group} />
@@ -564,6 +552,47 @@ function MediaPage() {
         label="View LinkedIn"
       />
     </>
+  );
+}
+
+function ContentMap() {
+  const paths = [
+    {
+      label: 'Start here',
+      title: 'Conference Strategy Series',
+      text: 'A guided series on deciding if conferences are worth it, finding funding, reading the room, and turning events into leverage.',
+      href: '#conference-series',
+    },
+    {
+      label: 'Use next',
+      title: 'Student Opportunity Library',
+      text: 'A searchable base of programs, fellowships, scholarships, technical communities, and conference funding paths worth watching.',
+      href: '#opportunities',
+    },
+    {
+      label: 'Follow along',
+      title: 'LinkedIn Notes',
+      text: 'Short-form posts and informal breakdowns that may become future guides, templates, resource kits, or newsletter issues.',
+      href: 'https://www.linkedin.com/in/kellychen0921/',
+    },
+  ];
+
+  return (
+    <div className="content-map">
+      <div>
+        <p className="eyebrow">How to use this page</p>
+        <h2>Read the idea, then use the resource.</h2>
+      </div>
+      <div className="content-map-list">
+        {paths.map((path) => (
+          <a key={path.title} href={path.href} className="content-map-row">
+            <span>{path.label}</span>
+            <strong>{path.title}</strong>
+            <p>{path.text}</p>
+          </a>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -1205,26 +1234,52 @@ function ResourceList({ items }) {
 
 function ConferenceSeries({ series }) {
   return (
-    <article className="conference-series">
-      <div className="conference-series-intro">
-        <span>{series.label}</span>
-        <h2>{series.title}</h2>
-        <p>{series.description}</p>
-        <strong>{series.status}</strong>
+    <article className="conference-series" id="conference-series">
+      <div className="conference-feature">
+        <div className="conference-series-intro">
+          <span>{series.label}</span>
+          <h2>{series.title}</h2>
+          <p>{series.description}</p>
+          <div className="conference-actions">
+            <a className="button primary" href={series.primaryCta.href} target="_blank" rel="noreferrer">
+              {series.primaryCta.label}
+            </a>
+            <a className="button secondary" href="#opportunities">
+              Open Library
+            </a>
+          </div>
+        </div>
+        <aside className="conference-brief" aria-label="Conference series summary">
+          <span>{series.status}</span>
+          {series.brief.map((item) => (
+            <p key={item.label}>
+              <strong>{item.label}</strong>
+              {item.text}
+            </p>
+          ))}
+        </aside>
       </div>
-      <div className="conference-phase-grid">
+
+      <div className="conference-route" aria-label="Conference strategy reading route">
         {series.phases.map((phase) => (
-          <section className="conference-phase" key={phase.title}>
-            <h3>{phase.title}</h3>
-            <p>{phase.description}</p>
-            <ul>
-              {phase.items.map((item) => (
-                <li key={item}>{item}</li>
+          <section className="conference-route-phase" key={phase.title}>
+            <div>
+              <span>{phase.kicker}</span>
+              <h3>{phase.title}</h3>
+              <p>{phase.description}</p>
+            </div>
+            <ol>
+              {phase.posts.map((post) => (
+                <li key={post.day}>
+                  <span>{post.day}</span>
+                  <p>{post.title}</p>
+                </li>
               ))}
-            </ul>
+            </ol>
           </section>
         ))}
       </div>
+
       <div className="conference-takeaways">
         <span>What Readers Get</span>
         <div>
