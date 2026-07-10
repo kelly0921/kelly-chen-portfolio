@@ -2,15 +2,25 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 import {
+  confidenceLabels,
+  opportunities,
+  opportunityFilters,
+  opportunityLibraryStats,
+  opportunityStatusLabels,
+} from './opportunityLibrary';
+import {
   beamCashCaseStudy,
   conferenceSeries,
   communityWork,
+  communityMoments,
+  communityConferenceMoments,
   communityResources,
   experiences,
   availableTopics,
   highlights,
   mediaChannels,
   navItems,
+  opportunitySystems,
   personalityNotes,
   pillars,
   projectActions,
@@ -18,10 +28,11 @@ import {
   skillGroups,
   speakingEvents,
   speakingMoments,
+  tandemCaseStudy,
   webPilotCaseStudy,
 } from './portfolioData';
 
-const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'speaking', 'community', 'media'];
+const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'tandem', 'speaking', 'community', 'media', 'opportunities'];
 
 const pageNotes = {
   Experience: {
@@ -43,6 +54,10 @@ const pageNotes = {
   Content: {
     label: 'Share notes',
     text: 'Informal posts, newsletter ideas, and resources that make useful paths easier to find.',
+  },
+  Opportunities: {
+    label: 'Library notes',
+    text: 'Curated student opportunity records, verification status, and timing signals.',
   },
 };
 
@@ -73,12 +88,16 @@ function App() {
         return <ProjectCaseStudyPage caseStudy={beamCashCaseStudy} />;
       case 'webpilot':
         return <ProjectCaseStudyPage caseStudy={webPilotCaseStudy} />;
+      case 'tandem':
+        return <ProjectCaseStudyPage caseStudy={tandemCaseStudy} />;
       case 'speaking':
         return <SpeakingPage />;
       case 'community':
         return <CommunityPage />;
       case 'media':
         return <MediaPage />;
+      case 'opportunities':
+        return <OpportunityLibraryPage />;
       default:
         return <HomePage />;
     }
@@ -94,7 +113,7 @@ function App() {
 }
 
 function Navbar({ activeRoute }) {
-  const navActiveRoute = ['beamcash', 'webpilot'].includes(activeRoute) ? 'projects' : activeRoute;
+  const navActiveRoute = ['beamcash', 'webpilot', 'tandem'].includes(activeRoute) ? 'projects' : activeRoute;
 
   return (
     <header className="site-header">
@@ -136,9 +155,9 @@ function HomePage() {
           </h1>
           <p className="hero-intro">
             I build reliable systems, study how product decisions shape everyday
-            transactions, and organize resources that make technical paths easier to
-            find. My work connects fintech engineering, product curiosity, and
-            access-minded community building.
+            transactions, test ideas with real feedback, and organize resources that
+            make technical paths easier to find. My work connects fintech engineering,
+            product curiosity, and access-minded community building.
           </p>
           <div className="button-row">
             <a className="button primary" href="#experience">
@@ -328,11 +347,49 @@ function CommunityPage() {
           ))}
         </div>
       </section>
+      <section className="section-shell community-moments">
+        <div className="community-moments-copy">
+          <p className="eyebrow">Summer Hub</p>
+          <h2>Organizing rooms where students could meet, ask, and stay connected.</h2>
+          <p>
+            As a NYC Summer Tech Hub Leader, I helped turn community programming into
+            repeatable touchpoints: gatherings, small-group discussions, and informal
+            spaces where students could build confidence and relationships.
+          </p>
+        </div>
+        <div className="community-moment-grid" aria-label="NYC Summer Tech Hub moments">
+          {communityMoments.map((moment) => (
+            <figure className="community-moment" key={moment.src}>
+              <img src={moment.src} alt={moment.alt} loading="lazy" />
+              <figcaption>{moment.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
       <section className="section-shell">
         <SectionHeading eyebrow="Community archive" title="Leadership, Access, Events" />
         <div className="community-grid">
           {communityWork.map((item) => (
             <CommunityCard key={item.title} {...item} />
+          ))}
+        </div>
+      </section>
+      <section className="section-shell community-conference-access">
+        <div className="community-conference-copy">
+          <p className="eyebrow">Conference access</p>
+          <h2>Helping students turn big rooms into usable pathways.</h2>
+          <p>
+            Conferences are part of the access layer I care about: finding funding,
+            understanding the room, and helping students convert one event into a
+            stronger network, clearer direction, and practical next steps.
+          </p>
+        </div>
+        <div className="community-conference-grid" aria-label="Conference access moments">
+          {communityConferenceMoments.map((moment) => (
+            <figure className="community-moment" key={moment.src}>
+              <img src={moment.src} alt={moment.alt} loading="lazy" />
+              <figcaption>{moment.label}</figcaption>
+            </figure>
           ))}
         </div>
       </section>
@@ -381,7 +438,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
         </div>
       </section>
       <section className="case-study-section section-shell">
-        <SectionHeading eyebrow="Build" title="What I Built" />
+        <SectionHeading eyebrow={caseStudy.buildEyebrow || 'Build'} title={caseStudy.buildTitle || 'What I Built'} />
         <ul className="case-study-list">
           {caseStudy.whatIBuilt.map((item) => (
             <li key={item}>{item}</li>
@@ -400,7 +457,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
         </div>
       </section>
       <section className="case-study-section section-shell">
-        <SectionHeading eyebrow="Screenshots" title={caseStudy.screenshotTitle} />
+        <SectionHeading eyebrow={caseStudy.screenshotEyebrow || 'Screenshots'} title={caseStudy.screenshotTitle} />
         <div className="screenshot-stack">
           {caseStudy.images.map((image) => (
             <figure className={`case-screenshot${image.kind === 'mobile' ? ' case-screenshot-mobile' : ''}`} key={image.title}>
@@ -455,8 +512,8 @@ function ProjectCaseStudyPage({ caseStudy }) {
         eyebrow="Project conversation"
         title={caseStudy.ctaTitle}
         body={caseStudy.ctaBody}
-        href="https://www.linkedin.com/in/kellychen0921/"
-        label="Connect on LinkedIn"
+        href={caseStudy.ctaHref || 'https://www.linkedin.com/in/kellychen0921/'}
+        label={caseStudy.ctaLabel || 'Connect on LinkedIn'}
       />
     </>
   );
@@ -472,6 +529,24 @@ function MediaPage() {
       />
       <section className="section-shell">
         <ConferenceSeries series={conferenceSeries} />
+      </section>
+      <section className="section-shell opportunity-section">
+        <OpportunitySystems systems={opportunitySystems} />
+      </section>
+      <section className="section-shell">
+        <div className="opportunity-library-teaser">
+          <div>
+            <p className="eyebrow">Phase 1 build</p>
+            <h2>Student Opportunity Library</h2>
+            <p>
+              A searchable seed library for high-signal fellowships, scholarships, technical communities,
+              training programs, and conference funding paths.
+            </p>
+          </div>
+          <a className="button primary" href="#opportunities">
+            Open Library
+          </a>
+        </div>
       </section>
       <section className="section-shell">
         <SectionHeading eyebrow="Library" title="Content Collections" />
@@ -489,6 +564,272 @@ function MediaPage() {
         label="View LinkedIn"
       />
     </>
+  );
+}
+
+function OpportunityLibraryPage() {
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('all');
+  const [audience, setAudience] = useState('all');
+  const [season, setSeason] = useState('all');
+  const [funding, setFunding] = useState('all');
+  const [status, setStatus] = useState('all');
+  const [selectedId, setSelectedId] = useState(opportunities[0]?.id);
+
+  const filteredOpportunities = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return opportunities.filter((opportunity) => {
+      const searchableText = [
+        opportunity.name,
+        opportunity.organization,
+        opportunity.category,
+        opportunity.eligibility,
+        opportunity.whyItMatters,
+        opportunity.prepNotes,
+        ...opportunity.audience,
+        ...opportunity.tags,
+      ]
+        .join(' ')
+        .toLowerCase();
+
+      const matchesQuery = !normalizedQuery || searchableText.includes(normalizedQuery);
+      const matchesCategory = category === 'all' || opportunity.category === category;
+      const matchesAudience = audience === 'all' || opportunity.audience.includes(audience);
+      const matchesSeason = season === 'all' || opportunity.season === season;
+      const matchesFunding = funding === 'all' || opportunity.fundingAvailable === funding;
+      const matchesStatus = status === 'all' || opportunity.status === status;
+
+      return matchesQuery && matchesCategory && matchesAudience && matchesSeason && matchesFunding && matchesStatus;
+    });
+  }, [audience, category, funding, query, season, status]);
+
+  useEffect(() => {
+    if (!filteredOpportunities.length) {
+      setSelectedId(null);
+      return;
+    }
+
+    if (!filteredOpportunities.some((opportunity) => opportunity.id === selectedId)) {
+      setSelectedId(filteredOpportunities[0].id);
+    }
+  }, [filteredOpportunities, selectedId]);
+
+  const selectedOpportunity =
+    filteredOpportunities.find((opportunity) => opportunity.id === selectedId) ?? filteredOpportunities[0] ?? null;
+
+  const clearFilters = () => {
+    setQuery('');
+    setCategory('all');
+    setAudience('all');
+    setSeason('all');
+    setFunding('all');
+    setStatus('all');
+  };
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Opportunities"
+        title="Student Opportunity Library"
+        body="Phase-one data foundation for high-signal programs, fellowships, scholarships, communities, and conference funding paths."
+      />
+      <section className="section-shell opportunity-library-page">
+        <div className="library-summary">
+          <div>
+            <p className="eyebrow">Data foundation</p>
+            <h2>Start with trusted records before automation.</h2>
+            <p>
+              Each opportunity includes audience, timing, funding, verification status, confidence,
+              and prep notes so the later signal tracker has useful structure from day one.
+            </p>
+          </div>
+          <div className="library-stat-grid" aria-label="Opportunity library stats">
+            {opportunityLibraryStats.map((stat) => (
+              <span key={stat.label}>
+                <strong>{stat.value}</strong>
+                {stat.label}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="library-controls" aria-label="Opportunity filters">
+          <label className="library-search">
+            <span>Search</span>
+            <input
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Try conference funding, AI, research, women in tech..."
+            />
+          </label>
+          <LibrarySelect label="Category" value={category} onChange={setCategory} options={opportunityFilters.categories} />
+          <LibrarySelect label="Audience" value={audience} onChange={setAudience} options={opportunityFilters.audiences} />
+          <LibrarySelect label="Season" value={season} onChange={setSeason} options={opportunityFilters.seasons} />
+          <LibrarySelect label="Funding" value={funding} onChange={setFunding} options={opportunityFilters.funding} />
+          <LibrarySelect
+            label="Status"
+            value={status}
+            onChange={setStatus}
+            options={opportunityFilters.statuses}
+            labels={opportunityStatusLabels}
+          />
+          <button className="button secondary library-reset" type="button" onClick={clearFilters}>
+            Reset
+          </button>
+        </div>
+
+        <div className="library-workspace">
+          <div className="opportunity-results">
+            <div className="results-header">
+              <span>{filteredOpportunities.length} records</span>
+              <strong>Manual verification required before public alerts</strong>
+            </div>
+            {filteredOpportunities.length ? (
+              filteredOpportunities.map((opportunity) => (
+                <OpportunityCard
+                  key={opportunity.id}
+                  opportunity={opportunity}
+                  selected={selectedOpportunity?.id === opportunity.id}
+                  onSelect={() => setSelectedId(opportunity.id)}
+                />
+              ))
+            ) : (
+              <div className="empty-library-state">
+                <h3>No matching opportunities</h3>
+                <p>Try clearing a filter or searching by audience, timing, funding, or program type.</p>
+                <button className="button secondary" type="button" onClick={clearFilters}>
+                  Clear Filters
+                </button>
+              </div>
+            )}
+          </div>
+          <OpportunityDetail opportunity={selectedOpportunity} />
+        </div>
+      </section>
+    </>
+  );
+}
+
+function LibrarySelect({ label, value, onChange, options, labels = {} }) {
+  return (
+    <label className="library-select">
+      <span>{label}</span>
+      <select value={value} onChange={(event) => onChange(event.target.value)}>
+        <option value="all">All</option>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {labels[option] ?? option}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
+function OpportunityCard({ opportunity, selected, onSelect }) {
+  return (
+    <button
+      className={`opportunity-record${selected ? ' selected' : ''}`}
+      type="button"
+      onClick={onSelect}
+      aria-pressed={selected}
+    >
+      <span className={`status-pill status-${opportunity.status}`}>
+        {opportunityStatusLabels[opportunity.status]}
+      </span>
+      <div>
+        <h3>{opportunity.name}</h3>
+        <p>{opportunity.organization}</p>
+      </div>
+      <dl>
+        <div>
+          <dt>Season</dt>
+          <dd>{opportunity.season}</dd>
+        </div>
+        <div>
+          <dt>Funding</dt>
+          <dd>{opportunity.fundingAvailable}</dd>
+        </div>
+      </dl>
+      <TagCloud tags={opportunity.tags.slice(0, 4)} />
+    </button>
+  );
+}
+
+function OpportunityDetail({ opportunity }) {
+  if (!opportunity) {
+    return (
+      <aside className="opportunity-detail empty">
+        <h2>Select an opportunity</h2>
+        <p>Filtered records will appear here when there is a match.</p>
+      </aside>
+    );
+  }
+
+  return (
+    <aside className="opportunity-detail">
+      <div className="detail-heading">
+        <span className={`status-pill status-${opportunity.status}`}>
+          {opportunityStatusLabels[opportunity.status]}
+        </span>
+        <h2>{opportunity.name}</h2>
+        <p>{opportunity.organization}</p>
+      </div>
+      <div className="detail-meta-grid">
+        <DetailMetric label="Category" value={opportunity.category} />
+        <DetailMetric label="Season" value={opportunity.season} />
+        <DetailMetric label="Funding" value={opportunity.fundingAvailable} />
+        <DetailMetric label="Confidence" value={confidenceLabels[opportunity.confidenceLevel]} />
+      </div>
+      <section>
+        <h3>Why this matters</h3>
+        <p>{opportunity.whyItMatters}</p>
+      </section>
+      <section>
+        <h3>Eligibility</h3>
+        <p>{opportunity.eligibility}</p>
+      </section>
+      <section>
+        <h3>Prep notes</h3>
+        <p>{opportunity.prepNotes}</p>
+      </section>
+      <section className="detail-watchlist">
+        <h3>Tracker fields</h3>
+        <dl>
+          <div>
+            <dt>Expected opening</dt>
+            <dd>{opportunity.expectedOpeningMonth}</dd>
+          </div>
+          <div>
+            <dt>Deadline</dt>
+            <dd>{opportunity.deadline}</dd>
+          </div>
+          <div>
+            <dt>Last verified</dt>
+            <dd>{opportunity.lastVerifiedDate}</dd>
+          </div>
+          <div>
+            <dt>Previous URL</dt>
+            <dd>{opportunity.previousUrl || 'Not tracked yet'}</dd>
+          </div>
+        </dl>
+      </section>
+      <TagCloud tags={opportunity.audience} />
+      <a className="button primary detail-link" href={opportunity.applicationUrl} target="_blank" rel="noreferrer">
+        View Source
+      </a>
+    </aside>
+  );
+}
+
+function DetailMetric({ label, value }) {
+  return (
+    <span>
+      <strong>{value}</strong>
+      {label}
+    </span>
   );
 }
 
@@ -547,11 +888,10 @@ function PersonalityCollage() {
       <div className="collage-intro">
         <p className="eyebrow">A little more Kelly</p>
         <h2>How I Think and Build</h2>
-        <p className="collage-lede">Technical, curious, and always collecting useful paths.</p>
       </div>
-      <div className="collage-notes">
+      <div className="collage-band" role="list">
         {personalityNotes.map((note) => (
-          <article key={note.label} className="collage-note">
+          <article key={note.label} className="collage-band-item" role="listitem">
             <span>{note.label}</span>
             <p>{note.text}</p>
           </article>
@@ -885,6 +1225,38 @@ function ConferenceSeries({ series }) {
   );
 }
 
+function OpportunitySystems({ systems }) {
+  return (
+    <article className="opportunity-systems">
+      <div className="opportunity-systems-intro">
+        <span>{systems.eyebrow}</span>
+        <h2>{systems.title}</h2>
+        <p>{systems.description}</p>
+      </div>
+      <div className="opportunity-pathway">
+        {systems.items.map((item, index) => (
+          <article className="opportunity-pathway-item" key={item.title}>
+            <div className="opportunity-pathway-index" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </div>
+            <div>
+              <div className="opportunity-pathway-meta">
+                <span>{item.status}</span>
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <TagCloud tags={item.tags} />
+            </div>
+          </article>
+        ))}
+      </div>
+      <a className="opportunity-systems-link" href={systems.cta.href} target="_blank" rel="noreferrer">
+        {systems.cta.label}
+      </a>
+    </article>
+  );
+}
+
 function MediaChannel({ type, status, title, description, posts }) {
   return (
     <article className="media-card">
@@ -906,15 +1278,32 @@ function MediaChannel({ type, status, title, description, posts }) {
   );
 }
 
-function ProjectAction({ body, href, label }) {
-  const isExternal = href.startsWith('http');
+function ProjectAction({ body, href, label, primaryHref, primaryLabel, secondaryHref, secondaryLabel }) {
+  const actions = [
+    primaryHref ? { href: primaryHref, label: primaryLabel, kind: 'primary' } : null,
+    secondaryHref ? { href: secondaryHref, label: secondaryLabel, kind: 'secondary' } : null,
+    href ? { href, label, kind: 'primary' } : null,
+  ].filter(Boolean);
 
   return (
     <aside className="project-action">
       <p>{body}</p>
-      <a href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noreferrer' : undefined}>
-        {label}
-      </a>
+      <div className="project-action-links">
+        {actions.map((action) => {
+          const isExternal = action.href.startsWith('http');
+          return (
+            <a
+              className={action.kind === 'secondary' ? 'secondary-action' : undefined}
+              href={action.href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noreferrer' : undefined}
+              key={`${action.label}-${action.href}`}
+            >
+              {action.label}
+            </a>
+          );
+        })}
+      </div>
     </aside>
   );
 }

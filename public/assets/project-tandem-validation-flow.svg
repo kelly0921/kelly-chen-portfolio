@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Tandem validation flow</title>
+  <desc id="desc">A validation flow from landing page to Ambition Archetype quiz, waitlist database, and manual matching.</desc>
+  <rect width="960" height="520" rx="34" fill="#fffdf9"/>
+  <text x="76" y="86" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="850" fill="#1f2430">Validation-first funnel</text>
+  <text x="76" y="126" font-family="Inter, Arial, sans-serif" font-size="18" fill="#606977">Test demand before building a full dating app.</text>
+  <g fill="none" stroke="#eadfce" stroke-width="2">
+    <rect x="76" y="178" width="170" height="118" rx="24"/>
+    <rect x="300" y="178" width="170" height="118" rx="24"/>
+    <rect x="524" y="178" width="170" height="118" rx="24"/>
+    <rect x="748" y="178" width="136" height="118" rx="24"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="108" y="228" font-size="18" font-weight="850" fill="#1f2430">Landing page</text>
+    <text x="108" y="260" font-size="14" fill="#606977">Explain the thesis</text>
+    <text x="329" y="218" font-size="18" font-weight="850" fill="#1f2430">Archetype quiz</text>
+    <text x="329" y="250" font-size="14" fill="#606977">Tally or Typeform</text>
+    <text x="551" y="218" font-size="18" font-weight="850" fill="#1f2430">Waitlist data</text>
+    <text x="551" y="250" font-size="14" fill="#606977">Airtable or Sheets</text>
+    <text x="771" y="218" font-size="18" font-weight="850" fill="#1f2430">Manual test</text>
+    <text x="771" y="250" font-size="14" fill="#606977">Matching/events</text>
+  </g>
+  <g stroke="#e58aa4" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M254 237h36"/>
+    <path d="M478 237h36"/>
+    <path d="M702 237h36"/>
+  </g>
+  <g fill="#e58aa4">
+    <path d="M290 237l-12-8v16z"/>
+    <path d="M514 237l-12-8v16z"/>
+    <path d="M738 237l-12-8v16z"/>
+  </g>
+  <rect x="76" y="356" width="808" height="76" rx="24" fill="#fff4df" stroke="#eadfce"/>
+  <text x="108" y="392" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="850" fill="#1f2430">Early validation target</text>
+  <text x="108" y="420" font-family="Inter, Arial, sans-serif" font-size="15" fill="#606977">100 qualified NYC singles complete the quiz and join the waitlist before app development.</text>
+</svg>

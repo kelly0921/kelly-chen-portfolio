@@ -54,7 +54,14 @@ Write a version suitable for a project preview card:
 - 3-5 tags
 - Best CTA label, such as "View Case Study," "View Demo," "Explore Concept," or "Interested in This Idea?"
 
-13. Missing Information
+13. Visual Assets
+Tell me what visual assets should represent this project:
+- Project logo or icon direction
+- 1-3 screenshots, mockups, diagrams, or resource previews needed
+- Preferred display format: web screenshot, phone frame, product diagram, resource preview, or full case-study page
+- Any image, demo, or asset gaps I should fill before publishing
+
+14. Missing Information
 Tell me what details are missing or uncertain so I can fill them in before publishing.
 ```
 

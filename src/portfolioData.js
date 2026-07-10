@@ -89,6 +89,10 @@ export const personalityNotes = [
     text: 'small systems, payment ideas, portfolio experiments, and AI-assisted workflows.',
   },
   {
+    label: 'I test',
+    text: 'ideas with real users, feedback loops, and small validation experiments before overbuilding.',
+  },
+  {
     label: 'I share',
     text: 'opportunities, lessons from tech spaces, and resources students can actually use.',
   },
@@ -272,45 +276,52 @@ export const projects = [
   {
     group: 'Startup Concept',
     title: 'Tandem',
-    mark: { text: 'TD', label: 'Tandem', tone: 'rose' },
-    status: 'Concept / early validation',
+    mark: { src: '/assets/tandem-reference-mark-centered.png', label: 'Tandem', tone: 'rose' },
+    status: 'Early concept / validation stage',
     description:
-      'A dating concept for ambitious NYC singles that matches people by career archetype, risk tolerance, lifestyle rhythm, and long-term compatibility.',
+      'An early-stage dating concept for ambitious NYC singles, exploring matches based on career archetype, risk tolerance, lifestyle rhythm, and long-term compatibility.',
     image: '/assets/project-tandem.svg',
-    imageAlt: 'Tandem product concept preview showing complementary ambition archetypes and curated matching signals.',
+    imageFit: 'contain',
+    imageAlt: 'Tandem concept card introducing a dating product for complementary ambition.',
     problem: 'Most dating apps optimize for surface-level signals, but ambitious professionals often need compatibility around career rhythm, risk tolerance, and future goals.',
     user: 'NYC singles ages 24-35 who are career-driven, dating intentionally, and interested in long-term partnership.',
-    role: 'Founder, product strategist, validation planner, and matching-framework designer.',
-    learned: 'A consumer product needs more than a feature hook. Trust, community quality, emotional framing, and validation strategy shape whether people feel comfortable joining.',
-    proof: 'Ability to translate a cultural insight into a testable product thesis, MVP scope, archetype system, waitlist strategy, and manual matching experiment.',
-    tags: ['Product strategy', 'Consumer app', 'Dating tech', 'UX research', 'MVP validation'],
+    role: 'Product strategist, concept developer, validation planner, and archetype-system designer.',
+    learned: 'Early consumer products need trust, emotional framing, and validation before product complexity.',
+    proof: 'Ability to turn a cultural insight into a testable product thesis, landing-page funnel, quiz strategy, waitlist plan, and manual matching experiment.',
+    tags: ['Product strategy', 'Consumer app', 'Dating tech', 'MVP validation', 'UX research'],
   },
 ];
 
 export const projectActions = {
   SkanPay: {
     body:
-      'I can walk through the checkout concept, coupon redemption flow, and the product questions behind merchant adoption.',
-    label: 'Ask to See the Demo',
-    href: 'https://www.linkedin.com/in/kellychen0921/',
+      'SkanPay is a concept-stage checkout idea. I am interested in feedback from merchants, fintech builders, and people who think about redemption or payment friction.',
+    label: 'Reach Out',
+    href: 'mailto:kellychenmeiyi@gmail.com?subject=SkanPay%20concept%20feedback',
   },
   BeamCash: {
     body:
-      'I can share the seller setup, branded QR sign, buyer checkout flow, and the Stripe-ready payment architecture behind the MVP.',
-    label: 'View Case Study',
-    href: '#beamcash',
+      'If you sell, perform, vend, collect donations, or run pop-ups in person, I am looking for early feedback on the BeamCash QR payment flow.',
+    primaryLabel: 'I Want to Try BeamCash',
+    primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=I%20want%20to%20try%20BeamCash',
+    secondaryLabel: 'Learn More',
+    secondaryHref: '#beamcash',
   },
   WebPilot: {
     body:
-      'I can walk through how WebPilot turns audit evidence, client notes, and AI outputs into implementation-ready website operations work.',
-    label: 'View Case Study',
-    href: '#webpilot',
+      'If your nonprofit, local business, or community organization needs a clearer website revamp plan, WebPilot is built around that workflow.',
+    primaryLabel: 'Need a Website Revamp?',
+    primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=Website%20revamp%20with%20WebPilot',
+    secondaryLabel: 'Learn More',
+    secondaryHref: '#webpilot',
   },
   Tandem: {
     body:
-      'This is currently a validation-first concept around complementary ambition, archetype-based matching, and a curated NYC launch wedge.',
-    label: 'Explore Concept',
-    href: 'https://www.linkedin.com/in/kellychen0921/',
+      'Tandem is currently a validation-first concept around complementary ambition, archetype-based matching, and a curated NYC launch wedge.',
+    primaryLabel: 'Join the Tandem Waitlist',
+    primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=Join%20the%20Tandem%20waitlist',
+    secondaryLabel: 'Learn More',
+    secondaryHref: '#tandem',
   },
 };
 
@@ -408,7 +419,9 @@ export const beamCashCaseStudy = {
   ],
   ctaTitle: 'Want To Talk Through BeamCash?',
   ctaBody:
-    'I can walk through the seller flow, buyer checkout, branded QR signage, and how the MVP is structured around future payment processing and payout infrastructure.',
+    'I am looking for sellers, vendors, performers, pop-up shops, nonprofits, and donation-based groups who want to try or give feedback on a branded QR payment flow.',
+  ctaLabel: 'I Want to Try BeamCash',
+  ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=I%20want%20to%20try%20BeamCash',
 };
 
 export const webPilotCaseStudy = {
@@ -493,9 +506,91 @@ export const webPilotCaseStudy = {
     'Add hosted storage, authentication, and stronger automated tests.',
     'Explore a customer-facing portal after the internal operator workflow is proven.',
   ],
-  ctaTitle: 'Want To Talk Through WebPilot?',
+  ctaTitle: 'Need A Website Revamp?',
   ctaBody:
-    'I can walk through the product decisions, local MVP architecture, AI workflow design, and how the screenshots map to the operator experience.',
+    'I am looking for nonprofits, local businesses, and community organizations that want help turning a messy website into a clearer audit, content plan, and implementation roadmap.',
+  ctaLabel: 'Ask About WebPilot',
+  ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=Website%20revamp%20with%20WebPilot',
+};
+
+export const tandemCaseStudy = {
+  eyebrow: 'Tandem',
+  title: 'Dating For Complementary Ambition',
+  subtitle:
+    'An early-stage dating product concept for ambitious NYC singles who care about career, lifestyle, risk, and building a future.',
+  status: 'Early concept / validation stage',
+  role: 'Product strategist, concept developer, validation planner, and archetype-system designer',
+  stack: ['Product strategy', 'Consumer research', 'Landing page funnel', 'Tally or Typeform', 'Airtable or Google Sheets', 'Manual matching'],
+  overview:
+    'Tandem is a curated NYC dating experiment for ambitious singles who want more than surface-level dating app matches. Most dating apps ask what you do. Tandem asks what kind of life you are building.',
+  overviewTitle: 'A Dating Concept Built Around Life Strategy',
+  problem:
+    'Dating apps often focus on photos, prompts, location, hobbies, and job titles. They rarely capture the deeper compatibility signals that matter to ambitious professionals: career archetype, risk tolerance, lifestyle rhythm, relationship intention, emotional maturity, and long-term goals.',
+  problemTitle: 'Surface-Level Matching Misses The Real Fit',
+  buildEyebrow: 'Validation',
+  buildTitle: 'Validation Plan',
+  whatIBuilt: [
+    'Define the first launch wedge around ambitious NYC singles ages 24-35 who are dating intentionally.',
+    'Create a lightweight validation funnel: landing page, Ambition Archetype quiz, waitlist, and follow-up research.',
+    'Use a third-party form such as Tally, with Typeform as an alternative, so quiz questions and matching criteria can change quickly.',
+    'Store early responses in Airtable or Google Sheets before building custom signup infrastructure.',
+    'Explore optional manual matching or invite-only NYC events only if enough qualified users join the waitlist.',
+  ],
+  productDecisions: [
+    {
+      title: 'Validate Before Building',
+      text: 'The first version is intentionally not a mobile app. The goal is to test whether people want this matching thesis before investing in a full product.',
+    },
+    {
+      title: 'Start With NYC',
+      text: 'NYC offers a dense mix of founders, operators, tech workers, finance professionals, creators, and ambitious young professionals, making it a focused launch market.',
+    },
+    {
+      title: 'Quiz As Hook And Research',
+      text: 'The Ambition Archetype quiz gives users a reason to engage while collecting structured compatibility and demand signals.',
+    },
+    {
+      title: 'Dating-First, Not LinkedIn Dating',
+      text: 'The product should stay human and relationship-oriented, avoiding income-based, elitist, or transactional framing.',
+    },
+  ],
+  images: [
+    {
+      title: 'Concept Brand Card',
+      src: '/assets/project-tandem.svg',
+      alt: 'Tandem concept card introducing a dating product for complementary ambition.',
+      caption: 'Because Tandem is not built yet, the portfolio uses a simple concept card instead of fake app screenshots.',
+    },
+  ],
+  workflowImage: {
+    src: '/assets/project-tandem-validation-flow.svg',
+    alt: 'Tandem validation flow from portfolio or landing page to Ambition Archetype quiz, waitlist, response database, and manual matching.',
+  },
+  screenshotEyebrow: 'Concept Visual',
+  screenshotTitle: 'Placeholder Branding',
+  technicalTitle: 'Lightweight MVP Funnel',
+  technicalHighlights: [
+    'Portfolio or landing page explains the thesis and drives people to the quiz.',
+    'Embedded Tally form collects Ambition Archetype and waitlist data without custom form infrastructure.',
+    'Airtable or Google Sheets keeps early validation data editable and easy to review.',
+    'Manual matching can test the quality of the thesis before any algorithm or app build.',
+    'No income question in the first version, to avoid making the product feel transactional or low-trust.',
+  ],
+  lessons: [
+    'A cultural insight becomes stronger when it is translated into a testable product hypothesis.',
+    'Early consumer validation should reduce uncertainty before product complexity increases.',
+    'Trust, positioning, and emotional safety matter as much as matching mechanics in dating products.',
+  ],
+  nextSteps: [
+    'Create a public-facing Tandem landing page with the core positioning and validation framing.',
+    'Build the 2-minute Ambition Archetype quiz in Tally and connect responses to Airtable or Google Sheets.',
+    'Use LinkedIn, Instagram, TikTok, alumni networks, NYC tech communities, and friends-of-friends to reach 100 qualified NYC waitlist signups.',
+  ],
+  ctaTitle: 'Join The Tandem Waitlist',
+  ctaBody:
+    'Tandem is still a validation-stage concept. The next step is a lightweight landing page and 2-minute Ambition Archetype quiz to understand whether ambitious NYC singles want this kind of matching experience.',
+  ctaLabel: 'Join the Tandem Waitlist',
+  ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=Join%20the%20Tandem%20waitlist',
 };
 
 export const speakingEvents = [
@@ -546,7 +641,18 @@ export const speakingEvents = [
   },
 ];
 
-export const speakingMoments = [];
+export const speakingMoments = [
+  {
+    src: '/assets/speaking-conferences-careers-presenting.jpg',
+    alt: 'Kelly Chen presenting From Conferences to Careers in a lecture room.',
+    caption: 'Presenting From Conferences to Careers, a student-focused session on networking and career leverage.',
+  },
+  {
+    src: '/assets/speaking-conferences-careers-room.jpg',
+    alt: "Audience attending Kelly Chen's From Conferences to Careers presentation.",
+    caption: 'A wider room view from the session, showing the audience and workshop setup.',
+  },
+];
 
 export const communityResources = [
   {
@@ -585,6 +691,52 @@ export const availableTopics = [
   {
     title: 'AI-Assisted Building',
     description: 'Using AI tools to prototype workflows, organize ideas, review output, and turn rough concepts into usable products.',
+  },
+];
+
+export const communityMoments = [
+  {
+    src: '/assets/community-summer-hub-group.jpg',
+    alt: 'Group photo from a Rewriting the Code NYC Summer Tech Hub event.',
+    label: 'Hub gathering',
+  },
+  {
+    src: '/assets/community-summer-hub-room.jpg',
+    alt: 'Attendees gathered in a room during a NYC Summer Tech Hub event.',
+    label: 'Event room',
+  },
+  {
+    src: '/assets/community-summer-hub-hosted-room.jpg',
+    alt: 'RTC NYC Summer Tech Hub attendees gathered around a conference table during a hosted event.',
+    label: 'Hosted gathering',
+  },
+  {
+    src: '/assets/community-summer-hub-facilitation.jpg',
+    alt: 'Small group discussion during a NYC Summer Tech Hub activity.',
+    label: 'Small-group facilitation',
+  },
+];
+
+export const communityConferenceMoments = [
+  {
+    src: '/assets/community-conference-campus-workshop.jpg',
+    alt: 'Students gathered after a From Conferences to Careers campus workshop.',
+    label: 'Campus workshop',
+  },
+  {
+    src: '/assets/community-conference-anitab.jpg',
+    alt: 'Kelly Chen with students at an AnitaB.org conference space.',
+    label: 'AnitaB.org / GHC',
+  },
+  {
+    src: '/assets/community-conference-cohort.jpg',
+    alt: 'Large student conference cohort gathered outdoors in a city setting.',
+    label: 'Conference cohort',
+  },
+  {
+    src: '/assets/community-conference-leadership.jpg',
+    alt: 'Student group at the National Campus to Business Leadership Conference.',
+    label: 'Leadership conference',
   },
 ];
 
@@ -690,6 +842,47 @@ export const mediaChannels = [
     ],
   },
 ];
+
+export const opportunitySystems = {
+  eyebrow: 'Tools from this work',
+  title: 'Opportunity Systems',
+  description:
+    'A practical layer growing out of my conference notes, community work, and student resource sharing: helping emerging engineers know what to watch, when to prepare, and how to turn access into leverage.',
+  cta: {
+    label: 'Follow the notes on LinkedIn',
+    href: 'https://www.linkedin.com/in/kellychen0921/',
+  },
+  items: [
+    {
+      status: 'Resource layer',
+      title: 'Student Opportunity Library',
+      description:
+        'A curated base of programs, fellowships, scholarships, technical communities, and conference funding paths worth watching.',
+      tags: ['Curated programs', 'Timing notes', 'Student access'],
+    },
+    {
+      status: 'Researching',
+      title: 'Opportunity Signal Tracker',
+      description:
+        'A tracker concept for monitoring high-value opportunities through application season patterns, page changes, and verified opening signals.',
+      tags: ['Opening signals', 'Confidence scores', 'Alerts'],
+    },
+    {
+      status: 'Building',
+      title: 'Conference Leverage Planner',
+      description:
+        'A planning system that helps students decide if a conference is worth it, what funding to pursue, and how to prepare before the room gets crowded.',
+      tags: ['ROI filter', 'Funding paths', 'Prep plan'],
+    },
+    {
+      status: 'Prototype idea',
+      title: 'Sponsor List Analyzer',
+      description:
+        'A feature idea inside the conference planner: turn sponsor lists into booth priorities, research prompts, and better questions for engineers.',
+      tags: ['Sponsor signals', 'Booth strategy', 'Question bank'],
+    },
+  ],
+};
 
 export const conferenceSeries = {
   label: 'Featured series',
