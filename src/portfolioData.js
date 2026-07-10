@@ -701,18 +701,22 @@ export const communityResources = [
 export const availableTopics = [
   {
     title: 'Women in Tech & Student Access',
+    icon: 'access',
     description: 'Conference pathways, student communities, sponsorship access, and making technical spaces easier to enter.',
   },
   {
     title: 'Early-Career Engineering',
+    icon: 'engineering',
     description: 'Internship lessons, technical growth, mentoring, interview preparation, and learning how to explain systems clearly.',
   },
   {
     title: 'Fintech, Product & Payments',
+    icon: 'fintech',
     description: 'Financial infrastructure, payment friction, QR payment concepts, product thinking, and customer-facing systems.',
   },
   {
     title: 'AI-Assisted Building',
+    icon: 'ai',
     description: 'Using AI tools to prototype workflows, organize ideas, review output, and turn rough concepts into usable products.',
   },
 ];
@@ -721,22 +725,18 @@ export const communityMoments = [
   {
     src: '/assets/community-summer-hub-group.jpg',
     alt: 'Group photo from a Rewriting the Code NYC Summer Tech Hub event.',
-    label: 'Hub gathering',
   },
   {
     src: '/assets/community-summer-hub-room.jpg',
     alt: 'Attendees gathered in a room during a NYC Summer Tech Hub event.',
-    label: 'Event room',
   },
   {
     src: '/assets/community-summer-hub-hosted-room.jpg',
     alt: 'RTC NYC Summer Tech Hub attendees gathered around a conference table during a hosted event.',
-    label: 'Hosted gathering',
   },
   {
     src: '/assets/community-summer-hub-facilitation.jpg',
-    alt: 'Small group discussion during a NYC Summer Tech Hub activity.',
-    label: 'Small-group facilitation',
+    alt: 'Students gathered around a table during a Rewriting the Code board game night organized by Kelly Chen.',
   },
 ];
 
@@ -744,7 +744,7 @@ export const communityConferenceMoments = [
   {
     src: '/assets/community-conference-campus-workshop.jpg',
     alt: 'Students gathered after a From Conferences to Careers campus workshop.',
-    label: 'Campus workshop',
+    label: 'Campus Workshop',
   },
   {
     src: '/assets/community-conference-anitab.jpg',
@@ -754,12 +754,12 @@ export const communityConferenceMoments = [
   {
     src: '/assets/community-conference-cohort.jpg',
     alt: 'Large student conference cohort gathered outdoors in a city setting.',
-    label: 'Forte C2B NYC 2024 cohort',
+    label: 'Forte C2B NYC 2024 Attendees',
   },
   {
     src: '/assets/community-conference-leadership.jpg',
     alt: 'Student group at the National Campus to Business Leadership Conference.',
-    label: 'Forte C2B NYC 2024',
+    label: 'Lehigh at Forte C2B NYC 2024',
   },
 ];
 

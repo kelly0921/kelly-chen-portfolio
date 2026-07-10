@@ -370,7 +370,7 @@ function CommunityPage() {
       </section>
       <section className="section-shell community-moments">
         <div className="community-moments-copy">
-          <p className="eyebrow">Summer Hub</p>
+          <p className="eyebrow">Rewriting the Code NYC Summer Tech Hub Leader</p>
           <h2>Organizing rooms where students could meet, ask, and stay connected.</h2>
           <p>
             As a NYC Summer Tech Hub Leader, I helped turn community programming into
@@ -383,7 +383,7 @@ function CommunityPage() {
           {communityMoments.map((moment) => (
             <figure className="community-moment" key={moment.src}>
               <img src={moment.src} alt={moment.alt} loading="lazy" />
-              <figcaption>{moment.label}</figcaption>
+              {moment.label ? <figcaption>{moment.label}</figcaption> : null}
             </figure>
           ))}
         </div>
@@ -397,7 +397,7 @@ function CommunityPage() {
         </div>
       </section>
       <section className="section-shell">
-        <SectionHeading eyebrow="Past roles" title="Leadership & Organizing Archive" />
+        <SectionHeading eyebrow="Past roles" title="Leadership Passed Forward" />
         <div className="community-grid">
           {pastCommunityWork.map((item) => (
             <CommunityCard key={item.title} {...item} />
@@ -411,7 +411,7 @@ function CommunityPage() {
           <p>
             This part is a visual archive of conference-facing work: campus prep,
             GHC 2024, and the Forte National Campus to Business Leadership Conference
-            trip I helped organize in New York City.
+            trip I helped organize for Lehigh students in New York City.
           </p>
         </div>
         <div className="conference-access-list" aria-label="Conference access themes">
@@ -423,7 +423,7 @@ function CommunityPage() {
           {communityConferenceMoments.map((moment) => (
             <figure className="community-moment" key={moment.src}>
               <img src={moment.src} alt={moment.alt} loading="lazy" />
-              <figcaption>{moment.label}</figcaption>
+              {moment.label ? <figcaption>{moment.label}</figcaption> : null}
             </figure>
           ))}
         </div>
@@ -434,7 +434,7 @@ function CommunityPage() {
       </section>
       <PageCTA
         eyebrow="Community"
-        title="Let's Organize Something Useful"
+        title="Let's Organize Something Together"
         body="Reach out if you want to host a student workshop, build an opportunity resource, organize a conference prep session, or make a technical community event feel more useful and welcoming."
         href="mailto:kellychenmeiyi@gmail.com?subject=Community%20event%20idea"
         label="Start a Community Idea"
@@ -1220,12 +1220,74 @@ function SpeakingMoment({ src, alt, caption }) {
   );
 }
 
-function TopicCard({ title, description }) {
+function TopicCard({ title, description, icon }) {
   return (
     <article className="topic-card">
+      <span className="topic-icon" aria-hidden="true">
+        <TopicIcon name={icon} />
+      </span>
       <h3>{title}</h3>
       <p>{description}</p>
     </article>
+  );
+}
+
+function TopicIcon({ name }) {
+  const common = {
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: '1.8',
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+  };
+
+  if (name === 'engineering') {
+    return (
+      <svg {...common}>
+        <path d="M8.5 8 4.5 12l4 4" />
+        <path d="m15.5 8 4 4-4 4" />
+        <path d="m13.5 6-3 12" />
+      </svg>
+    );
+  }
+
+  if (name === 'fintech') {
+    return (
+      <svg {...common}>
+        <rect x="4" y="6.5" width="16" height="11" rx="2.5" />
+        <path d="M4 10h16" />
+        <path d="M8 14h3" />
+        <path d="M15.5 14h.01" />
+      </svg>
+    );
+  }
+
+  if (name === 'ai') {
+    return (
+      <svg {...common}>
+        <path d="M12 4.5v3" />
+        <path d="M12 16.5v3" />
+        <path d="M4.5 12h3" />
+        <path d="M16.5 12h3" />
+        <path d="m7 7 2.1 2.1" />
+        <path d="m14.9 14.9 2.1 2.1" />
+        <path d="m17 7-2.1 2.1" />
+        <path d="m9.1 14.9-2.1 2.1" />
+        <circle cx="12" cy="12" r="2.7" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...common}>
+      <circle cx="7" cy="8" r="2.4" />
+      <circle cx="17" cy="8" r="2.4" />
+      <circle cx="12" cy="16" r="2.4" />
+      <path d="M8.7 10.1 10.5 14" />
+      <path d="m15.3 10.1-1.8 3.9" />
+      <path d="M9.4 8h5.2" />
+    </svg>
   );
 }
 

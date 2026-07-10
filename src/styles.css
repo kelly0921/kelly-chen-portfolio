@@ -2217,17 +2217,23 @@ dd {
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.topic-card::before {
-  display: block;
-  width: 40px;
-  height: 40px;
+.topic-icon {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 18px;
-  border: 1px solid color-mix(in srgb, var(--topic-accent, var(--indigo)) 42%, transparent);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 50%, var(--topic-accent, var(--indigo)) 0 4px, transparent 5px),
-    radial-gradient(circle at 50% 50%, transparent 0 11px, var(--topic-accent, var(--indigo)) 12px 13px, transparent 14px);
-  content: "";
+  border: 1px solid color-mix(in srgb, var(--topic-accent, var(--indigo)) 34%, var(--border));
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--topic-tint, var(--lilac)) 58%, white);
+  color: var(--topic-accent, var(--indigo));
+}
+
+.topic-icon svg {
+  display: block;
+  width: 25px;
+  height: 25px;
 }
 
 .topic-card:hover {
@@ -3947,5 +3953,77 @@ dd {
 
   .footer-links {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .personality-collage {
+    display: block;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .personality-collage::before {
+    display: none;
+  }
+
+  .collage-intro {
+    position: static;
+    margin-bottom: 22px;
+  }
+
+  .collage-intro h2 {
+    max-width: 100%;
+    font-size: clamp(1.85rem, 8vw, 2.45rem);
+    line-height: 1.05;
+  }
+
+  .collage-band {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    border-left: 0;
+    padding: 0;
+  }
+
+  .collage-band-item,
+  .collage-band-item:nth-child(n) {
+    display: block;
+    grid-column: auto;
+    min-height: auto;
+    border: 1px solid color-mix(in srgb, var(--note-color, var(--gold)) 35%, var(--border));
+    border-radius: 14px;
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--note-color, var(--gold)) 14%, transparent), transparent 42%),
+      rgba(255, 255, 255, 0.72);
+    box-shadow: none;
+    padding: 14px 15px;
+    transform: none;
+  }
+
+  .collage-band-item + .collage-band-item {
+    padding-top: 14px;
+  }
+
+  .collage-band-item::before,
+  .collage-band-item:nth-child(n)::before {
+    display: none;
+  }
+
+  .collage-band-item span {
+    margin-bottom: 8px;
+    font-size: 0.72rem;
+  }
+
+  .collage-band-item span::after {
+    display: none;
+  }
+
+  .collage-band-item p {
+    max-width: 100%;
+    font-size: 0.96rem;
+    line-height: 1.58;
   }
 }
