@@ -303,23 +303,25 @@ function SpeakingPage() {
         </div>
       </section>
       <PageCTA
-        eyebrow="Invite"
-        title="Invite Me In"
-        body="I'm interested in conversations around women in tech, fintech, student opportunities, AI-assisted building, and early-career pathways."
+        eyebrow="Speaking inquiries"
+        title="Bring This Talk To Your Room"
+        body="I am interested in workshops, panels, student events, and community rooms around women in tech, fintech, student opportunities, AI-assisted building, and early-career pathways."
         href="https://www.linkedin.com/in/kellychen0921/"
-        label="View LinkedIn"
+        label="Invite Me to Speak"
       />
     </>
   );
 }
 
 function CommunityPage() {
-  const communityStats = [
+  const girlsWhoCodeStats = [
     { label: 'Members', value: '70+' },
     { label: 'Executive board', value: '8' },
-    { label: 'RTC events', value: '6+' },
-    { label: 'Audience reach', value: '2.6k+' },
+    { label: 'LinkedIn reach', value: '2.6k+' },
+    { label: 'Funded conference access', value: '15' },
   ];
+  const currentCommunityWork = communityWork.filter((item) => item.type === 'Ongoing focus');
+  const pastCommunityWork = communityWork.filter((item) => item.type !== 'Ongoing focus');
 
   return (
     <>
@@ -331,15 +333,34 @@ function CommunityPage() {
       <section className="section-shell community-overview">
         <div className="community-overview-copy">
           <p className="eyebrow">Community system</p>
-          <h2>From one club to repeatable access.</h2>
+          <h2>Past leadership, current access work.</h2>
           <p>
-            I think about community work like product work: understand where people get
-            stuck, build a structure around the next step, and keep improving the path as
-            more people join.
+            Most of my formal student leadership roles were tied to specific seasons.
+            The through-line that continues now is helping students find useful rooms,
+            resources, and opportunity signals earlier.
           </p>
         </div>
-        <div className="community-stat-grid" aria-label="Community impact highlights">
-          {communityStats.map((stat) => (
+        <div className="community-now-list" aria-label="Current community focus">
+          <span>Now</span>
+          <h3>Opportunity sharing, speaking, and resource systems.</h3>
+          <p>
+            The current layer is less about holding a club title and more about turning
+            what I learned from those roles into useful resources, talks, and event ideas.
+          </p>
+        </div>
+      </section>
+      <section className="section-shell community-impact-split">
+        <div>
+          <p className="eyebrow">Girls Who Code at Lehigh</p>
+          <h2>Building a campus home for women in tech.</h2>
+          <p>
+            As founder and president, I focused on structure: a real executive board,
+            visible programming, conference access, and a student community that could
+            keep momentum beyond one event.
+          </p>
+        </div>
+        <div className="community-stat-grid" aria-label="Girls Who Code impact highlights">
+          {girlsWhoCodeStats.map((stat) => (
             <span key={stat.label}>
               <strong>{stat.value}</strong>
               {stat.label}
@@ -354,7 +375,8 @@ function CommunityPage() {
           <p>
             As a NYC Summer Tech Hub Leader, I helped turn community programming into
             repeatable touchpoints: gatherings, small-group discussions, and informal
-            spaces where students could build confidence and relationships.
+            spaces where students could build confidence and relationships across 6+
+            RTC events.
           </p>
         </div>
         <div className="community-moment-grid" aria-label="NYC Summer Tech Hub moments">
@@ -367,9 +389,17 @@ function CommunityPage() {
         </div>
       </section>
       <section className="section-shell">
-        <SectionHeading eyebrow="Community archive" title="Leadership, Access, Events" />
+        <SectionHeading eyebrow="Current" title="Access Work Now" />
+        <div className="community-grid community-grid-current">
+          {currentCommunityWork.map((item) => (
+            <CommunityCard key={item.title} {...item} />
+          ))}
+        </div>
+      </section>
+      <section className="section-shell">
+        <SectionHeading eyebrow="Past roles" title="Leadership & Organizing Archive" />
         <div className="community-grid">
-          {communityWork.map((item) => (
+          {pastCommunityWork.map((item) => (
             <CommunityCard key={item.title} {...item} />
           ))}
         </div>
@@ -379,10 +409,15 @@ function CommunityPage() {
           <p className="eyebrow">Conference access</p>
           <h2>Helping students turn big rooms into usable pathways.</h2>
           <p>
-            Conferences are part of the access layer I care about: finding funding,
-            understanding the room, and helping students convert one event into a
-            stronger network, clearer direction, and practical next steps.
+            This part is a visual archive of conference-facing work: campus prep,
+            GHC 2024, and the Forte National Campus to Business Leadership Conference
+            trip I helped organize in New York City.
           </p>
+        </div>
+        <div className="conference-access-list" aria-label="Conference access themes">
+          <p><strong>Prepare.</strong> Help students understand the room before they arrive.</p>
+          <p><strong>Fund.</strong> Make travel, tickets, and logistics less random.</p>
+          <p><strong>Convert.</strong> Turn one event into follow-up, confidence, and direction.</p>
         </div>
         <div className="community-conference-grid" aria-label="Conference access moments">
           {communityConferenceMoments.map((moment) => (
@@ -397,6 +432,13 @@ function CommunityPage() {
         <SectionHeading eyebrow="Resources" title="Resources From This Work" />
         <ResourceList items={communityResources} />
       </section>
+      <PageCTA
+        eyebrow="Community"
+        title="Let's Organize Something Useful"
+        body="Reach out if you want to host a student workshop, build an opportunity resource, organize a conference prep session, or make a technical community event feel more useful and welcoming."
+        href="mailto:kellychenmeiyi@gmail.com?subject=Community%20event%20idea"
+        label="Start a Community Idea"
+      />
     </>
   );
 }
@@ -912,7 +954,7 @@ function ImpactStrip() {
     <div className="impact-strip" aria-label="Portfolio highlights">
       <span>
         <strong>Current</strong>
-        Bloomberg Fixed Income
+        Bloomberg - Fixed Income Private Securities
       </span>
       <span>
         <strong>Fintech</strong>
@@ -920,7 +962,7 @@ function ImpactStrip() {
       </span>
       <span>
         <strong>Community</strong>
-        CodePath + WECode
+        Rewriting the Code + Girls Who Code + CodePath
       </span>
     </div>
   );

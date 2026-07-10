@@ -749,26 +749,26 @@ export const communityConferenceMoments = [
   {
     src: '/assets/community-conference-anitab.jpg',
     alt: 'Kelly Chen with students at an AnitaB.org conference space.',
-    label: 'AnitaB.org / GHC',
+    label: 'GHC 2024',
   },
   {
     src: '/assets/community-conference-cohort.jpg',
     alt: 'Large student conference cohort gathered outdoors in a city setting.',
-    label: 'Conference cohort',
+    label: 'Forte C2B NYC 2024 cohort',
   },
   {
     src: '/assets/community-conference-leadership.jpg',
     alt: 'Student group at the National Campus to Business Leadership Conference.',
-    label: 'Leadership conference',
+    label: 'Forte C2B NYC 2024',
   },
 ];
 
 export const communityWork = [
   {
     title: 'Girls Who Code College Loop at Lehigh',
-    type: 'Leadership',
+    type: 'Past leadership',
     role: 'Founder & President',
-    timeframe: 'Apr 2024 - Present',
+    timeframe: 'Apr 2024 - May 2025',
     scale: '70+ members',
     summary:
       'Founded and led the Girls Who Code College Loop at Lehigh to build a stronger campus community for women in tech.',
@@ -780,7 +780,7 @@ export const communityWork = [
   },
   {
     title: 'NYC Summer Tech Hub Leader',
-    type: 'Leadership',
+    type: 'Past leadership',
     role: 'Rewriting the Code',
     timeframe: 'May 2024 - Aug 2024',
     scale: '6+ events',
@@ -793,7 +793,7 @@ export const communityWork = [
   },
   {
     title: 'Conference and opportunity access',
-    type: 'Access',
+    type: 'Ongoing focus',
     role: 'Organizer / Resource sharer',
     timeframe: 'Ongoing',
     scale: 'Conference pathways',
@@ -806,7 +806,7 @@ export const communityWork = [
   },
   {
     title: 'Hackathon, ambassador, and campus work',
-    type: 'Community',
+    type: 'Past involvement',
     role: 'Participant / Ambassador / Member',
     timeframe: '2023 - 2025',
     scale: 'Programs + affiliations',
@@ -845,8 +845,8 @@ export const mediaChannels = [
   {
     type: 'Templates',
     status: 'Reusable tools',
-    title: 'Student Opportunity Library',
-    description: 'Reusable guides and trackers for students navigating programs, fellowships, and technical communities.',
+    title: 'Resource Kits & Trackers',
+    description: 'Reusable guides, checklists, and trackers for students navigating programs, fellowships, and technical communities.',
     posts: [
       { label: 'Opportunity tracker', format: 'Template' },
       { label: 'Application planning checklist', format: 'Template' },
