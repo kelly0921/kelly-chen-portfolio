@@ -290,6 +290,23 @@ export const projects = [
     proof: 'Built a landing page, Ambition Archetype quiz and waitlist flow, Tally-ready integration, local CSV/JSON export fallback, and lightweight analytics hooks.',
     tags: ['Validation MVP', 'Landing page', 'Ambition archetypes', 'Tally-ready', 'Consumer research'],
   },
+  {
+    group: 'Startup Concept',
+    title: 'ApplyFirst',
+    mark: { text: 'AF', label: 'ApplyFirst', tone: 'indigo' },
+    status: 'Phase 1 internal MVP',
+    description:
+      'An early-career program monitor that helps students discover, track, and prepare for high-signal opportunities before applications open.',
+    image: '/assets/project-applyfirst.svg',
+    imageFit: 'contain',
+    imageAlt: 'ApplyFirst concept dashboard showing opportunity signals, eligibility filters, and preparation timing.',
+    problem: 'High-value internships, fellowships, insight programs, scholarships, and career-launch opportunities are scattered across lists and official pages, so students often find them too late.',
+    user: 'First-year, sophomore, and emerging technical students looking for SWE, product, quant, finance tech, data, AI, fellowship, conference, and prep opportunities.',
+    role: 'Product strategist, frontend MVP builder, data-model designer, and opportunity systems researcher.',
+    learned: 'A useful opportunity product is not just a list. It needs timing, eligibility, confidence, verification, and next-action guidance.',
+    proof: 'Built a standalone React/Vite MVP direction with searchable records, role and class-year filters, shortlist behavior, confidence labels, alert-readiness framing, and source-signal notes.',
+    tags: ['React', 'Vite', 'Career tech', 'Data modeling', 'Product strategy'],
+  },
 ];
 
 export const projectActions = {
@@ -322,6 +339,12 @@ export const projectActions = {
     primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=Join%20the%20Tandem%20waitlist',
     secondaryLabel: 'Learn More',
     secondaryHref: '#tandem',
+  },
+  ApplyFirst: {
+    body:
+      'ApplyFirst is an early internal MVP for students who want to track high-signal programs before they open. I am looking for feedback from students, campus orgs, and opportunity-sharing communities.',
+    primaryLabel: 'Share ApplyFirst Feedback',
+    primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=ApplyFirst%20feedback',
   },
 };
 
