@@ -1,81 +1,136 @@
-<svg width="1440" height="820" viewBox="0 0 1440 820" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WebPilot workflow diagram from client notes to implementation">
-  <rect width="1440" height="820" rx="32" fill="#F6F8F7"/>
-  <rect x="72" y="64" width="1296" height="692" rx="28" fill="#FFFFFF" stroke="#D9E2DE" stroke-width="2"/>
-  <g transform="translate(112 104)">
-    <rect width="64" height="64" rx="16" fill="#DDF3EA"/>
-    <rect x="15" y="22" width="35" height="28" rx="5" fill="#FFFFFF" stroke="#135E65" stroke-width="3"/>
-    <path d="M17 30H49" stroke="#135E65" stroke-width="3" stroke-linecap="round"/>
-    <path d="M30 42L35 37L40 42L46 35" stroke="#135E65" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M49 12L51.8 18.2L58 21L51.8 23.8L49 30L46.2 23.8L40 21L46.2 18.2L49 12Z" fill="#135E65"/>
-  </g>
-  <text x="196" y="136" fill="#172022" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">WebPilot Workflow</text>
-  <text x="196" y="174" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="22">How messy website needs become client-ready recommendations and implementation work</text>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">WebPilot website operations workflow</title>
+  <desc id="desc">Open-lane storyboard showing how WebPilot turns messy website needs into evidence-backed recommendations, delivery review, and implementation work.</desc>
   <defs>
-    <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
-      <path d="M1 1L13 7L1 13" stroke="#135E65" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f1fbf7"/>
+      <stop offset="0.55" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <filter id="softShadow" x="-18%" y="-18%" width="136%" height="146%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#12393d" flood-opacity="0.12"/>
+    </filter>
+    <marker id="workArrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M1 1 L13 7 L1 13 Z" fill="#135e65"/>
+    </marker>
+    <marker id="deliveryArrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M1 1 L13 7 L1 13 Z" fill="#5b6ee1"/>
     </marker>
   </defs>
 
-  <g font-family="Inter, Arial, sans-serif">
-    <g transform="translate(112 278)">
-      <rect width="180" height="172" rx="18" fill="#DDF3EA" stroke="#B9DCD1"/>
-      <text x="28" y="48" fill="#135E65" font-size="18" font-weight="800">1. Intake</text>
-      <text x="28" y="82" fill="#172022" font-size="17" font-weight="700">Client notes</text>
-      <text x="28" y="110" fill="#475569" font-size="15">Goals, pain points,</text>
-      <text x="28" y="132" fill="#475569" font-size="15">requested changes,</text>
-      <text x="28" y="154" fill="#475569" font-size="15">missing assets</text>
+  <rect width="1200" height="900" rx="34" fill="url(#paper)"/>
+  <path d="M78 145 C236 78 372 188 526 112 C686 34 826 156 970 94 C1062 54 1124 86 1150 120" fill="none" stroke="#9edcc8" stroke-width="5" stroke-linecap="round" opacity="0.36"/>
+  <path d="M76 748 C228 690 374 780 528 706 C692 628 830 782 972 706 C1064 656 1122 688 1150 722" fill="none" stroke="#c9cdfb" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <g transform="translate(76 54)">
+      <rect width="58" height="58" rx="16" fill="#ddf3ea"/>
+      <rect x="14" y="20" width="30" height="24" rx="5" fill="#fffdf8" stroke="#135e65" stroke-width="3"/>
+      <path d="M17 28 H41" stroke="#135e65" stroke-width="3" stroke-linecap="round"/>
+      <path d="M25 38 L30 34 L35 38 L42 31" stroke="#135e65" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M44 8 L47 15 L54 18 L47 21 L44 28 L41 21 L34 18 L41 15 Z" fill="#135e65"/>
+    </g>
+    <text x="154" y="82" fill="#121826" font-size="35" font-weight="850">WebPilot Workflow</text>
+    <text x="154" y="120" fill="#60726f" font-size="18" font-weight="620">Messy website requests become evidence, reviewable AI output, and client-ready implementation work.</text>
+
+    <g transform="translate(70 162)">
+      <rect width="1060" height="306" rx="34" fill="#eaf8f2" opacity="0.84"/>
+      <text x="30" y="48" fill="#135e65" font-size="14" font-weight="900" letter-spacing="1.2">OPERATOR WORKFLOW</text>
+      <text x="30" y="76" fill="#4d6763" font-size="15" font-weight="650">Build context before asking AI to decide</text>
+
+      <g transform="translate(142 88)">
+        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
+        <rect x="44" y="44" width="112" height="86" rx="17" fill="#fffdf8" stroke="#135e65" stroke-width="4"/>
+        <line x1="64" y1="68" x2="124" y2="68" stroke="#121826" stroke-width="5" stroke-linecap="round"/>
+        <line x1="64" y1="91" x2="140" y2="91" stroke="#9edcc8" stroke-width="5" stroke-linecap="round"/>
+        <line x1="64" y1="114" x2="112" y2="114" stroke="#5b6ee1" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="166" cy="52" r="14" fill="#f3c95f"/>
+        <path d="M156 76 C166 64 176 64 186 76" fill="none" stroke="#121826" stroke-width="5" stroke-linecap="round"/>
+        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Intake</text>
+        <text x="110" y="228" text-anchor="middle" fill="#5c6f6b" font-size="14" font-weight="650">Goals, pain points, assets</text>
+      </g>
+
+      <g transform="translate(435 88)">
+        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
+        <rect x="40" y="52" width="126" height="82" rx="18" fill="#121826"/>
+        <rect x="58" y="70" width="36" height="18" rx="6" fill="#9edcc8"/>
+        <rect x="109" y="70" width="36" height="18" rx="6" fill="#c9cdfb"/>
+        <polyline points="58,114 82,98 104,108 144,82" fill="none" stroke="#f3c95f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="168" y="39" width="40" height="54" rx="10" fill="#fffdf8" stroke="#135e65" stroke-width="4"/>
+        <line x1="178" y1="56" x2="198" y2="56" stroke="#135e65" stroke-width="4" stroke-linecap="round"/>
+        <line x1="178" y1="73" x2="193" y2="73" stroke="#5b6ee1" stroke-width="4" stroke-linecap="round"/>
+        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Evidence</text>
+        <text x="110" y="228" text-anchor="middle" fill="#5c6f6b" font-size="14" font-weight="650">Captures, speed, notes</text>
+      </g>
+
+      <g transform="translate(728 88)">
+        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
+        <rect x="42" y="47" width="134" height="88" rx="18" fill="#fffdf8" stroke="#135e65" stroke-width="4"/>
+        <path d="M74 31 L80 44 L94 50 L80 56 L74 70 L68 56 L54 50 L68 44 Z" fill="#135e65"/>
+        <line x1="68" y1="72" x2="150" y2="72" stroke="#121826" stroke-width="5" stroke-linecap="round"/>
+        <line x1="68" y1="96" x2="132" y2="96" stroke="#9edcc8" stroke-width="5" stroke-linecap="round"/>
+        <line x1="68" y1="119" x2="143" y2="119" stroke="#5b6ee1" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="184" cy="55" r="14" fill="#f3c95f"/>
+        <path d="M174 78 C184 67 194 67 204 78" fill="none" stroke="#121826" stroke-width="5" stroke-linecap="round"/>
+        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">AI Draft</text>
+        <text x="110" y="228" text-anchor="middle" fill="#5c6f6b" font-size="14" font-weight="650">Editable recommendations</text>
+      </g>
+
+      <g stroke="#135e65" stroke-width="5" stroke-linecap="round" marker-end="url(#workArrow)">
+        <line x1="380" y1="172" x2="424" y2="172"/>
+        <line x1="673" y1="172" x2="717" y2="172"/>
+      </g>
     </g>
 
-    <path d="M310 364H390" stroke="#135E65" stroke-width="4" marker-end="url(#arrow)"/>
+    <g transform="translate(70 512)">
+      <rect width="1060" height="306" rx="34" fill="#eef0ff" opacity="0.86"/>
+      <text x="30" y="48" fill="#4d59c7" font-size="14" font-weight="900" letter-spacing="1.2">DELIVERY WORKFLOW</text>
+      <text x="30" y="76" fill="#5d6389" font-size="15" font-weight="650">Review, package, implement, then follow up</text>
 
-    <g transform="translate(408 278)">
-      <rect width="180" height="172" rx="18" fill="#FFFFFF" stroke="#D9E2DE" stroke-width="2"/>
-      <text x="28" y="48" fill="#135E65" font-size="18" font-weight="800">2. Evidence</text>
-      <text x="28" y="82" fill="#172022" font-size="17" font-weight="700">Website context</text>
-      <text x="28" y="110" fill="#475569" font-size="15">Page captures, copy,</text>
-      <text x="28" y="132" fill="#475569" font-size="15">PageSpeed, notes,</text>
-      <text x="28" y="154" fill="#475569" font-size="15">manual observations</text>
+      <g transform="translate(142 88)">
+        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
+        <rect x="42" y="46" width="132" height="92" rx="18" fill="#121826"/>
+        <rect x="62" y="65" width="34" height="18" rx="6" fill="#9edcc8"/>
+        <rect x="116" y="65" width="34" height="18" rx="6" fill="#c9cdfb"/>
+        <path d="M63 114 L82 128 L112 94" fill="none" stroke="#9edcc8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="180" cy="56" r="14" fill="#f3c95f"/>
+        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Review</text>
+        <text x="110" y="228" text-anchor="middle" fill="#5d6389" font-size="14" font-weight="650">Human checks before delivery</text>
+      </g>
+
+      <g transform="translate(435 88)">
+        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
+        <rect x="38" y="43" width="124" height="96" rx="18" fill="#fffdf8" stroke="#5b6ee1" stroke-width="4"/>
+        <line x1="60" y1="68" x2="136" y2="68" stroke="#121826" stroke-width="5" stroke-linecap="round"/>
+        <line x1="60" y1="94" x2="126" y2="94" stroke="#5b6ee1" stroke-width="5" stroke-linecap="round"/>
+        <line x1="60" y1="119" x2="112" y2="119" stroke="#9edcc8" stroke-width="5" stroke-linecap="round"/>
+        <rect x="166" y="75" width="44" height="34" rx="10" fill="#121826"/>
+        <path d="M177 93 L187 103 L200 84" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Client Package</text>
+        <text x="110" y="228" text-anchor="middle" fill="#5d6389" font-size="14" font-weight="650">QA, report, requests</text>
+      </g>
+
+      <g transform="translate(728 88)">
+        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
+        <rect x="37" y="50" width="126" height="86" rx="18" fill="#fffdf8" stroke="#5b6ee1" stroke-width="4"/>
+        <rect x="57" y="69" width="24" height="16" rx="5" fill="#9edcc8"/>
+        <rect x="95" y="69" width="24" height="16" rx="5" fill="#f3c95f"/>
+        <rect x="57" y="101" width="72" height="8" rx="4" fill="#121826"/>
+        <path d="M164 128 L202 90" stroke="#135e65" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="207" cy="84" r="11" fill="#f3c95f"/>
+        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Implement</text>
+        <text x="110" y="228" text-anchor="middle" fill="#5d6389" font-size="14" font-weight="650">Trackable website changes</text>
+      </g>
+
+      <g stroke="#5b6ee1" stroke-width="5" stroke-linecap="round" marker-end="url(#deliveryArrow)">
+        <line x1="380" y1="172" x2="424" y2="172"/>
+        <line x1="673" y1="172" x2="717" y2="172"/>
+      </g>
     </g>
 
-    <path d="M606 364H686" stroke="#135E65" stroke-width="4" marker-end="url(#arrow)"/>
-
-    <g transform="translate(704 278)">
-      <rect width="180" height="172" rx="18" fill="#FFFFFF" stroke="#D9E2DE" stroke-width="2"/>
-      <text x="28" y="48" fill="#135E65" font-size="18" font-weight="800">3. AI Output</text>
-      <text x="28" y="82" fill="#172022" font-size="17" font-weight="700">Recommendations</text>
-      <text x="28" y="110" fill="#475569" font-size="15">Audits, page copy,</text>
-      <text x="28" y="132" fill="#475569" font-size="15">SEO, accessibility,</text>
-      <text x="28" y="154" fill="#475569" font-size="15">WordPress notes</text>
-    </g>
-
-    <path d="M902 364H982" stroke="#135E65" stroke-width="4" marker-end="url(#arrow)"/>
-
-    <g transform="translate(1000 278)">
-      <rect width="180" height="172" rx="18" fill="#FFFFFF" stroke="#D9E2DE" stroke-width="2"/>
-      <text x="28" y="48" fill="#135E65" font-size="18" font-weight="800">4. Delivery</text>
-      <text x="28" y="82" fill="#172022" font-size="17" font-weight="700">Client package</text>
-      <text x="28" y="110" fill="#475569" font-size="15">Readiness checks,</text>
-      <text x="28" y="132" fill="#475569" font-size="15">final QA, report,</text>
-      <text x="28" y="154" fill="#475569" font-size="15">copy/export flow</text>
-    </g>
-
-    <path d="M1180 364C1268 364 1268 566 1180 566H346" stroke="#135E65" stroke-width="4" marker-end="url(#arrow)" fill="none"/>
-
-    <g transform="translate(408 516)">
-      <rect width="292" height="132" rx="18" fill="#DDF3EA" stroke="#B9DCD1"/>
-      <text x="28" y="46" fill="#135E65" font-size="18" font-weight="800">5. Implementation Plan</text>
-      <text x="28" y="80" fill="#172022" font-size="17" font-weight="700">Trackable website changes</text>
-      <text x="28" y="108" fill="#475569" font-size="15">Priority, status, WordPress action, acceptance criteria</text>
-    </g>
-
-    <path d="M720 582H800" stroke="#135E65" stroke-width="4" marker-end="url(#arrow)"/>
-
-    <g transform="translate(820 516)">
-      <rect width="292" height="132" rx="18" fill="#FFFFFF" stroke="#D9E2DE" stroke-width="2"/>
-      <text x="28" y="46" fill="#135E65" font-size="18" font-weight="800">6. Client Follow-Up</text>
-      <text x="28" y="80" fill="#172022" font-size="17" font-weight="700">Requests and approvals</text>
-      <text x="28" y="108" fill="#475569" font-size="15">Photos, bios, reviews, missing copy, final decisions</text>
+    <g transform="translate(208 842)">
+      <rect width="784" height="34" rx="17" fill="#121826"/>
+      <text x="392" y="23" text-anchor="middle" fill="#fff8e8" font-size="15" font-weight="820">WebPilot keeps AI output tied to evidence, review, delivery, and implementation.</text>
     </g>
   </g>
 </svg>

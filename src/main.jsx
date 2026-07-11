@@ -28,11 +28,10 @@ import {
   skillGroups,
   speakingEvents,
   speakingMoments,
-  tandemCaseStudy,
   webPilotCaseStudy,
 } from './portfolioData';
 
-const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'tandem', 'speaking', 'community', 'media', 'opportunities'];
+const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'speaking', 'community', 'media', 'opportunities'];
 
 const pageNotes = {
   Experience: {
@@ -88,8 +87,6 @@ function App() {
         return <ProjectCaseStudyPage caseStudy={beamCashCaseStudy} />;
       case 'webpilot':
         return <ProjectCaseStudyPage caseStudy={webPilotCaseStudy} />;
-      case 'tandem':
-        return <ProjectCaseStudyPage caseStudy={tandemCaseStudy} />;
       case 'speaking':
         return <SpeakingPage />;
       case 'community':
@@ -113,7 +110,7 @@ function App() {
 }
 
 function Navbar({ activeRoute }) {
-  const navActiveRoute = ['beamcash', 'webpilot', 'tandem'].includes(activeRoute) ? 'projects' : activeRoute;
+  const navActiveRoute = ['beamcash', 'webpilot'].includes(activeRoute) ? 'projects' : activeRoute;
 
   return (
     <header className="site-header">
@@ -444,52 +441,84 @@ function CommunityPage() {
 }
 
 function ProjectCaseStudyPage({ caseStudy }) {
+  const caseSlug = caseStudy.eyebrow.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const caseMark = caseStudy.eyebrow.slice(0, 2).toUpperCase();
+  const heroImage = caseStudy.images[0];
+  const galleryImages = caseStudy.galleryImages || (heroImage?.kind === 'mobile' ? caseStudy.images : caseStudy.images.slice(1));
+
   return (
     <>
-      <PageHero
-        eyebrow={caseStudy.eyebrow}
-        title={caseStudy.title}
-        body={caseStudy.subtitle}
-      />
-      <section className="case-study-summary section-shell">
+      <section className={`case-study-hero section-shell case-study-${caseSlug}`} data-mark={caseMark}>
         <a className="back-link" href="#projects">Back to Projects</a>
-        <div className="case-study-meta">
-          <div>
+        <div className="case-study-hero-copy">
+          <h1>{caseStudy.eyebrow}</h1>
+          <p className="case-study-product-line">{caseStudy.title}</p>
+          <p>{caseStudy.subtitle}</p>
+        </div>
+        <div className="case-study-hero-side">
+          {heroImage && (
+            <figure
+              className={[
+                'case-study-hero-visual',
+                heroImage.kind === 'mobile' ? 'case-study-hero-visual-mobile' : '',
+                heroImage.fit === 'contain' ? 'case-study-visual-contain' : '',
+              ].filter(Boolean).join(' ')}
+            >
+              <img src={heroImage.src} alt={heroImage.alt} loading="eager" />
+              <figcaption>{heroImage.title}</figcaption>
+            </figure>
+          )}
+        </div>
+        <div className="case-study-dossier" aria-label={`${caseStudy.eyebrow} project snapshot`}>
+          <div className="case-study-dossier-item">
             <span>Status</span>
             <strong>{caseStudy.status}</strong>
           </div>
-          <div>
+          <div className="case-study-dossier-item">
             <span>Role</span>
             <strong>{caseStudy.role}</strong>
           </div>
-        </div>
-        <TagCloud tags={caseStudy.stack} />
-      </section>
-      <section className="case-study-section section-shell">
-        <div className="case-study-two-column">
-          <article>
-            <p className="eyebrow">Overview</p>
-            <h2>{caseStudy.overviewTitle}</h2>
-            <p>{caseStudy.overview}</p>
-          </article>
-          <article>
-            <p className="eyebrow">Problem</p>
-            <h2>{caseStudy.problemTitle}</h2>
-            <p>{caseStudy.problem}</p>
-          </article>
+          <div className="case-study-dossier-item case-study-dossier-focus">
+            <span>Focus</span>
+            <strong>{caseStudy.overviewTitle}</strong>
+            <p>{caseStudy.problemTitle}</p>
+          </div>
+          <div className="case-study-dossier-item case-study-dossier-stack">
+            <span>Stack</span>
+            <TagCloud tags={caseStudy.stack} />
+          </div>
         </div>
       </section>
-      <section className="case-study-section section-shell">
+      <section className="case-study-lede case-study-chapter section-shell">
+        <article className="case-study-lede-main">
+          <p className="eyebrow">Overview</p>
+          <h2>{caseStudy.overviewTitle}</h2>
+          <p>{caseStudy.overview}</p>
+        </article>
+        <aside className="case-study-problem">
+          <p className="eyebrow">Problem</p>
+          <h2>{caseStudy.problemTitle}</h2>
+          <p>{caseStudy.problem}</p>
+        </aside>
+      </section>
+      <section className="case-study-section case-study-chapter case-study-build-section section-shell">
         <SectionHeading eyebrow={caseStudy.buildEyebrow || 'Build'} title={caseStudy.buildTitle || 'What I Built'} />
-        <ul className="case-study-list">
-          {caseStudy.whatIBuilt.map((item) => (
-            <li key={item}>{item}</li>
+        <div className="case-study-build-list" role="list">
+          {caseStudy.whatIBuilt.map((item, index) => (
+            <article className="case-study-build-item" key={item} role="listitem">
+              <span className="case-study-build-marker" aria-hidden="true" />
+              <span>{caseStudy.buildLabels?.[index] || 'Artifact'}</span>
+              <p>{item}</p>
+            </article>
           ))}
-        </ul>
+        </div>
       </section>
-      <section className="case-study-section section-shell">
-        <SectionHeading eyebrow="Product" title="Product Decisions" />
-        <div className="decision-grid">
+      <section className="case-study-section case-study-chapter case-study-decision-section section-shell">
+        <div className="case-study-section-kicker">
+          <p className="eyebrow">Product</p>
+          <h2>Product Decisions</h2>
+        </div>
+        <div className="decision-rail">
           {caseStudy.productDecisions.map((decision) => (
             <article className="decision-item" key={decision.title}>
               <h3>{decision.title}</h3>
@@ -498,11 +527,18 @@ function ProjectCaseStudyPage({ caseStudy }) {
           ))}
         </div>
       </section>
-      <section className="case-study-section section-shell">
+      <section className="case-study-section case-study-chapter case-study-gallery-section section-shell">
         <SectionHeading eyebrow={caseStudy.screenshotEyebrow || 'Screenshots'} title={caseStudy.screenshotTitle} />
         <div className="screenshot-stack">
-          {caseStudy.images.map((image) => (
-            <figure className={`case-screenshot${image.kind === 'mobile' ? ' case-screenshot-mobile' : ''}`} key={image.title}>
+          {(galleryImages.length ? galleryImages : caseStudy.images).map((image) => (
+            <figure
+              className={[
+                'case-screenshot',
+                image.kind === 'mobile' ? 'case-screenshot-mobile' : '',
+                image.fit === 'contain' ? 'case-screenshot-contain' : '',
+              ].filter(Boolean).join(' ')}
+              key={image.title}
+            >
               <img src={image.src} alt={image.alt} loading="lazy" />
               <figcaption>
                 <strong>{image.title}</strong>
@@ -512,24 +548,30 @@ function ProjectCaseStudyPage({ caseStudy }) {
           ))}
         </div>
       </section>
-      <section className="case-study-section section-shell">
-        <div className="case-study-two-column">
-          <article>
-            <p className="eyebrow">Technical Highlights</p>
-            <h2>{caseStudy.technicalTitle}</h2>
-            <ul className="case-study-list compact">
-              {caseStudy.technicalHighlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-          <figure className="workflow-diagram">
+      <section className="case-study-section case-study-chapter case-study-system-section section-shell">
+        {caseStudy.workflowStandalone ? (
+          <figure className="workflow-diagram workflow-diagram-standalone">
             <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
           </figure>
-        </div>
+        ) : (
+          <div className="case-study-two-column case-study-technical">
+            <article>
+              <p className="eyebrow">Technical Highlights</p>
+              <h2>{caseStudy.technicalTitle}</h2>
+              <ul className="case-study-list compact">
+                {caseStudy.technicalHighlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <figure className="workflow-diagram">
+              <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
+            </figure>
+          </div>
+        )}
       </section>
-      <section className="case-study-section section-shell">
-        <div className="case-study-two-column">
+      <section className="case-study-section case-study-chapter case-study-reflection-section section-shell">
+        <div className="case-study-two-column case-study-reflection">
           <article>
             <p className="eyebrow">Learned</p>
             <h2>What This Project Taught Me</h2>
@@ -1164,15 +1206,16 @@ function ProjectMark({ mark, title }) {
   const tone = mark?.tone || 'teal';
   const label = mark?.label || title;
   const src = mark?.src;
+  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
   return (
-    <span className={`project-mark project-mark-${tone}`} aria-label={`${label} mark`} title={label}>
+    <span className={`project-mark project-mark-${tone} project-mark-${slug}`} aria-label={`${label} mark`} title={label}>
       {src ? <img src={src} alt="" loading="lazy" /> : text}
     </span>
   );
 }
 
-function EventCard({ event, role, topic, subtitle, focus, date, format, location, description, href, image, imageAlt }) {
+function EventCard({ event, role, topic, subtitle, focus, date, format, location, description, href, linkLabel, image, imageAlt }) {
   return (
     <article className="event-card">
       {image ? (
@@ -1203,8 +1246,8 @@ function EventCard({ event, role, topic, subtitle, focus, date, format, location
       </dl>
       <p>{description}</p>
       {href ? (
-        <a className="event-link" href={href} target="_blank" rel="noreferrer">
-          Event site
+        <a className={linkLabel ? 'event-link event-link-cta' : 'event-link'} href={href} target="_blank" rel="noreferrer">
+          {linkLabel || 'Event site'}
         </a>
       ) : null}
     </article>
@@ -1407,6 +1450,14 @@ function OpportunitySystems({ systems }) {
         <h2>{systems.title}</h2>
         <p>{systems.description}</p>
       </div>
+      {systems.liveTool ? (
+        <a className="opportunity-live-tool" href={systems.liveTool.href} target="_blank" rel="noreferrer">
+          <span>{systems.liveTool.label}</span>
+          <strong>{systems.liveTool.title}</strong>
+          <p>{systems.liveTool.description}</p>
+          <em>{systems.liveTool.action}</em>
+        </a>
+      ) : null}
       <div className="opportunity-pathway">
         {systems.items.map((item, index) => (
           <article className="opportunity-pathway-item" key={item.title}>

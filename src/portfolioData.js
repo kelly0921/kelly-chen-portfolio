@@ -276,7 +276,7 @@ export const projects = [
   {
     group: 'Startup Concept',
     title: 'Tandem',
-    mark: { src: '/assets/tandem-mark-option3.png', label: 'Tandem Connected Intent mark', tone: 'rose' },
+    mark: { src: '/assets/tandem-reference-mark-centered.png', label: 'Tandem Connected Intent mark', tone: 'rose' },
     status: 'Early validation MVP',
     description:
       'A NYC dating experiment for ambitious singles in their 20s, testing whether ambition type, lifestyle rhythm, risk tolerance, and future direction can become meaningful dating signals.',
@@ -292,13 +292,12 @@ export const projects = [
   {
     group: 'Startup Concept',
     title: 'ApplyFirst',
-    mark: { text: 'AF', label: 'ApplyFirst', tone: 'indigo' },
-    status: 'Phase 1 internal MVP',
+    mark: { text: 'AF', label: 'ApplyFirst', tone: 'indigo', src: '/assets/applyfirst-mark.svg' },
+    status: 'Live MVP',
     description:
       'An early-career program monitor that helps students discover, track, and prepare for high-signal opportunities before applications open.',
-    image: '/assets/project-applyfirst.svg',
-    imageFit: 'contain',
-    imageAlt: 'ApplyFirst concept dashboard showing opportunity signals, eligibility filters, and preparation timing.',
+    image: '/assets/project-applyfirst-programs-desktop.png',
+    imageAlt: 'ApplyFirst programs page showing searchable early-career opportunity records, filters, and status labels.',
     problem: 'High-value internships, fellowships, insight programs, scholarships, and career-launch opportunities are scattered across lists and official pages, so students often find them too late.',
     user: 'First-year, sophomore, and emerging technical students looking for SWE, product, quant, finance tech, data, AI, fellowship, conference, and prep opportunities.',
     role: 'Product strategist, frontend MVP builder, data-model designer, and opportunity systems researcher.',
@@ -336,22 +335,20 @@ export const projectActions = {
       'Tandem is live as a validation site with a landing page, Ambition Archetype quiz, and waitlist flow for ambitious NYC singles. It is not a full dating app yet.',
     primaryLabel: 'Join the Tandem Waitlist',
     primaryHref: 'https://tandem-dating.pages.dev/tandem/',
-    secondaryLabel: 'Learn More',
-    secondaryHref: '#tandem',
   },
   ApplyFirst: {
     body:
-      'ApplyFirst is an early internal MVP for students who want to track high-signal programs before they open. I am looking for feedback from students, campus orgs, and opportunity-sharing communities.',
-    primaryLabel: 'Share ApplyFirst Feedback',
-    primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=ApplyFirst%20feedback',
+      'ApplyFirst is live as an early-career opportunity tracker for students who want to discover and prepare for high-signal programs before they open.',
+    primaryLabel: 'View ApplyFirst',
+    primaryHref: 'https://applyfirst-careers.pages.dev/',
   },
 };
 
 export const beamCashCaseStudy = {
   eyebrow: 'BeamCash',
-  title: 'QR Payments For Local Sellers',
+  title: 'QR Payments for Sellers',
   subtitle:
-    'A mobile-first payment MVP that helps local sellers, performers, vendors, and donation-based groups accept in-person payments through branded QR checkout.',
+    'A mobile-first MVP for sellers, performers, vendors, and donation-based groups accepting in-person payments.',
   status: 'In-progress local MVP',
   role: 'Founder, product builder, mobile app developer, and payment UX designer',
   stack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'Stripe-ready architecture', 'QR generation', 'Express backend'],
@@ -368,6 +365,7 @@ export const beamCashCaseStudy = {
     'Buyer checkout flow with seller profile, preset/custom amount selection, payment confirmation, and test payment support.',
     'Local/backend hybrid MVP architecture with mock payment services and Stripe PaymentSheet / Connect integration direction.',
   ],
+  buildLabels: ['Seller Setup', 'Dashboard', 'QR Signage', 'Buyer Checkout', 'Payment Architecture'],
   productDecisions: [
     {
       title: 'Trust Before Payment',
@@ -395,31 +393,47 @@ export const beamCashCaseStudy = {
   ],
   images: [
     {
-      title: 'Home Entry',
-      src: '/assets/project-beamcash-home-mobile.png',
-      alt: 'BeamCash home screen with logo, seller-focused tagline, and code creation actions.',
-      caption: 'The app starts with a simple seller-oriented entry point: create or recover a BeamCash code.',
-      kind: 'mobile',
-    },
-    {
       title: 'Seller Dashboard',
       src: '/assets/project-beamcash-seller-dashboard-mobile.png',
       alt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
-      caption: 'The seller dashboard keeps QR access, payment stats, payout state, and branded signage in one place.',
+      caption: 'The strongest product moment: a seller can see payment readiness, balance, stats, and the branded QR code they use in person.',
       kind: 'mobile',
     },
     {
       title: 'Buyer Checkout',
       src: '/assets/project-beamcash-buyer-checkout-mobile.png',
       alt: 'BeamCash checkout screen showing a seller profile and payment amount options.',
-      caption: 'The buyer flow is designed to feel familiar: confirm the seller, choose an amount, and send support.',
+      caption: 'The buyer flow confirms seller identity first, then makes the amount choice and secure payment action feel familiar.',
       kind: 'mobile',
     },
     {
-      title: 'Find My Code',
+      title: 'Home Entry',
+      src: '/assets/project-beamcash-home-mobile.png',
+      alt: 'BeamCash home screen with logo, seller-focused tagline, and code creation actions.',
+      caption: 'The entry screen keeps the app focused: view an existing BeamCash code or recover one quickly.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Code Recovery',
       src: '/assets/project-beamcash-find-code-mobile.png',
       alt: 'BeamCash find code screen for recovering an existing seller payment code.',
-      caption: 'The recovery flow helps sellers return to their payment code without rebuilding their setup.',
+      caption: 'The recovery flow supports repeat use, so sellers can return to an existing payment code without rebuilding setup.',
+      kind: 'mobile',
+    },
+  ],
+  galleryImages: [
+    {
+      title: 'Buyer Checkout',
+      src: '/assets/project-beamcash-buyer-checkout-mobile.png',
+      alt: 'BeamCash checkout screen showing a seller profile and payment amount options.',
+      caption: 'The buyer sees who they are paying first, then chooses a preset or custom amount before moving into payment.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Seller Dashboard',
+      src: '/assets/project-beamcash-seller-dashboard-mobile.png',
+      alt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
+      caption: 'The seller side still matters: the dashboard gives them QR access, payment readiness, balance, and recent activity in one place.',
       kind: 'mobile',
     },
   ],
@@ -427,6 +441,7 @@ export const beamCashCaseStudy = {
     src: '/assets/project-beamcash-product-flow.svg',
     alt: 'BeamCash product flow from seller setup to QR checkout and payment confirmation.',
   },
+  workflowStandalone: true,
   screenshotTitle: 'Mobile Product Screens',
   technicalTitle: 'Built For QR Payment Flows',
   lessons: [
@@ -467,6 +482,7 @@ export const webPilotCaseStudy = {
     'Client-ready delivery view with QA checks, client requests, and implementation handoff.',
     'Page capture, PageSpeed evidence, local backup/restore, and workflow smoke testing for a more reliable internal MVP.',
   ],
+  buildLabels: ['Workspace', 'AI Tasks', 'Review Gate', 'Delivery View', 'Evidence & Backup'],
   productDecisions: [
     {
       title: 'Website-first, not project-first',
@@ -486,30 +502,33 @@ export const webPilotCaseStudy = {
     },
   ],
   technicalHighlights: [
-    'Reusable AI engine and prompt template architecture with prompt version tracking.',
-    'Structured AIOutput model with model, prompt version, status, generated sections, and review state.',
-    'Local JSON storage with atomic write improvements plus backup and restore flows.',
-    'Google PageSpeed Insights integration for supporting technical evidence.',
-    'Health endpoint and smoke test workflow for local validation.',
+    'Prompt templates are versioned so generated audits, copy, FAQs, and implementation notes can be traced back to the workflow that produced them.',
+    'AI outputs are saved as structured records with model, prompt version, generated sections, status, and review state instead of disposable chat text.',
+    'Review and approval states keep AI-generated work human-editable before it becomes a client-facing delivery asset.',
+    'Page captures, pasted copy, PageSpeed results, and manual observations give recommendations evidence instead of leaving them as generic advice.',
+    'Local persistence, atomic writes, backup/restore, health checks, and smoke tests make the internal workflow safer to use on real website work.',
   ],
   images: [
-    {
-      title: 'Dashboard',
-      src: '/assets/project-webpilot-dashboard.png',
-      alt: 'WebPilot dashboard showing internal website operations, backup, and production readiness checks.',
-      caption: 'The internal operations hub tracks readiness before using the tool for client website work.',
-    },
     {
       title: 'Website Command Center',
       src: '/assets/project-webpilot-command-center.png',
       alt: 'WebPilot website command center showing guided workflow steps and reusable website context.',
-      caption: 'The core workflow keeps context, AI tasks, delivery, and implementation connected to a specific website.',
+      caption: 'The strongest product surface: website context, workflow state, next step, and reusable client information are connected in one place.',
+      fit: 'contain',
     },
     {
       title: 'Client Delivery View',
       src: '/assets/project-webpilot-delivery-view.png',
       alt: 'WebPilot client delivery view showing package readiness checks and approval workflow.',
-      caption: 'The delivery view turns generated recommendations into a reviewable package with QA and follow-up steps.',
+      caption: 'The delivery view shows the operational gate between AI-generated work and client-ready implementation.',
+      fit: 'contain',
+    },
+    {
+      title: 'Readiness Dashboard',
+      src: '/assets/project-webpilot-dashboard.png',
+      alt: 'WebPilot dashboard showing internal website operations, backup, and production readiness checks.',
+      caption: 'The dashboard makes the internal operator workflow feel safer before using it for real client work.',
+      fit: 'contain',
     },
   ],
   workflowImage: {
@@ -517,7 +536,7 @@ export const webPilotCaseStudy = {
     alt: 'WebPilot workflow diagram showing intake, AI generation, review, delivery, and implementation handoff.',
   },
   screenshotTitle: 'Workflow Screens',
-  technicalTitle: 'Built For Reviewable AI Work',
+  technicalTitle: 'Making AI Output Operational',
   lessons: [
     'The highest-value AI product is often not the generator itself, but the workflow around it.',
     'Useful AI tools need context collection, review states, client delivery, implementation tracking, and follow-up.',
@@ -582,12 +601,6 @@ export const tandemCaseStudy = {
       src: '/assets/project-tandem-home-hero.png',
       alt: 'Tandem landing page hero with the headline Dating for complementary ambition.',
       caption: 'The first screen frames Tandem as dating for complementary ambition, with an immediate quiz CTA and audience qualifier.',
-    },
-    {
-      title: 'Complementary Ambition',
-      src: '/assets/project-tandem-concept-section.png',
-      alt: 'Tandem landing page section explaining the complementary ambition concept.',
-      caption: 'The concept section makes the core idea concrete: different strengths can support the same direction.',
     },
     {
       title: 'Ambition Archetypes',
@@ -686,6 +699,8 @@ export const speakingEvents = [
     location: 'NCWIT Career Fair',
     description:
       'A fast-moving version designed for a career fair setting, with concrete ways to make experience, projects, and community work compound.',
+    href: 'https://ncwit.vfairs.com/?mc_cid=48683d8ae6&mc_eid=3414de5471',
+    linkLabel: 'Register for the Event',
   },
 ];
 
@@ -899,6 +914,14 @@ export const opportunitySystems = {
   cta: {
     label: 'Follow the notes on LinkedIn',
     href: 'https://www.linkedin.com/in/kellychen0921/',
+  },
+  liveTool: {
+    label: 'Live MVP',
+    title: 'ApplyFirst',
+    description:
+      'A live early-career opportunity tracker for students who want to discover and prepare for high-signal programs before applications open.',
+    href: 'https://applyfirst-careers.pages.dev/',
+    action: 'Open ApplyFirst',
   },
   items: [
     {
