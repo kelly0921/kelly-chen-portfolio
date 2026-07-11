@@ -276,19 +276,18 @@ export const projects = [
   {
     group: 'Startup Concept',
     title: 'Tandem',
-    mark: { src: '/assets/tandem-reference-mark-centered.png', label: 'Tandem', tone: 'rose' },
+    mark: { src: '/assets/tandem-mark-option3.png', label: 'Tandem Connected Intent mark', tone: 'rose' },
     status: 'Early validation MVP',
     description:
       'A NYC dating experiment for ambitious singles in their 20s, testing whether ambition type, lifestyle rhythm, risk tolerance, and future direction can become meaningful dating signals.',
-    image: '/assets/project-tandem.svg',
-    imageFit: 'contain',
-    imageAlt: 'Tandem concept card for Dating for Complementary Ambition.',
+    image: '/assets/project-tandem-home-hero.png',
+    imageAlt: 'Tandem landing page hero for Dating for Complementary Ambition.',
     problem: 'Most dating apps ask what someone does, but not what era of life they are in or what kind of partner energy complements their direction.',
     user: 'Ambitious NYC singles ages 21-30: students, new grads, interns, early-career professionals, startup employees, creators, and side-project builders.',
     role: 'Product strategist, validation MVP builder, brand direction lead, and archetype-system designer.',
     learned: 'For consumer products, validation should test trust, emotional framing, and demand before building accounts, matching, chat, or app infrastructure.',
-    proof: 'Built a landing page, Ambition Archetype quiz and waitlist flow, Tally-ready integration, local CSV/JSON export fallback, and lightweight analytics hooks.',
-    tags: ['Validation MVP', 'Landing page', 'Ambition archetypes', 'Tally-ready', 'Consumer research'],
+    proof: 'Built a public landing page, Ambition Archetype quiz and waitlist flow, Typeform-ready integration path, local CSV/JSON export fallback, and lightweight analytics hooks.',
+    tags: ['Validation MVP', 'Landing page', 'Ambition archetypes', 'Typeform-ready', 'Consumer research'],
   },
   {
     group: 'Startup Concept',
@@ -538,12 +537,12 @@ export const webPilotCaseStudy = {
 
 export const tandemCaseStudy = {
   eyebrow: 'Tandem',
-  title: 'Dating For Complementary Ambition',
+  title: 'Tandem - Dating For Complementary Ambition',
   subtitle:
     'An early-stage NYC dating experiment for ambitious singles in their 20s who care about lifestyle, ambition, and future direction.',
   status: 'Early validation MVP',
   role: 'Product strategist, validation MVP builder, brand direction lead, and archetype-system designer',
-  stack: ['Product strategy', 'Landing page', 'Ambition Archetype quiz', 'Tally embed', 'Local CSV/JSON export', 'Analytics hooks'],
+  stack: ['Product strategy', 'Landing page', 'Ambition Archetype quiz', 'Typeform-ready flow', 'Local CSV/JSON export', 'Analytics hooks'],
   overview:
     'Tandem is a validation-first NYC dating experiment for ambitious singles ages 21-30. The live first version is a public landing page, Ambition Archetype quiz, and waitlist flow designed to test whether ambition and life-direction compatibility can become a meaningful dating signal.',
   overviewTitle: 'A Dating Experiment Built Around Direction',
@@ -555,7 +554,7 @@ export const tandemCaseStudy = {
   whatIBuilt: [
     'Built a public landing page that explains the thesis, status, and quiz call to action.',
     'Developed the Ambition Archetype quiz and waitlist flow to test compatibility around career mode, risk, lifestyle, and partner energy.',
-    'Added a Tally embed path for public launch, while keeping a local CSV and JSON export fallback for early testing.',
+    'Prepared the quiz flow for a Typeform-style result experience, while keeping a local CSV and JSON export fallback for early testing.',
     'Instrumented lightweight analytics hooks around landing views, CTA clicks, quiz starts, waitlist completion, mixer interest, and export events.',
     'Kept the MVP intentionally scoped to landing page, quiz, and waitlist only, avoiding premature app features.',
   ],
@@ -579,22 +578,47 @@ export const tandemCaseStudy = {
   ],
   images: [
     {
-      title: 'Concept Brand Card',
-      src: '/assets/project-tandem.svg',
-      alt: 'Tandem concept card introducing a dating product for complementary ambition.',
-      caption: 'The portfolio keeps the visual intentionally brand-led while the live validation site tests positioning, quiz intent, and waitlist demand.',
+      title: 'Hero Thesis',
+      src: '/assets/project-tandem-home-hero.png',
+      alt: 'Tandem landing page hero with the headline Dating for complementary ambition.',
+      caption: 'The first screen frames Tandem as dating for complementary ambition, with an immediate quiz CTA and audience qualifier.',
+    },
+    {
+      title: 'Complementary Ambition',
+      src: '/assets/project-tandem-concept-section.png',
+      alt: 'Tandem landing page section explaining the complementary ambition concept.',
+      caption: 'The concept section makes the core idea concrete: different strengths can support the same direction.',
+    },
+    {
+      title: 'Ambition Archetypes',
+      src: '/assets/project-tandem-archetypes-section.png',
+      alt: 'Tandem archetypes section showing six ambition types with illustrated characters.',
+      caption: 'Six archetypes make the product feel more like a personality-test experience than a generic waitlist form.',
+    },
+    {
+      title: 'How It Works',
+      src: '/assets/project-tandem-how-it-works-section.png',
+      alt: 'Tandem how it works section explaining quiz, archetype, and early list steps.',
+      caption: 'The MVP stays honest about the current scope: take the quiz, get an archetype, and join the early list.',
+    },
+    {
+      title: 'Mobile Landing Page',
+      src: '/assets/project-tandem-mobile-home.png',
+      alt: 'Mobile screenshot of the Tandem landing page.',
+      caption: 'The mobile view keeps the validation flow usable for the audience most likely to discover the concept socially.',
+      kind: 'mobile',
     },
   ],
   workflowImage: {
     src: '/assets/project-tandem-validation-flow.svg',
     alt: 'Tandem validation flow from portfolio or landing page to Ambition Archetype quiz, waitlist, response database, and manual matching.',
   },
-  screenshotEyebrow: 'Concept Visual',
-  screenshotTitle: 'Connected Intent Brand Direction',
+  screenshotEyebrow: 'Screenshots',
+  screenshotTitle: 'Live Validation Site Screens',
   technicalTitle: 'Lightweight MVP Funnel',
   technicalHighlights: [
     'Public landing page explains the thesis, audience, and transparent early-validation status.',
-    'Tally-ready quiz path can replace the local fallback form before public traffic.',
+    'Typeform-ready quiz direction supports a one-question-at-a-time personality-test rhythm and result reveal.',
     'Local fallback form stores submissions in the visitor browser and supports CSV/JSON export.',
     'Analytics events track landing views, CTA clicks, quiz intent, waitlist completion, mixer interest, and exports.',
     'Validation target is 100 qualified NYC singles ages 21-30 completing the quiz and joining the waitlist.',
@@ -605,9 +629,10 @@ export const tandemCaseStudy = {
     'Dating products need emotional clarity and safety; the brand cannot feel like finance, networking, or fake startup hype.',
   ],
   nextSteps: [
-    'Use the live validation site to gather waitlist interest, quiz completions, and qualitative feedback from the first NYC audience.',
+    'Build the Typeform quiz and archetype result pages using the final question structure.',
+    'Replace or generalize the earlier Tally configuration before sending broader public traffic.',
     'Add a real analytics provider such as Plausible, Google Analytics, or Google Tag Manager.',
-    'Refine the launch funnel, Open Graph preview metadata, and mobile polish as early users interact with the site.',
+    'Add Open Graph preview metadata and complete one final mobile polish pass before wider sharing.',
   ],
   ctaTitle: 'Join The Tandem Waitlist',
   ctaBody:
