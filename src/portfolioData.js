@@ -297,12 +297,13 @@ export const projects = [
     description:
       'An early-career opportunity system in private beta, built to help students discover, track, and prepare for high-signal programs before applications open.',
     image: '/assets/project-applyfirst-programs-desktop.png',
-    imageAlt: 'ApplyFirst programs page showing searchable early-career opportunity records, filters, and status labels.',
+    imageFrame: 'desktop',
+    imageAlt: 'ApplyFirst programs page showing searchable opportunity records, filters, shortlist actions, and status labels.',
     problem: 'High-value internships, fellowships, insight programs, scholarships, and career-launch opportunities are scattered across lists and official pages, so students often find them too late.',
     user: 'First-year, sophomore, and emerging technical students looking for SWE, product, quant, finance tech, data, AI, fellowship, conference, and prep opportunities.',
     role: 'Product strategist, frontend MVP builder, data-model designer, and opportunity systems researcher.',
     learned: 'A useful opportunity product is not just a list. It needs timing, eligibility, confidence, verification, and next-action guidance.',
-    proof: 'Built a standalone React/Vite MVP direction with searchable records, role and class-year filters, shortlist behavior, confidence labels, alert-readiness framing, and source-signal notes.',
+    proof: 'Built a standalone React/Vite MVP direction with searchable records, student preference filters, shortlist behavior, confidence labels, contribution flow, and alert-readiness framing.',
     tags: ['React', 'Vite', 'Career tech', 'Data modeling', 'Product strategy'],
   },
 ];

@@ -1804,6 +1804,11 @@ li {
   object-fit: contain;
 }
 
+.project-visual-desktop img {
+  aspect-ratio: 1425 / 1054;
+  object-fit: cover;
+}
+
 .project-visual-phone {
   justify-self: center;
   width: min(280px, 100%);

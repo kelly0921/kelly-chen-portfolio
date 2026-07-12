@@ -925,6 +925,7 @@ function ProjectCard({ title, mark, status, description, image, imageFit, imageF
   const visualClasses = [
     'project-visual',
     imageFit === 'contain' ? 'project-visual-contain' : '',
+    imageFrame === 'desktop' ? 'project-visual-desktop' : '',
     imageFrame === 'phone' ? 'project-visual-phone' : '',
   ].filter(Boolean).join(' ');
 
