@@ -310,9 +310,9 @@ export const projects = [
 export const projectActions = {
   SkanPay: {
     body:
-      'SkanPay is a concept-stage checkout idea. I am interested in feedback from merchants, fintech builders, and people who think about redemption or payment friction.',
-    label: 'Reach Out',
-    href: 'mailto:kellychenmeiyi@gmail.com?subject=SkanPay%20concept%20feedback',
+      'SkanPay has a public website for the QR payment and redemption concept. It is useful context for merchants, fintech builders, and people thinking about checkout friction.',
+    label: 'Visit SkanPay',
+    href: 'https://skanpay.us/',
   },
   BeamCash: {
     body:
@@ -969,55 +969,6 @@ export const mediaChannels = [
     ],
   },
 ];
-
-export const opportunitySystems = {
-  eyebrow: 'Tools from the notes',
-  title: 'ApplyFirst Opportunity Systems',
-  description:
-    'The conference series is turning into ApplyFirst: a practical resource layer, library, and tracker direction that helps emerging engineers know what to watch, when to prepare, and how to turn access into leverage.',
-  cta: {
-    label: 'Follow the notes on LinkedIn',
-    href: 'https://www.linkedin.com/in/kellychen0921/',
-  },
-  liveTool: {
-    label: 'Private beta',
-    title: 'ApplyFirst',
-    description:
-      'An early-access opportunity tracker for students who want to discover and prepare for high-signal programs before applications open.',
-    href: 'https://applyfirst-careers.pages.dev/',
-    action: 'Join ApplyFirst Waitlist',
-  },
-  items: [
-    {
-      status: 'Resource layer',
-      title: 'ApplyFirst Opportunity Library',
-      description:
-        'The public-facing library foundation for ApplyFirst: curated programs, fellowships, scholarships, technical communities, and conference funding paths worth watching.',
-      tags: ['Curated programs', 'Timing notes', 'Student access'],
-    },
-    {
-      status: 'Researching',
-      title: 'Opportunity Signal Tracker',
-      description:
-        'A tracker concept for monitoring high-value opportunities through application season patterns, page changes, and verified opening signals.',
-      tags: ['Opening signals', 'Confidence scores', 'Alerts'],
-    },
-    {
-      status: 'Building',
-      title: 'Conference Leverage Planner',
-      description:
-        'A planning system that helps students decide if a conference is worth it, what funding to pursue, and how to prepare before the room gets crowded.',
-      tags: ['ROI filter', 'Funding paths', 'Prep plan'],
-    },
-    {
-      status: 'Prototype idea',
-      title: 'Sponsor List Analyzer',
-      description:
-        'A feature idea inside the conference planner: turn sponsor lists into booth priorities, research prompts, and better questions for engineers.',
-      tags: ['Sponsor signals', 'Booth strategy', 'Question bank'],
-    },
-  ],
-};
 
 export const conferenceSeries = {
   label: 'Featured series',

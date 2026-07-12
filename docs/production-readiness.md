@@ -10,8 +10,8 @@ This file tracks private follow-up items for Kelly's portfolio. These notes shou
 
 - Add Kelly's real public contact email if she wants email as a visible CTA.
 - Confirm LinkedIn links for top Content posts from `https://www.linkedin.com/in/kellychen0921/`.
-- Add real project or GitHub links for SkanPay, BeamCash, WebPilot, Tandem, code samples, demos, or writeups.
-- Add public demo links, Loom walkthroughs, or case-study pages for SkanPay and Tandem when they are ready to share openly. WebPilot and BeamCash now have case-study pages; add public demo or GitHub links later if shareable.
+- Add real project or GitHub links for BeamCash, WebPilot, Tandem, code samples, demos, or writeups where shareable. SkanPay now points to `https://skanpay.us/`.
+- Add public demo links, Loom walkthroughs, or case-study pages for Tandem when ready to share openly. WebPilot and BeamCash now have case-study pages; SkanPay has a public website.
 - Replace remaining project preview illustrations with real screenshots or demo images when those projects become public-ready. WebPilot and BeamCash now use real product screenshots.
 - Add measurable project proof where possible: demo links, screenshots, short case-study outcomes, architecture notes, or patents/public filings if shareable.
 - Add dates, roles, or photo proof for speaking/community items where public-ready, especially WECode, Women in Computer Science, ambassador work, and hackathon/program involvement.
