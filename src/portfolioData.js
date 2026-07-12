@@ -249,10 +249,10 @@ export const projects = [
     imageFit: 'contain',
     imageFrame: 'phone',
     imageAlt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
-    problem: 'Small in-person sellers lose payments when customers do not carry cash, use different payment apps, or hesitate to scan an unbranded QR code.',
+    problem: 'Small in-person sellers lose payments when customers do not carry cash or use the same payment app.',
     user: 'Street performers, food vendors, pop-up shops, handmade sellers, nonprofits, and donation-based groups.',
     role: 'Founder, product builder, mobile app developer, and payment UX designer.',
-    learned: 'Payment UX is a trust problem as much as a checkout problem. A QR sign needs to make the seller look credible before a buyer enters payment details.',
+    learned: 'The strongest value is payment reach: buyers and donors should be able to pay without creating another account or matching the seller on the same app.',
     proof: 'End-to-end mobile MVP work across seller setup, branded QR signage, buyer checkout, payment state, alerts, and Stripe-ready architecture.',
     tags: ['React Native', 'Expo', 'TypeScript', 'Stripe', 'QR payments'],
   },
@@ -293,9 +293,9 @@ export const projects = [
     group: 'Startup Concept',
     title: 'ApplyFirst',
     mark: { text: 'AF', label: 'ApplyFirst', tone: 'indigo', src: '/assets/applyfirst-mark.svg' },
-    status: 'Live MVP',
+    status: 'Private beta / early access',
     description:
-      'An early-career program monitor that helps students discover, track, and prepare for high-signal opportunities before applications open.',
+      'An early-career opportunity system in private beta, built to help students discover, track, and prepare for high-signal programs before applications open.',
     image: '/assets/project-applyfirst-programs-desktop.png',
     imageAlt: 'ApplyFirst programs page showing searchable early-career opportunity records, filters, and status labels.',
     problem: 'High-value internships, fellowships, insight programs, scholarships, and career-launch opportunities are scattered across lists and official pages, so students often find them too late.',
@@ -316,7 +316,7 @@ export const projectActions = {
   },
   BeamCash: {
     body:
-      'If you sell, perform, vend, collect donations, or run pop-ups in person, I am looking for early feedback on the BeamCash QR payment flow.',
+      'If you sell, perform, vend, collect donations, or run pop-ups in person, I am looking for feedback on a QR checkout buyers can use without matching your payment app.',
     primaryLabel: 'I Want to Try BeamCash',
     primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=I%20want%20to%20try%20BeamCash',
     secondaryLabel: 'Learn More',
@@ -338,8 +338,8 @@ export const projectActions = {
   },
   ApplyFirst: {
     body:
-      'ApplyFirst is live as an early-career opportunity tracker for students who want to discover and prepare for high-signal programs before they open.',
-    primaryLabel: 'View ApplyFirst',
+      'ApplyFirst is in early access while I validate which opportunity signals, alerts, and student resource views are actually useful.',
+    primaryLabel: 'Join ApplyFirst Waitlist',
     primaryHref: 'https://applyfirst-careers.pages.dev/',
   },
 };
@@ -352,32 +352,62 @@ export const beamCashCaseStudy = {
   status: 'In-progress local MVP',
   role: 'Founder, product builder, mobile app developer, and payment UX designer',
   stack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'Stripe-ready architecture', 'QR generation', 'Express backend'],
+  valuePitch: {
+    title: 'Collect from people outside your payment app.',
+    body:
+      'BeamCash gives sellers and donation groups one public QR checkout buyers can use without creating a BeamCash account or matching the seller on Venmo, Zelle, Cash App, or another peer-to-peer app.',
+    audience: ['Vendors', 'Performers', 'Pop-Ups', 'Nonprofits', 'Donation Groups'],
+    storyboard: [
+      {
+        mark: '01',
+        label: 'Seller',
+        title: 'Set one checkout destination',
+        text: 'Choose the pay, tip, or give mode and display one BeamCash QR at the table, booth, performance, or fundraiser.',
+      },
+      {
+        mark: '02',
+        label: 'Buyer',
+        title: 'Scan without joining another app',
+        text: 'The buyer or donor opens checkout, sees who they are paying, and chooses an amount without creating a BeamCash account.',
+      },
+      {
+        mark: '03',
+        label: 'Follow-Through',
+        title: 'Keep the payment handoff organized',
+        text: 'The seller keeps QR access, payout readiness, payment state, and activity in one place instead of juggling handles and screenshots.',
+      },
+    ],
+  },
   overview:
-    'BeamCash is designed for small in-person sellers who need a fast, professional way to get paid without asking customers to join another app. Sellers create a payment profile, generate a branded BeamCash QR sign, and let buyers scan into a mobile checkout flow.',
-  overviewTitle: 'From QR Code To Trusted Checkout',
+    'I built BeamCash around a small but common moment: someone is ready to pay, but the seller and buyer are not on the same payment app. The product tests whether one public QR checkout can let anyone scan, choose an amount, and pay without creating another account.',
+  overviewEyebrow: 'Why I Built This',
+  overviewTitle: 'Let Anyone Pay From One QR',
   problem:
-    'Small sellers often lose payments because checkout is awkward. Customers may not carry cash, may not use the same payment app, or may hesitate when a QR code feels random or untrustworthy. BeamCash reduces that friction by pairing seller identity, branded signage, amount selection, and a familiar checkout flow.',
-  problemTitle: 'Payment Friction Costs Small Sellers',
+    'Cash, Venmo, Zelle, and app-specific payment handles all depend on what the buyer already has. BeamCash is designed around an accountless buyer checkout while still giving the seller a clear payment profile, public QR sign, mode-aware payment language, payout readiness, and dashboard activity.',
+  problemEyebrow: 'What Improves',
+  problemTitle: 'Remove The Same-App Requirement',
   whatIBuilt: [
-    'Seller profile setup with business type, photo, category, intro, and payment message.',
-    'Seller dashboard with balance summary, recent payment stats, QR access, and payout readiness state.',
-    'Branded BeamCash QR signage that changes language by seller type: pay, tip, or give.',
-    'Buyer checkout flow with seller profile, preset/custom amount selection, payment confirmation, and test payment support.',
-    'Local/backend hybrid MVP architecture with mock payment services and Stripe PaymentSheet / Connect integration direction.',
+    'Seller profile setup for business type, photo, category, intro, and payment message.',
+    'Dashboard for balance, recent activity, QR access, and payout readiness.',
+    'Mode-aware QR signage that changes language by seller type: pay, tip, or give.',
+    'Buyer checkout with seller identity, preset/custom amounts, and confirmation.',
+    'MVP payment architecture with mock services and a path toward Stripe integration.',
   ],
   buildLabels: ['Seller Setup', 'Dashboard', 'QR Signage', 'Buyer Checkout', 'Payment Architecture'],
+  decisionEyebrow: 'Product Logic',
+  decisionTitle: 'Why It Works This Way',
   productDecisions: [
     {
-      title: 'Trust Before Payment',
-      text: 'The QR code is part of the product experience. It needs to look branded and seller-specific before a buyer feels comfortable entering payment details.',
+      title: 'Accountless Buyer Checkout',
+      text: 'The buyer side should stay lightweight: scan the QR, see the seller, choose an amount, and pay without needing a BeamCash account or the seller\'s preferred payment app.',
     },
     {
       title: 'Seller Setup Stays Lightweight',
-      text: 'The seller flow collects enough identity and payment context to feel credible without overwhelming small sellers before they can generate a code.',
+      text: 'The seller flow collects enough identity, mode, and payout context to generate a useful QR checkout without making small sellers set up a full point-of-sale system first.',
     },
     {
-      title: 'Stripe Underneath, BeamCash In Front',
-      text: 'The product should feel like a BeamCash checkout experience while Stripe remains the processor and payout infrastructure underneath.',
+      title: 'Processor Underneath, BeamCash In Front',
+      text: 'The product should feel like a simple BeamCash checkout while a payment processor handles the secure transaction and payout infrastructure underneath.',
     },
     {
       title: 'Mock Now, Real Payments Later',
@@ -386,7 +416,7 @@ export const beamCashCaseStudy = {
   ],
   technicalHighlights: [
     'Expo Router mobile app structure with TypeScript models for merchants, payments, payouts, and notifications.',
-    'QR generation and branded sign capture for printable or shareable seller signage.',
+    'QR generation and public checkout-link direction for printable or shareable seller signage.',
     'Buyer checkout state and amount selection flow designed around future Stripe PaymentSheet integration.',
     'Backend setup and local persistence layer for MVP development without requiring production hosting too early.',
     'Payment alerts settings for future push and voice notification concepts.',
@@ -396,14 +426,14 @@ export const beamCashCaseStudy = {
       title: 'Seller Dashboard',
       src: '/assets/project-beamcash-seller-dashboard-mobile.png',
       alt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
-      caption: 'The strongest product moment: a seller can see payment readiness, balance, stats, and the branded QR code they use in person.',
+      caption: 'The seller can keep QR access, payment readiness, balance, and activity together instead of managing scattered payment handles.',
       kind: 'mobile',
     },
     {
       title: 'Buyer Checkout',
       src: '/assets/project-beamcash-buyer-checkout-mobile.png',
       alt: 'BeamCash checkout screen showing a seller profile and payment amount options.',
-      caption: 'The buyer flow confirms seller identity first, then makes the amount choice and secure payment action feel familiar.',
+      caption: 'The buyer can scan into checkout, confirm the seller, choose an amount, and continue without creating a BeamCash account.',
       kind: 'mobile',
     },
     {
@@ -426,7 +456,7 @@ export const beamCashCaseStudy = {
       title: 'Buyer Checkout',
       src: '/assets/project-beamcash-buyer-checkout-mobile.png',
       alt: 'BeamCash checkout screen showing a seller profile and payment amount options.',
-      caption: 'The buyer sees who they are paying first, then chooses a preset or custom amount before moving into payment.',
+      caption: 'The buyer sees who they are paying, chooses a preset or custom amount, and moves into payment without joining another app.',
       kind: 'mobile',
     },
     {
@@ -442,21 +472,22 @@ export const beamCashCaseStudy = {
     alt: 'BeamCash product flow from seller setup to QR checkout and payment confirmation.',
   },
   workflowStandalone: true,
-  screenshotTitle: 'Mobile Product Screens',
-  technicalTitle: 'Built For QR Payment Flows',
+  screenshotEyebrow: 'How It Works',
+  screenshotTitle: 'Buyer And Seller Workflow',
+  technicalTitle: 'Built For Accountless QR Checkout',
   lessons: [
-    'Payment UX depends on trust, not just transaction speed.',
-    'A branded QR sign can be the difference between a random code and a credible checkout moment.',
+    'The strongest BeamCash value is reach: sellers can collect from buyers or donors who do not share the same payment app.',
+    'Seller identity and branded signage still matter, but they support the accountless checkout flow instead of being the main selling point.',
     'A payment MVP needs clean boundaries between test flows, future processor integrations, payout readiness, and legal production requirements.',
   ],
   nextSteps: [
     'Decide whether BeamCash should be framed publicly as a solo project, startup concept, or launch-ready product direction.',
     'Add production hosting, authentication, public checkout URLs, image storage, and real Stripe configuration when ready.',
-    'Test the flow with real sellers or performers to validate trust, signage, and checkout behavior.',
+    'Test the flow with real sellers, performers, and donation groups to validate whether accountless checkout increases completed payments.',
   ],
-  ctaTitle: 'Want To Talk Through BeamCash?',
+  ctaTitle: 'Want To Try BeamCash?',
   ctaBody:
-    'I am looking for sellers, vendors, performers, pop-up shops, nonprofits, and donation-based groups who want to try or give feedback on a branded QR payment flow.',
+    'I am looking for sellers, vendors, performers, local groups, nonprofits, and donation-based teams who want to try or give feedback on an accountless QR checkout flow.',
   ctaLabel: 'I Want to Try BeamCash',
   ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=I%20want%20to%20try%20BeamCash',
 };
@@ -469,20 +500,51 @@ export const webPilotCaseStudy = {
   status: 'Local MVP / active prototype',
   role: 'Product strategist, full-stack builder, AI workflow designer, and local MVP validator',
   stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js API routes', 'OpenAI API', 'Google PageSpeed Insights', 'Local JSON storage'],
+  valuePitch: {
+    eyebrow: 'For nonprofits and local businesses',
+    title: 'Turn messy website work into reviewed next steps.',
+    body:
+      'WebPilot helps consultants move from scattered notes, AI drafts, and page evidence into work that is reviewed, organized, and ready to hand off.',
+    audience: ['Nonprofits', 'Local Businesses', 'Community Orgs', 'Website Revamps'],
+    storyboard: [
+      {
+        mark: '01',
+        label: 'Context',
+        title: 'Capture what the website needs',
+        text: 'Collect goals, page notes, client requests, screenshots, and performance evidence in one workspace.',
+      },
+      {
+        mark: '02',
+        label: 'Review',
+        title: 'Make AI output accountable',
+        text: 'Generate targeted audits, copy, FAQs, or implementation notes, then edit and approve what is actually useful.',
+      },
+      {
+        mark: '03',
+        label: 'Handoff',
+        title: 'Package work people can act on',
+        text: 'Turn approved recommendations into delivery views, readiness checks, client requests, and implementation next steps.',
+      },
+    ],
+  },
   overview:
-    'WebPilot is an internal-first website operations platform for people improving client websites over time. Instead of acting like a one-time AI generator, it organizes website context, AI tasks, saved outputs, client requests, delivery readiness, and implementation handoff into one guided workflow.',
-  overviewTitle: 'From AI Output To Website Operations',
+    'I built WebPilot after noticing that website improvement work rarely fails because there are no ideas. It fails because recommendations, evidence, copy drafts, and next steps are scattered before anyone can turn them into implementation.',
+  overviewEyebrow: 'Why I Built This',
+  overviewTitle: 'Make AI Output Reviewable',
   problem:
-    'Small businesses and nonprofits often know their websites need improvement, but they do not know what to fix first, what assets are missing, how to rewrite pages, or how to turn recommendations into real implementation work. Traditional audits can be too broad, while generic AI tools produce advice that still needs structure, review, and follow-through.',
-  problemTitle: 'Generic Advice Is Not Enough',
+    'WebPilot improves the handoff layer: what was generated, what was reviewed, what evidence supports it, what the client still needs to provide, and what should happen next.',
+  problemEyebrow: 'What Improves',
+  problemTitle: 'From Generic Advice To Usable Work',
   whatIBuilt: [
-    'Organization and website management built around the website as the core unit of work.',
+    'Website-centered workspace for context, goals, and client notes.',
     'Reusable AI task generation for audits, SEO, copywriting, FAQs, accessibility, donation pages, and WordPress-ready content.',
-    'Editable AI outputs with review and approval statuses so generated work becomes a reusable asset, not a disposable response.',
-    'Client-ready delivery view with QA checks, client requests, and implementation handoff.',
-    'Page capture, PageSpeed evidence, local backup/restore, and workflow smoke testing for a more reliable internal MVP.',
+    'Editable outputs with review and approval states.',
+    'Client-ready delivery view with QA checks, requests, and handoff.',
+    'Page capture, PageSpeed evidence, backup/restore, and smoke testing.',
   ],
   buildLabels: ['Workspace', 'AI Tasks', 'Review Gate', 'Delivery View', 'Evidence & Backup'],
+  decisionEyebrow: 'Product Logic',
+  decisionTitle: 'Why It Works This Way',
   productDecisions: [
     {
       title: 'Website-first, not project-first',
@@ -535,7 +597,9 @@ export const webPilotCaseStudy = {
     src: '/assets/project-webpilot-workflow-diagram.svg',
     alt: 'WebPilot workflow diagram showing intake, AI generation, review, delivery, and implementation handoff.',
   },
-  screenshotTitle: 'Workflow Screens',
+  screenshotEyebrow: 'How It Works',
+  screenshotTitle: 'Website Revamp Workflow',
+  technicalEyebrow: 'Build Notes',
   technicalTitle: 'Making AI Output Operational',
   lessons: [
     'The highest-value AI product is often not the generator itself, but the workflow around it.',
@@ -908,27 +972,27 @@ export const mediaChannels = [
 
 export const opportunitySystems = {
   eyebrow: 'Tools from the notes',
-  title: 'Opportunity Systems',
+  title: 'ApplyFirst Opportunity Systems',
   description:
-    'The conference series is turning into a practical resource layer: a library, tracker ideas, and planning tools that help emerging engineers know what to watch, when to prepare, and how to turn access into leverage.',
+    'The conference series is turning into ApplyFirst: a practical resource layer, library, and tracker direction that helps emerging engineers know what to watch, when to prepare, and how to turn access into leverage.',
   cta: {
     label: 'Follow the notes on LinkedIn',
     href: 'https://www.linkedin.com/in/kellychen0921/',
   },
   liveTool: {
-    label: 'Live MVP',
+    label: 'Private beta',
     title: 'ApplyFirst',
     description:
-      'A live early-career opportunity tracker for students who want to discover and prepare for high-signal programs before applications open.',
+      'An early-access opportunity tracker for students who want to discover and prepare for high-signal programs before applications open.',
     href: 'https://applyfirst-careers.pages.dev/',
-    action: 'Open ApplyFirst',
+    action: 'Join ApplyFirst Waitlist',
   },
   items: [
     {
       status: 'Resource layer',
-      title: 'Student Opportunity Library',
+      title: 'ApplyFirst Opportunity Library',
       description:
-        'A curated base of programs, fellowships, scholarships, technical communities, and conference funding paths worth watching.',
+        'The public-facing library foundation for ApplyFirst: curated programs, fellowships, scholarships, technical communities, and conference funding paths worth watching.',
       tags: ['Curated programs', 'Timing notes', 'Student access'],
     },
     {

@@ -489,46 +489,88 @@ function ProjectCaseStudyPage({ caseStudy }) {
           </div>
         </div>
       </section>
+      {caseStudy.valuePitch && (
+        <section
+          className={[
+            'case-study-value',
+            'section-shell',
+            caseStudy.valuePitch.storyboard?.length > 0 ? 'case-study-value-story-mode' : '',
+          ].filter(Boolean).join(' ')}
+        >
+          <div className="case-study-value-intro">
+            {caseStudy.valuePitch.eyebrow && <p className="eyebrow">{caseStudy.valuePitch.eyebrow}</p>}
+            <h2>{caseStudy.valuePitch.title}</h2>
+            <p>{caseStudy.valuePitch.body}</p>
+            {caseStudy.valuePitch.audience?.length > 0 && (
+              <div className="case-study-audience-strip" aria-label={`${caseStudy.eyebrow} audience`}>
+                {caseStudy.valuePitch.audience.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            )}
+            <a className="button case-study-value-button" href={caseStudy.ctaHref || 'https://www.linkedin.com/in/kellychen0921/'}>
+              {caseStudy.ctaLabel || 'Connect'}
+            </a>
+          </div>
+          {caseStudy.valuePitch.storyboard?.length > 0 ? (
+            <div className="case-study-value-storyboard" aria-label={`${caseStudy.eyebrow} workflow summary`}>
+              {caseStudy.valuePitch.storyboard.map((step, index) => (
+                <article key={step.title}>
+                  <div className="case-study-value-story-mark" aria-hidden="true">{step.mark}</div>
+                  <span>{step.label || `Step ${index + 1}`}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <>
+              <div className="case-study-value-compare" aria-label={`${caseStudy.eyebrow} target user value`}>
+                <article>
+                  <span>{caseStudy.valuePitch.beforeLabel || 'Before'}</span>
+                  <ul>
+                    {caseStudy.valuePitch.painPoints.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+                <article>
+                  <span>{caseStudy.valuePitch.afterLabel || 'After'}</span>
+                  <ul>
+                    {caseStudy.valuePitch.benefits.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
+              <div className="case-study-value-flow" aria-label={`${caseStudy.eyebrow} workflow summary`}>
+                {caseStudy.valuePitch.steps.map((step, index) => (
+                  <article key={step.title}>
+                    <div className="case-study-value-step-mark" aria-hidden="true">{step.mark || String(index + 1).padStart(2, '0')}</div>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </article>
+                ))}
+              </div>
+            </>
+          )}
+        </section>
+      )}
       <section className="case-study-lede case-study-chapter section-shell">
         <article className="case-study-lede-main">
-          <p className="eyebrow">Overview</p>
+          <p className="eyebrow">{caseStudy.overviewEyebrow || 'Overview'}</p>
           <h2>{caseStudy.overviewTitle}</h2>
           <p>{caseStudy.overview}</p>
         </article>
         <aside className="case-study-problem">
-          <p className="eyebrow">Problem</p>
+          <p className="eyebrow">{caseStudy.problemEyebrow || 'Problem'}</p>
           <h2>{caseStudy.problemTitle}</h2>
           <p>{caseStudy.problem}</p>
         </aside>
       </section>
-      <section className="case-study-section case-study-chapter case-study-build-section section-shell">
-        <SectionHeading eyebrow={caseStudy.buildEyebrow || 'Build'} title={caseStudy.buildTitle || 'What I Built'} />
-        <div className="case-study-build-list" role="list">
-          {caseStudy.whatIBuilt.map((item, index) => (
-            <article className="case-study-build-item" key={item} role="listitem">
-              <span className="case-study-build-marker" aria-hidden="true" />
-              <span>{caseStudy.buildLabels?.[index] || 'Artifact'}</span>
-              <p>{item}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-      <section className="case-study-section case-study-chapter case-study-decision-section section-shell">
-        <div className="case-study-section-kicker">
-          <p className="eyebrow">Product</p>
-          <h2>Product Decisions</h2>
-        </div>
-        <div className="decision-rail">
-          {caseStudy.productDecisions.map((decision) => (
-            <article className="decision-item" key={decision.title}>
-              <h3>{decision.title}</h3>
-              <p>{decision.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
       <section className="case-study-section case-study-chapter case-study-gallery-section section-shell">
-        <SectionHeading eyebrow={caseStudy.screenshotEyebrow || 'Screenshots'} title={caseStudy.screenshotTitle} />
+        <SectionHeading eyebrow={caseStudy.screenshotEyebrow || 'Product Walkthrough'} title={caseStudy.screenshotTitle} />
         <div className="screenshot-stack">
           {(galleryImages.length ? galleryImages : caseStudy.images).map((image) => (
             <figure
@@ -548,6 +590,32 @@ function ProjectCaseStudyPage({ caseStudy }) {
           ))}
         </div>
       </section>
+      <section className="case-study-section case-study-chapter case-study-build-section section-shell">
+        <SectionHeading eyebrow={caseStudy.buildEyebrow || 'Build'} title={caseStudy.buildTitle || 'What I Built'} />
+        <div className="case-study-build-list" role="list">
+          {caseStudy.whatIBuilt.map((item, index) => (
+            <article className="case-study-build-item" key={item} role="listitem">
+              <span className="case-study-build-marker" aria-hidden="true" />
+              <span>{caseStudy.buildLabels?.[index] || 'Artifact'}</span>
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="case-study-section case-study-chapter case-study-decision-section section-shell">
+        <div className="case-study-section-kicker">
+          <p className="eyebrow">{caseStudy.decisionEyebrow || 'Product'}</p>
+          <h2>{caseStudy.decisionTitle || 'Product Decisions'}</h2>
+        </div>
+        <div className="decision-rail">
+          {caseStudy.productDecisions.map((decision) => (
+            <article className="decision-item" key={decision.title}>
+              <h3>{decision.title}</h3>
+              <p>{decision.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
       <section className="case-study-section case-study-chapter case-study-system-section section-shell">
         {caseStudy.workflowStandalone ? (
           <figure className="workflow-diagram workflow-diagram-standalone">
@@ -556,7 +624,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
         ) : (
           <div className="case-study-two-column case-study-technical">
             <article>
-              <p className="eyebrow">Technical Highlights</p>
+              <p className="eyebrow">{caseStudy.technicalEyebrow || 'Build Notes'}</p>
               <h2>{caseStudy.technicalTitle}</h2>
               <ul className="case-study-list compact">
                 {caseStudy.technicalHighlights.map((item) => (
@@ -649,8 +717,8 @@ function ContentMap() {
     },
     {
       label: 'Use next',
-      title: 'Student Opportunity Library',
-      text: 'A searchable base of programs, fellowships, scholarships, technical communities, and conference funding paths worth watching.',
+      title: 'ApplyFirst Library',
+      text: 'A searchable base of programs, fellowships, scholarships, technical communities, and conference funding paths that feeds the ApplyFirst product direction.',
       href: '#opportunities',
     },
     {
@@ -747,17 +815,17 @@ function OpportunityLibraryPage() {
     <>
       <PageHero
         eyebrow="Opportunities"
-        title="Student Opportunity Library"
-        body="Phase-one data foundation for high-signal programs, fellowships, scholarships, communities, and conference funding paths."
+        title="ApplyFirst Opportunity Library"
+        body="The public-facing data foundation for high-signal programs, fellowships, scholarships, communities, and conference funding paths."
       />
       <section className="section-shell opportunity-library-page">
         <div className="library-summary">
           <div>
             <p className="eyebrow">Data foundation</p>
-            <h2>Start with trusted records before automation.</h2>
+            <h2>Start with trusted records before alerts.</h2>
             <p>
               Each opportunity includes audience, timing, funding, verification status, confidence,
-              and prep notes so the later signal tracker has useful structure from day one.
+              and prep notes so ApplyFirst can grow from a useful library into a stronger signal tracker.
             </p>
           </div>
           <div className="library-stat-grid" aria-label="Opportunity library stats">

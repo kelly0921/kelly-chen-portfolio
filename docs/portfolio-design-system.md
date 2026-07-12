@@ -55,6 +55,36 @@ The homepage should introduce Kelly first, then make the breadth legible:
 - Experience should stay professional and easy to scan.
 - Experience cards can include small, muted company logo tiles near the organization name. Keep them consistent, compact, and secondary to the role/date hierarchy; official logo image files can replace text tiles later if desired.
 
+## Content And Detail Page Principles
+
+The portfolio should show value before explaining value. Readers should be able to understand the target user, the situation, the product concept, and the reason to care through layout, visuals, labels, screenshots, and short examples before they commit to reading paragraphs.
+
+Use these rules when designing project detail pages, content sections, and any conversion-oriented section:
+
+- Show, do not tell. Replace generic labels like "Pain Points" with contextual moments such as Checkout Today, Current Workflow, Before The Revamp, or BeamCash Flow.
+- Keep the first detail-page section visual and scannable: a short pitch, a contrast moment, and a simple workflow or product map. Do not lead with multiple long paragraphs.
+- Make the target user obvious quickly. For example, BeamCash should speak to sellers, vendors, performers, nonprofits, and donation-based groups; WebPilot should speak to nonprofits, local businesses, and people managing website revamps.
+- Lead with the real product wedge. For BeamCash, the primary selling point is not generic payment trust; it is that sellers can collect from buyers or donors who do not have to create another account or use the same payment app. Branding and seller identity should support that message, not replace it. The secondary BeamCash details to keep visible are mode-aware QR language for pay/tip/give use cases, a public checkout-link direction, payout readiness, seller activity tracking, and the production gap between mock/test flows and real payment infrastructure.
+- Use concrete scenarios instead of abstract claims. "A buyer is ready, but the seller is juggling cash, payment handles, and screenshots" is stronger than "payment friction is a pain point."
+- Cut repeated explanation. If the hero, value section, overview, and build list all say the same thing, remove or compress one of them.
+- Prefer visual structure over word volume: workflow strips, annotated screenshots, product maps, before/after contrasts, short lists, diagrams, mockups, and real screenshots should carry more of the story.
+- Keep body copy short enough that the page breathes. A project page should feel like a guided walkthrough, not a product requirements document.
+- Use buttons when the reader can take a meaningful action immediately. The CTA text should match the audience: try BeamCash, ask about WebPilot, join a waitlist, register for a talk, or organize something together.
+- Avoid generic startup language such as "pain points," "solution," "unlock," "seamless," "all-in-one," or "revolutionize" unless the surrounding content proves it concretely.
+- Preserve the portfolio's editorial personality. Even when a project has a business or product angle, the page should still feel authored by Kelly, not like a SaaS landing page.
+
+Recommended detail-page structure:
+
+1. Product hook: target audience, real-world situation, concise product promise, and one clear CTA.
+2. Why I built this: the observed friction, what the product improves, and why the idea is worth testing.
+3. How it works: screenshots, storyboard, product flow, or workflow map before long technical explanation.
+4. What I built: concrete product surfaces and implemented scope, written as product capabilities rather than a resume task list.
+5. Why it works this way: product, UX, technical, and validation decisions that explain the tradeoffs.
+6. Build notes: technical highlights, architecture, learning, and next steps as supporting credibility near the bottom.
+7. Final CTA: repeat the action in audience-specific language without making the page feel like a sales funnel.
+
+Tone rule for mixed audiences: the main spine should read like a product story for the target user, while the technical depth should be framed as supporting evidence. Recruiters and technical collaborators should still see how Kelly thinks and builds, but users should not feel like they suddenly landed on an engineering report.
+
 ## Custom Color System
 
 This palette should feel confident, approachable, ambitious, responsible, technical, and bright. Use color as a signal, not as decoration everywhere.
