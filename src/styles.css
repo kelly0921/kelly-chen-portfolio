@@ -310,6 +310,128 @@ h1 {
   text-transform: uppercase;
 }
 
+.audience-pathways {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: start;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.audience-pathways-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.audience-pathways-copy h2 {
+  margin: 0;
+  max-width: 340px;
+  font-size: clamp(1.65rem, 2.6vw, 2.45rem);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.audience-pathways-copy p:last-child {
+  margin: 0;
+  max-width: 380px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.audience-pathway-list {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.audience-pathway-row {
+  --pathway-accent: var(--blue);
+  --pathway-tint: var(--sky);
+  display: grid;
+  grid-template-columns: minmax(118px, 0.22fr) minmax(0, 1fr) auto;
+  gap: clamp(14px, 2.5vw, 28px);
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding: 15px 0;
+  color: inherit;
+  text-decoration: none;
+  transition: color 160ms ease, padding-left 160ms ease;
+}
+
+.audience-pathway-row::after {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--pathway-accent) 28%, var(--border));
+  border-radius: 999px;
+  color: var(--pathway-accent);
+  content: "\2192";
+  font-weight: 850;
+  line-height: 1;
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.audience-pathway-row:hover {
+  color: var(--pathway-accent);
+  padding-left: 6px;
+}
+
+.audience-pathway-row:hover::after {
+  background: var(--pathway-accent);
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.audience-pathway-row > span {
+  color: color-mix(in srgb, var(--pathway-accent) 84%, var(--ink));
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.audience-pathway-blue {
+  --pathway-accent: var(--blue);
+  --pathway-tint: var(--sky);
+}
+
+.audience-pathway-teal {
+  --pathway-accent: var(--teal);
+  --pathway-tint: var(--mint);
+}
+
+.audience-pathway-gold {
+  --pathway-accent: var(--gold);
+  --pathway-tint: var(--butter);
+}
+
+.audience-pathway-indigo {
+  --pathway-accent: var(--indigo);
+  --pathway-tint: var(--lilac);
+}
+
+.audience-pathway-rose {
+  --pathway-accent: var(--rose);
+  --pathway-tint: var(--peach);
+}
+
+.audience-pathway-row strong {
+  display: block;
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.audience-pathway-row p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.52;
+}
+
 .personal-snapshot {
   display: grid;
   gap: 16px;
@@ -3286,6 +3408,11 @@ dd {
   padding-top: 18px;
 }
 
+.topic-lede {
+  max-width: 760px;
+  margin: -10px 0 22px;
+}
+
 .topic-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3361,6 +3488,31 @@ dd {
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.58;
+}
+
+.topic-outcome {
+  display: grid;
+  gap: 6px;
+  margin-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--topic-accent, var(--indigo)) 22%, var(--border));
+  padding-top: 12px;
+}
+
+.topic-outcome span {
+  width: fit-content;
+  color: color-mix(in srgb, var(--topic-accent, var(--indigo)) 82%, var(--ink));
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.topic-card .topic-outcome p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 560;
+  line-height: 1.48;
 }
 
 .event-card {
@@ -3618,18 +3770,20 @@ dd {
   padding-top: 18px;
 }
 
-.content-status-column > span,
-.content-pipeline li > span {
+.content-status-column > span {
   width: fit-content;
-  border: 1px solid color-mix(in srgb, var(--rose) 22%, var(--border));
-  border-radius: 999px;
-  background: rgba(255, 253, 249, 0.78);
   color: var(--rose);
-  padding: 6px 10px;
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.content-status-column > span {
+  border: 1px solid color-mix(in srgb, var(--rose) 22%, var(--border));
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.78);
+  padding: 6px 10px;
 }
 
 .content-status-column h3 {
@@ -3728,10 +3882,8 @@ dd {
 }
 
 .content-pipeline li {
-  display: grid;
-  grid-template-columns: minmax(130px, 0.24fr) minmax(0, 1fr);
-  gap: clamp(14px, 2.5vw, 28px);
-  align-items: start;
+  --pipeline-accent: var(--gold);
+  --pipeline-tint: var(--butter);
   border-top: 1px solid var(--border);
   padding: 18px 0;
 }
@@ -3745,6 +3897,42 @@ dd {
   margin: 0 0 6px;
   color: var(--text);
   font-size: clamp(1.05rem, 1.6vw, 1.32rem);
+}
+
+.content-pipeline h3::before {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 9px;
+  border-radius: 999px;
+  background: var(--pipeline-accent);
+  content: "";
+  transform: translateY(-1px);
+}
+
+.content-pipeline-gold {
+  --pipeline-accent: var(--gold);
+  --pipeline-tint: var(--butter);
+}
+
+.content-pipeline-teal {
+  --pipeline-accent: var(--teal);
+  --pipeline-tint: var(--mint);
+}
+
+.content-pipeline-blue {
+  --pipeline-accent: var(--blue);
+  --pipeline-tint: var(--sky);
+}
+
+.content-pipeline-rose {
+  --pipeline-accent: var(--rose);
+  --pipeline-tint: var(--peach);
+}
+
+.content-pipeline-indigo {
+  --pipeline-accent: var(--indigo);
+  --pipeline-tint: var(--lilac);
 }
 
 .content-pipeline p {
@@ -4533,6 +4721,32 @@ dd {
 
   .impact-strip strong {
     font-size: 0.68rem;
+  }
+
+  .audience-pathways {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .audience-pathways-copy h2 {
+    max-width: none;
+    font-size: clamp(1.85rem, 9vw, 2.45rem);
+  }
+
+  .audience-pathway-row {
+    grid-template-columns: 1fr auto;
+    gap: 10px 14px;
+    padding: 14px 0;
+  }
+
+  .audience-pathway-row > span {
+    grid-column: 1 / -1;
+  }
+
+  .audience-pathway-row p {
+    font-size: 0.86rem;
   }
 
   .signal-panel {

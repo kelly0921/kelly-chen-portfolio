@@ -79,6 +79,37 @@ export const highlights = [
   },
 ];
 
+export const audiencePathways = [
+  {
+    label: 'Engineering Work',
+    tone: 'blue',
+    title: 'See how the systems come together',
+    description: 'Work history, resume, and case studies across production systems, fintech, AI workflows, and MVP architecture.',
+    href: '#experience',
+  },
+  {
+    label: 'Product / Beta',
+    tone: 'teal',
+    title: 'Explore the active builds',
+    description: 'BeamCash, WebPilot, Tandem, ApplyFirst, and SkanPay each have a concrete next step for feedback, early access, or deeper review.',
+    href: '#projects',
+  },
+  {
+    label: 'Student Resources',
+    tone: 'gold',
+    title: 'Find practical opportunity resources',
+    description: 'ApplyFirst, conference guides, beta resources, and future tools for students navigating early-career paths.',
+    href: '#content',
+  },
+  {
+    label: 'Speaking / Partners',
+    tone: 'indigo',
+    title: 'Start a conversation or event',
+    description: 'Workshops, talks, community programs, and partnerships around career leverage, systems thinking, and access.',
+    href: '#speaking',
+  },
+];
+
 export const personalityNotes = [
   {
     label: 'I notice',
@@ -212,7 +243,7 @@ export const projects = [
     group: 'Startup Concept',
     title: 'SkanPay',
     mark: { text: 'SP', label: 'SkanPay', tone: 'teal' },
-    status: 'Concept / product exploration',
+    status: 'Public concept site',
     description:
       'A QR-based payment and coupon redemption concept focused on reducing checkout friction.',
     image: '/assets/project-skanpay.svg',
@@ -229,7 +260,7 @@ export const projects = [
     group: 'Built / In Progress',
     title: 'BeamCash',
     mark: { text: 'BC', label: 'BeamCash', tone: 'gold', src: '/assets/project-beamcash-icon.svg' },
-    status: 'In-progress local MVP',
+    status: 'Seller feedback wanted',
     description:
       'A mobile-first QR payment MVP that helps local sellers, performers, and vendors accept payments through branded checkout pages.',
     image: '/assets/project-beamcash-seller-dashboard-mobile.png',
@@ -248,14 +279,14 @@ export const projects = [
     group: 'Built / In Progress',
     title: 'WebPilot',
     mark: { text: 'WP', label: 'WebPilot', tone: 'indigo', src: '/assets/project-webpilot-icon.svg' },
-    status: 'Local MVP / active prototype',
+    status: 'Prototype feedback wanted',
     description:
-      'An AI website operations dashboard that helps consultants turn audits, client notes, and page content into actionable recommendations and implementation plans.',
+      'An AI website operations dashboard that turns messy website feedback into a reviewed action plan consultants can actually deliver.',
     image: '/assets/project-webpilot-command-center.png',
     imageFit: 'contain',
     imageAlt: 'WebPilot website command center showing guided workflow steps and reusable website context.',
     systemQuestion: 'How can AI-generated website advice become reviewed, organized, and ready for real implementation?',
-    problem: 'Small businesses and nonprofits often know their websites need work, but they do not know what to fix first or how to turn an audit into implementation.',
+    problem: 'Small businesses and nonprofits often know their websites need work, but feedback gets scattered across audits, notes, screenshots, and unclear priorities.',
     user: 'Website consultants, small nonprofits, local businesses, and agencies managing website improvement work.',
     role: 'Product strategist, full-stack builder, AI workflow designer, and local MVP validator.',
     learned: 'The value of an AI product is often the workflow around the generation: intake, context, review, client delivery, implementation, and follow-up.',
@@ -266,7 +297,7 @@ export const projects = [
     group: 'Startup Concept',
     title: 'Tandem',
     mark: { src: '/assets/tandem-reference-mark-centered.png', label: 'Tandem Connected Intent mark', tone: 'rose' },
-    status: 'Early validation MVP',
+    status: 'Live validation site',
     description:
       'A NYC dating experiment for ambitious singles in their 20s, testing whether ambition type, lifestyle rhythm, risk tolerance, and future direction can become meaningful dating signals.',
     image: '/assets/project-tandem-home-hero.png',
@@ -309,15 +340,15 @@ export const projectActions = {
   BeamCash: {
     body:
       'If you sell, perform, vend, collect donations, or run pop-ups in person, I am looking for feedback on a QR checkout buyers can use without matching your payment app.',
-    primaryLabel: 'I Want to Try BeamCash',
+    primaryLabel: 'Try BeamCash As A Seller',
     primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=I%20want%20to%20try%20BeamCash',
     secondaryLabel: 'Learn More',
     secondaryHref: '#beamcash',
   },
   WebPilot: {
     body:
-      'If your nonprofit, local business, or community organization needs a clearer website revamp plan, WebPilot is built around that workflow.',
-    primaryLabel: 'Need a Website Revamp?',
+      'If your nonprofit, local business, or community organization has scattered website feedback, WebPilot is built to turn it into a reviewed revamp plan.',
+    primaryLabel: 'Ask About A Website Revamp',
     primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=Website%20revamp%20with%20WebPilot',
     secondaryLabel: 'Learn More',
     secondaryHref: '#webpilot',
@@ -325,13 +356,13 @@ export const projectActions = {
   Tandem: {
     body:
       'Tandem is live as a validation site with a landing page, Ambition Archetype quiz, and waitlist flow for ambitious NYC singles. It is not a full dating app yet.',
-    primaryLabel: 'Join the Tandem Waitlist',
+    primaryLabel: 'Join Tandem Waitlist',
     primaryHref: 'https://tandem-dating.pages.dev/tandem/',
   },
   ApplyFirst: {
     body:
       'ApplyFirst is in early access while I validate which opportunity signals, alerts, and student resource views are actually useful.',
-    primaryLabel: 'Join ApplyFirst Waitlist',
+    primaryLabel: 'Join ApplyFirst Early Access',
     primaryHref: 'https://applyfirst-careers.pages.dev/',
   },
 };
@@ -839,21 +870,25 @@ export const availableTopics = [
     title: 'Women in Tech & Student Access',
     icon: 'access',
     description: 'Conference pathways, student communities, sponsorship access, and making technical spaces easier to enter.',
+    outcome: 'Clearer routes into rooms that usually feel hard to navigate.',
   },
   {
     title: 'Early-Career Engineering',
     icon: 'engineering',
     description: 'Internship lessons, technical growth, mentoring, interview preparation, and learning how to explain systems clearly.',
+    outcome: 'A practical way to turn experience into signal and confidence.',
   },
   {
     title: 'Fintech, Product & Payments',
     icon: 'fintech',
     description: 'Financial infrastructure, payment friction, QR payment concepts, product thinking, and customer-facing systems.',
+    outcome: 'How to spot product friction and reason through system tradeoffs.',
   },
   {
     title: 'AI-Assisted Building',
     icon: 'ai',
     description: 'Using AI tools to prototype workflows, organize ideas, review output, and turn rough concepts into usable products.',
+    outcome: 'A more reviewable way to use AI without losing product judgment.',
   },
 ];
 
@@ -962,7 +997,7 @@ export const contentResourceGroups = [
     description:
       'ApplyFirst now carries the opportunity library and early-discovery product direction. It is live as a separate app while the opportunity data, filters, and beta feedback loop mature.',
     href: 'https://applyfirst-careers.pages.dev/',
-    ctaLabel: 'Open ApplyFirst',
+    ctaLabel: 'Join Waitlist',
     items: [
       {
         title: 'Searchable Program Directory',
@@ -985,40 +1020,28 @@ export const contentResourceGroups = [
 
 export const contentPipeline = [
   {
-    status: 'Next store step',
-    title: 'Lemon Squeezy Resource Storefront',
+    tone: 'teal',
+    title: 'Opportunity Timing Notes',
     description:
-      'Turn the Conference Leverage Planner into a clear free/paid product page with delivery, terms, preview images, and post-purchase email copy.',
+      'Research on how recurring opportunities open, change, and become easier to prepare for when students know what to watch.',
   },
   {
-    status: 'Next ApplyFirst layer',
-    title: 'Expand The Opportunity Data Foundation',
+    tone: 'blue',
+    title: 'Sponsor List Reading Guide',
     description:
-      'Keep building the curated data foundation for ApplyFirst: recurring programs, communities, scholarships, prep resources, and why each one matters.',
+      'A practical way to understand conference sponsor lists, prioritize conversations, and prepare better questions.',
   },
   {
-    status: 'Future product layer',
-    title: 'Opportunity Signal Tracker',
+    tone: 'rose',
+    title: 'LinkedIn Notes Into Guides',
     description:
-      'Track high-value opportunity pages, known opening patterns, old vs. new links, confidence, and human verification before sending alerts.',
+      'Turning useful public posts into cleaner guides, checklists, templates, and resource notes.',
   },
   {
-    status: 'Planner feature idea',
-    title: 'Sponsor List Analyzer',
+    tone: 'indigo',
+    title: 'Workshops And Panels',
     description:
-      'A conference tool that turns sponsor lists into booth priority, student relevance, technical fit, and questions to ask engineers.',
-  },
-  {
-    status: 'Content system',
-    title: 'LinkedIn Notes To Guides',
-    description:
-      'Convert strong posts into useful resources such as checklists, scripts, templates, trackers, newsletter issues, or future downloadable kits.',
-  },
-  {
-    status: 'Later platform layer',
-    title: 'Workshops, Panels, And Office Hours',
-    description:
-      'Potential future offers around career leverage, conference prep, opportunity systems, technical portfolios, and community events once the format is ready.',
+      'Possible future sessions around career leverage, conference prep, opportunity access, technical portfolios, and community events.',
   },
 ];
 

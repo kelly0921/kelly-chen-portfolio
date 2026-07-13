@@ -12,6 +12,7 @@ import {
   contentResourceGroups,
   experiences,
   availableTopics,
+  audiencePathways,
   highlights,
   navItems,
   personalityNotes,
@@ -139,12 +140,10 @@ function HomePage() {
             Hi, I'm <span className="hero-name">Kelly Chen</span>
           </h1>
           <p className="hero-intro">
-            I build reliable systems, study how product decisions shape everyday
-            transactions, test ideas with real feedback, and organize resources that
-            make technical paths easier to find. My work connects fintech engineering,
-            product curiosity, and access-minded community building. I am especially
-            drawn to the hidden systems behind payments, opportunity access, internal
-            tools, and community workflows.
+            I build systems, resources, and communities that make hidden pathways
+            easier to navigate. My work connects fintech engineering, product
+            curiosity, real user feedback, AI-assisted workflows, and
+            access-minded community building.
           </p>
           <div className="button-row">
             <a className="button primary" href="#experience">
@@ -164,6 +163,8 @@ function HomePage() {
         </div>
         <PersonalSnapshot />
       </section>
+
+      <AudiencePathways />
 
       <section className="section-shell">
         <SectionHeading eyebrow="What I do" title="Work, Voice, Community" />
@@ -187,6 +188,32 @@ function HomePage() {
 
       <CTASection />
     </>
+  );
+}
+
+function AudiencePathways() {
+  return (
+    <section className="audience-pathways section-shell" aria-labelledby="audience-pathways-title">
+      <div className="audience-pathways-copy">
+        <p className="eyebrow">Start Here</p>
+        <h2 id="audience-pathways-title">Explore By Interest</h2>
+        <p>
+          A quick way to find the parts of my work that match what you are here
+          to understand, use, or build on.
+        </p>
+      </div>
+      <div className="audience-pathway-list">
+        {audiencePathways.map((pathway) => (
+          <a className={`audience-pathway-row audience-pathway-${pathway.tone}`} href={pathway.href} key={pathway.label}>
+            <span>{pathway.label}</span>
+            <div>
+              <strong>{pathway.title}</strong>
+              <p>{pathway.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -251,7 +278,7 @@ function SpeakingPage() {
       <PageHero
         eyebrow="Speaking"
         title="Speaking & Events"
-        body="Workshops, virtual talks, flash sessions, and conversations about building career leverage as an emerging engineer."
+        body="Workshops, virtual talks, flash sessions, and conversations that help students and communities turn effort into leverage, direction, and practical next steps."
       />
       {upcomingEvents.length ? (
         <section className="section-shell">
@@ -283,6 +310,10 @@ function SpeakingPage() {
       ) : null}
       <section className="section-shell topic-section">
         <SectionHeading eyebrow="Available Topics" title="What I Can Speak About" />
+        <p className="section-lede topic-lede">
+          I design talks to leave people with a clearer strategy, a useful framework,
+          and something they can act on after the room ends.
+        </p>
         <div className="topic-grid">
           {availableTopics.map((topic) => (
             <TopicCard key={topic.title} {...topic} />
@@ -292,9 +323,9 @@ function SpeakingPage() {
       <PageCTA
         eyebrow="Speaking inquiries"
         title="Bring This Talk To Your Room"
-        body="I am interested in workshops, panels, student events, and community rooms around women in tech, fintech, student opportunities, AI-assisted building, and early-career pathways."
+        body="Reach out for workshops, panels, student events, and community rooms around women in tech, fintech, student opportunities, AI-assisted building, and early-career pathways."
         href="https://www.linkedin.com/in/kellychen0921/"
-        label="Invite Me to Speak"
+        label="Start a Speaking Idea"
       />
     </>
   );
@@ -376,7 +407,7 @@ function CommunityPage() {
         </div>
       </section>
       <section className="section-shell">
-        <SectionHeading eyebrow="Current" title="Access Work Now" />
+        <SectionHeading eyebrow="Current" title="Current Focus" />
         <div className="community-grid community-grid-current">
           {currentCommunityWork.map((item) => (
             <CommunityCard key={item.title} {...item} />
@@ -751,16 +782,15 @@ function ContentPipeline({ items }) {
     <div className="content-pipeline">
       <div className="content-pipeline-heading">
         <p className="eyebrow">Coming next</p>
-        <h2>What The Resource Layer Is Building Toward</h2>
+        <h2>Planned Resource Directions</h2>
         <p>
-          These are not finished products on the site yet. They are the next public-ready
-          directions once the content, links, screenshots, and delivery flow are real.
+          A preview of the resource areas I am shaping next. I only publish them
+          here when they are useful enough to share clearly.
         </p>
       </div>
       <ol>
         {items.map((item) => (
-          <li key={item.title}>
-            <span>{item.status}</span>
+          <li className={`content-pipeline-${item.tone}`} key={item.title}>
             <div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
@@ -857,7 +887,7 @@ function ImpactStrip() {
       </span>
       <span>
         <strong>Fintech</strong>
-        Bloomberg + JPMorgan + Visa
+        Bloomberg + JPMorganChase + Visa
       </span>
       <span>
         <strong>Community</strong>
@@ -1127,7 +1157,7 @@ function SpeakingMoment({ src, alt, caption }) {
   );
 }
 
-function TopicCard({ title, description, icon }) {
+function TopicCard({ title, description, icon, outcome }) {
   return (
     <article className="topic-card">
       <span className="topic-icon" aria-hidden="true">
@@ -1135,6 +1165,12 @@ function TopicCard({ title, description, icon }) {
       </span>
       <h3>{title}</h3>
       <p>{description}</p>
+      {outcome ? (
+        <div className="topic-outcome">
+          <span>Takeaway</span>
+          <p>{outcome}</p>
+        </div>
+      ) : null}
     </article>
   );
 }
