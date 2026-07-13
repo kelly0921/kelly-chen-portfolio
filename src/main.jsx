@@ -3,15 +3,16 @@ import { createRoot } from 'react-dom/client';
 import './styles.css';
 import {
   beamCashCaseStudy,
-  conferenceSeries,
   communityWork,
   communityMoments,
   communityConferenceMoments,
   communityResources,
+  conferencePlannerProduct,
+  contentPipeline,
+  contentResourceGroups,
   experiences,
   availableTopics,
   highlights,
-  mediaChannels,
   navItems,
   personalityNotes,
   pillars,
@@ -23,7 +24,7 @@ import {
   webPilotCaseStudy,
 } from './portfolioData';
 
-const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'speaking', 'community', 'media'];
+const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'speaking', 'community', 'content', 'media'];
 
 const pageNotes = {
   Experience: {
@@ -50,6 +51,7 @@ const pageNotes = {
 
 function getRoute() {
   const route = window.location.hash.replace('#', '').toLowerCase();
+  if (route === 'media') return 'content';
   return routes.includes(route) ? route : 'home';
 }
 
@@ -79,7 +81,7 @@ function App() {
         return <SpeakingPage />;
       case 'community':
         return <CommunityPage />;
-      case 'media':
+      case 'content':
         return <MediaPage />;
       default:
         return <HomePage />;
@@ -140,7 +142,9 @@ function HomePage() {
             I build reliable systems, study how product decisions shape everyday
             transactions, test ideas with real feedback, and organize resources that
             make technical paths easier to find. My work connects fintech engineering,
-            product curiosity, and access-minded community building.
+            product curiosity, and access-minded community building. I am especially
+            drawn to the hidden systems behind payments, opportunity access, internal
+            tools, and community workflows.
           </p>
           <div className="button-row">
             <a className="button primary" href="#experience">
@@ -543,6 +547,23 @@ function ProjectCaseStudyPage({ caseStudy }) {
           )}
         </section>
       )}
+      {caseStudy.systemLens ? (
+        <section className="case-study-lens case-study-chapter section-shell">
+          <div className="case-study-lens-copy">
+            <p className="eyebrow">{caseStudy.systemLens.eyebrow || 'Design Lens'}</p>
+            <h2>{caseStudy.systemLens.title}</h2>
+            <p>{caseStudy.systemLens.body}</p>
+          </div>
+          <div className="case-study-lens-grid">
+            {caseStudy.systemLens.items.map((item) => (
+              <article key={item.label}>
+                <span>{item.label}</span>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
       <section className="case-study-lede case-study-chapter section-shell">
         <article className="case-study-lede-main">
           <p className="eyebrow">{caseStudy.overviewEyebrow || 'Overview'}</p>
@@ -663,71 +684,137 @@ function MediaPage() {
       <PageHero
         eyebrow="Content"
         title="Content & Resources"
-        body="Practical notes, conference strategy, opportunity resources, and reusable tools from what I am learning, building, and sharing."
+        body="A resource desk for beta guides, practical tools, and apps like ApplyFirst. Ready pieces have clear next steps; future ideas are marked as still being built."
       />
-      <section className="section-shell content-map-section">
-        <ContentMap />
+      <section className="section-shell content-status-section">
+        <ContentStatusBoard groups={contentResourceGroups} />
       </section>
-      <section className="section-shell content-feature-section">
-        <ConferenceSeries series={conferenceSeries} />
+      <section className="section-shell content-product-section">
+        <ConferencePlannerProduct product={conferencePlannerProduct} />
       </section>
       <section className="section-shell">
-        <SectionHeading eyebrow="Browse" title="Content Shelves" />
-        <div className="media-grid">
-          {mediaChannels.map((group) => (
-            <MediaChannel key={group.title} {...group} />
-          ))}
-        </div>
+        <ContentPipeline items={contentPipeline} />
       </section>
       <PageCTA
-        eyebrow="Content direction"
-        title="Get My Opportunity Notes"
-        body="The first version of this is a practical public archive. If the resources become useful to people, I may turn the strongest guides into a newsletter, templates, or deeper resource packs."
-        href="https://www.linkedin.com/in/kellychen0921/"
-        label="View LinkedIn"
+        eyebrow="Follow the build"
+        title="Get Notified When New Resources Go Live"
+        body="The newsletter/storefront signup is still coming. For now, email me if you want resource updates, or follow along on LinkedIn."
+        href="mailto:kellychenmeiyi@gmail.com?subject=Resource%20updates"
+        label="Get Resource Updates"
       />
     </>
   );
 }
 
-function ContentMap() {
-  const paths = [
-    {
-      label: 'Start here',
-      title: 'Conference Strategy Series',
-      text: 'A guided series on deciding if conferences are worth it, finding funding, reading the room, and turning events into leverage.',
-      href: '#conference-series',
-    },
-    {
-      label: 'Use next',
-      title: 'ApplyFirst',
-      text: 'The opportunity library and tracker direction now live in the ApplyFirst product instead of this portfolio.',
-      href: 'https://applyfirst-careers.pages.dev/',
-    },
-    {
-      label: 'Follow along',
-      title: 'LinkedIn Notes',
-      text: 'Short-form posts and informal breakdowns that may become future guides, templates, resource kits, or newsletter issues.',
-      href: 'https://www.linkedin.com/in/kellychen0921/',
-    },
-  ];
-
+function ContentStatusBoard({ groups }) {
   return (
-    <div className="content-map">
+    <div className="content-status-board">
       <div>
-        <p className="eyebrow">How to use this page</p>
-        <h2>Read the idea, then use the resource.</h2>
+        <p className="eyebrow">Ready to use</p>
+        <h2>Available Tools And Requestable Resources</h2>
+        <p>
+          This area only shows things with a real next step: open the app, request the
+          beta bundle, or follow the upcoming resource pipeline below.
+        </p>
       </div>
-      <div className="content-map-list">
-        {paths.map((path) => (
-          <a key={path.title} href={path.href} className="content-map-row">
-            <span>{path.label}</span>
-            <strong>{path.title}</strong>
-            <p>{path.text}</p>
-          </a>
+      <div className="content-status-columns">
+        {groups.map((group) => (
+          <article key={group.title} className="content-status-column">
+            <span>{group.status}</span>
+            <h3>{group.title}</h3>
+            <p>{group.description}</p>
+            {group.href ? (
+              <a className="text-link content-status-link" href={group.href} target="_blank" rel="noreferrer">
+                {group.ctaLabel}
+              </a>
+            ) : null}
+            <ul>
+              {group.items.map((item) => (
+                <li key={item.title}>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <em>{item.meta}</em>
+                  </div>
+                  <p>{item.description}</p>
+                </li>
+              ))}
+            </ul>
+          </article>
         ))}
       </div>
     </div>
+  );
+}
+
+function ContentPipeline({ items }) {
+  return (
+    <div className="content-pipeline">
+      <div className="content-pipeline-heading">
+        <p className="eyebrow">Coming next</p>
+        <h2>What The Resource Layer Is Building Toward</h2>
+        <p>
+          These are not finished products on the site yet. They are the next public-ready
+          directions once the content, links, screenshots, and delivery flow are real.
+        </p>
+      </div>
+      <ol>
+        {items.map((item) => (
+          <li key={item.title}>
+            <span>{item.status}</span>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+function ConferencePlannerProduct({ product }) {
+  return (
+    <article className="conference-product" id="conference-leverage-planner">
+      <div className="conference-product-copy">
+        <span>{product.label}</span>
+        <h2>{product.title}</h2>
+        <p className="conference-product-tagline">{product.tagline}</p>
+        <p>{product.description}</p>
+        <div className="conference-product-actions">
+          <a className="button primary" href={product.primaryCta.href}>
+            {product.primaryCta.label}
+          </a>
+          <a className="button secondary" href={product.secondaryCta.href}>
+            {product.secondaryCta.label}
+          </a>
+        </div>
+        <div className="conference-product-meta" aria-label="Conference Leverage Planner product details">
+          <span>{product.status}</span>
+          <span>{product.price}</span>
+          <span>{product.freeLabel}</span>
+        </div>
+        <p className="conference-product-note">{product.note}</p>
+      </div>
+
+      <div className="conference-product-side">
+        <div className="conference-product-includes" aria-label="Conference Leverage Planner included files">
+          <span>Includes</span>
+          <ul>
+            {product.includes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="conference-product-previews" aria-label="Conference Leverage Planner previews">
+          {product.previews.map((preview) => (
+            <figure key={preview.src}>
+              <img src={preview.src} alt={preview.alt} loading="lazy" />
+              <figcaption>{preview.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </article>
   );
 }
 
@@ -883,7 +970,7 @@ function ExperienceCard({ organization, logo, role, context, dates, dateRange, s
         </div>
         <strong>{context}</strong>
       </div>
-      <p>{summary}</p>
+      {summary ? <p>{summary}</p> : null}
       <ul>
         {bullets.map((bullet) => (
           <li key={bullet}>{bullet}</li>
@@ -920,7 +1007,7 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
   );
 }
 
-function ProjectCard({ title, mark, status, description, image, imageFit, imageFrame, imageAlt, problem, user, role, learned, proof, tags, index }) {
+function ProjectCard({ title, mark, status, description, image, imageFit, imageFrame, imageAlt, systemQuestion, problem, user, role, learned, proof, tags, index }) {
   const projectAction = projectActions[title];
   const visualClasses = [
     'project-visual',
@@ -943,6 +1030,12 @@ function ProjectCard({ title, mark, status, description, image, imageFit, imageF
           </div>
         </div>
         <p>{description}</p>
+        {systemQuestion ? (
+          <div className="project-system-question">
+            <span>Core question</span>
+            <p>{systemQuestion}</p>
+          </div>
+        ) : null}
         <dl>
           <div>
             <dt>Problem</dt>
@@ -1147,90 +1240,6 @@ function ResourceList({ items }) {
         </article>
       ))}
     </div>
-  );
-}
-
-function ConferenceSeries({ series }) {
-  return (
-    <article className="conference-series" id="conference-series">
-      <div className="conference-feature">
-        <div className="conference-series-intro">
-          <span>{series.label}</span>
-          <h2>{series.title}</h2>
-          <p>{series.description}</p>
-          <div className="conference-actions">
-            <a className="button primary" href={series.primaryCta.href} target="_blank" rel="noreferrer">
-              {series.primaryCta.label}
-            </a>
-            <a className="button secondary" href="https://applyfirst-careers.pages.dev/" target="_blank" rel="noreferrer">
-              Explore ApplyFirst
-            </a>
-          </div>
-        </div>
-        <aside className="conference-brief" aria-label="Conference series summary">
-          <span>{series.status}</span>
-          {series.brief.map((item) => (
-            <p key={item.label}>
-              <strong>{item.label}</strong>
-              {item.text}
-            </p>
-          ))}
-        </aside>
-      </div>
-
-      <div className="conference-route" aria-label="Conference strategy reading route">
-        {series.phases.map((phase) => (
-          <section className="conference-route-phase" key={phase.title}>
-            <div>
-              <span>{phase.kicker}</span>
-              <h3>{phase.title}</h3>
-              <p>{phase.description}</p>
-            </div>
-            <ol>
-              {phase.posts.map((post) => (
-                <li key={post.day}>
-                  <span>{post.day}</span>
-                  <p>{post.title}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
-        ))}
-      </div>
-
-      <div className="conference-takeaways">
-        <span>What Readers Get</span>
-        <div>
-          {series.takeaways.map((item) => (
-            <p key={item.label}>
-              <strong>{item.label}</strong>
-              {item.text}
-            </p>
-          ))}
-        </div>
-      </div>
-    </article>
-  );
-}
-
-function MediaChannel({ type, status, title, description, posts }) {
-  return (
-    <article className="media-card">
-      <div className="media-card-meta">
-        <span>{type}</span>
-        {status ? <em>{status}</em> : null}
-      </div>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.label ?? post}>
-            <span>{post.label ?? post}</span>
-            {post.format ? <em>{post.format}</em> : null}
-          </li>
-        ))}
-      </ul>
-    </article>
   );
 }
 

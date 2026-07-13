@@ -4,7 +4,7 @@ export const navItems = [
   { label: 'Projects', href: '#projects' },
   { label: 'Speaking', href: '#speaking' },
   { label: 'Community', href: '#community' },
-  { label: 'Content', href: '#media' },
+  { label: 'Content', href: '#content' },
 ];
 
 export const pillars = [
@@ -33,10 +33,10 @@ export const pillars = [
     href: '#community',
   },
   {
-    id: 'media',
+    id: 'content',
     title: 'Content',
     description: 'Informal LinkedIn ideas, newsletter-style posts, and useful resources for students and builders.',
-    href: '#media',
+    href: '#content',
   },
 ];
 
@@ -75,7 +75,7 @@ export const highlights = [
     type: 'Content',
     title: 'LinkedIn to newsletter ideas',
     description: 'Turns short posts, opportunity lists, and lessons from events into a stronger public archive across notes and resources.',
-    href: '#media',
+    href: '#content',
   },
 ];
 
@@ -110,8 +110,6 @@ export const experiences = [
     context: 'Fixed Income - Private Securities',
     dates: 'Full-time',
     dateRange: 'Jul 2025 - Present',
-    summary:
-      'Software engineer working on Fixed Income - Private Securities in New York.',
     bullets: [
       'Builds and maintains systems in the fixed income private securities space.',
       'Works with C++ and systems design in a production engineering environment.',
@@ -126,8 +124,6 @@ export const experiences = [
     context: 'Coaching and mentoring',
     dates: 'Fellowship',
     dateRange: 'Sep 2024 - May 2025',
-    summary:
-      'Supported students learning data structures and algorithms through coaching, mentoring, and technical guidance.',
     bullets: [
       'Mentored students through technical problem-solving and interview-style preparation.',
       'Helped make data structures and algorithms more approachable through coaching and explanation.',
@@ -142,8 +138,6 @@ export const experiences = [
     context: 'Central Bank Digital Currency capstone project',
     dates: 'Internship',
     dateRange: 'Jan 2024 - Dec 2024',
-    summary:
-      'Worked on a Central Bank Digital Currency capstone project with blockchain-focused product and engineering context.',
     bullets: [
       'Explored engineering concepts around Central Bank Digital Currency systems.',
       'Worked with blockchain-oriented technical and product constraints.',
@@ -158,13 +152,11 @@ export const experiences = [
     context: 'Customer Interaction Utility',
     dates: 'Internship',
     dateRange: 'Jun 2024 - Aug 2024',
-    summary:
-      'Built self-service onboarding automation and real-time data processing workflows for Customer Interaction Utility systems.',
     bullets: [
-      'Developed a self-service onboarding tool that reduced onboarding time from hours to minutes while lowering operational risk and cost.',
-      'Built frontend and backend integration using React, Spring Boot, Cassandra, and Kafka.',
-      'Created a data processing pipeline to retrieve and validate topic metadata for stronger throughput and producer-rate insights.',
-      'Used Apache Kafka and user-defined configurations to improve onboarding reliability and flexibility.',
+      'Developed and implemented a self-service onboarding tool to automate the CIU onboarding event process, reducing risk and operational costs while cutting onboarding time from hours to minutes.',
+      'Built frontend, backend integration, and data management using React, Spring Boot, Cassandra, and Kafka.',
+      'Created a data processing pipeline that dynamically retrieves and validates topic metadata for improved system performance and reliability.',
+      'Used Apache Kafka for real-time data ingestion and user-defined configurations to improve throughput, producer-rate insight, and onboarding flexibility.',
     ],
     skills: ['Spring Boot', 'React.js', 'Apache Kafka', 'Cassandra', 'Java', 'Data pipelines', 'Enterprise systems'],
   },
@@ -175,12 +167,10 @@ export const experiences = [
     context: 'Global Billing Platform',
     dates: 'Internship',
     dateRange: 'May 2023 - Aug 2023',
-    summary:
-      'Built backend tools and reusable services using Spring Boot, MongoDB, Swagger, and REST APIs. Worked on password encryption/decryption infrastructure and an approval workflow state machine for uploaded business objects.',
     bullets: [
       'Implemented an approval workflow state machine connected to RESTful APIs with visualization using Spring Boot, Angular, MongoDB, and Swagger.',
-      'Enabled users to track uploaded billing line object status and standardized workflow states.',
-      'Created a reusable Spring Boot library with an API for password encryption and decryption across multiple team applications.',
+      'Enabled users to track the status of uploaded billing line objects and standardized workflow states.',
+      'Created a reusable Spring Boot library with an API for password encryption and decryption, facilitating code reuse across multiple team applications.',
       'Collaborated in an Agile engineering environment.',
     ],
     skills: ['Spring Boot', 'Angular', 'MongoDB', 'Swagger', 'REST APIs', 'Agile', 'Security'],
@@ -192,12 +182,10 @@ export const experiences = [
     context: 'Production engineering and open source systems',
     dates: 'Fellowship',
     dateRange: 'Jun 2022 - Aug 2022',
-    summary:
-      'Completed a 12-week production engineering fellowship covering systems, open source, monitoring, testing, and deployment.',
     bullets: [
-      'Completed structured curriculum on core Production Engineering topics with workshops hosted by industry experts.',
+      'Completed 12 weeks of structured curriculum-based learning covering core Production Engineering topics, supplemented with events and workshops hosted by industry experts.',
       'Created an open-source personal portfolio website template using Python, Flask, Jinja, MySQL, Nginx, and unittest.',
-      'Automated testing and deployment workflows using CI/CD.',
+      'Automated testing and deployment workflow using CI/CD.',
       'Set up system and container monitoring, alerting, and visualization using Prometheus and Grafana.',
     ],
     skills: ['Python', 'Flask', 'MySQL', 'Nginx', 'CI/CD', 'Prometheus', 'Grafana'],
@@ -209,13 +197,11 @@ export const experiences = [
     context: 'NLP sentiment analysis project',
     dates: 'Fellowship',
     dateRange: 'Jun 2022 - Aug 2022',
-    summary:
-      'Worked on an NLP sentiment analysis project using Apple tweets to explore relationships between public sentiment and stock movement.',
     bullets: [
-      'Selected for a project-based fellowship with technical training, workshops, and mentorship for high-achieving women from over 8,000 applications.',
-      'Analyzed tweets with natural language processing to identify market sentiment toward Apple.',
+      'Selected for a project-based fellowship with 7 weeks of technical training, workshops, and mentorship for high-achieving women from over 8,000 applications with less than 5% acceptance rate.',
+      'Analyzed tweets using natural language processing to identify market sentiment toward Apple.',
       'Built and compared logistic regression and k-nearest neighbors models to predict Apple stock price movement.',
-      'Presented findings through a collaborative data science workflow.',
+      'Presented findings through a collaborative data science workflow with other top PhDs.',
     ],
     skills: ['Data analysis', 'Data modeling', 'NLP', 'Logistic regression', 'KNN', 'Python'],
   },
@@ -231,6 +217,7 @@ export const projects = [
       'A QR-based payment and coupon redemption concept focused on reducing checkout friction.',
     image: '/assets/project-skanpay.svg',
     imageAlt: 'SkanPay product preview showing a QR checkout flow, coupon stack, and payment confirmation.',
+    systemQuestion: 'How can payment and redemption happen in one checkout moment without adding work for the customer or merchant?',
     problem: 'Coupon redemption, gift cards, and payments often happen through separate steps.',
     user: 'Customers, merchants, restaurants, small sellers, and staff handling checkout.',
     role: 'Co-founder, product thinker, payment flow researcher, patent contributor.',
@@ -249,6 +236,7 @@ export const projects = [
     imageFit: 'contain',
     imageFrame: 'phone',
     imageAlt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
+    systemQuestion: 'How can a seller collect from anyone without depending on the buyer having the same payment app?',
     problem: 'Small in-person sellers lose payments when customers do not carry cash or use the same payment app.',
     user: 'Street performers, food vendors, pop-up shops, handmade sellers, nonprofits, and donation-based groups.',
     role: 'Founder, product builder, mobile app developer, and payment UX designer.',
@@ -266,6 +254,7 @@ export const projects = [
     image: '/assets/project-webpilot-command-center.png',
     imageFit: 'contain',
     imageAlt: 'WebPilot website command center showing guided workflow steps and reusable website context.',
+    systemQuestion: 'How can AI-generated website advice become reviewed, organized, and ready for real implementation?',
     problem: 'Small businesses and nonprofits often know their websites need work, but they do not know what to fix first or how to turn an audit into implementation.',
     user: 'Website consultants, small nonprofits, local businesses, and agencies managing website improvement work.',
     role: 'Product strategist, full-stack builder, AI workflow designer, and local MVP validator.',
@@ -282,6 +271,7 @@ export const projects = [
       'A NYC dating experiment for ambitious singles in their 20s, testing whether ambition type, lifestyle rhythm, risk tolerance, and future direction can become meaningful dating signals.',
     image: '/assets/project-tandem-home-hero.png',
     imageAlt: 'Tandem landing page hero for Dating for Complementary Ambition.',
+    systemQuestion: 'How can a dating experience match people by complementary ambition, lifestyle rhythm, and future direction?',
     problem: 'Most dating apps ask what someone does, but not what era of life they are in or what kind of partner energy complements their direction.',
     user: 'Ambitious NYC singles ages 21-30: students, new grads, interns, early-career professionals, startup employees, creators, and side-project builders.',
     role: 'Product strategist, validation MVP builder, brand direction lead, and archetype-system designer.',
@@ -299,6 +289,7 @@ export const projects = [
     image: '/assets/project-applyfirst-programs-desktop.png',
     imageFrame: 'desktop',
     imageAlt: 'ApplyFirst programs page showing searchable opportunity records, filters, shortlist actions, and status labels.',
+    systemQuestion: 'How can early-discovery programs become easier for students to find, track, and act on before the window closes?',
     problem: 'High-value internships, fellowships, insight programs, scholarships, and career-launch opportunities are scattered across lists and official pages, so students often find them too late.',
     user: 'First-year, sophomore, and emerging technical students looking for SWE, product, quant, finance tech, data, AI, fellowship, conference, and prep opportunities.',
     role: 'Product strategist, frontend MVP builder, data-model designer, and opportunity systems researcher.',
@@ -376,6 +367,26 @@ export const beamCashCaseStudy = {
         label: 'Follow-Through',
         title: 'Keep the payment handoff organized',
         text: 'The seller keeps QR access, payout readiness, payment state, and activity in one place instead of juggling handles and screenshots.',
+      },
+    ],
+  },
+  systemLens: {
+    eyebrow: 'Design Lens',
+    title: 'What I Was Testing',
+    body:
+      'BeamCash is not only a QR-code interface. It is a small test of whether the payment handoff can become more flexible for the seller while staying almost invisible to the buyer.',
+    items: [
+      {
+        label: 'Buyer Layer',
+        text: 'The buyer should scan, recognize the seller, choose an amount, and leave without learning a new payment app.',
+      },
+      {
+        label: 'Seller Layer',
+        text: 'The seller needs one reusable QR destination, clear activity, and enough setup to look prepared without running a full point-of-sale system.',
+      },
+      {
+        label: 'Infrastructure Layer',
+        text: 'The MVP keeps test payments, checkout state, payout readiness, and future processor integration separated so the product can grow safely.',
       },
     ],
   },
@@ -525,6 +536,26 @@ export const webPilotCaseStudy = {
         label: 'Handoff',
         title: 'Package work people can act on',
         text: 'Turn approved recommendations into delivery views, readiness checks, client requests, and implementation next steps.',
+      },
+    ],
+  },
+  systemLens: {
+    eyebrow: 'Design Lens',
+    title: 'What I Was Testing',
+    body:
+      'WebPilot tests the operating layer around AI: how context is captured, how output is reviewed, how evidence is attached, and how the work becomes something another person can act on.',
+    items: [
+      {
+        label: 'Context',
+        text: 'A website needs goals, page notes, client requests, screenshots, and performance evidence before AI output can be useful.',
+      },
+      {
+        label: 'Review',
+        text: 'Generated work should be editable, versioned, and approved before it becomes a recommendation or implementation task.',
+      },
+      {
+        label: 'Handoff',
+        text: 'The product turns approved work into delivery views, readiness checks, client requests, and next steps.',
       },
     ],
   },
@@ -924,123 +955,114 @@ export const communityWork = [
   },
 ];
 
-export const mediaChannels = [
+export const contentResourceGroups = [
   {
-    type: 'Series',
-    status: 'In progress',
-    title: 'Conference Strategy Notes',
-    description: 'Practical posts on conference ROI, funding, sponsor signals, and how students can turn events into leverage.',
-    posts: [
-      { label: 'Conference ROI', format: 'Read' },
-      { label: 'Funding options', format: 'Read' },
-      { label: 'Sponsor signals', format: 'Read' },
-    ],
-  },
-  {
-    type: 'Posts',
-    status: 'Public archive',
-    title: 'LinkedIn Notes',
-    description: 'A selected archive of posts, reflections, career lessons, and opportunity-sharing threads.',
-    posts: [
-      { label: 'Opportunity roundups', format: 'Read' },
-      { label: 'Women-in-tech reflections', format: 'Read' },
-      { label: 'Early-career engineering lessons', format: 'Read' },
-    ],
-  },
-  {
-    type: 'Templates',
-    status: 'Reusable tools',
-    title: 'Resource Kits & Trackers',
-    description: 'Reusable guides, checklists, and trackers for students navigating programs, fellowships, and technical communities.',
-    posts: [
-      { label: 'Opportunity tracker', format: 'Template' },
-      { label: 'Application planning checklist', format: 'Template' },
-      { label: 'Programs worth watching', format: 'Guide' },
-    ],
-  },
-  {
-    type: 'Ideas',
-    status: 'Working notes',
-    title: 'Fintech & AI Notes',
-    description: 'Informal notes from product experiments, payment concepts, AI-assisted builds, and technical learning.',
-    posts: [
-      { label: 'QR payment ideas', format: 'Note' },
-      { label: 'AI-assisted workflow notes', format: 'Note' },
-      { label: 'Product friction observations', format: 'Note' },
+    status: 'Live app / private beta',
+    title: 'ApplyFirst',
+    description:
+      'ApplyFirst now carries the opportunity library and early-discovery product direction. It is live as a separate app while the opportunity data, filters, and beta feedback loop mature.',
+    href: 'https://applyfirst-careers.pages.dev/',
+    ctaLabel: 'Open ApplyFirst',
+    items: [
+      {
+        title: 'Searchable Program Directory',
+        meta: 'Live direction',
+        description: 'A searchable early-career resource layer for programs, fellowships, scholarships, prep programs, and high-signal opportunities.',
+      },
+      {
+        title: 'Saved Programs',
+        meta: 'Beta workflow',
+        description: 'Shortlisting and tracking behavior for students who need to prepare before the application window opens.',
+      },
+      {
+        title: 'Signal Model',
+        meta: 'In validation',
+        description: 'Timing, eligibility, confidence, source trust, and opening-soon signals are being tested before broader alerts.',
+      },
     ],
   },
 ];
 
-export const conferenceSeries = {
-  label: 'Featured series',
-  title: 'Conference Strategy Series',
-  status: '11-part series',
-  description:
-    'A no-sugarcoat guide to deciding whether tech conferences are worth it, getting funded, reading sponsor signals, and turning events into career leverage.',
-  primaryCta: {
-    label: 'Read on LinkedIn',
-    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
+export const contentPipeline = [
+  {
+    status: 'Next store step',
+    title: 'Lemon Squeezy Resource Storefront',
+    description:
+      'Turn the Conference Leverage Planner into a clear free/paid product page with delivery, terms, preview images, and post-purchase email copy.',
   },
-  brief: [
-    {
-      label: 'For',
-      text: 'Students and emerging engineers deciding where to spend time, money, and attention.',
-    },
-    {
-      label: 'Format',
-      text: 'Short LinkedIn posts that can later become a conference kit, planner, and resource pack.',
-    },
-    {
-      label: 'Core idea',
-      text: 'Conferences are not automatically worth it. They work when you use them for leverage, not just effort.',
-    },
+  {
+    status: 'Next ApplyFirst layer',
+    title: 'Expand The Opportunity Data Foundation',
+    description:
+      'Keep building the curated data foundation for ApplyFirst: recurring programs, communities, scholarships, prep resources, and why each one matters.',
+  },
+  {
+    status: 'Future product layer',
+    title: 'Opportunity Signal Tracker',
+    description:
+      'Track high-value opportunity pages, known opening patterns, old vs. new links, confidence, and human verification before sending alerts.',
+  },
+  {
+    status: 'Planner feature idea',
+    title: 'Sponsor List Analyzer',
+    description:
+      'A conference tool that turns sponsor lists into booth priority, student relevance, technical fit, and questions to ask engineers.',
+  },
+  {
+    status: 'Content system',
+    title: 'LinkedIn Notes To Guides',
+    description:
+      'Convert strong posts into useful resources such as checklists, scripts, templates, trackers, newsletter issues, or future downloadable kits.',
+  },
+  {
+    status: 'Later platform layer',
+    title: 'Workshops, Panels, And Office Hours',
+    description:
+      'Potential future offers around career leverage, conference prep, opportunity systems, technical portfolios, and community events once the format is ready.',
+  },
+];
+
+export const conferencePlannerProduct = {
+  label: 'Beta resource bundle',
+  status: 'Bundle assembled',
+  title: 'Conference Leverage Planner',
+  tagline: 'Plan the room before you walk in.',
+  description:
+    'A practical strategy kit for students deciding whether a conference is worth it, finding funding paths, reading sponsor intent, preparing for interview invites, tracking private socials, and following up after the room closes.',
+  note:
+    'The Lemon Squeezy storefront is not live yet. Until then, this is request-only beta material and not a public promise of funding, interviews, referrals, or offers.',
+  price: 'Storefront next',
+  freeLabel: 'Free Lite Kit planned',
+  primaryCta: {
+    label: 'Request Beta Bundle',
+    href: 'mailto:kellychenmeiyi@gmail.com?subject=Conference%20Leverage%20Planner%20Full%20Bundle',
+  },
+  secondaryCta: {
+    label: 'Request Free Lite Kit',
+    href: 'mailto:kellychenmeiyi@gmail.com?subject=Conference%20Leverage%20Planner%20Free%20Lite%20Kit',
+  },
+  includes: [
+    'Full Strategy Kit PDF',
+    'Template Bank PDF',
+    'Tracker Workbook XLSX',
+    'One-Page Final Plan',
+    'Free Lite Kit',
   ],
-  phases: [
+  previews: [
     {
-      kicker: 'Phase 1',
-      title: 'Reality Check',
-      description: 'Signal inflation, student stage, DEI budget shifts, AI hiring, and the real question of whether a conference is worth it.',
-      posts: [
-        { day: 'Day 1', title: 'Is a conference worth it for you this year?' },
-        { day: 'Day 2', title: 'Underclassmen vs. upperclassmen: conferences are not equal' },
-        { day: 'Day 3', title: 'How budget cuts changed the room' },
-        { day: 'Day 4', title: 'Why systems thinking is becoming the stronger signal' },
-        { day: 'Day 5', title: 'Paying out of pocket? Use the skin-in-the-game filter' },
-      ],
+      src: '/assets/conference-leverage-planner/01-full-strategy-cover.png',
+      alt: 'Conference Leverage Planner full strategy kit cover.',
+      caption: 'Full strategy guide for conference ROI, funding, sponsors, interviews, learning, and follow-up.',
     },
     {
-      kicker: 'Phase 2',
-      title: 'Strategy & ROI',
-      description: 'How to compare conferences against referrals and internships, read sponsor intent, and spend your time where signal is highest.',
-      posts: [
-        { day: 'Day 6', title: 'ROI breakdown: conferences vs. referrals vs. internships' },
-        { day: 'Day 7', title: 'The quiet mistakes students make before day one' },
-        { day: 'Day 8', title: 'What sponsor tiers actually tell you' },
-        { day: 'Day 9', title: 'How to stay visible when resume systems filter by data' },
-      ],
+      src: '/assets/conference-leverage-planner/03-sponsor-booth-strategy.png',
+      alt: 'Conference Leverage Planner sponsor and booth strategy preview.',
+      caption: 'Sponsor planning that weighs fit, access quality, line risk, timing, and follow-up potential.',
     },
     {
-      kicker: 'Phase 3',
-      title: 'Execution',
-      description: 'The practical moves before and during the event: funding, private rooms, social signup windows, follow-up, workshops, and peer intel.',
-      posts: [
-        { day: 'Day 10', title: 'How to navigate workshops, panels, peers, and the social layer' },
-        { day: 'Day 11', title: 'Where conference funding actually comes from' },
-      ],
-    },
-  ],
-  takeaways: [
-    {
-      label: 'Decide',
-      text: 'Know when a conference is worth the cost, and when another career move has better ROI.',
-    },
-    {
-      label: 'Prepare',
-      text: 'Read the sponsor list, funding paths, and attendee rooms before you spend your energy.',
-    },
-    {
-      label: 'Convert',
-      text: 'Turn conversations into useful follow-ups, technical signal, and longer-term career leverage.',
+      src: '/assets/conference-leverage-planner/05-tracker-workbook.png',
+      alt: 'Conference Leverage Planner tracker workbook preview.',
+      caption: 'Workbook tabs for funding, sponsors, interviews, socials, sessions, peers, and follow-up.',
     },
   ],
 };
