@@ -13,7 +13,7 @@ import {
   experiences,
   availableTopics,
   audiencePathways,
-  highlights,
+  currentFocusNotes,
   navItems,
   personalityNotes,
   pillars,
@@ -56,6 +56,71 @@ function getRoute() {
   return routes.includes(route) ? route : 'home';
 }
 
+function useProductPageMotion(route) {
+  useEffect(() => {
+    const isProjectStory = ['beamcash', 'webpilot'].includes(route);
+    const sharedMotionSelector = [
+      '.page-hero',
+      '.section-heading',
+      '.audience-pathways',
+      '.focus-item',
+      '.experience-card',
+      '.project-card',
+      '.event-card',
+      '.topic-card',
+      '.community-card',
+      '.media-card',
+      '.content-status-column',
+      '.content-pipeline-item',
+    ].join(', ');
+
+    document.body.classList.toggle('motion-ready', isProjectStory);
+    document.body.classList.add('page-motion-ready');
+
+    const elements = Array.from(
+      document.querySelectorAll(isProjectStory ? `${sharedMotionSelector}, .product-reveal` : sharedMotionSelector),
+    );
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return () => {
+        document.body.classList.remove('motion-ready');
+        document.body.classList.remove('page-motion-ready');
+      };
+    }
+
+    elements.forEach((element) => element.classList.remove('is-visible'));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.16 },
+    );
+
+    let secondFrameId = 0;
+    const frameId = window.requestAnimationFrame(() => {
+      secondFrameId = window.requestAnimationFrame(() => {
+        elements.forEach((element) => observer.observe(element));
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.cancelAnimationFrame(secondFrameId);
+      observer.disconnect();
+      document.body.classList.remove('motion-ready');
+      document.body.classList.remove('page-motion-ready');
+    };
+  }, [route]);
+}
+
 function App() {
   const [route, setRoute] = useState(getRoute);
 
@@ -67,6 +132,8 @@ function App() {
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
+
+  useProductPageMotion(route);
 
   const page = useMemo(() => {
     switch (route) {
@@ -176,12 +243,8 @@ function HomePage() {
       </section>
 
       <section className="section-shell">
-        <SectionHeading eyebrow="Featured" title="Selected Highlights" />
-        <div className="highlight-list">
-          {highlights.map((item, index) => (
-            <HighlightCard key={item.title} index={index} {...item} />
-          ))}
-        </div>
+        <SectionHeading eyebrow="Now" title="Current Focus" />
+        <CurrentFocus items={currentFocusNotes} />
       </section>
 
       <PersonalityCollage />
@@ -196,7 +259,7 @@ function AudiencePathways() {
     <section className="audience-pathways section-shell" aria-labelledby="audience-pathways-title">
       <div className="audience-pathways-copy">
         <p className="eyebrow">Start Here</p>
-        <h2 id="audience-pathways-title">Explore By Interest</h2>
+        <h2 id="audience-pathways-title">Explore by Interest</h2>
         <p>
           A quick way to find the parts of my work that match what you are here
           to understand, use, or build on.
@@ -246,7 +309,7 @@ function ExperiencePage() {
 }
 
 function ProjectsPage() {
-  const built = projects.filter((project) => project.group === 'Built / In Progress');
+  const built = projects.filter((project) => project.group === 'Built and in Progress');
   const concepts = projects.filter((project) => project.group === 'Startup Concept');
 
   return (
@@ -256,7 +319,7 @@ function ProjectsPage() {
         title="Projects & Prototypes"
         body="Built work, active explorations, and startup concepts, shown with visual context and the skills behind each idea."
       />
-      <ProjectSection title="Built / In Progress" projects={built} />
+      <ProjectSection title="Built and in Progress" projects={built} />
       <ProjectSection title="Startup Concepts" projects={concepts} fintech />
       <PageCTA
         eyebrow="Open to conversation"
@@ -322,7 +385,7 @@ function SpeakingPage() {
       </section>
       <PageCTA
         eyebrow="Speaking inquiries"
-        title="Bring This Talk To Your Room"
+        title="Bring This Talk to Your Room"
         body="Reach out for workshops, panels, student events, and community rooms around women in tech, fintech, student opportunities, AI-assisted building, and early-career pathways."
         href="https://www.linkedin.com/in/kellychen0921/"
         label="Start a Speaking Idea"
@@ -428,7 +491,7 @@ function CommunityPage() {
           <h2>Helping students turn big rooms into usable pathways.</h2>
           <p>
             This part is a visual archive of conference-facing work: campus prep,
-            GHC 2024, and the Forte National Campus to Business Leadership Conference
+            GHC 2024, and the Forté National Campus to Business Leadership Conference
             trip I helped organize for Lehigh students in New York City.
           </p>
         </div>
@@ -447,7 +510,7 @@ function CommunityPage() {
         </div>
       </section>
       <section className="section-shell resource-strip-section">
-        <SectionHeading eyebrow="Resources" title="Resources From This Work" />
+        <SectionHeading eyebrow="Resources" title="Resources from This Work" />
         <ResourceList items={communityResources} />
       </section>
       <PageCTA
@@ -469,18 +532,19 @@ function ProjectCaseStudyPage({ caseStudy }) {
 
   return (
     <>
-      <section className={`case-study-hero section-shell case-study-${caseSlug}`} data-mark={caseMark}>
+      <section className={`case-study-hero section-shell case-study-${caseSlug} product-page-stage`} data-mark={caseMark}>
         <a className="back-link" href="#projects">Back to Projects</a>
-        <div className="case-study-hero-copy">
+        <div className="case-study-hero-copy product-reveal">
           <h1>{caseStudy.eyebrow}</h1>
           <p className="case-study-product-line">{caseStudy.title}</p>
           <p>{caseStudy.subtitle}</p>
         </div>
-        <div className="case-study-hero-side">
+        <div className="case-study-hero-side product-reveal product-reveal-delay-1">
           {heroImage && (
             <figure
               className={[
                 'case-study-hero-visual',
+                'product-hero-visual',
                 heroImage.kind === 'mobile' ? 'case-study-hero-visual-mobile' : '',
                 heroImage.fit === 'contain' ? 'case-study-visual-contain' : '',
               ].filter(Boolean).join(' ')}
@@ -490,7 +554,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
             </figure>
           )}
         </div>
-        <div className="case-study-dossier" aria-label={`${caseStudy.eyebrow} project snapshot`}>
+        <div className="case-study-dossier product-reveal product-reveal-delay-2" aria-label={`${caseStudy.eyebrow} project snapshot`}>
           <div className="case-study-dossier-item">
             <span>Status</span>
             <strong>{caseStudy.status}</strong>
@@ -515,6 +579,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
           className={[
             'case-study-value',
             'section-shell',
+            'product-reveal',
             caseStudy.valuePitch.storyboard?.length > 0 ? 'case-study-value-story-mode' : '',
           ].filter(Boolean).join(' ')}
         >
@@ -536,7 +601,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
           {caseStudy.valuePitch.storyboard?.length > 0 ? (
             <div className="case-study-value-storyboard" aria-label={`${caseStudy.eyebrow} workflow summary`}>
               {caseStudy.valuePitch.storyboard.map((step, index) => (
-                <article key={step.title}>
+                <article className={`product-reveal product-reveal-delay-${Math.min(index + 1, 3)}`} key={step.title}>
                   <div className="case-study-value-story-mark" aria-hidden="true">{step.mark}</div>
                   <span>{step.label || `Step ${index + 1}`}</span>
                   <h3>{step.title}</h3>
@@ -566,7 +631,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
               </div>
               <div className="case-study-value-flow" aria-label={`${caseStudy.eyebrow} workflow summary`}>
                 {caseStudy.valuePitch.steps.map((step, index) => (
-                  <article key={step.title}>
+                  <article className={`product-reveal product-reveal-delay-${Math.min(index + 1, 3)}`} key={step.title}>
                     <div className="case-study-value-step-mark" aria-hidden="true">{step.mark || String(index + 1).padStart(2, '0')}</div>
                     <span>{String(index + 1).padStart(2, '0')}</span>
                     <h3>{step.title}</h3>
@@ -579,15 +644,15 @@ function ProjectCaseStudyPage({ caseStudy }) {
         </section>
       )}
       {caseStudy.systemLens ? (
-        <section className="case-study-lens case-study-chapter section-shell">
-          <div className="case-study-lens-copy">
+        <section className="case-study-lens case-study-chapter section-shell product-reveal">
+          <div className="case-study-lens-copy product-reveal product-reveal-delay-1">
             <p className="eyebrow">{caseStudy.systemLens.eyebrow || 'Design Lens'}</p>
             <h2>{caseStudy.systemLens.title}</h2>
             <p>{caseStudy.systemLens.body}</p>
           </div>
           <div className="case-study-lens-grid">
-            {caseStudy.systemLens.items.map((item) => (
-              <article key={item.label}>
+            {caseStudy.systemLens.items.map((item, index) => (
+              <article className={`product-reveal product-reveal-delay-${Math.min(index + 2, 4)}`} key={item.label}>
                 <span>{item.label}</span>
                 <p>{item.text}</p>
               </article>
@@ -595,25 +660,26 @@ function ProjectCaseStudyPage({ caseStudy }) {
           </div>
         </section>
       ) : null}
-      <section className="case-study-lede case-study-chapter section-shell">
-        <article className="case-study-lede-main">
+      <section className="case-study-lede case-study-chapter section-shell product-reveal">
+        <article className="case-study-lede-main product-reveal product-reveal-delay-1">
           <p className="eyebrow">{caseStudy.overviewEyebrow || 'Overview'}</p>
           <h2>{caseStudy.overviewTitle}</h2>
           <p>{caseStudy.overview}</p>
         </article>
-        <aside className="case-study-problem">
+        <aside className="case-study-problem product-reveal product-reveal-delay-2">
           <p className="eyebrow">{caseStudy.problemEyebrow || 'Problem'}</p>
           <h2>{caseStudy.problemTitle}</h2>
           <p>{caseStudy.problem}</p>
         </aside>
       </section>
-      <section className="case-study-section case-study-chapter case-study-gallery-section section-shell">
+      <section className="case-study-section case-study-chapter case-study-gallery-section section-shell product-reveal">
         <SectionHeading eyebrow={caseStudy.screenshotEyebrow || 'Product Walkthrough'} title={caseStudy.screenshotTitle} />
         <div className="screenshot-stack">
           {(galleryImages.length ? galleryImages : caseStudy.images).map((image) => (
             <figure
               className={[
                 'case-screenshot',
+                'product-shot',
                 image.kind === 'mobile' ? 'case-screenshot-mobile' : '',
                 image.fit === 'contain' ? 'case-screenshot-contain' : '',
               ].filter(Boolean).join(' ')}
@@ -628,11 +694,11 @@ function ProjectCaseStudyPage({ caseStudy }) {
           ))}
         </div>
       </section>
-      <section className="case-study-section case-study-chapter case-study-build-section section-shell">
+      <section className="case-study-section case-study-chapter case-study-build-section section-shell product-reveal">
         <SectionHeading eyebrow={caseStudy.buildEyebrow || 'Build'} title={caseStudy.buildTitle || 'What I Built'} />
         <div className="case-study-build-list" role="list">
           {caseStudy.whatIBuilt.map((item, index) => (
-            <article className="case-study-build-item" key={item} role="listitem">
+            <article className={`case-study-build-item product-reveal product-reveal-delay-${Math.min(index + 1, 4)}`} key={item} role="listitem">
               <span className="case-study-build-marker" aria-hidden="true" />
               <span>{caseStudy.buildLabels?.[index] || 'Artifact'}</span>
               <p>{item}</p>
@@ -640,23 +706,23 @@ function ProjectCaseStudyPage({ caseStudy }) {
           ))}
         </div>
       </section>
-      <section className="case-study-section case-study-chapter case-study-decision-section section-shell">
+      <section className="case-study-section case-study-chapter case-study-decision-section section-shell product-reveal">
         <div className="case-study-section-kicker">
           <p className="eyebrow">{caseStudy.decisionEyebrow || 'Product'}</p>
           <h2>{caseStudy.decisionTitle || 'Product Decisions'}</h2>
         </div>
         <div className="decision-rail">
-          {caseStudy.productDecisions.map((decision) => (
-            <article className="decision-item" key={decision.title}>
+          {caseStudy.productDecisions.map((decision, index) => (
+            <article className={`decision-item product-reveal product-reveal-delay-${Math.min(index + 1, 4)}`} key={decision.title}>
               <h3>{decision.title}</h3>
               <p>{decision.text}</p>
             </article>
           ))}
         </div>
       </section>
-      <section className="case-study-section case-study-chapter case-study-system-section section-shell">
+      <section className="case-study-section case-study-chapter case-study-system-section section-shell product-reveal">
         {caseStudy.workflowStandalone ? (
-          <figure className="workflow-diagram workflow-diagram-standalone">
+          <figure className="workflow-diagram workflow-diagram-standalone product-flow-visual">
             <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
           </figure>
         ) : (
@@ -670,13 +736,13 @@ function ProjectCaseStudyPage({ caseStudy }) {
                 ))}
               </ul>
             </article>
-            <figure className="workflow-diagram">
+            <figure className="workflow-diagram product-flow-visual">
               <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
             </figure>
           </div>
         )}
       </section>
-      <section className="case-study-section case-study-chapter case-study-reflection-section section-shell">
+      <section className="case-study-section case-study-chapter case-study-reflection-section section-shell product-reveal">
         <div className="case-study-two-column case-study-reflection">
           <article>
             <p className="eyebrow">Learned</p>
@@ -742,7 +808,7 @@ function ContentStatusBoard({ groups }) {
     <div className="content-status-board">
       <div>
         <p className="eyebrow">Ready to use</p>
-        <h2>Available Tools And Requestable Resources</h2>
+        <h2>Available Tools and Requestable Resources</h2>
         <p>
           This area only shows things with a real next step: open the app, request the
           beta bundle, or follow the upcoming resource pipeline below.
@@ -803,48 +869,92 @@ function ContentPipeline({ items }) {
 }
 
 function ConferencePlannerProduct({ product }) {
-  return (
-    <article className="conference-product" id="conference-leverage-planner">
-      <div className="conference-product-copy">
-        <span>{product.label}</span>
-        <h2>{product.title}</h2>
-        <p className="conference-product-tagline">{product.tagline}</p>
-        <p>{product.description}</p>
-        <div className="conference-product-actions">
-          <a className="button primary" href={product.primaryCta.href}>
-            {product.primaryCta.label}
-          </a>
-          <a className="button secondary" href={product.secondaryCta.href}>
-            {product.secondaryCta.label}
-          </a>
-        </div>
-        <div className="conference-product-meta" aria-label="Conference Leverage Planner product details">
-          <span>{product.status}</span>
-          <span>{product.price}</span>
-          <span>{product.freeLabel}</span>
-        </div>
-        <p className="conference-product-note">{product.note}</p>
-      </div>
+  const [selectedPreview, setSelectedPreview] = useState(null);
 
-      <div className="conference-product-side">
-        <div className="conference-product-includes" aria-label="Conference Leverage Planner included files">
-          <span>Includes</span>
-          <ul>
-            {product.includes.map((item) => (
-              <li key={item}>{item}</li>
+  useEffect(() => {
+    if (!selectedPreview) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setSelectedPreview(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedPreview]);
+
+  return (
+    <>
+      <article className="conference-product" id="conference-leverage-planner">
+        <div className="conference-product-copy">
+          <span>{product.label}</span>
+          <h2>{product.title}</h2>
+          <p className="conference-product-tagline">{product.tagline}</p>
+          <p>{product.description}</p>
+          <div className="conference-product-actions">
+            <a className="button primary" href={product.primaryCta.href}>
+              {product.primaryCta.label}
+            </a>
+            <a className="button secondary" href={product.secondaryCta.href}>
+              {product.secondaryCta.label}
+            </a>
+          </div>
+          <div className="conference-product-meta" aria-label="Conference Leverage Planner product details">
+            <span>{product.status}</span>
+            <span>{product.price}</span>
+            <span>{product.freeLabel}</span>
+          </div>
+          <p className="conference-product-note">{product.note}</p>
+        </div>
+
+        <div className="conference-product-side">
+          <div className="conference-product-includes" aria-label="Conference Leverage Planner included files">
+            <span>Includes</span>
+            <ul>
+              {product.includes.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="conference-product-previews" aria-label="Conference Leverage Planner previews">
+            {product.previews.map((preview) => (
+              <figure className={preview.layout ? `conference-preview-${preview.layout}` : undefined} key={preview.src}>
+                <figcaption className="conference-preview-copy">
+                  <span>{preview.eyebrow}</span>
+                  <strong>{preview.title}</strong>
+                  <p>{preview.caption}</p>
+                </figcaption>
+                <button
+                  aria-label={`Open larger preview: ${preview.caption}`}
+                  className="conference-preview-button"
+                  onClick={() => setSelectedPreview(preview)}
+                  type="button"
+                >
+                  <img src={preview.src} alt={preview.alt} loading="lazy" />
+                  <span className="conference-preview-zoom">View Larger</span>
+                </button>
+              </figure>
             ))}
-          </ul>
+          </div>
         </div>
-        <div className="conference-product-previews" aria-label="Conference Leverage Planner previews">
-          {product.previews.map((preview) => (
-            <figure key={preview.src}>
-              <img src={preview.src} alt={preview.alt} loading="lazy" />
-              <figcaption>{preview.caption}</figcaption>
-            </figure>
-          ))}
+      </article>
+
+      {selectedPreview ? (
+        <div className="preview-lightbox" role="dialog" aria-modal="true" aria-label="Conference Leverage Planner preview">
+          <button className="preview-lightbox-backdrop" onClick={() => setSelectedPreview(null)} type="button">
+            <span>Close preview</span>
+          </button>
+          <figure>
+            <button className="preview-lightbox-close" onClick={() => setSelectedPreview(null)} type="button">
+              Close
+            </button>
+            <img src={selectedPreview.src} alt={selectedPreview.alt} />
+            <figcaption>{selectedPreview.caption}</figcaption>
+          </figure>
         </div>
-      </div>
-    </article>
+      ) : null}
+    </>
   );
 }
 
@@ -969,16 +1079,25 @@ function SignatureMark({ variant }) {
   );
 }
 
-function HighlightCard({ type, title, description, href, index }) {
+function CurrentFocus({ items }) {
   return (
-    <article className="highlight-row">
-      <span className="highlight-index">{String(index + 1).padStart(2, '0')}</span>
+    <div className="focus-matrix">
+      {items.map((item) => (
+        <HighlightCard key={item.title} {...item} />
+      ))}
+    </div>
+  );
+}
+
+function HighlightCard({ type, title, description, note }) {
+  return (
+    <article className="focus-item">
+      <span className="focus-mode">{type}</span>
       <div>
-        <span>{type}</span>
         <h3>{title}</h3>
+        <p>{description}</p>
       </div>
-      <p>{description}</p>
-      <a href={href}>Explore</a>
+      <span className="focus-note">{note}</span>
     </article>
   );
 }

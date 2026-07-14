@@ -40,42 +40,30 @@ export const pillars = [
   },
 ];
 
-export const highlights = [
+export const currentFocusNotes = [
   {
-    type: 'Experience',
-    title: 'Software Engineer at Bloomberg',
-    description: 'Working in Fixed Income - Private Securities with C++ and systems design.',
-    href: '#experience',
+    type: 'Building',
+    title: 'BeamCash payment flow',
+    description: 'Shaping a QR checkout experience for sellers who need buyers, donors, or supporters to pay without creating another account.',
+    note: 'Seller setup, QR checkout, buyer flow',
   },
   {
-    type: 'Experience',
-    title: 'Software Engineering Intern at JPMorgan Chase',
-    description: 'Built CIU onboarding automation with React, Spring Boot, Cassandra, and Kafka, reducing onboarding from hours to minutes.',
-    href: '#experience',
+    type: 'Testing',
+    title: 'Product feedback loops',
+    description: 'Using BeamCash, WebPilot, SkanPay, and Tandem as focused builds for usability feedback instead of abstract concepts.',
+    note: 'Beta conversations and case studies',
   },
   {
-    type: 'Community',
-    title: 'Organized access to Harvard WECode',
-    description: 'Helped 15 students attend a fully funded women-in-tech conference experience through outreach, funding, logistics, and community coordination.',
-    href: '#community',
+    type: 'Publishing',
+    title: 'Conference leverage resources',
+    description: 'Turning the LinkedIn conference series into guides, trackers, and templates once the delivery flow is clear.',
+    note: 'Resource packaging',
   },
   {
-    type: 'Project',
-    title: 'SkanPay / QR payment concept',
-    description: 'Explored a single-scan payment and redemption flow for coupons, gift cards, small sellers, and checkout friction.',
-    href: '#projects',
-  },
-  {
-    type: 'Speaking',
-    title: 'Public speaking & events',
-    description: 'Presented, facilitated, represented, and organized through conferences, tech programs, student groups, and ambassador roles.',
-    href: '#speaking',
-  },
-  {
-    type: 'Content',
-    title: 'LinkedIn to newsletter ideas',
-    description: 'Turns short posts, opportunity lists, and lessons from events into a stronger public archive across notes and resources.',
-    href: '#content',
+    type: 'Learning',
+    title: 'Financial systems in practice',
+    description: 'Building production habits through fixed income private securities work and bringing that lens back into product decisions.',
+    note: 'C++, systems, reliability',
   },
 ];
 
@@ -84,28 +72,28 @@ export const audiencePathways = [
     label: 'Engineering Work',
     tone: 'blue',
     title: 'See how the systems come together',
-    description: 'Work history, resume, and case studies across production systems, fintech, AI workflows, and MVP architecture.',
+    description: 'Experience, resume, and case studies across fintech, AI workflows, and MVP architecture.',
     href: '#experience',
   },
   {
     label: 'Product / Beta',
     tone: 'teal',
     title: 'Explore the active builds',
-    description: 'BeamCash, WebPilot, Tandem, ApplyFirst, and SkanPay each have a concrete next step for feedback, early access, or deeper review.',
+    description: 'BeamCash, WebPilot, Tandem, ApplyFirst, and SkanPay with clear next steps for feedback or access.',
     href: '#projects',
   },
   {
     label: 'Student Resources',
     tone: 'gold',
     title: 'Find practical opportunity resources',
-    description: 'ApplyFirst, conference guides, beta resources, and future tools for students navigating early-career paths.',
+    description: 'ApplyFirst, conference guides, beta resources, and future tools for early-career paths.',
     href: '#content',
   },
   {
     label: 'Speaking / Partners',
     tone: 'indigo',
     title: 'Start a conversation or event',
-    description: 'Workshops, talks, community programs, and partnerships around career leverage, systems thinking, and access.',
+    description: 'Workshops, talks, community programs, and partnerships around leverage and access.',
     href: '#speaking',
   },
 ];
@@ -257,7 +245,7 @@ export const projects = [
     tags: ['QR payments', 'Product strategy', 'Checkout', 'MVP', 'Fintech'],
   },
   {
-    group: 'Built / In Progress',
+    group: 'Built and in Progress',
     title: 'BeamCash',
     mark: { text: 'BC', label: 'BeamCash', tone: 'gold', src: '/assets/project-beamcash-icon.svg' },
     status: 'Seller feedback wanted',
@@ -276,7 +264,7 @@ export const projects = [
     tags: ['React Native', 'Expo', 'TypeScript', 'Stripe', 'QR payments'],
   },
   {
-    group: 'Built / In Progress',
+    group: 'Built and in Progress',
     title: 'WebPilot',
     mark: { text: 'WP', label: 'WebPilot', tone: 'indigo', src: '/assets/project-webpilot-icon.svg' },
     status: 'Prototype feedback wanted',
@@ -340,7 +328,7 @@ export const projectActions = {
   BeamCash: {
     body:
       'If you sell, perform, vend, collect donations, or run pop-ups in person, I am looking for feedback on a QR checkout buyers can use without matching your payment app.',
-    primaryLabel: 'Try BeamCash As A Seller',
+    primaryLabel: 'Try BeamCash as a Seller',
     primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=I%20want%20to%20try%20BeamCash',
     secondaryLabel: 'Learn More',
     secondaryHref: '#beamcash',
@@ -348,7 +336,7 @@ export const projectActions = {
   WebPilot: {
     body:
       'If your nonprofit, local business, or community organization has scattered website feedback, WebPilot is built to turn it into a reviewed revamp plan.',
-    primaryLabel: 'Ask About A Website Revamp',
+    primaryLabel: 'Ask About a Website Revamp',
     primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=Website%20revamp%20with%20WebPilot',
     secondaryLabel: 'Learn More',
     secondaryHref: '#webpilot',
@@ -379,7 +367,7 @@ export const beamCashCaseStudy = {
     title: 'Collect from people outside your payment app.',
     body:
       'BeamCash gives sellers and donation groups one public QR checkout buyers can use without creating a BeamCash account or matching the seller on Venmo, Zelle, Cash App, or another peer-to-peer app.',
-    audience: ['Vendors', 'Performers', 'Pop-Ups', 'Nonprofits', 'Donation Groups'],
+    audience: ['Vendors', 'Performers', 'Pop-ups', 'Nonprofits', 'Donation Groups'],
     storyboard: [
       {
         mark: '01',
@@ -395,7 +383,7 @@ export const beamCashCaseStudy = {
       },
       {
         mark: '03',
-        label: 'Follow-Through',
+        label: 'Follow-through',
         title: 'Keep the payment handoff organized',
         text: 'The seller keeps QR access, payout readiness, payment state, and activity in one place instead of juggling handles and screenshots.',
       },
@@ -424,11 +412,11 @@ export const beamCashCaseStudy = {
   overview:
     'I built BeamCash around a small but common moment: someone is ready to pay, but the seller and buyer are not on the same payment app. The product tests whether one public QR checkout can let anyone scan, choose an amount, and pay without creating another account.',
   overviewEyebrow: 'Why I Built This',
-  overviewTitle: 'Let Anyone Pay From One QR',
+  overviewTitle: 'Let Anyone Pay from One QR',
   problem:
     'Cash, Venmo, Zelle, and app-specific payment handles all depend on what the buyer already has. BeamCash is designed around an accountless buyer checkout while still giving the seller a clear payment profile, public QR sign, mode-aware payment language, payout readiness, and dashboard activity.',
   problemEyebrow: 'What Improves',
-  problemTitle: 'Remove The Same-App Requirement',
+  problemTitle: 'Remove the Same-App Requirement',
   whatIBuilt: [
     'Seller profile setup for business type, photo, category, intro, and payment message.',
     'Dashboard for balance, recent activity, QR access, and payout readiness.',
@@ -449,7 +437,7 @@ export const beamCashCaseStudy = {
       text: 'The seller flow collects enough identity, mode, and payout context to generate a useful QR checkout without making small sellers set up a full point-of-sale system first.',
     },
     {
-      title: 'Processor Underneath, BeamCash In Front',
+      title: 'Processor Underneath, BeamCash in Front',
       text: 'The product should feel like a simple BeamCash checkout while a payment processor handles the secure transaction and payout infrastructure underneath.',
     },
     {
@@ -516,8 +504,8 @@ export const beamCashCaseStudy = {
   },
   workflowStandalone: true,
   screenshotEyebrow: 'How It Works',
-  screenshotTitle: 'Buyer And Seller Workflow',
-  technicalTitle: 'Built For Accountless QR Checkout',
+  screenshotTitle: 'Buyer and Seller Workflow',
+  technicalTitle: 'Built for Accountless QR Checkout',
   lessons: [
     'The strongest BeamCash value is reach: sellers can collect from buyers or donors who do not share the same payment app.',
     'Seller identity and branded signage still matter, but they support the accountless checkout flow instead of being the main selling point.',
@@ -528,7 +516,7 @@ export const beamCashCaseStudy = {
     'Add production hosting, authentication, public checkout URLs, image storage, and real Stripe configuration when ready.',
     'Test the flow with real sellers, performers, and donation groups to validate whether accountless checkout increases completed payments.',
   ],
-  ctaTitle: 'Want To Try BeamCash?',
+  ctaTitle: 'Want to Try BeamCash?',
   ctaBody:
     'I am looking for sellers, vendors, performers, local groups, nonprofits, and donation-based teams who want to try or give feedback on an accountless QR checkout flow.',
   ctaLabel: 'I Want to Try BeamCash',
@@ -597,7 +585,7 @@ export const webPilotCaseStudy = {
   problem:
     'WebPilot improves the handoff layer: what was generated, what was reviewed, what evidence supports it, what the client still needs to provide, and what should happen next.',
   problemEyebrow: 'What Improves',
-  problemTitle: 'From Generic Advice To Usable Work',
+  problemTitle: 'From Generic Advice to Usable Work',
   whatIBuilt: [
     'Website-centered workspace for context, goals, and client notes.',
     'Reusable AI task generation for audits, SEO, copywriting, FAQs, accessibility, donation pages, and WordPress-ready content.',
@@ -610,15 +598,15 @@ export const webPilotCaseStudy = {
   decisionTitle: 'Why It Works This Way',
   productDecisions: [
     {
-      title: 'Website-first, not project-first',
+      title: 'Website-First, Not Project-First',
       text: 'I centered the product around websites because clients and consultants think in terms of improving a website, not managing abstract projects.',
     },
     {
-      title: 'Service-first MVP',
+      title: 'Service-First MVP',
       text: 'I positioned WebPilot as an internal tool for delivering better client work before turning it into customer-facing SaaS.',
     },
     {
-      title: 'Human-reviewed AI',
+      title: 'Human-Reviewed AI',
       text: 'I avoided treating AI output as final. WebPilot keeps generated work editable, reviewable, versioned, and tied to delivery readiness.',
     },
     {
@@ -674,7 +662,7 @@ export const webPilotCaseStudy = {
     'Add hosted storage, authentication, and stronger automated tests.',
     'Explore a customer-facing portal after the internal operator workflow is proven.',
   ],
-  ctaTitle: 'Need A Website Revamp?',
+  ctaTitle: 'Need a Website Revamp?',
   ctaBody:
     'I am looking for nonprofits, local businesses, and community organizations that want help turning a messy website into a clearer audit, content plan, and implementation roadmap.',
   ctaLabel: 'Ask About WebPilot',
@@ -683,7 +671,7 @@ export const webPilotCaseStudy = {
 
 export const tandemCaseStudy = {
   eyebrow: 'Tandem',
-  title: 'Tandem - Dating For Complementary Ambition',
+  title: 'Tandem - Dating for Complementary Ambition',
   subtitle:
     'An early-stage NYC dating experiment for ambitious singles in their 20s who care about lifestyle, ambition, and future direction.',
   status: 'Early validation MVP',
@@ -694,7 +682,7 @@ export const tandemCaseStudy = {
   overviewTitle: 'A Dating Experiment Built Around Direction',
   problem:
     'Dating apps often focus on photos, prompts, location, hobbies, and job titles. They rarely capture the deeper compatibility signals that matter to people still forming their career identities: ambition type, lifestyle rhythm, risk tolerance, emotional maturity, relationship intention, and future direction.',
-  problemTitle: 'Surface-Level Matching Misses The Real Fit',
+  problemTitle: 'Surface-Level Matching Misses the Real Fit',
   buildEyebrow: 'Validation',
   buildTitle: 'Validation MVP',
   whatIBuilt: [
@@ -710,16 +698,16 @@ export const tandemCaseStudy = {
       text: 'The first version is intentionally not a dating app. It has no accounts, swiping, matching, chat, payments, or backend database. The goal is to test demand before investing in product complexity.',
     },
     {
-      title: 'Start With NYC',
+      title: 'Start with NYC',
       text: 'NYC offers a dense mix of students, interns, new grads, startup employees, creators, side-project builders, and young professionals, making it a focused launch market for intentional dating.',
     },
     {
-      title: 'Archetypes As Research',
+      title: 'Archetypes as Research',
       text: 'Builder, Anchor, Accelerator, Creator, Operator, and Explorer archetypes give users a warm way to engage while collecting structured signals about ambition and lifestyle compatibility.',
     },
     {
       title: 'Dating-First, Not Corporate',
-      text: 'The tone should feel warm, premium, intentional, and honest: ambitious without sounding corporate, NYC-coded without cliche, and never framed as LinkedIn dating.',
+      text: 'The tone should feel warm, premium, intentional, and honest: ambitious without sounding corporate, NYC-coded without cliché, and never framed as LinkedIn dating.',
     },
   ],
   images: [
@@ -774,7 +762,7 @@ export const tandemCaseStudy = {
     'Add a real analytics provider such as Plausible, Google Analytics, or Google Tag Manager.',
     'Add Open Graph preview metadata and complete one final mobile polish pass before wider sharing.',
   ],
-  ctaTitle: 'Join The Tandem Waitlist',
+  ctaTitle: 'Join the Tandem Waitlist',
   ctaBody:
     'Tandem is live as an early validation MVP. The current goal is to learn whether ambitious NYC singles ages 21-30 want a dating experience built around lifestyle, ambition, and future direction.',
   ctaLabel: 'Join the Tandem Waitlist',
@@ -925,12 +913,12 @@ export const communityConferenceMoments = [
   {
     src: '/assets/community-conference-cohort.jpg',
     alt: 'Large student conference cohort gathered outdoors in a city setting.',
-    label: 'Forte C2B NYC 2024 Attendees',
+    label: 'Forté C2B NYC 2024 Attendees',
   },
   {
     src: '/assets/community-conference-leadership.jpg',
     alt: 'Student group at the National Campus to Business Leadership Conference.',
-    label: 'Lehigh at Forte C2B NYC 2024',
+    label: 'Lehigh at Forté C2B NYC 2024',
   },
 ];
 
@@ -1033,13 +1021,13 @@ export const contentPipeline = [
   },
   {
     tone: 'rose',
-    title: 'LinkedIn Notes Into Guides',
+    title: 'LinkedIn Notes into Guides',
     description:
       'Turning useful public posts into cleaner guides, checklists, templates, and resource notes.',
   },
   {
     tone: 'indigo',
-    title: 'Workshops And Panels',
+    title: 'Workshops and Panels',
     description:
       'Possible future sessions around career leverage, conference prep, opportunity access, technical portfolios, and community events.',
   },
@@ -1075,17 +1063,25 @@ export const conferencePlannerProduct = {
     {
       src: '/assets/conference-leverage-planner/01-full-strategy-cover.png',
       alt: 'Conference Leverage Planner full strategy kit cover.',
-      caption: 'Full strategy guide for conference ROI, funding, sponsors, interviews, learning, and follow-up.',
+      eyebrow: 'Strategy kit',
+      title: 'Decide if the conference is worth it before you spend.',
+      caption: 'A structured guide for ROI, funding, sponsors, interviews, learning, and follow-up.',
     },
     {
-      src: '/assets/conference-leverage-planner/03-sponsor-booth-strategy.png',
-      alt: 'Conference Leverage Planner sponsor and booth strategy preview.',
-      caption: 'Sponsor planning that weighs fit, access quality, line risk, timing, and follow-up potential.',
+      src: '/assets/conference-leverage-planner/06-one-page-final-plan.png',
+      alt: 'Conference Leverage Planner one-page final plan preview.',
+      eyebrow: 'Final plan',
+      title: 'Leave with one clear plan you can actually use in the room.',
+      caption: 'A blank planning preview for goals, funding status, sponsor targets, sessions, people, and follow-up.',
+      layout: 'landscape',
     },
     {
       src: '/assets/conference-leverage-planner/05-tracker-workbook.png',
       alt: 'Conference Leverage Planner tracker workbook preview.',
-      caption: 'Workbook tabs for funding, sponsors, interviews, socials, sessions, peers, and follow-up.',
+      eyebrow: 'Tracker workbook',
+      title: 'Keep funding, sponsors, interviews, socials, and follow-up in one place.',
+      caption: 'A workbook preview showing the tracking system, not the full working files.',
+      layout: 'wide',
     },
   ],
 };
