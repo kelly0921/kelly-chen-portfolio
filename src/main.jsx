@@ -72,6 +72,11 @@ function useProductPageMotion(route) {
       '.media-card',
       '.content-status-column',
       '.content-pipeline-item',
+      '.speaking-moment',
+      '.community-moment',
+      '.conference-product',
+      '.conference-product-includes',
+      '.conference-product-previews figure',
     ].join(', ');
 
     document.body.classList.toggle('motion-ready', isProjectStory);
@@ -101,17 +106,28 @@ function useProductPageMotion(route) {
           }
         });
       },
-      { rootMargin: '0px 0px -12% 0px', threshold: 0.16 },
+      { rootMargin: '0px 0px 0px 0px', threshold: 0 },
     );
 
     let secondFrameId = 0;
+    const safetyRevealId = window.setTimeout(() => {
+      elements.forEach((element) => element.classList.add('is-visible'));
+    }, 1200);
+
     const frameId = window.requestAnimationFrame(() => {
       secondFrameId = window.requestAnimationFrame(() => {
-        elements.forEach((element) => observer.observe(element));
+        elements.forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          if (rect.bottom > 0 && rect.top < window.innerHeight * 0.94) {
+            element.classList.add('is-visible');
+          }
+          observer.observe(element);
+        });
       });
     });
 
     return () => {
+      window.clearTimeout(safetyRevealId);
       window.cancelAnimationFrame(frameId);
       window.cancelAnimationFrame(secondFrameId);
       observer.disconnect();
