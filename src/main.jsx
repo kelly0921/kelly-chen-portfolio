@@ -144,6 +144,7 @@ function useProductPageMotion(route) {
 
 function App() {
   const [route, setRoute] = useState(getRoute);
+  const onAcceleratorRoute = isAcceleratorRoute(route);
 
   useEffect(() => {
     const onHashChange = () => {
@@ -194,9 +195,9 @@ function App() {
 
   return (
     <>
-      <Navbar activeRoute={route} />
+      {onAcceleratorRoute ? null : <Navbar activeRoute={route} />}
       <main>{page}</main>
-      {isAcceleratorRoute(route) ? <AcceleratorFooter /> : <Footer />}
+      {onAcceleratorRoute ? <AcceleratorFooter /> : <Footer />}
     </>
   );
 }

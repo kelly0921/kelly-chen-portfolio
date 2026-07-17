@@ -234,6 +234,7 @@ function useAcceleratorMetadata(pageKey) {
       : `${origin}${acceleratorPaths.landing}`;
     const suffix = metadata.path.slice(acceleratorPaths.landing.length);
     const canonicalUrl = `${configuredBase}${suffix}`;
+    const socialImageUrl = `${origin}/og-recruiting-season-accelerator.png`;
     let canonical = document.head.querySelector('link[rel="canonical"]');
 
     document.title = metadata.title;
@@ -250,7 +251,13 @@ function useAcceleratorMetadata(pageKey) {
       metadata.openGraphDescription ?? metadata.description,
     );
     upsertMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl);
-    upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary');
+    upsertMeta('meta[property="og:image"]', { property: 'og:image' }, socialImageUrl);
+    upsertMeta(
+      'meta[property="og:image:alt"]',
+      { property: 'og:image:alt' },
+      'Recruiting Season Accelerator by Kelly Chen',
+    );
+    upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image');
     upsertMeta(
       'meta[name="twitter:title"]',
       { name: 'twitter:title' },
@@ -261,6 +268,7 @@ function useAcceleratorMetadata(pageKey) {
       { name: 'twitter:description' },
       metadata.openGraphDescription ?? metadata.description,
     );
+    upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, socialImageUrl);
 
     if (!canonical) {
       canonical = document.createElement('link');
@@ -423,75 +431,103 @@ export function RecruitingSeasonAcceleratorPage() {
         <a href="#timeline">View dates</a>
       </aside>
 
-      <nav className="rsa-page-nav section-shell" aria-label="Program sections">
-        <a href="#program-details">Overview</a>
-        <a href="#included">Included</a>
-        <a href="#founder">Meet Kelly</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <AcceleratorButton experience={experience} className="button primary small" source="page-nav" />
+      <nav className="rsa-page-nav" aria-label="Program sections">
+        <div className="rsa-page-nav-inner section-shell">
+          <a className="rsa-nav-brand" href="/" aria-label="Kelly Chen portfolio">
+            <img src="/assets/kelly-logo.svg" alt="" />
+            <span>
+              <strong>Recruiting Season Accelerator</strong>
+              <small>by Kelly Chen</small>
+            </span>
+          </a>
+          <div className="rsa-nav-links">
+            <a href="#program-details">Overview</a>
+            <a href="#included">Program</a>
+            <a href="#founder">Mentor</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <AcceleratorButton experience={experience} className="button primary small" source="page-nav" />
+        </div>
       </nav>
 
-      <section className="rsa-hero section-shell" aria-labelledby="rsa-title">
-        <div className="rsa-hero-copy">
-          <p className="eyebrow">Founding Cohort · Four Weeks · Six Participants</p>
-          <p className="rsa-program-name">{program.programName}</p>
-          <h1 id="rsa-title">Recruiting season is here. Apply with a strategy.</h1>
-          <p className="rsa-hero-lede">
-            A four-week mentorship program for college students applying to software
-            engineering internships and new-grad roles—especially in big tech, fintech,
-            payments, and technology-focused financial companies.
-          </p>
-          <p className="rsa-seasonal-copy">
-            Applications are beginning to open. Strengthen your resume, identify what is
-            holding back your recruiting progress, and build a focused plan before the
-            semester becomes overwhelming.
-          </p>
-          <div className="button-row">
-            <AcceleratorButton experience={experience} source="hero" />
-            <a
-              className="button secondary"
-              href="#included"
-              onClick={() =>
-                trackAcceleratorEvent('rsa_secondary_cta_click', { source: 'hero' })
-              }
-            >
-              See What&apos;s Included
-            </a>
+      <section className="rsa-hero" aria-labelledby="rsa-title">
+        <div className="rsa-hero-inner section-shell">
+          <div className="rsa-hero-copy">
+            <p className="eyebrow">Founding Cohort · Four Weeks · Six Participants</p>
+            <p className="rsa-program-name">{program.programName}</p>
+            <h1 id="rsa-title">Build a recruiting strategy that gets you unstuck.</h1>
+            <p className="rsa-hero-lede">
+              A focused four-week mentorship program for college students pursuing
+              software engineering internships and new-grad roles, with live workshops,
+              private strategy sessions, and a plan built around your actual bottleneck.
+            </p>
+            <div className="button-row">
+              <AcceleratorButton experience={experience} source="hero" />
+              <a
+                className="button secondary"
+                href="#included"
+                onClick={() =>
+                  trackAcceleratorEvent('rsa_secondary_cta_click', { source: 'hero' })
+                }
+              >
+                Explore the Program
+              </a>
+            </div>
+            <p className="rsa-hero-microcopy">
+              Application-based · Six participants maximum · No public checkout
+            </p>
           </div>
-          <p className="rsa-hero-microcopy">
-            Application-based · Six participants maximum · No public checkout
-          </p>
-        </div>
 
-        <div className="rsa-strategy-board" aria-label="Recruiting strategy framework">
-          <div className="rsa-board-heading">
-            <span>ApplyFirst resource journey</span>
-            <strong>Find the right next move.</strong>
-          </div>
-          <ol>
-            {['Diagnose', 'Position', 'Apply', 'Adjust', 'Decide'].map((step, index) => (
-              <li key={step}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <strong>{step}</strong>
-              </li>
-            ))}
-          </ol>
-          <div className="rsa-board-note">
-            <span>Founding price</span>
-            <strong>${program.priceUsd}</strong>
-            <small>${program.feedbackCreditUsd} feedback credit available</small>
-          </div>
+          <aside className="rsa-strategy-board" aria-label="Program snapshot">
+            <div className="rsa-board-heading">
+              <span>Program snapshot</span>
+              <strong>High-touch support for the part of recruiting that needs attention now.</strong>
+            </div>
+            <dl className="rsa-program-facts">
+              <div>
+                <dt>Format</dt>
+                <dd>4 live Zoom workshops</dd>
+              </div>
+              <div>
+                <dt>Private support</dt>
+                <dd>3 strategy sessions</dd>
+              </div>
+              <div>
+                <dt>Cohort size</dt>
+                <dd>6 students maximum</dd>
+              </div>
+              <div>
+                <dt>Program begins</dt>
+                <dd>Week of August 10</dd>
+              </div>
+            </dl>
+            <div className="rsa-board-note">
+              <span>Founding price</span>
+              <strong>${program.priceUsd}</strong>
+              <small>${program.feedbackCreditUsd} feedback credit available</small>
+            </div>
+          </aside>
         </div>
       </section>
 
       <section className="rsa-proof-strip" aria-label="Program at a glance">
         <div className="section-shell">
-          <span><strong>4</strong> weekly Zoom workshops</span>
-          <span><strong>3</strong> private strategy sessions</span>
-          <span><strong>6</strong> participants maximum</span>
-          <span><strong>${program.priceUsd}</strong> founding price</span>
-          <span><strong>${program.feedbackCreditUsd}</strong> feedback credit available</span>
+          <div className="rsa-proof-grid">
+            <span><strong>4</strong> weekly workshops</span>
+            <span><strong>3</strong> private sessions</span>
+            <span><strong>6</strong> participants maximum</span>
+            <span><strong>$79</strong> effective cost with feedback credit</span>
+          </div>
+          <div className="rsa-mentor-experience">
+            <span>Mentor experience across</span>
+            <div>
+              <strong>Visa</strong>
+              <strong>JPMorganChase</strong>
+              <strong>Bloomberg</strong>
+            </div>
+            <small>Independent educational program; employers are not sponsors.</small>
+          </div>
         </div>
       </section>
 
@@ -522,6 +558,17 @@ export function RecruitingSeasonAcceleratorPage() {
             ))}
           </div>
         </div>
+        <div className="rsa-focus-panel">
+          <div>
+            <p className="eyebrow">Personalized focus</p>
+            <h3>One shared program. A plan tailored to your recruiting needs.</h3>
+          </div>
+          <div className="rsa-focus-grid">
+            {focusAreas.map((area) => (
+              <span key={area}>{area}</span>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="rsa-audience rsa-band">
@@ -547,20 +594,6 @@ export function RecruitingSeasonAcceleratorPage() {
               a guarantee of employment.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="rsa-focus section-shell" aria-labelledby="rsa-focus-title">
-        <ProgramSectionHeading
-          eyebrow="Personalized focus"
-          title="One shared program. A focus tailored to your recruiting needs."
-          body="During the initial strategy session, each participant identifies a primary recruiting bottleneck and builds a focused four-week plan."
-          id="rsa-focus-title"
-        />
-        <div className="rsa-focus-grid">
-          {focusAreas.map((area) => (
-            <span key={area}>{area}</span>
-          ))}
         </div>
       </section>
 
@@ -807,21 +840,6 @@ export function RecruitingSeasonAcceleratorPage() {
         )}
       </section>
 
-      <section className="rsa-final-cta">
-        <div className="section-shell">
-          <p className="eyebrow">Six students. Four focused weeks.</p>
-          <h2>Stop guessing what to work on next.</h2>
-          <p>
-            Strengthen the areas that matter most and leave with a focused plan for
-            internship or new-grad recruiting.
-          </p>
-          <AcceleratorButton experience={experience} source="final-cta" />
-          <small>
-            Applications open July 22 and close August 2 at 11:59 PM ET. Applying does
-            not guarantee acceptance.
-          </small>
-        </div>
-      </section>
     </div>
   );
 }
