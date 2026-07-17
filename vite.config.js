@@ -32,6 +32,10 @@ function sitesStaticAdapter() {
 export default defineConfig({
   plugins: [react(), sitesStaticAdapter()],
   cacheDir: 'node_modules/.vite',
+  build: {
+    outDir: 'dist/client',
+    emptyOutDir: true,
+  },
   server: {
     fs: {
       allow: [projectRoot],
