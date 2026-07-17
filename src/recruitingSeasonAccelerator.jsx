@@ -503,23 +503,54 @@ export function RecruitingSeasonAcceleratorPage() {
         </div>
       </section>
 
-      <section className="rsa-proof-strip" aria-label="Program at a glance">
+      <section className="rsa-at-a-glance" aria-labelledby="rsa-proof-title">
         <div className="section-shell">
-          <div className="rsa-proof-grid">
-            <span><strong>4</strong> weekly workshops</span>
-            <span><strong>3</strong> private sessions</span>
-            <span><strong>6</strong> participants maximum</span>
-            <span><strong>$79</strong> effective cost with feedback credit</span>
-          </div>
-          <div className="rsa-mentor-experience">
-            <span>Mentor experience across</span>
-            <div>
-              <strong>Visa</strong>
-              <strong>JPMorganChase</strong>
-              <strong>Bloomberg</strong>
+          <header className="rsa-proof-intro">
+            <p className="eyebrow">Program at a glance</p>
+            <h2 id="rsa-proof-title">Small by design. Structured for momentum.</h2>
+            <p>
+              A focused four-week experience with enough individual support to turn
+              insight into an actionable recruiting plan.
+            </p>
+          </header>
+
+          <dl className="rsa-metric-grid">
+            <div className="rsa-metric-card">
+              <dt>4</dt>
+              <dd>Weekly workshops</dd>
+              <small>Live, focused, and practical</small>
             </div>
-            <small>Independent educational program; employers are not sponsors.</small>
-          </div>
+            <div className="rsa-metric-card">
+              <dt>3</dt>
+              <dd>Private sessions</dd>
+              <small>Personalized to your bottleneck</small>
+            </div>
+            <div className="rsa-metric-card">
+              <dt>6</dt>
+              <dd>Students maximum</dd>
+              <small>A deliberately small cohort</small>
+            </div>
+            <div className="rsa-metric-card">
+              <dt>$79</dt>
+              <dd>Effective cost</dd>
+              <small>After the optional $20 feedback credit</small>
+            </div>
+          </dl>
+
+          <aside className="rsa-experience-band" aria-label="Experience informing the program">
+            <div className="rsa-experience-copy">
+              <span>Experience informing the program</span>
+              <div className="rsa-company-list" aria-label="Companies">
+                <strong>Visa</strong>
+                <strong>JPMorgan Chase</strong>
+                <strong>Bloomberg</strong>
+              </div>
+            </div>
+            <small>
+              Kelly&apos;s professional experience informs the program. These employers
+              do not sponsor or endorse it.
+            </small>
+          </aside>
         </div>
       </section>
 

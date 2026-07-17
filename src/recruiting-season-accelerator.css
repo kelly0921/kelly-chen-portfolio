@@ -3847,3 +3847,236 @@
 .rsa-journey-result .rsa-outcome-disclaimer {
   font-size: 0.82rem;
 }
+
+/* Program snapshot: one cohesive proof panel instead of a dense stats strip. */
+.rsa-at-a-glance {
+  border-top: 1px solid var(--rsa-line);
+  border-bottom: 1px solid var(--rsa-line);
+  background:
+    radial-gradient(circle at 8% 18%, rgba(44, 91, 157, 0.08), transparent 28%),
+    #f5f7fb;
+}
+
+.rsa-at-a-glance .section-shell {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.28fr);
+  gap: 42px 56px;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.rsa-proof-intro {
+  align-self: center;
+  max-width: 390px;
+}
+
+.rsa-proof-intro .eyebrow {
+  margin-bottom: 18px;
+}
+
+.rsa-proof-intro h2 {
+  max-width: 380px;
+  margin: 0;
+  color: var(--rsa-ink);
+  font-family: var(--rsa-serif);
+  font-size: clamp(2.15rem, 4vw, 3.35rem);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.rsa-proof-intro > p:last-child {
+  max-width: 360px;
+  margin: 24px 0 0;
+  color: var(--rsa-copy);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.rsa-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.rsa-metric-card {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 164px;
+  align-content: center;
+  gap: 7px;
+  overflow: hidden;
+  border: 1px solid rgba(34, 59, 96, 0.13);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 34px rgba(28, 46, 75, 0.06);
+  padding: 26px 28px;
+}
+
+.rsa-metric-card::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--rsa-blue), #d5a958);
+  content: "";
+}
+
+.rsa-metric-card dt {
+  color: var(--rsa-blue);
+  font-family: var(--rsa-serif);
+  font-size: 2.35rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.rsa-metric-card dd {
+  margin: 0;
+  color: var(--rsa-ink);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.rsa-metric-card small {
+  color: #69758a;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.rsa-experience-band {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.48fr);
+  align-items: center;
+  gap: 34px;
+  border: 1px solid rgba(34, 59, 96, 0.13);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.64);
+  padding: 25px 28px;
+}
+
+.rsa-experience-copy {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 52px);
+  min-width: 0;
+}
+
+.rsa-experience-copy > span {
+  flex: 0 0 auto;
+  color: #6a7589;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.rsa-company-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 3.4vw, 46px);
+  min-width: 0;
+}
+
+.rsa-company-list strong {
+  color: #34445f;
+  font-size: clamp(0.92rem, 1.4vw, 1.08rem);
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+.rsa-experience-band > small {
+  color: #6d788c;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .rsa-at-a-glance .section-shell {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .rsa-proof-intro {
+    max-width: 590px;
+  }
+
+  .rsa-proof-intro h2,
+  .rsa-proof-intro > p:last-child {
+    max-width: 560px;
+  }
+
+  .rsa-experience-band {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .rsa-experience-band > small {
+    max-width: 560px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 620px) {
+  .rsa-at-a-glance .section-shell {
+    gap: 28px;
+    padding-top: 54px;
+    padding-bottom: 54px;
+  }
+
+  .rsa-proof-intro h2 {
+    font-size: clamp(2.05rem, 10vw, 2.8rem);
+  }
+
+  .rsa-metric-grid {
+    gap: 10px;
+  }
+
+  .rsa-metric-card {
+    min-height: 150px;
+    border-radius: 14px;
+    padding: 22px 16px 22px 20px;
+  }
+
+  .rsa-metric-card dt {
+    font-size: 2rem;
+  }
+
+  .rsa-metric-card dd {
+    font-size: 0.9rem;
+  }
+
+  .rsa-metric-card small {
+    font-size: 0.72rem;
+  }
+
+  .rsa-experience-band {
+    border-radius: 14px;
+    padding: 24px 20px;
+  }
+
+  .rsa-experience-copy {
+    display: grid;
+    gap: 17px;
+  }
+
+  .rsa-company-list {
+    flex-wrap: wrap;
+    gap: 14px 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .rsa-metric-grid {
+    grid-template-columns: 1fr;
+  }
+}

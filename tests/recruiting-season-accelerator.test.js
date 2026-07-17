@@ -114,6 +114,8 @@ test('public page includes required facts, policies, and accessible FAQ markup',
   assert.match(source, /Privacy Notice/);
   assert.match(source, /Refund and Feedback Credit Policy/);
   assert.match(source, /not affiliated with, sponsored by, or endorsed by Bloomberg/);
+  assert.match(source, /Small by design\. Structured for momentum\./);
+  assert.match(source, /JPMorgan Chase/);
   assert.match(source, /<details/);
   assert.match(source, /<summary>/);
   assert.doesNotMatch(source, /https?:\/\/(?:www\.)?stripe\.com/i);
