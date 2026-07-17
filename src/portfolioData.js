@@ -245,6 +245,24 @@ export const projects = [
     tags: ['QR payments', 'Product strategy', 'Checkout', 'MVP', 'Fintech'],
   },
   {
+    group: 'Experimental Infrastructure',
+    title: 'WriteGuard',
+    mark: { src: '/assets/project-writeguard-mark.svg', label: 'WriteGuard protected operation mark', tone: 'teal' },
+    status: 'Sandbox MVP / not production-certified',
+    description:
+      'A TypeScript reliability layer that helps AI agents reconcile uncertain external writes instead of executing them twice.',
+    image: '/assets/project-writeguard-operation-flow.svg',
+    imageFit: 'contain',
+    imageAlt: 'Diagram showing two AI-agent invocations merging into one stable WriteGuard operation that reconciles an uncertain result and confirms one external action.',
+    systemQuestion: 'How can AI-agent workflows recover from uncertain external actions without repeating the same consequential write?',
+    problem: 'Agent retries, crashes, and replayed tool calls can repeat refunds, bookings, messages, access changes, or other external effects.',
+    user: 'TypeScript agent teams, AI platform teams, developer-tool builders, and teams automating costly external writes.',
+    role: 'Product architect and AI-assisted builder directing the thesis, architecture, validation plan, and Codex-assisted implementation.',
+    learned: 'Infrastructure products need more than a clever abstraction. They need clear failure boundaries, validation evidence, and proof that teams would adopt the reliability layer instead of custom logic.',
+    proof: 'Installable TypeScript package, PostgreSQL-backed reliability model, MCP and Stripe test-mode validation, shadow mode, adapter tests, and 39 passing automated tests.',
+    tags: ['AI infrastructure', 'TypeScript', 'Distributed systems', 'PostgreSQL', 'MCP'],
+  },
+  {
     group: 'Built and in Progress',
     title: 'BeamCash',
     mark: { text: 'BC', label: 'BeamCash', tone: 'gold', src: '/assets/project-beamcash-icon.svg' },
@@ -341,6 +359,14 @@ export const projectActions = {
     secondaryLabel: 'Learn More',
     secondaryHref: '#webpilot',
   },
+  WriteGuard: {
+    body:
+      'WriteGuard is a sandbox MVP for teams testing AI-agent workflows that perform consequential external writes. It is design-partner ready, not production-certified.',
+    primaryLabel: 'Discuss Sandbox Pilot',
+    primaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=WriteGuard%20sandbox%20pilot',
+    secondaryLabel: 'View Technical Case Study',
+    secondaryHref: '#writeguard',
+  },
   Tandem: {
     body:
       'Tandem is live as a validation site with a landing page, Ambition Archetype quiz, and waitlist flow for ambitious NYC singles. It is not a full dating app yet.',
@@ -353,6 +379,239 @@ export const projectActions = {
     primaryLabel: 'Join ApplyFirst Early Access',
     primaryHref: 'https://applyfirst-careers.pages.dev/',
   },
+};
+
+export const writeGuardCaseStudy = {
+  eyebrow: 'WriteGuard',
+  title: 'Transactional Reliability for AI Agents',
+  subtitle:
+    'An experimental TypeScript reliability layer for AI agents that perform consequential external writes such as refunds, bookings, record creation, access changes, and provider updates.',
+  status: 'Design-partner-ready sandbox MVP / not production-certified',
+  role: 'Product architect and AI-assisted builder',
+  stack: ['TypeScript', 'Node.js', 'pnpm', 'PostgreSQL', 'Stripe test mode', 'MCP TypeScript SDK', 'Zod', 'Docker Compose'],
+  valuePitch: {
+    eyebrow: 'For TypeScript agent teams',
+    title: 'Recover from uncertain writes without repeating them.',
+    body:
+      'WriteGuard gives an agent one durable business-operation identity, then reconciles uncertain provider outcomes before another external write is allowed.',
+    audience: ['AI Platform Teams', 'Support Agents', 'Developer Tools', 'TypeScript SDKs', 'Stripe Test Flows'],
+    storyboard: [
+      {
+        mark: '01',
+        label: 'Identify',
+        title: 'One intended business effect',
+        text: 'Different tool-call IDs can map to the same stable operation key when the intended refund, booking, or access change is the same.',
+      },
+      {
+        mark: '02',
+        label: 'Hold',
+        title: 'Unknown is not failure',
+        text: 'If the provider may have succeeded but the worker lost confirmation, WriteGuard records UNKNOWN instead of retrying blindly.',
+      },
+      {
+        mark: '03',
+        label: 'Close',
+        title: 'Reconcile before acting again',
+        text: 'The runtime checks provider evidence, verifies the postcondition, and confirms, fails, or escalates the operation for review.',
+      },
+    ],
+  },
+  systemLens: {
+    eyebrow: 'Product Thesis',
+    title: 'The Missing Question Is Closure',
+    body:
+      'Agent frameworks can manage tool calls, workflow runtimes can resume execution, and providers can offer idempotency. WriteGuard focuses on the business-level question that sits between them: did this intended external effect already happen?',
+    items: [
+      {
+        label: 'Business Identity',
+        text: 'Framework call IDs can change after replay or restart, so the protected identity has to come from the intended business effect.',
+      },
+      {
+        label: 'Uncertainty',
+        text: 'Success and failure are not enough for external writes. UNKNOWN is a first-class state when provider success cannot yet be proven.',
+      },
+      {
+        label: 'Evidence',
+        text: 'The system stores redacted receipts, transitions, attempts, reconciliation evidence, and final status so teams can inspect what happened.',
+      },
+    ],
+  },
+  overview:
+    'WriteGuard explores what happens when an AI agent successfully performs an external action, such as issuing a refund, but loses confirmation and resumes with a new tool call. Instead of treating uncertainty as a normal retry condition, it durably records the operation, reconciles against the provider, verifies the result, and suppresses duplicate execution.',
+  overviewEyebrow: 'Why I Built This',
+  overviewTitle: 'Make External Writes Recoverable',
+  problem:
+    'A successful external action and a successful local response are not the same thing. A refund can be created moments before a worker crashes or a network response disappears. If the agent retries with a new call ID, the same customer can receive another refund, booking, message, record, or access change.',
+  problemEyebrow: 'What Improves',
+  problemTitle: 'Prevent Duplicate Side Effects',
+  whatIBuilt: [
+    'Stable business-operation keys that survive changing agent tool-call IDs.',
+    'PostgreSQL-backed durable claims, attempts, events, and execution receipts.',
+    'An explicit UNKNOWN state for provider outcomes that may have succeeded but cannot yet be confirmed.',
+    'Provider reconciliation and postcondition verification before another external write is allowed.',
+    'MCP tool integration, Stripe test-mode validation, shadow mode, and adapter conformance scenarios.',
+    'Validation coverage across ordinary retries, ten concurrent callers, worker crash recovery, delayed reconciliation, and ambiguous matches.',
+  ],
+  buildLabels: ['Stable Identity', 'Durable Records', 'UNKNOWN State', 'Reconciliation', 'Agent Integration', 'Validation'],
+  decisionEyebrow: 'Product Logic',
+  decisionTitle: 'Why the Boundary Matters',
+  decisionIntro:
+    'WriteGuard is not a full agent platform. It is a reliability boundary for external effects.',
+  productDecisions: [
+    {
+      title: 'Narrow the scope',
+      text: 'I cut the broader agent-infrastructure idea down to one reliability primitive: prevent duplicate external effects when confirmation is uncertain.',
+    },
+    {
+      title: 'Treat UNKNOWN as real state',
+      text: 'Uncertainty is not failure. It means the provider may have acted, so the system must reconcile before retrying.',
+    },
+    {
+      title: 'Separate business identity',
+      text: 'A fresh tool-call ID can still represent the same refund, booking, payout, or access change.',
+    },
+    {
+      title: 'Fit beside existing tools',
+      text: 'It complements workflow runtimes, MCP, provider idempotency, and observability instead of replacing them.',
+    },
+    {
+      title: 'Defer the dashboard',
+      text: 'The UI should come after pilot feedback clarifies whether teams need queues, receipts, timelines, or mostly SDK hooks.',
+    },
+  ],
+  technicalHighlights: [
+    'Installable TypeScript package with explicit exports, declarations, migrations, and clean consumer-project install validation.',
+    'PostgreSQL storage for durable claims, append-only operation events, attempts, receipts, and redacted invocation tracing.',
+    'Concurrency protection demonstrated with ten callers producing exactly one external effect.',
+    'Crash recovery demonstrated when a replacement worker reconciled provider success instead of repeating the write.',
+    'MCP integration guards a real agent tool while preserving framework call IDs as trace metadata.',
+    'Stripe test-mode validation showed unsafe calls producing duplicate partial refunds and guarded calls resolving to one confirmed refund.',
+    'Shadow mode lets teams observe operation identity and likely duplicate invocations before allowing suppression.',
+    'Reliability validation passed 22 unit tests, 17 PostgreSQL integration tests, typecheck, build, migration, package-install, and secret-scan checks.',
+  ],
+  heroImage: {
+    title: 'Runtime Preview',
+    src: '/assets/project-writeguard-hero.svg',
+    alt: 'Compact WriteGuard runtime preview showing repeated agent calls entering one protected operation that reconciles uncertainty and confirms one external effect.',
+    kind: 'diagram',
+  },
+  images: [
+    {
+      title: 'Operation Flow',
+      src: '/assets/project-writeguard-operation-flow.svg',
+      alt: 'Diagram showing two AI-agent invocations merging into one stable WriteGuard operation that reconciles an uncertain result and confirms one external action.',
+      caption: 'The core failure mode: the provider may have succeeded, but the agent lost proof. WriteGuard records UNKNOWN and reconciles before another write is allowed.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+    {
+      title: 'Infrastructure Architecture',
+      src: '/assets/project-writeguard-infrastructure.svg',
+      alt: 'Infrastructure diagram showing an AI agent and MCP tool calling the WriteGuard SDK, which coordinates PostgreSQL storage, provider adapters, external providers, reconciliation workers, receipts, and shadow telemetry.',
+      caption: 'WriteGuard sits between agent tools, durable PostgreSQL state, provider adapters, external providers, and reconciliation workers.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+    {
+      title: 'Sandbox Demo Comparison',
+      src: '/assets/project-writeguard-unsafe-vs-guarded.svg',
+      alt: 'Sandbox demo comparison showing two unsafe agent calls creating two partial refunds while the guarded flow treats two calls as one stable refund operation that reconciles and confirms once.',
+      caption: 'The demo uses partial refunds because duplicate execution is visible: unsafe calls created two effects, while the guarded path confirmed one stable operation.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+    {
+      title: 'State Machine',
+      src: '/assets/project-writeguard-state-machine.svg',
+      alt: 'WriteGuard state machine moving through planned, claimed, submitted, unknown, reconciling, confirmed, failed, and needs review states.',
+      caption: 'UNKNOWN is first-class, which makes reconciliation part of the runtime instead of an ad hoc manual cleanup step.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+    {
+      title: 'Validation Evidence',
+      src: '/assets/project-writeguard-validation-scorecard.svg',
+      alt: 'Engineering validation summary showing 39 automated tests, one external effect across ten concurrent calls, worker crash recovery, MCP integration, and Stripe test-mode validation.',
+      caption: 'The current proof is technical validation and sandbox readiness, not production certification or external adoption.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+  ],
+  galleryImages: [
+    {
+      title: 'Sandbox Demo Comparison',
+      src: '/assets/project-writeguard-unsafe-vs-guarded.svg',
+      alt: 'Sandbox demo comparison showing two unsafe agent calls creating two partial refunds while the guarded flow treats two calls as one stable refund operation that reconciles and confirms once.',
+      caption: 'Ordinary replay can duplicate writes; WriteGuard reconciles once.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+    {
+      title: 'Infrastructure Architecture',
+      src: '/assets/project-writeguard-infrastructure.svg',
+      alt: 'Infrastructure diagram showing an AI agent and MCP tool calling the WriteGuard SDK, which coordinates PostgreSQL storage, provider adapters, external providers, reconciliation workers, receipts, and shadow telemetry.',
+      caption: 'SDK, ledger, adapter, provider, reconciler, and receipt stay separate.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+    {
+      title: 'State Machine',
+      src: '/assets/project-writeguard-state-machine.svg',
+      alt: 'WriteGuard state machine moving through planned, claimed, submitted, unknown, reconciling, confirmed, failed, and needs review states.',
+      caption: 'UNKNOWN becomes a runtime state, not manual cleanup.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+    {
+      title: 'Validation Evidence',
+      src: '/assets/project-writeguard-validation-scorecard.svg',
+      alt: 'Engineering validation summary showing 39 automated tests, one external effect across ten concurrent calls, worker crash recovery, MCP integration, and Stripe test-mode validation.',
+      caption: 'Evidence passed; pilot feedback is the next test.',
+      fit: 'contain',
+      kind: 'diagram',
+    },
+  ],
+  screenshotEyebrow: 'System Diagrams',
+  screenshotTitle: 'Demo Flow, Architecture, and Validation Evidence',
+  buildEyebrow: 'Implementation',
+  buildTitle: 'Reliability Pieces Built',
+  technicalEyebrow: 'Runtime Logic',
+  technicalTitle: 'How WriteGuard Handles Uncertain Writes',
+  technicalSummary:
+    'This section is not another architecture diagram. It shows the rule WriteGuard enforces around the unsafe moment: when an external provider may have acted, but the agent no longer has proof.',
+  technicalFlow: [
+    {
+      label: 'Identity',
+      title: 'Name the business effect',
+      text: 'Repeated tool calls can point back to one intended refund, booking, payout, or access change.',
+    },
+    {
+      label: 'Uncertainty',
+      title: 'Hold instead of retrying',
+      text: 'UNKNOWN means the provider may have acted, so the next move is evidence collection, not another write.',
+    },
+    {
+      label: 'Closure',
+      title: 'Resolve with a receipt',
+      text: 'The operation closes as confirmed, failed, or needs review with durable evidence attached.',
+    },
+  ],
+  lessons: [
+    'Provider-native idempotency helps, but it does not fully answer whether an intended business operation already happened after a crash, replay, or lost confirmation.',
+    'A reliability abstraction does not need fewer lines of code to be valuable if it replaces difficult correctness machinery that teams would otherwise maintain by hand.',
+    'AI-assisted building still depends on architecture, milestone design, kill criteria, technical review, product judgment, and honest boundary-setting.',
+    'External pilot feedback is more valuable now than adding more internal features or a dashboard before the operational interface is proven.',
+  ],
+  nextSteps: [
+    'Run one focused external TypeScript design-partner pilot with a team issuing Stripe test-mode partial refunds or similar consequential writes.',
+    'Validate whether teams value the abstraction enough to adopt it instead of keeping custom idempotency, reconciliation, and retry logic.',
+    'Decide the public repository, final name, domain, package publication path, security posture, and operational UI only after pilot feedback.',
+  ],
+  ctaTitle: 'Interested in Testing WriteGuard?',
+  ctaBody:
+    'I am looking for a focused sandbox design partner building TypeScript agent workflows with consequential external writes. WriteGuard is experimental and not production-certified.',
+  ctaLabel: 'Discuss Sandbox Pilot',
+  ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=WriteGuard%20sandbox%20pilot',
 };
 
 export const beamCashCaseStudy = {
@@ -615,11 +874,9 @@ export const webPilotCaseStudy = {
     },
   ],
   technicalHighlights: [
-    'Prompt templates are versioned so generated audits, copy, FAQs, and implementation notes can be traced back to the workflow that produced them.',
-    'AI outputs are saved as structured records with model, prompt version, generated sections, status, and review state instead of disposable chat text.',
-    'Review and approval states keep AI-generated work human-editable before it becomes a client-facing delivery asset.',
-    'Page captures, pasted copy, PageSpeed results, and manual observations give recommendations evidence instead of leaving them as generic advice.',
-    'Local persistence, atomic writes, backup/restore, health checks, and smoke tests make the internal workflow safer to use on real website work.',
+    'Structured context keeps client goals, page notes, and website evidence connected before generation.',
+    'Review states keep AI drafts editable and approved before they become client-facing work.',
+    'Delivery readiness turns recommendations into a handoff someone can actually implement.',
   ],
   images: [
     {
@@ -650,8 +907,27 @@ export const webPilotCaseStudy = {
   },
   screenshotEyebrow: 'How It Works',
   screenshotTitle: 'Website Revamp Workflow',
-  technicalEyebrow: 'Build Notes',
+  technicalEyebrow: 'Operating Layer',
   technicalTitle: 'Making AI Output Operational',
+  technicalSummary:
+    'WebPilot is less about generating more suggestions and more about making the work traceable: context, evidence, review state, and delivery readiness.',
+  technicalFlow: [
+    {
+      label: 'Context',
+      title: 'Capture The Website Situation',
+      text: 'Goals, client notes, page copy, screenshots, and evidence sit together before AI generates anything.',
+    },
+    {
+      label: 'Review',
+      title: 'Keep Output Editable',
+      text: 'Generated audits, copy, FAQs, and implementation notes stay statused, reviewable, and tied to their source context.',
+    },
+    {
+      label: 'Handoff',
+      title: 'Package The Next Step',
+      text: 'Reviewed work becomes a clearer delivery package for approval, implementation, or follow-up.',
+    },
+  ],
   lessons: [
     'The highest-value AI product is often not the generator itself, but the workflow around it.',
     'Useful AI tools need context collection, review states, client delivery, implementation tracking, and follow-up.',

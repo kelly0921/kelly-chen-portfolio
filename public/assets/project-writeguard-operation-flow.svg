@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">WriteGuard failure and recovery flow</title>
+  <desc id="desc">Two lanes compare a blind retry failure path with the WriteGuard recovery path that records unknown, reconciles provider state, verifies the result, and closes with one external effect.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbf6eb}.panel{fill:#fffdf8;stroke:#ded2bd;stroke-width:3}.goodPanel{fill:#edf8f5;stroke:#83bfb7;stroke-width:3}.badPanel{fill:#fff1eb;stroke:#dca185;stroke-width:3}.dark{fill:#173542}.ink{fill:#173542}.muted{fill:#64757a}.teal{fill:#2d8c84}.rose{fill:#d98b67}.gold{fill:#c79935}.line{fill:none;stroke:#173542;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.badLine{fill:none;stroke:#d98b67;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.goodLine{fill:none;stroke:#2d8c84;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.dash{fill:none;stroke:#d98b67;stroke-width:5;stroke-linecap:round;stroke-dasharray:12 14}.kicker{font:800 20px Inter,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.title{font:850 42px Inter,Arial,sans-serif}.label{font:800 25px Inter,Arial,sans-serif}.body{font:500 24px Inter,Arial,sans-serif}.small{font:650 20px Inter,Arial,sans-serif}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" rx="54" class="bg"/>
+  <text x="96" y="104" class="kicker teal">WriteGuard Flow</text>
+  <text x="96" y="164" class="title ink">Uncertain provider result, safe recovery path.</text>
+  <text x="96" y="210" class="body muted">WriteGuard reconciles before another external write is allowed.</text>
+
+  <rect x="96" y="300" width="1408" height="238" rx="42" class="badPanel"/>
+  <text x="144" y="358" class="kicker rose">Blind Retry Path</text>
+  <g transform="translate(148 398)">
+    <rect width="214" height="82" rx="22" class="panel"/>
+    <text x="107" y="50" class="label ink" text-anchor="middle">Tool Call</text>
+  </g>
+  <path d="M368 439 H456" class="badLine"/>
+  <g transform="translate(456 398)">
+    <rect width="234" height="82" rx="22" class="panel"/>
+    <text x="117" y="38" class="label ink" text-anchor="middle">Provider</text>
+    <text x="117" y="66" class="small muted" text-anchor="middle">write succeeds</text>
+  </g>
+  <path d="M696 439 H784" class="badLine"/>
+  <g transform="translate(784 398)">
+    <rect width="234" height="82" rx="22" class="panel"/>
+    <text x="117" y="38" class="label ink" text-anchor="middle">Proof Lost</text>
+    <text x="117" y="66" class="small muted" text-anchor="middle">crash / timeout</text>
+  </g>
+  <path d="M1024 439 H1112" class="dash"/>
+  <g transform="translate(1112 398)">
+    <rect width="260" height="82" rx="22" class="dark"/>
+    <text x="130" y="38" class="label" fill="#fffdf8" text-anchor="middle">Retry Repeats</text>
+    <text x="130" y="66" class="small" fill="#ffd8c9" text-anchor="middle">duplicate side effect</text>
+  </g>
+
+  <rect x="96" y="602" width="1408" height="278" rx="42" class="goodPanel"/>
+  <text x="144" y="660" class="kicker teal">WriteGuard Recovery Path</text>
+  <g transform="translate(148 704)">
+    <rect width="220" height="96" rx="24" class="panel"/>
+    <text x="110" y="42" class="label ink" text-anchor="middle">Stable Key</text>
+    <text x="110" y="72" class="small muted" text-anchor="middle">business intent</text>
+  </g>
+  <path d="M374 752 H456" class="goodLine"/>
+  <g transform="translate(456 704)">
+    <rect width="220" height="96" rx="24" class="panel"/>
+    <text x="110" y="42" class="label ink" text-anchor="middle">UNKNOWN</text>
+    <text x="110" y="72" class="small muted" text-anchor="middle">do not retry</text>
+  </g>
+  <path d="M682 752 H764" class="goodLine"/>
+  <g transform="translate(764 704)">
+    <rect width="220" height="96" rx="24" class="panel"/>
+    <text x="110" y="42" class="label ink" text-anchor="middle">Reconcile</text>
+    <text x="110" y="72" class="small muted" text-anchor="middle">check provider</text>
+  </g>
+  <path d="M990 752 H1072" class="goodLine"/>
+  <g transform="translate(1072 704)">
+    <rect width="220" height="96" rx="24" class="panel"/>
+    <text x="110" y="42" class="label ink" text-anchor="middle">Verify</text>
+    <text x="110" y="72" class="small muted" text-anchor="middle">postcondition</text>
+  </g>
+  <path d="M1298 752 H1378" class="goodLine"/>
+  <g transform="translate(1378 704)">
+    <circle cx="46" cy="48" r="45" fill="#173542"/>
+    <path d="M24 49l16 16 30-38" fill="none" stroke="#9edbd2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="800" y="842" class="body ink" text-anchor="middle">Result: one external effect, one receipt, and a clear final status.</text>
+</svg>

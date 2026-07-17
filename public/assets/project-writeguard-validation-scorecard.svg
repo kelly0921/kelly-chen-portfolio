@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">WriteGuard validation scorecard</title>
+  <desc id="desc">Validation scorecard showing 39 tests, one effect across ten concurrent calls, crash recovery, MCP integration, Stripe test-mode validation, and supporting quality checks.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbf6eb}.dark{fill:#173542}.panel{fill:#fffdf8;stroke:#ded2bd;stroke-width:3}.mint{fill:#edf8f5;stroke:#83bfb7;stroke-width:3}.warn{fill:#fff1eb;stroke:#dca185;stroke-width:3}.ink{fill:#173542}.muted{fill:#64757a}.cream{fill:#fffdf8}.teal{fill:#2d8c84}.rose{fill:#d98b67}.gold{fill:#c79935}.kicker{font:800 20px Inter,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.title{font:850 40px Inter,Arial,sans-serif}.metric{font:900 72px Inter,Arial,sans-serif}.label{font:800 24px Inter,Arial,sans-serif}.body{font:500 24px Inter,Arial,sans-serif}.small{font:650 20px Inter,Arial,sans-serif}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" rx="54" class="bg"/>
+  <rect x="96" y="86" width="1408" height="828" rx="50" class="dark"/>
+  <circle cx="154" cy="148" r="12" fill="#d98b67"/>
+  <circle cx="196" cy="148" r="12" fill="#c79935"/>
+  <circle cx="238" cy="148" r="12" fill="#2d8c84"/>
+  <text x="292" y="156" class="kicker" fill="#9edbd2">Sandbox Validation</text>
+  <text x="154" y="238" class="title cream">Sandbox evidence, not production certification.</text>
+
+  <g transform="translate(154 318)">
+    <rect width="360" height="190" rx="34" class="panel"/>
+    <text x="180" y="90" class="metric teal" text-anchor="middle">39</text>
+    <text x="180" y="136" class="label ink" text-anchor="middle">Automated Tests</text>
+    <text x="180" y="168" class="small muted" text-anchor="middle">22 unit / 17 Postgres</text>
+  </g>
+  <g transform="translate(620 318)">
+    <rect width="360" height="190" rx="34" class="panel"/>
+    <text x="180" y="92" class="metric gold" text-anchor="middle">10 -> 1</text>
+    <text x="180" y="138" class="label ink" text-anchor="middle">Concurrent Calls</text>
+    <text x="180" y="168" class="small muted" text-anchor="middle">one external effect</text>
+  </g>
+  <g transform="translate(1086 318)">
+    <rect width="360" height="190" rx="34" class="panel"/>
+    <text x="180" y="92" class="metric rose" text-anchor="middle">OK</text>
+    <text x="180" y="138" class="label ink" text-anchor="middle">Crash Recovery</text>
+    <text x="180" y="168" class="small muted" text-anchor="middle">reconciled, not repeated</text>
+  </g>
+
+  <g transform="translate(154 594)">
+    <rect width="610" height="150" rx="34" class="mint"/>
+    <text x="305" y="58" class="kicker teal" text-anchor="middle">MCP Tool Path</text>
+    <text x="305" y="103" class="label ink" text-anchor="middle">Unsafe 2 refunds / guarded 1</text>
+  </g>
+  <g transform="translate(836 594)">
+    <rect width="610" height="150" rx="34" class="warn"/>
+    <text x="305" y="58" class="kicker rose" text-anchor="middle">Stripe Test Mode</text>
+    <text x="305" y="103" class="label ink" text-anchor="middle">UNKNOWN to CONFIRMED</text>
+  </g>
+  <text x="800" y="824" class="body" fill="#d6eae7" text-anchor="middle">typecheck / build / migrations / install / secret scan passed</text>
+</svg>

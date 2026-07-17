@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">WriteGuard operation state model</title>
+  <desc id="desc">A readable WriteGuard operation state model showing the normal path, uncertainty hold, reconciliation, and exception paths.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbf6eb}.paper{fill:#fffdf8;stroke:#ded2bd;stroke-width:3}.mint{fill:#e8f7f2;stroke:#2d8c84;stroke-width:4}.warn{fill:#fff0e9;stroke:#d98b67;stroke-width:4}.dark{fill:#173542}.ink{fill:#173542}.muted{fill:#61747a}.teal{fill:#2d8c84}.rose{fill:#d98b67}.line{fill:none;stroke:#173542;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.good{fill:none;stroke:#2d8c84;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.alert{fill:none;stroke:#d98b67;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:12 14}.kicker{font:800 22px Inter,Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase}.title{font:850 44px Inter,Arial,sans-serif}.state{font:850 30px Inter,Arial,sans-serif}.big{font:900 56px Inter,Arial,sans-serif}.body{font:560 24px Inter,Arial,sans-serif}.small{font:720 20px Inter,Arial,sans-serif}.tiny{font:800 17px Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+    </style>
+  </defs>
+
+  <rect width="1600" height="980" rx="56" class="bg"/>
+  <text x="92" y="98" class="kicker teal">State Model</text>
+  <text x="92" y="158" class="title ink">Uncertainty becomes a state, not a retry.</text>
+  <text x="92" y="204" class="body muted">WriteGuard makes the unsafe moment explicit before another external write can happen.</text>
+
+  <text x="110" y="300" class="kicker muted">Normal Operation Path</text>
+
+  <g transform="translate(110 340)">
+    <rect width="230" height="128" rx="30" class="paper"/>
+    <text x="115" y="50" class="tiny muted" text-anchor="middle">01</text>
+    <text x="115" y="90" class="state ink" text-anchor="middle">PLANNED</text>
+  </g>
+  <path d="M360 404 H458" class="line"/>
+
+  <g transform="translate(480 340)">
+    <rect width="230" height="128" rx="30" class="paper"/>
+    <text x="115" y="50" class="tiny muted" text-anchor="middle">02</text>
+    <text x="115" y="90" class="state ink" text-anchor="middle">CLAIMED</text>
+  </g>
+  <path d="M730 404 H828" class="line"/>
+
+  <g transform="translate(850 340)">
+    <rect width="270" height="128" rx="30" class="paper"/>
+    <text x="135" y="50" class="tiny muted" text-anchor="middle">03</text>
+    <text x="135" y="90" class="state ink" text-anchor="middle">SUBMITTED</text>
+  </g>
+  <path d="M1140 404 H1238" class="line"/>
+
+  <g transform="translate(1260 316)">
+    <rect width="250" height="176" rx="38" class="dark"/>
+    <text x="125" y="58" class="tiny" fill="#9edbd2" text-anchor="middle">Success Path</text>
+    <text x="125" y="112" class="state" fill="#fffdf8" text-anchor="middle">CONFIRMED</text>
+    <text x="125" y="146" class="small" fill="#d7ece9" text-anchor="middle">receipt saved</text>
+  </g>
+
+  <text x="110" y="560" class="kicker rose">Uncertain Provider Result</text>
+  <path d="M985 468 V552" class="alert"/>
+
+  <g transform="translate(760 586)">
+    <rect width="450" height="188" rx="42" class="warn"/>
+    <text x="225" y="56" class="tiny rose" text-anchor="middle">Hold State</text>
+    <text x="225" y="116" class="big ink" text-anchor="middle">UNKNOWN</text>
+    <text x="225" y="154" class="small muted" text-anchor="middle">provider may have acted; do not retry blindly</text>
+  </g>
+
+  <path d="M1210 680 H1288" class="good"/>
+  <g transform="translate(1310 606)">
+    <rect width="200" height="148" rx="34" class="mint"/>
+    <text x="100" y="52" class="tiny teal" text-anchor="middle">Next Step</text>
+    <text x="100" y="92" class="state ink" text-anchor="middle">RECONCILE</text>
+  </g>
+
+  <g transform="translate(110 626)">
+    <rect width="250" height="128" rx="30" class="warn"/>
+    <text x="125" y="80" class="state ink" text-anchor="middle">FAILED</text>
+  </g>
+  <path d="M850 468 C760 540 520 560 370 640" class="alert"/>
+
+  <g transform="translate(420 626)">
+    <rect width="270" height="128" rx="30" class="warn"/>
+    <text x="135" y="80" class="state ink" text-anchor="middle">NEEDS REVIEW</text>
+  </g>
+  <path d="M1030 586 C920 548 770 560 700 640" class="alert"/>
+
+  <g transform="translate(110 824)">
+    <rect width="1400" height="76" rx="26" fill="#fffdf8" stroke="#ded2bd" stroke-width="3"/>
+    <text x="700" y="48" class="body ink" text-anchor="middle">Core rule: reconcile uncertain external writes before another action is allowed.</text>
+  </g>
+</svg>

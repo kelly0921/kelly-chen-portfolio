@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">WriteGuard protected operation preview</title>
+  <desc id="desc">A compact system preview showing repeated AI tool calls entering one WriteGuard protected operation, reconciling uncertainty, and producing one confirmed external effect.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbf6eb}.paper{fill:#fffdf8;stroke:#d8c9b2;stroke-width:2.5}.mint{fill:#e7f6f1;stroke:#76bdb4;stroke-width:2.5}.ink{fill:#173542}.muted{fill:#5f7378}.teal{fill:#2d8c84}.rose{fill:#d98b67}.dark{fill:#173542}.label{font:800 25px Inter,Arial,sans-serif}.small{font:650 18px Inter,Arial,sans-serif}.tiny{font:760 14px Inter,Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase}.line{fill:none;stroke:#173542;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.good{fill:none;stroke:#2d8c84;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.dash{fill:none;stroke:#d98b67;stroke-width:4;stroke-linecap:round;stroke-dasharray:10 12}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="920" height="520" rx="38" class="bg"/>
+
+  <g transform="translate(26 58)">
+    <rect width="218" height="308" rx="30" class="paper"/>
+    <text x="109" y="50" class="tiny rose" text-anchor="middle">Agent Retry</text>
+    <rect x="36" y="92" width="146" height="58" rx="18" fill="#fff3ea" stroke="#e4b097" stroke-width="2"/>
+    <text x="109" y="128" class="small ink" text-anchor="middle">tool call A</text>
+    <rect x="36" y="176" width="146" height="58" rx="18" fill="#fff3ea" stroke="#e4b097" stroke-width="2"/>
+    <text x="109" y="212" class="small ink" text-anchor="middle">tool call B</text>
+    <text x="109" y="272" class="small muted" text-anchor="middle">same intended</text>
+    <text x="109" y="296" class="small muted" text-anchor="middle">external action</text>
+  </g>
+
+  <path d="M244 166 C282 166 294 226 332 226" class="line"/>
+  <path d="M244 250 C282 250 294 226 332 226" class="line"/>
+
+  <g transform="translate(332 32)">
+    <rect width="288" height="362" rx="38" class="dark"/>
+    <text x="144" y="55" class="tiny" fill="#9edbd2" text-anchor="middle">WriteGuard</text>
+    <text x="144" y="98" class="label" fill="#fffdf8" text-anchor="middle">Protected</text>
+    <text x="144" y="128" class="label" fill="#fffdf8" text-anchor="middle">Operation</text>
+    <rect x="42" y="166" width="204" height="58" rx="18" fill="#254b58"/>
+    <text x="144" y="202" class="small" fill="#d9eeeb" text-anchor="middle">stable operation key</text>
+    <rect x="42" y="246" width="204" height="58" rx="18" fill="#254b58"/>
+    <text x="144" y="282" class="small" fill="#d9eeeb" text-anchor="middle">UNKNOWN -> reconcile</text>
+  </g>
+
+  <path d="M620 226 H682" class="good"/>
+
+  <g transform="translate(682 58)">
+    <rect width="212" height="308" rx="30" class="mint"/>
+    <text x="106" y="50" class="tiny teal" text-anchor="middle">Provider Result</text>
+    <circle cx="106" cy="128" r="44" class="dark"/>
+    <path d="M83 130l16 16 34-46" fill="none" stroke="#9edbd2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="106" y="212" class="label ink" text-anchor="middle">One Effect</text>
+    <text x="106" y="258" class="small muted" text-anchor="middle">confirmed</text>
+    <text x="106" y="282" class="small muted" text-anchor="middle">receipt</text>
+  </g>
+
+  <path d="M682 400 C572 472 346 472 236 400" class="dash"/>
+  <g transform="translate(278 414)">
+    <rect width="364" height="58" rx="20" fill="#fffdf8" stroke="#e2d4bf" stroke-width="2"/>
+    <text x="182" y="37" class="small ink" text-anchor="middle">reconcile evidence before another write</text>
+  </g>
+</svg>

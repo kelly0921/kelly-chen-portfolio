@@ -23,9 +23,10 @@ import {
   speakingEvents,
   speakingMoments,
   webPilotCaseStudy,
+  writeGuardCaseStudy,
 } from './portfolioData';
 
-const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'speaking', 'community', 'content', 'media'];
+const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'writeguard', 'speaking', 'community', 'content', 'media'];
 
 const pageNotes = {
   Experience: {
@@ -58,7 +59,7 @@ function getRoute() {
 
 function useProductPageMotion(route) {
   useEffect(() => {
-    const isProjectStory = ['beamcash', 'webpilot'].includes(route);
+    const isProjectStory = ['beamcash', 'webpilot', 'writeguard'].includes(route);
     const sharedMotionSelector = [
       '.page-hero',
       '.section-heading',
@@ -161,6 +162,8 @@ function App() {
         return <ProjectCaseStudyPage caseStudy={beamCashCaseStudy} />;
       case 'webpilot':
         return <ProjectCaseStudyPage caseStudy={webPilotCaseStudy} />;
+      case 'writeguard':
+        return <ProjectCaseStudyPage caseStudy={writeGuardCaseStudy} />;
       case 'speaking':
         return <SpeakingPage />;
       case 'community':
@@ -182,7 +185,7 @@ function App() {
 }
 
 function Navbar({ activeRoute }) {
-  const navActiveRoute = ['beamcash', 'webpilot'].includes(activeRoute) ? 'projects' : activeRoute;
+  const navActiveRoute = ['beamcash', 'webpilot', 'writeguard'].includes(activeRoute) ? 'projects' : activeRoute;
 
   return (
     <header className="site-header">
@@ -326,6 +329,7 @@ function ExperiencePage() {
 
 function ProjectsPage() {
   const built = projects.filter((project) => project.group === 'Built and in Progress');
+  const infrastructure = projects.filter((project) => project.group === 'Experimental Infrastructure');
   const concepts = projects.filter((project) => project.group === 'Startup Concept');
 
   return (
@@ -336,6 +340,7 @@ function ProjectsPage() {
         body="Built work, active explorations, and startup concepts, shown with visual context and the skills behind each idea."
       />
       <ProjectSection title="Built and in Progress" projects={built} />
+      <ProjectSection title="Experimental Infrastructure" projects={infrastructure} />
       <ProjectSection title="Startup Concepts" projects={concepts} fintech />
       <PageCTA
         eyebrow="Open to conversation"
@@ -543,7 +548,7 @@ function CommunityPage() {
 function ProjectCaseStudyPage({ caseStudy }) {
   const caseSlug = caseStudy.eyebrow.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const caseMark = caseStudy.eyebrow.slice(0, 2).toUpperCase();
-  const heroImage = caseStudy.images[0];
+  const heroImage = caseStudy.heroImage || caseStudy.images[0];
   const galleryImages = caseStudy.galleryImages || (heroImage?.kind === 'mobile' ? caseStudy.images : caseStudy.images.slice(1));
 
   return (
@@ -697,6 +702,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
                 'case-screenshot',
                 'product-shot',
                 image.kind === 'mobile' ? 'case-screenshot-mobile' : '',
+                image.kind === 'diagram' ? 'case-screenshot-diagram' : '',
                 image.fit === 'contain' ? 'case-screenshot-contain' : '',
               ].filter(Boolean).join(' ')}
               key={image.title}
@@ -704,7 +710,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
               <img src={image.src} alt={image.alt} loading="lazy" />
               <figcaption>
                 <strong>{image.title}</strong>
-                {image.caption}
+                <span>{image.caption}</span>
               </figcaption>
             </figure>
           ))}
@@ -726,6 +732,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
         <div className="case-study-section-kicker">
           <p className="eyebrow">{caseStudy.decisionEyebrow || 'Product'}</p>
           <h2>{caseStudy.decisionTitle || 'Product Decisions'}</h2>
+          {caseStudy.decisionIntro ? <p>{caseStudy.decisionIntro}</p> : null}
         </div>
         <div className="decision-rail">
           {caseStudy.productDecisions.map((decision, index) => (
@@ -742,19 +749,35 @@ function ProjectCaseStudyPage({ caseStudy }) {
             <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
           </figure>
         ) : (
-          <div className="case-study-two-column case-study-technical">
-            <article>
+          <div className={['case-study-two-column', 'case-study-technical', caseStudy.technicalFlow ? 'case-study-technical-runtime' : ''].filter(Boolean).join(' ')}>
+            <article className={caseStudy.technicalFlow ? 'case-study-runtime-copy' : undefined}>
               <p className="eyebrow">{caseStudy.technicalEyebrow || 'Build Notes'}</p>
               <h2>{caseStudy.technicalTitle}</h2>
-              <ul className="case-study-list compact">
-                {caseStudy.technicalHighlights.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              {caseStudy.technicalSummary ? (
+                <p>{caseStudy.technicalSummary}</p>
+              ) : (
+                <ul className="case-study-list compact">
+                  {caseStudy.technicalHighlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
             </article>
-            <figure className="workflow-diagram product-flow-visual">
-              <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
-            </figure>
+            {caseStudy.technicalFlow ? (
+              <div className="case-study-runtime-flow" aria-label={`${caseStudy.eyebrow} technical flow`}>
+                {caseStudy.technicalFlow.map((step, index) => (
+                  <article className={`runtime-flow-step product-reveal product-reveal-delay-${Math.min(index + 1, 4)}`} key={step.title}>
+                    <span>{step.label}</span>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <figure className="workflow-diagram product-flow-visual">
+                <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
+              </figure>
+            )}
           </div>
         )}
       </section>

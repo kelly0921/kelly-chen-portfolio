@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">WriteGuard infrastructure architecture</title>
+  <desc id="desc">Architecture diagram showing AI agent calls entering the WriteGuard SDK, which coordinates a PostgreSQL ledger, provider adapter, external provider, reconciler worker, receipts, and shadow-mode telemetry.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbf6eb}.panel{fill:#fffdf8;stroke:#ded2bd;stroke-width:3}.mint{fill:#edf8f5;stroke:#83bfb7;stroke-width:3}.dark{fill:#173542}.warn{fill:#fff1eb;stroke:#dca185;stroke-width:3}.ink{fill:#173542}.muted{fill:#64757a}.teal{fill:#2d8c84}.rose{fill:#d98b67}.gold{fill:#c79935}.line{fill:none;stroke:#173542;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.goodLine{fill:none;stroke:#2d8c84;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.dash{fill:none;stroke:#d98b67;stroke-width:5;stroke-linecap:round;stroke-dasharray:12 14}.kicker{font:800 20px Inter,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.title{font:850 46px Inter,Arial,sans-serif}.label{font:800 28px Inter,Arial,sans-serif}.body{font:500 24px Inter,Arial,sans-serif}.small{font:650 20px Inter,Arial,sans-serif}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" rx="54" class="bg"/>
+  <text x="96" y="104" class="kicker teal">Infrastructure Architecture</text>
+  <text x="96" y="164" class="title ink">WriteGuard is a reliability boundary around external writes.</text>
+  <text x="96" y="210" class="body muted">It coordinates operation identity, durable state, provider actions, reconciliation, and receipts.</text>
+
+  <g transform="translate(96 366)">
+    <rect width="258" height="188" rx="34" class="panel"/>
+    <text x="129" y="64" class="kicker rose" text-anchor="middle">Caller</text>
+    <text x="129" y="108" class="label ink" text-anchor="middle">AI Agent</text>
+    <text x="129" y="142" class="small muted" text-anchor="middle">MCP tool call</text>
+  </g>
+  <path d="M354 460 H474" class="line"/>
+
+  <g transform="translate(474 302)">
+    <rect width="390" height="316" rx="44" class="mint"/>
+    <text x="195" y="62" class="kicker teal" text-anchor="middle">WriteGuard SDK</text>
+    <text x="195" y="110" class="label ink" text-anchor="middle">Reliability Boundary</text>
+    <rect x="54" y="150" width="282" height="50" rx="16" class="panel"/>
+    <text x="195" y="183" class="small ink" text-anchor="middle">stable business key</text>
+    <rect x="54" y="214" width="282" height="50" rx="16" class="panel"/>
+    <text x="195" y="247" class="small ink" text-anchor="middle">claim / execute / reconcile</text>
+  </g>
+
+  <path d="M864 460 H984" class="line"/>
+  <g transform="translate(984 366)">
+    <rect width="230" height="188" rx="34" class="panel"/>
+    <text x="115" y="64" class="kicker gold" text-anchor="middle">Adapter</text>
+    <text x="115" y="108" class="label ink" text-anchor="middle">Provider API</text>
+    <text x="115" y="142" class="small muted" text-anchor="middle">Stripe test mode</text>
+  </g>
+  <path d="M1214 460 H1318" class="line"/>
+  <g transform="translate(1318 382)">
+    <rect width="186" height="156" rx="32" class="warn"/>
+    <text x="93" y="66" class="label ink" text-anchor="middle">External</text>
+    <text x="93" y="104" class="label ink" text-anchor="middle">Write</text>
+  </g>
+
+  <path d="M669 618 V702" class="goodLine"/>
+  <g transform="translate(474 702)">
+    <rect width="390" height="176" rx="38" class="dark"/>
+    <text x="195" y="58" class="kicker" fill="#9edbd2" text-anchor="middle">PostgreSQL Ledger</text>
+    <text x="195" y="98" class="small" fill="#fffdf8" text-anchor="middle">operations / attempts / events</text>
+    <text x="195" y="132" class="small" fill="#fffdf8" text-anchor="middle">UNKNOWN / receipts / review states</text>
+  </g>
+
+  <path d="M1099 554 C1099 674 990 730 864 790" class="dash"/>
+  <g transform="translate(984 702)">
+    <rect width="300" height="176" rx="38" class="panel"/>
+    <text x="150" y="58" class="kicker rose" text-anchor="middle">Reconciler</text>
+    <text x="150" y="98" class="small ink" text-anchor="middle">checks provider evidence</text>
+    <text x="150" y="132" class="small ink" text-anchor="middle">confirms or escalates</text>
+  </g>
+  <path d="M984 790 H864" class="goodLine"/>
+
+  <g transform="translate(96 702)">
+    <rect width="258" height="176" rx="38" class="panel"/>
+    <text x="129" y="58" class="kicker teal" text-anchor="middle">Shadow Mode</text>
+    <text x="129" y="98" class="small ink" text-anchor="middle">observe duplicate risk</text>
+    <text x="129" y="132" class="small ink" text-anchor="middle">before suppression</text>
+  </g>
+  <path d="M354 790 H474" class="dash"/>
+</svg>
