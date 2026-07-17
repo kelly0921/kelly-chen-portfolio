@@ -2,6 +2,14 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 import {
+  AcceleratorFooter,
+  AcceleratorPrivacyPage,
+  AcceleratorRefundPage,
+  AcceleratorTermsPage,
+  RecruitingSeasonAcceleratorPage,
+} from './recruitingSeasonAccelerator';
+import { getSiteRoute, isAcceleratorRoute } from './siteRouting';
+import {
   beamCashCaseStudy,
   communityWork,
   communityMoments,
@@ -25,8 +33,6 @@ import {
   webPilotCaseStudy,
   writeGuardCaseStudy,
 } from './portfolioData';
-
-const routes = ['home', 'experience', 'projects', 'beamcash', 'webpilot', 'writeguard', 'speaking', 'community', 'content', 'media'];
 
 const pageNotes = {
   Experience: {
@@ -52,9 +58,7 @@ const pageNotes = {
 };
 
 function getRoute() {
-  const route = window.location.hash.replace('#', '').toLowerCase();
-  if (route === 'media') return 'content';
-  return routes.includes(route) ? route : 'home';
+  return getSiteRoute(window.location.pathname, window.location.hash);
 }
 
 function useProductPageMotion(route) {
@@ -143,8 +147,13 @@ function App() {
 
   useEffect(() => {
     const onHashChange = () => {
-      setRoute(getRoute());
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const nextRoute = getRoute();
+      setRoute((currentRoute) => {
+        if (currentRoute !== nextRoute) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        return nextRoute;
+      });
     };
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
@@ -170,6 +179,14 @@ function App() {
         return <CommunityPage />;
       case 'content':
         return <MediaPage />;
+      case 'accelerator':
+        return <RecruitingSeasonAcceleratorPage />;
+      case 'accelerator-terms':
+        return <AcceleratorTermsPage />;
+      case 'accelerator-privacy':
+        return <AcceleratorPrivacyPage />;
+      case 'accelerator-refund':
+        return <AcceleratorRefundPage />;
       default:
         return <HomePage />;
     }
@@ -179,17 +196,18 @@ function App() {
     <>
       <Navbar activeRoute={route} />
       <main>{page}</main>
-      <Footer />
+      {isAcceleratorRoute(route) ? <AcceleratorFooter /> : <Footer />}
     </>
   );
 }
 
 function Navbar({ activeRoute }) {
   const navActiveRoute = ['beamcash', 'webpilot', 'writeguard'].includes(activeRoute) ? 'projects' : activeRoute;
+  const onAcceleratorRoute = isAcceleratorRoute(activeRoute);
 
   return (
     <header className="site-header">
-      <a className="brand" href="#home" aria-label="Kelly Chen home">
+      <a className="brand" href={onAcceleratorRoute ? '/' : '#home'} aria-label="Kelly Chen home">
         <span className="brand-mark" aria-hidden="true">
           <img src="/assets/kelly-logo.svg" alt="" />
         </span>
@@ -201,7 +219,7 @@ function Navbar({ activeRoute }) {
             <a
               key={item.label}
               className={navActiveRoute === item.href.slice(1) ? 'active' : ''}
-              href={item.href}
+              href={onAcceleratorRoute ? `/${item.href}` : item.href}
             >
               {item.label}
             </a>

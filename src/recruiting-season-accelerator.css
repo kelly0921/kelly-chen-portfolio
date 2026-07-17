@@ -1,0 +1,1570 @@
+.rsa-route {
+  background:
+    radial-gradient(circle at 92% 5%, rgba(90, 120, 255, 0.08), transparent 28rem),
+    var(--bg);
+}
+
+.rsa-page {
+  --rsa-navy: #242b3d;
+  --rsa-blue: #4f6fe8;
+  --rsa-rose: #d97d9a;
+  --rsa-teal: #269f93;
+  --rsa-gold: #dca843;
+  overflow: clip;
+}
+
+.rsa-page h1,
+.rsa-page h2,
+.rsa-page h3,
+.rsa-policy-page h1,
+.rsa-policy-page h2 {
+  font-family: Manrope, Inter, system-ui, sans-serif;
+}
+
+.rsa-announcement {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--rsa-navy);
+  color: #fff;
+  padding: 9px 18px;
+  font-size: 0.88rem;
+}
+
+.rsa-announcement > span {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #8edfd4;
+  box-shadow: 0 0 0 4px rgba(142, 223, 212, 0.16);
+}
+
+.rsa-announcement p {
+  margin: 0;
+  text-align: center;
+}
+
+.rsa-announcement a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.48);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.rsa-state-closing-soon > span {
+  background: #ffd983;
+  box-shadow: 0 0 0 4px rgba(255, 217, 131, 0.16);
+}
+
+.rsa-page-nav.section-shell {
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2.5vw, 28px);
+  padding: 10px 0;
+}
+
+.rsa-page-nav > a:not(.button) {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 760;
+  transition: color 180ms ease;
+}
+
+.rsa-page-nav > a:not(.button):hover {
+  color: var(--text);
+}
+
+.rsa-hero.section-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
+  min-height: calc(100vh - 174px);
+  align-items: center;
+  gap: clamp(36px, 7vw, 92px);
+  padding-top: clamp(58px, 8vw, 104px);
+  padding-bottom: clamp(62px, 8vw, 108px);
+}
+
+.rsa-hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.rsa-program-name {
+  width: fit-content;
+  margin: 0 0 16px;
+  border-bottom: 3px solid var(--rose);
+  color: var(--rsa-navy);
+  font-size: clamp(1rem, 2vw, 1.28rem);
+  font-weight: 880;
+  letter-spacing: -0.02em;
+}
+
+.rsa-page .rsa-hero h1 {
+  max-width: 850px;
+  color: var(--rsa-navy);
+  font-size: clamp(3.35rem, 7.2vw, 6.9rem);
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+}
+
+.rsa-hero-lede {
+  max-width: 710px;
+  margin: 28px 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.12rem, 1.8vw, 1.34rem);
+  font-weight: 630;
+  line-height: 1.58;
+}
+
+.rsa-seasonal-copy {
+  max-width: 690px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.rsa-hero .button {
+  min-height: 48px;
+  padding: 12px 18px;
+}
+
+.rsa-hero-microcopy {
+  margin: 16px 0 0;
+  color: var(--subtle);
+  font-size: 0.82rem;
+  font-weight: 720;
+}
+
+.rsa-strategy-board {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--blue) 22%, var(--border));
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(246, 248, 255, 0.84)),
+    var(--paper);
+  padding: clamp(22px, 3vw, 34px);
+  box-shadow: 0 28px 70px rgba(53, 67, 110, 0.14);
+  transform: rotate(1.1deg);
+}
+
+.rsa-strategy-board::before {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 110px;
+  height: 26px;
+  background: rgba(255, 229, 187, 0.78);
+  content: "";
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.rsa-board-heading {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.rsa-board-heading span {
+  color: var(--rsa-blue);
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rsa-board-heading strong {
+  color: var(--rsa-navy);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.rsa-strategy-board ol {
+  display: grid;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rsa-strategy-board li {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  padding: 11px 0;
+}
+
+.rsa-strategy-board li:last-child {
+  border-bottom: 0;
+}
+
+.rsa-strategy-board li span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sky);
+  color: var(--rsa-blue);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.rsa-strategy-board li:nth-child(2) span,
+.rsa-strategy-board li:nth-child(4) span {
+  background: var(--mint);
+  color: var(--rsa-teal);
+}
+
+.rsa-strategy-board li:nth-child(3) span {
+  background: var(--peach);
+  color: var(--rsa-rose);
+}
+
+.rsa-strategy-board li:nth-child(5) span {
+  background: var(--butter);
+  color: #966b16;
+}
+
+.rsa-board-note {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2px 16px;
+  border-radius: 18px;
+  background: var(--rsa-navy);
+  padding: 17px 18px;
+  color: #fff;
+}
+
+.rsa-board-note span {
+  font-size: 0.8rem;
+  font-weight: 760;
+}
+
+.rsa-board-note strong {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  font-size: 2.35rem;
+  line-height: 1;
+}
+
+.rsa-board-note small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.rsa-proof-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 253, 249, 0.84);
+}
+
+.rsa-proof-strip .section-shell {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding: 0;
+}
+
+.rsa-proof-strip span {
+  display: grid;
+  min-height: 94px;
+  place-content: center;
+  gap: 4px;
+  border-right: 1px solid var(--border);
+  padding: 18px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.rsa-proof-strip span:last-child {
+  border-right: 0;
+}
+
+.rsa-proof-strip strong {
+  color: var(--rsa-navy);
+  font-size: 1.45rem;
+}
+
+.rsa-section-heading {
+  max-width: 780px;
+}
+
+.rsa-section-heading h2 {
+  margin: 0;
+  color: var(--rsa-navy);
+  font-size: clamp(2.35rem, 5.4vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.rsa-section-heading > p:last-child:not(.eyebrow) {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.14rem);
+  line-height: 1.72;
+}
+
+.rsa-band {
+  border-top: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(244, 246, 255, 0.36)),
+    var(--paper-soft);
+}
+
+.rsa-problem.section-shell {
+  padding-top: clamp(84px, 11vw, 144px);
+  padding-bottom: clamp(84px, 11vw, 144px);
+}
+
+.rsa-problem-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+  align-items: center;
+  gap: clamp(36px, 8vw, 96px);
+  margin-top: 46px;
+}
+
+.rsa-problem-copy {
+  border-left: 4px solid var(--rose);
+  padding-left: 24px;
+}
+
+.rsa-problem-copy p {
+  margin: 0 0 18px;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 1.5vw, 1.18rem);
+  line-height: 1.75;
+}
+
+.rsa-bottleneck-map {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 330px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(90, 120, 255, 0.1), transparent 54%),
+    rgba(255, 253, 249, 0.66);
+  padding: 54px;
+}
+
+.rsa-bottleneck-map span {
+  border: 1px solid color-mix(in srgb, var(--blue) 24%, var(--border));
+  border-radius: 999px;
+  background: var(--paper);
+  padding: 10px 13px;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  font-weight: 780;
+  box-shadow: 0 8px 18px rgba(48, 55, 72, 0.05);
+  transform: rotate(calc((var(--item-index) - 3) * 0.8deg));
+}
+
+.rsa-audience .section-shell,
+.rsa-included .section-shell,
+.rsa-outcomes .section-shell,
+.rsa-pricing .section-shell,
+.rsa-faq .section-shell {
+  padding-top: clamp(82px, 10vw, 126px);
+  padding-bottom: clamp(82px, 10vw, 126px);
+}
+
+.rsa-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 48px;
+  border-top: 1px solid var(--border-strong);
+  border-left: 1px solid var(--border-strong);
+}
+
+.rsa-fit-grid article {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 15px;
+  align-items: start;
+  min-height: 110px;
+  margin: 0;
+  border-right: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  background: rgba(255, 253, 249, 0.62);
+  padding: 22px;
+}
+
+.rsa-fit-grid article:last-child {
+  grid-column: 1 / -1;
+}
+
+.rsa-fit-grid span {
+  color: var(--rsa-blue);
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.rsa-fit-grid p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-weight: 680;
+  line-height: 1.55;
+}
+
+.rsa-scope-note {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 22px;
+  border-radius: 16px;
+  background: var(--rsa-navy);
+  padding: 17px 20px;
+  color: #fff;
+}
+
+.rsa-scope-note strong {
+  white-space: nowrap;
+}
+
+.rsa-scope-note p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.55;
+}
+
+.rsa-focus.section-shell,
+.rsa-journey.section-shell,
+.rsa-founder.section-shell,
+.rsa-timeline.section-shell,
+.rsa-application.section-shell {
+  padding-top: clamp(86px, 11vw, 140px);
+  padding-bottom: clamp(86px, 11vw, 140px);
+}
+
+.rsa-focus-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 42px;
+}
+
+.rsa-focus-grid span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--paper);
+  padding: 12px 15px;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 740;
+}
+
+.rsa-focus-grid span:nth-child(3n + 1) {
+  border-color: color-mix(in srgb, var(--blue) 28%, var(--border));
+  background: color-mix(in srgb, var(--sky) 68%, var(--paper));
+}
+
+.rsa-focus-grid span:nth-child(3n + 2) {
+  border-color: color-mix(in srgb, var(--teal) 26%, var(--border));
+  background: color-mix(in srgb, var(--mint) 68%, var(--paper));
+}
+
+.rsa-focus-grid span:nth-child(3n) {
+  border-color: color-mix(in srgb, var(--rose) 26%, var(--border));
+  background: color-mix(in srgb, var(--peach) 68%, var(--paper));
+}
+
+.rsa-inclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.rsa-inclusion-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--paper);
+  padding: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.rsa-inclusion-card::before {
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: var(--rsa-blue);
+  content: "";
+}
+
+.rsa-card-2::before {
+  background: var(--rsa-teal);
+}
+
+.rsa-card-3::before {
+  background: var(--rsa-rose);
+}
+
+.rsa-inclusion-card h3 {
+  margin: 0;
+  color: var(--rsa-navy);
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.rsa-inclusion-card ul {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rsa-inclusion-card li {
+  position: relative;
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding: 11px 0 11px 20px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.rsa-inclusion-card li::before {
+  position: absolute;
+  top: 17px;
+  left: 2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rsa-blue);
+  content: "";
+}
+
+.rsa-card-2 li::before {
+  background: var(--rsa-teal);
+}
+
+.rsa-card-3 li::before {
+  background: var(--rsa-rose);
+}
+
+.rsa-applyfirst-note {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 18px;
+  align-items: center;
+  margin-top: 20px;
+  border: 1px solid color-mix(in srgb, var(--teal) 24%, var(--border));
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--mint) 64%, var(--paper));
+  padding: 20px;
+}
+
+.rsa-applyfirst-note img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.rsa-applyfirst-note strong {
+  color: var(--rsa-navy);
+}
+
+.rsa-applyfirst-note p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.rsa-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 48px;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.rsa-journey-grid article {
+  margin: 0;
+  border-right: 1px solid var(--border-strong);
+  padding: 30px;
+}
+
+.rsa-journey-grid article:last-child {
+  border-right: 0;
+}
+
+.rsa-journey-grid article > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.rsa-journey-grid span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rsa-navy);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.rsa-journey-grid small {
+  color: var(--subtle);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.rsa-journey-grid h3 {
+  margin: 34px 0 10px;
+  color: var(--rsa-navy);
+  font-size: 1.45rem;
+}
+
+.rsa-journey-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.68;
+}
+
+.rsa-flexibility-note,
+.rsa-schedule-note {
+  margin: 24px 0 0;
+  border-left: 3px solid var(--gold);
+  padding-left: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.rsa-outcomes-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
+  gap: clamp(36px, 7vw, 84px);
+}
+
+.rsa-outcomes ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rsa-outcomes li {
+  position: relative;
+  min-height: 92px;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 253, 249, 0.74);
+  padding: 20px 18px 18px 42px;
+  color: var(--ink-soft);
+  font-weight: 680;
+  line-height: 1.5;
+}
+
+.rsa-outcomes li::before {
+  position: absolute;
+  top: 21px;
+  left: 18px;
+  width: 14px;
+  height: 8px;
+  border-bottom: 2px solid var(--rsa-teal);
+  border-left: 2px solid var(--rsa-teal);
+  content: "";
+  transform: rotate(-45deg);
+}
+
+.rsa-outcome-disclaimer {
+  grid-column: 2;
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.rsa-founder.section-shell {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.56fr) minmax(0, 1.08fr);
+  align-items: start;
+  gap: clamp(34px, 7vw, 88px);
+}
+
+.rsa-founder-portrait {
+  position: sticky;
+  top: 110px;
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  background: var(--paper);
+  padding: 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+.rsa-founder-portrait img {
+  width: 100%;
+  max-height: 430px;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.rsa-founder-portrait span {
+  padding: 2px 6px 4px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 780;
+  text-align: center;
+}
+
+.rsa-founder-copy > p {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.rsa-credibility-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 28px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rsa-credibility-list li {
+  margin: 0;
+  border-left: 3px solid var(--rsa-blue);
+  background: color-mix(in srgb, var(--sky) 56%, transparent);
+  padding: 12px 14px;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-weight: 680;
+  line-height: 1.5;
+}
+
+.rsa-text-link {
+  color: var(--rsa-blue);
+  font-weight: 820;
+}
+
+.rsa-disclosure {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--paper-soft);
+  padding: 22px;
+}
+
+.rsa-disclosure strong {
+  color: var(--rsa-navy);
+}
+
+.rsa-disclosure p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.rsa-pricing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(380px, 0.68fr);
+  align-items: center;
+  gap: clamp(42px, 8vw, 112px);
+}
+
+.rsa-policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.rsa-policy-links a {
+  border-bottom: 1px solid var(--rsa-blue);
+  color: var(--ink-soft);
+  padding-bottom: 4px;
+  font-size: 0.88rem;
+  font-weight: 760;
+}
+
+.rsa-price-card {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--blue) 26%, var(--border));
+  border-radius: 28px;
+  background: var(--paper);
+  padding: clamp(28px, 4vw, 42px);
+  box-shadow: 0 26px 70px rgba(50, 63, 103, 0.14);
+}
+
+.rsa-price-card::before {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  border-radius: 999px;
+  background: var(--sky);
+  color: var(--rsa-blue);
+  padding: 7px 10px;
+  content: "6 seats";
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.rsa-price-card > p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.rsa-price-card > strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--rsa-navy);
+  font-size: clamp(4rem, 8vw, 6rem);
+  line-height: 0.9;
+}
+
+.rsa-price-card > span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.rsa-price-card > ul {
+  margin: 26px 0 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 15px 0;
+  list-style: none;
+}
+
+.rsa-price-card > ul li {
+  position: relative;
+  margin: 0;
+  padding: 7px 0 7px 22px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.rsa-price-card > ul li::before {
+  position: absolute;
+  top: 12px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rsa-teal);
+  content: "";
+}
+
+.rsa-credit-panel {
+  margin-top: 20px;
+  border-radius: 16px;
+  background: var(--mint);
+  padding: 16px;
+}
+
+.rsa-credit-panel span {
+  color: var(--rsa-teal);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.rsa-credit-panel p {
+  margin: 7px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.rsa-price-card > small {
+  display: block;
+  margin-top: 16px;
+  color: var(--subtle);
+  line-height: 1.55;
+}
+
+.rsa-timeline ol {
+  display: grid;
+  margin: 48px 0 0;
+  border-top: 1px solid var(--border-strong);
+  padding: 0;
+  list-style: none;
+}
+
+.rsa-timeline li {
+  display: grid;
+  grid-template-columns: 54px minmax(180px, 0.6fr) 1fr;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  border-bottom: 1px solid var(--border-strong);
+  padding: 18px 0;
+}
+
+.rsa-timeline li > span {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rsa-navy);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.rsa-timeline strong {
+  color: var(--rsa-navy);
+}
+
+.rsa-timeline time {
+  color: var(--muted);
+}
+
+.rsa-faq .rsa-section-heading {
+  margin-bottom: 44px;
+}
+
+.rsa-faq-list {
+  max-width: 900px;
+}
+
+.rsa-faq details {
+  border-top: 1px solid var(--border-strong);
+}
+
+.rsa-faq details:last-child {
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.rsa-faq summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  padding: 22px 54px 22px 0;
+  color: var(--rsa-navy);
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  font-weight: 790;
+}
+
+.rsa-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.rsa-faq summary::after {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--rsa-blue);
+  content: "+";
+  font-size: 1.25rem;
+}
+
+.rsa-faq details[open] summary::after {
+  content: "–";
+}
+
+.rsa-faq details p {
+  max-width: 760px;
+  margin: -2px 0 22px;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.rsa-application .rsa-section-heading {
+  margin-bottom: 40px;
+}
+
+.rsa-application-fallback,
+.rsa-interest-card {
+  max-width: 760px;
+  border: 1px solid color-mix(in srgb, var(--blue) 24%, var(--border));
+  border-radius: 22px;
+  background: var(--paper);
+  padding: clamp(24px, 4vw, 36px);
+  box-shadow: var(--shadow-soft);
+}
+
+.rsa-application-fallback h3 {
+  margin: 0;
+  color: var(--rsa-navy);
+  font-size: 1.5rem;
+}
+
+.rsa-application-fallback > p:not(.eyebrow),
+.rsa-interest-card > p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.rsa-application-frame {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.rsa-application-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 760px;
+  border: 0;
+}
+
+.rsa-application-frame > p {
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding: 14px 18px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.rsa-application-frame a {
+  color: var(--rsa-blue);
+  font-weight: 760;
+}
+
+.rsa-final-cta {
+  background:
+    radial-gradient(circle at 84% 24%, rgba(135, 117, 246, 0.24), transparent 23rem),
+    radial-gradient(circle at 10% 100%, rgba(47, 184, 168, 0.18), transparent 24rem),
+    var(--rsa-navy);
+  color: #fff;
+}
+
+.rsa-final-cta .section-shell {
+  display: grid;
+  max-width: 920px;
+  justify-items: center;
+  padding-top: clamp(82px, 10vw, 128px);
+  padding-bottom: clamp(82px, 10vw, 128px);
+  text-align: center;
+}
+
+.rsa-final-cta .eyebrow {
+  color: #aebeff;
+}
+
+.rsa-final-cta h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.65rem, 6.3vw, 5.6rem);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.rsa-final-cta p:not(.eyebrow) {
+  max-width: 620px;
+  margin: 20px 0 28px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.08rem;
+  line-height: 1.66;
+}
+
+.rsa-final-cta .button.primary {
+  border-color: #fff;
+  background: #fff;
+  color: var(--rsa-navy);
+}
+
+.rsa-final-cta small {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.rsa-footer {
+  display: grid;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: #1b2130;
+  padding: 36px clamp(18px, 4vw, 56px);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.rsa-footer-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.rsa-footer-main > div {
+  display: grid;
+  gap: 5px;
+}
+
+.rsa-footer strong {
+  color: #fff;
+}
+
+.rsa-footer a {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 680;
+}
+
+.rsa-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px 18px;
+}
+
+.rsa-footer > p {
+  max-width: 960px;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 18px;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.rsa-policy-page {
+  min-height: 70vh;
+}
+
+.rsa-policy-hero.section-shell {
+  padding-top: clamp(62px, 8vw, 100px);
+  padding-bottom: 54px;
+}
+
+.rsa-back-link {
+  display: inline-block;
+  margin-bottom: 44px;
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 760;
+}
+
+.rsa-policy-hero h1 {
+  margin: 0;
+  max-width: 900px;
+  color: var(--rsa-navy, #242b3d);
+  font-size: clamp(3.1rem, 7vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+}
+
+.rsa-policy-hero > p:not(.eyebrow) {
+  max-width: 700px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.68;
+}
+
+.rsa-policy-hero > span {
+  display: block;
+  margin-top: 20px;
+  color: var(--subtle);
+  font-size: 0.8rem;
+  font-weight: 740;
+}
+
+.rsa-policy-layout.section-shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 760px);
+  justify-content: center;
+  gap: clamp(44px, 8vw, 100px);
+  border-top: 1px solid var(--border);
+  padding-top: 64px;
+  padding-bottom: 110px;
+}
+
+.rsa-policy-layout > aside {
+  position: sticky;
+  top: 110px;
+  display: grid;
+  height: fit-content;
+  gap: 11px;
+  border-left: 3px solid var(--rose);
+  padding-left: 18px;
+}
+
+.rsa-policy-layout > aside strong {
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.rsa-policy-layout > aside a {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.rsa-policy-content {
+  display: grid;
+  gap: 0;
+}
+
+.rsa-policy-content section {
+  border-top: 1px solid var(--border);
+  padding: 34px 0;
+}
+
+.rsa-policy-content section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.rsa-policy-content h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.15;
+}
+
+.rsa-policy-content p {
+  margin: 16px 0 0;
+  color: var(--muted);
+  line-height: 1.78;
+}
+
+.rsa-page :focus-visible,
+.rsa-policy-page :focus-visible,
+.rsa-footer :focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--blue) 70%, white);
+  outline-offset: 4px;
+}
+
+@media (max-width: 980px) {
+  .rsa-page-nav.section-shell {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .rsa-page-nav > a {
+    flex: 0 0 auto;
+  }
+
+  .rsa-hero.section-shell,
+  .rsa-problem-layout,
+  .rsa-outcomes-layout,
+  .rsa-pricing-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-hero.section-shell {
+    min-height: auto;
+  }
+
+  .rsa-strategy-board {
+    width: min(100%, 560px);
+    transform: none;
+  }
+
+  .rsa-proof-strip .section-shell {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rsa-proof-strip span:nth-child(3) {
+    border-right: 0;
+  }
+
+  .rsa-proof-strip span:nth-child(-n + 3) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rsa-bottleneck-map {
+    min-height: 280px;
+    border-radius: 28px;
+  }
+
+  .rsa-inclusion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-inclusion-card {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.6fr) 1fr;
+    gap: 0 28px;
+  }
+
+  .rsa-inclusion-card::before,
+  .rsa-inclusion-card .eyebrow,
+  .rsa-inclusion-card h3 {
+    grid-column: 1;
+  }
+
+  .rsa-inclusion-card ul {
+    grid-row: 1 / 5;
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  .rsa-outcome-disclaimer {
+    grid-column: 1;
+  }
+
+  .rsa-policy-layout.section-shell {
+    grid-template-columns: minmax(0, 760px);
+  }
+
+  .rsa-policy-layout > aside {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rsa-policy-layout > aside strong {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .rsa-announcement {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+  }
+
+  .rsa-announcement p {
+    text-align: left;
+  }
+
+  .rsa-announcement a {
+    display: none;
+  }
+
+  .rsa-page-nav.section-shell {
+    width: 100%;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .rsa-page-nav .button.small {
+    display: inline-flex;
+  }
+
+  .rsa-page .rsa-hero h1 {
+    font-size: clamp(3rem, 14vw, 4.7rem);
+  }
+
+  .rsa-hero.section-shell {
+    gap: 46px;
+    padding-top: 52px;
+    padding-bottom: 70px;
+  }
+
+  .rsa-strategy-board {
+    border-radius: 22px;
+  }
+
+  .rsa-proof-strip .section-shell {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rsa-proof-strip span,
+  .rsa-proof-strip span:nth-child(3) {
+    min-height: 80px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 8px;
+    font-size: 0.74rem;
+  }
+
+  .rsa-proof-strip span:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .rsa-proof-strip span:last-child {
+    grid-column: 1 / -1;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .rsa-section-heading h2 {
+    font-size: clamp(2.25rem, 11.5vw, 3.4rem);
+  }
+
+  .rsa-problem-layout {
+    margin-top: 34px;
+  }
+
+  .rsa-bottleneck-map {
+    min-height: 0;
+    justify-content: flex-start;
+    padding: 28px;
+  }
+
+  .rsa-fit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-fit-grid article:last-child {
+    grid-column: auto;
+  }
+
+  .rsa-scope-note {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-inclusion-card {
+    display: block;
+  }
+
+  .rsa-inclusion-card ul {
+    margin-top: 20px;
+  }
+
+  .rsa-applyfirst-note {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .rsa-applyfirst-note img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .rsa-journey-grid,
+  .rsa-outcomes ul,
+  .rsa-credibility-list {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-journey-grid article {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-strong);
+    padding: 26px 0;
+  }
+
+  .rsa-journey-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .rsa-founder.section-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-founder-portrait {
+    position: static;
+    max-width: 330px;
+  }
+
+  .rsa-disclosure {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-timeline li {
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+  }
+
+  .rsa-timeline time {
+    grid-column: 2;
+  }
+
+  .rsa-application-frame iframe {
+    min-height: 680px;
+  }
+
+  .rsa-footer-main {
+    flex-direction: column;
+  }
+
+  .rsa-footer nav {
+    justify-content: flex-start;
+  }
+
+  .rsa-policy-layout > aside {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-policy-layout > aside strong {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 440px) {
+  .rsa-page-nav > a:nth-child(3),
+  .rsa-page-nav > a:nth-child(4),
+  .rsa-page-nav > a:nth-child(5) {
+    display: none;
+  }
+
+  .rsa-program-name {
+    font-size: 0.94rem;
+  }
+
+  .rsa-page .rsa-hero h1 {
+    font-size: clamp(2.85rem, 14vw, 4rem);
+  }
+
+  .rsa-hero .button-row,
+  .rsa-hero .button {
+    width: 100%;
+  }
+
+  .rsa-board-note {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-board-note strong {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .rsa-fit-grid article {
+    grid-template-columns: 34px 1fr;
+    padding: 18px 15px;
+  }
+
+  .rsa-price-card::before {
+    position: static;
+    display: inline-flex;
+    margin-bottom: 20px;
+  }
+
+  .rsa-policy-hero h1 {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rsa-strategy-board,
+  .rsa-bottleneck-map span {
+    transform: none;
+  }
+}
