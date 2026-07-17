@@ -43,6 +43,7 @@ export const acceleratorPaths = Object.freeze({
   terms: '/recruiting-season-accelerator/terms',
   privacy: '/recruiting-season-accelerator/privacy',
   refund: '/recruiting-season-accelerator/refund-and-feedback-credit',
+  faq: '/recruiting-season-accelerator/faq',
 });
 
 const futureInterestStates = new Set([

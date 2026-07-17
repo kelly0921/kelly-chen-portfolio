@@ -24,6 +24,7 @@ export function getSiteRoute(pathname = '/', hash = '') {
   if (path === acceleratorPaths.terms) return 'accelerator-terms';
   if (path === acceleratorPaths.privacy) return 'accelerator-privacy';
   if (path === acceleratorPaths.refund) return 'accelerator-refund';
+  if (path === acceleratorPaths.faq) return 'accelerator-faq';
   if (path === acceleratorPaths.landing) return 'accelerator';
 
   const hashRoute = hash.replace(/^#/, '').toLowerCase();

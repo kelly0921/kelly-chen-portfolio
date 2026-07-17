@@ -3457,3 +3457,368 @@
     font-size: 0.78rem;
   }
 }
+
+/* Shorter landing-page iteration */
+
+.rsa-hero-inner.section-shell {
+  min-height: 600px;
+  padding-top: 72px;
+  padding-bottom: 78px;
+}
+
+.rsa-problem.section-shell,
+.rsa-journey.section-shell,
+.rsa-founder.section-shell {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.rsa-included .section-shell,
+.rsa-pricing .section-shell,
+.rsa-faq .section-shell {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.rsa-fit-compact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 36px;
+  margin-top: 44px;
+  border-top: 1px solid var(--rsa-line);
+}
+
+.rsa-fit-compact article {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  min-height: 94px;
+  border-bottom: 1px solid var(--rsa-line);
+  padding: 22px 0;
+}
+
+.rsa-fit-compact span {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rsa-blue-light);
+  color: var(--rsa-blue);
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.rsa-fit-compact p {
+  margin: 4px 0 0;
+  color: var(--rsa-ink);
+  font-size: 0.94rem;
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+.rsa-journey-result {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+  gap: 28px 52px;
+  margin-top: 36px;
+  border-radius: 18px;
+  background: var(--rsa-navy);
+  padding: 34px;
+  color: #ffffff;
+}
+
+.rsa-journey-result .eyebrow {
+  color: var(--rsa-gold);
+}
+
+.rsa-journey-result h3 {
+  max-width: 420px;
+  margin: 10px 0 0;
+  color: #ffffff;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.rsa-journey-result ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.rsa-journey-result li {
+  position: relative;
+  min-height: 74px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  list-style: none;
+  padding: 16px 16px 16px 39px;
+  color: #f8faff;
+  font-size: 0.86rem;
+  font-weight: 720;
+  line-height: 1.45;
+}
+
+.rsa-journey-result li::before {
+  position: absolute;
+  top: 21px;
+  left: 16px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--rsa-gold);
+  border-radius: 50%;
+  content: "";
+}
+
+.rsa-journey-result .rsa-outcome-disclaimer {
+  grid-column: 2;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+}
+
+.rsa-founder.section-shell {
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 54px 72px;
+}
+
+.rsa-founder-portrait {
+  top: 96px;
+}
+
+.rsa-founder-copy > p {
+  max-width: 680px;
+}
+
+.rsa-credibility-list {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.rsa-disclosure {
+  grid-column: 2;
+  margin: -12px 0 0;
+  padding: 8px 0 8px 18px;
+}
+
+.rsa-disclosure summary {
+  cursor: pointer;
+  color: var(--rsa-ink);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.rsa-disclosure summary::marker {
+  color: var(--rsa-blue);
+}
+
+.rsa-disclosure p {
+  max-width: 720px;
+  margin-top: 10px;
+}
+
+.rsa-pricing-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.68fr);
+  gap: clamp(42px, 7vw, 84px);
+}
+
+.rsa-compact-timeline {
+  margin-top: 34px;
+  scroll-margin-top: 118px;
+}
+
+.rsa-compact-timeline h3 {
+  margin: 0 0 12px;
+  color: var(--rsa-ink);
+  font-size: 1rem;
+}
+
+.rsa-compact-timeline ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+  margin: 0;
+  border-top: 1px solid var(--rsa-line);
+  padding: 0;
+  list-style: none;
+}
+
+.rsa-compact-timeline li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 12px;
+  border-bottom: 1px solid var(--rsa-line);
+  padding: 14px 0;
+}
+
+.rsa-compact-timeline li > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--rsa-blue-light);
+  color: var(--rsa-blue);
+  font-size: 0.68rem;
+  font-weight: 850;
+}
+
+.rsa-compact-timeline li div {
+  display: grid;
+  gap: 3px;
+}
+
+.rsa-compact-timeline strong {
+  color: var(--rsa-ink);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.rsa-compact-timeline time {
+  color: var(--rsa-copy);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.rsa-compact-timeline > p {
+  margin: 12px 0 0;
+  color: var(--rsa-copy);
+  font-size: 0.78rem;
+}
+
+.rsa-policy-links {
+  margin-top: 24px;
+}
+
+.rsa-faq-more {
+  display: inline-flex;
+  margin-top: 26px;
+  border-bottom: 1px solid currentColor;
+  color: var(--rsa-blue);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.rsa-application.section-shell {
+  margin-top: 72px;
+  margin-bottom: 72px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.rsa-full-faq-page .rsa-policy-hero.section-shell {
+  padding-bottom: 52px;
+}
+
+.rsa-full-faq-content.section-shell {
+  max-width: 920px;
+  padding-top: 48px;
+  padding-bottom: 88px;
+}
+
+.rsa-full-faq-content h2 {
+  margin: 0;
+  color: var(--rsa-ink);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.rsa-full-faq-content .rsa-faq-list {
+  margin-top: 32px;
+}
+
+@media (max-width: 860px) {
+  .rsa-hero-inner.section-shell {
+    min-height: 0;
+    padding-top: 66px;
+    padding-bottom: 66px;
+  }
+
+  .rsa-journey-result,
+  .rsa-pricing-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-journey-result .rsa-outcome-disclaimer {
+    grid-column: 1;
+  }
+
+  .rsa-founder.section-shell {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .rsa-disclosure {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .rsa-problem.section-shell,
+  .rsa-journey.section-shell,
+  .rsa-founder.section-shell {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .rsa-included .section-shell,
+  .rsa-pricing .section-shell,
+  .rsa-faq .section-shell {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .rsa-fit-compact,
+  .rsa-journey-result ul,
+  .rsa-compact-timeline ol {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-fit-compact {
+    gap: 0;
+    margin-top: 34px;
+  }
+
+  .rsa-fit-compact article {
+    min-height: 0;
+  }
+
+  .rsa-journey-result {
+    gap: 28px;
+    padding: 26px 20px;
+  }
+
+  .rsa-journey-result li {
+    min-height: 0;
+  }
+
+  .rsa-founder.section-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .rsa-disclosure {
+    grid-column: 1;
+  }
+
+  .rsa-compact-timeline {
+    scroll-margin-top: 126px;
+  }
+
+  .rsa-application.section-shell {
+    margin-top: 52px;
+    margin-bottom: 52px;
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .rsa-full-faq-content.section-shell {
+    padding-top: 36px;
+    padding-bottom: 64px;
+  }
+}

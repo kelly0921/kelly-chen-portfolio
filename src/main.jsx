@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './styles.css';
 import {
   AcceleratorFooter,
+  AcceleratorFaqPage,
   AcceleratorPrivacyPage,
   AcceleratorRefundPage,
   AcceleratorTermsPage,
@@ -188,6 +189,8 @@ function App() {
         return <AcceleratorPrivacyPage />;
       case 'accelerator-refund':
         return <AcceleratorRefundPage />;
+      case 'accelerator-faq':
+        return <AcceleratorFaqPage />;
       default:
         return <HomePage />;
     }

@@ -82,6 +82,7 @@ test('program and policy paths resolve without breaking portfolio hash routes', 
   assert.equal(getSiteRoute(`${acceleratorPaths.terms}/`, ''), 'accelerator-terms');
   assert.equal(getSiteRoute(acceleratorPaths.privacy, ''), 'accelerator-privacy');
   assert.equal(getSiteRoute(acceleratorPaths.refund, ''), 'accelerator-refund');
+  assert.equal(getSiteRoute(acceleratorPaths.faq, ''), 'accelerator-faq');
   assert.equal(getSiteRoute('/', '#projects'), 'projects');
   assert.equal(getSiteRoute('/', '#media'), 'content');
 });

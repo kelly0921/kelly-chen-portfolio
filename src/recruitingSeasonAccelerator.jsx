@@ -8,38 +8,11 @@ import {
 } from './recruitingSeasonAcceleratorConfig';
 import './recruiting-season-accelerator.css';
 
-const bottlenecks = [
-  'Direction',
-  'Evidence',
-  'Positioning',
-  'Access',
-  'Execution',
-  'Interview readiness',
-  'Market strategy',
-];
-
 const audienceSignals = [
   'You have applied before but received few responses.',
   'You have relevant experience that is difficult to communicate.',
   'You are unsure which roles or companies to prioritize.',
-  'You need a more consistent recruiting system.',
-  'You are deciding between SWE and an adjacent path.',
   'You are receiving interviews but not progressing.',
-  'You want guidance grounded in big tech, fintech, payments, and financial-technology environments.',
-];
-
-const focusAreas = [
-  'Resume and professional positioning',
-  'Internship or new-grad application strategy',
-  'Target-company selection',
-  'LinkedIn and career storytelling',
-  'Networking and mentorship',
-  'Recruiting consistency and accountability',
-  'Project or experience planning',
-  'Behavioral interview preparation',
-  'SWE versus PM exploration',
-  'Interview-conversion diagnosis',
-  'Future offer evaluation',
 ];
 
 const inclusionGroups = [
@@ -108,6 +81,8 @@ const outcomes = [
   'Clear priorities for the rest of recruiting season',
   'A written 60- or 90-day action plan',
 ];
+
+const featuredOutcomes = [outcomes[0], outcomes[1], outcomes[2], outcomes[6]];
 
 const timeline = [
   ['Applications open', 'July 22, 2026'],
@@ -184,6 +159,8 @@ const faqs = [
   },
 ];
 
+const featuredFaqs = [faqs[0], faqs[1], faqs[3], faqs[5], faqs[8]];
+
 const independenceDisclosure =
   "Recruiting Season Accelerator is an independent educational and mentorship program operated by Kelly Chen. It is not affiliated with, sponsored by, or endorsed by Bloomberg or any current or former employer. All views, resources, and guidance are Kelly's own. Participation does not provide preferred access, referrals, interviews, or employment consideration at Bloomberg or any company connected to Kelly's professional background.";
 
@@ -212,6 +189,12 @@ const metadataByPage = {
     description:
       'Refund terms and the founding participant feedback credit for Recruiting Season Accelerator.',
     path: acceleratorPaths.refund,
+  },
+  faq: {
+    title: 'Program FAQ | Recruiting Season Accelerator',
+    description:
+      'Detailed answers about eligibility, format, expectations, outcomes, and policies for Recruiting Season Accelerator.',
+    path: acceleratorPaths.faq,
   },
 };
 
@@ -533,67 +516,26 @@ export function RecruitingSeasonAcceleratorPage() {
 
       <section className="rsa-problem section-shell" id="program-details" aria-labelledby="rsa-problem-title">
         <ProgramSectionHeading
-          eyebrow="The recruiting bottleneck"
-          title="Applying more is not always the answer."
+          eyebrow="Start with the right diagnosis"
+          title="A smarter recruiting plan starts with what is actually stuck."
+          body="The same goal can hide very different bottlenecks. The accelerator helps you identify the one affecting your recruiting process and build a focused response."
           id="rsa-problem-title"
         />
-        <div className="rsa-problem-layout">
-          <div className="rsa-problem-copy">
-            <p>
-              Students can have the same goal and completely different recruiting
-              bottlenecks. A weak response rate may come from unclear targeting, limited
-              evidence, resume positioning, late applications, an overly narrow company
-              list, insufficient networking, or interview-readiness gaps.
-            </p>
-            <p>
-              Recruiting Season Accelerator helps you identify what your process actually
-              needs instead of prescribing the same solution to everyone.
-            </p>
-          </div>
-          <div className="rsa-bottleneck-map" aria-label="Possible recruiting bottlenecks">
-            {bottlenecks.map((item, index) => (
-              <span key={item} style={{ '--item-index': index }}>
-                {item}
-              </span>
-            ))}
-          </div>
+        <div className="rsa-fit-compact" aria-label="Signs that this program may be a fit">
+          {audienceSignals.map((signal, index) => (
+            <article key={signal}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <p>{signal}</p>
+            </article>
+          ))}
         </div>
-        <div className="rsa-focus-panel">
-          <div>
-            <p className="eyebrow">Personalized focus</p>
-            <h3>One shared program. A plan tailored to your recruiting needs.</h3>
-          </div>
-          <div className="rsa-focus-grid">
-            {focusAreas.map((area) => (
-              <span key={area}>{area}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="rsa-audience rsa-band">
-        <div className="section-shell">
-          <ProgramSectionHeading
-            eyebrow="Who it is for"
-            title="Built for students who have started—but need a smarter next step."
-            body="The accelerator is primarily designed for sophomores, juniors, and seniors pursuing software engineering internships or new-grad roles. Select freshmen who are at least 18 and have relevant experience and prior recruiting exposure may also apply."
-            id="rsa-audience-title"
-          />
-          <div className="rsa-fit-grid" aria-labelledby="rsa-audience-title">
-            {audienceSignals.map((signal, index) => (
-              <article key={signal}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <p>{signal}</p>
-              </article>
-            ))}
-          </div>
-          <div className="rsa-scope-note">
-            <strong>What this is not</strong>
-            <p>
-              This is not a coding course, a full LeetCode program, a referral service, or
-              a guarantee of employment.
-            </p>
-          </div>
+        <div className="rsa-scope-note">
+          <strong>Designed for students who have already started</strong>
+          <p>
+            Primarily sophomores, juniors, and seniors pursuing software engineering
+            internships or new-grad roles. This is not a coding course, referral service,
+            or guarantee of employment.
+          </p>
         </div>
       </section>
 
@@ -632,8 +574,8 @@ export function RecruitingSeasonAcceleratorPage() {
 
       <section className="rsa-journey section-shell" aria-labelledby="rsa-journey-title">
         <ProgramSectionHeading
-          eyebrow="Your four-week journey"
-          title="How the program works"
+          eyebrow="Four focused weeks"
+          title="Diagnose, build, and leave with a plan."
           id="rsa-journey-title"
         />
         <div className="rsa-journey-grid">
@@ -649,17 +591,13 @@ export function RecruitingSeasonAcceleratorPage() {
           Workshop themes and activities may be adjusted based on participant goals,
           recruiting progress, common cohort needs, and feedback.
         </p>
-      </section>
-
-      <section className="rsa-outcomes rsa-band" aria-labelledby="rsa-outcomes-title">
-        <div className="section-shell rsa-outcomes-layout">
-          <ProgramSectionHeading
-            eyebrow="A clearer remainder of the season"
-            title="What you should leave with"
-            id="rsa-outcomes-title"
-          />
+        <div className="rsa-journey-result" aria-labelledby="rsa-outcomes-title">
+          <div>
+            <p className="eyebrow">By the end</p>
+            <h3 id="rsa-outcomes-title">A clearer strategy for the rest of recruiting season.</h3>
+          </div>
           <ul>
-            {outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
+            {featuredOutcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
           </ul>
           <p className="rsa-outcome-disclaimer">
             Interviews, referrals, internships, and job offers are not guaranteed. The
@@ -677,49 +615,54 @@ export function RecruitingSeasonAcceleratorPage() {
         <div className="rsa-founder-copy">
           <ProgramSectionHeading eyebrow="Your mentor" title="Meet Kelly" id="rsa-founder-title" />
           <p>
-            I created Recruiting Season Accelerator after repeatedly hearing the same
-            question from students who reached out to me: “Do you offer mentorship?”
+            I created Recruiting Season Accelerator after students repeatedly asked
+            whether I offered mentorship. My background includes software engineering
+            experience across Visa, JPMorgan Chase, and Bloomberg.
           </p>
           <p>
-            My background includes software engineering experience across Visa, JPMorgan
-            Chase, and Bloomberg, as well as direct experience exploring product
-            management before recommitting to software engineering. Those decisions taught
-            me to look beyond company names and consider mentorship, learning, technical
-            depth, ownership, stability, and long-term optionality.
-          </p>
-          <p>
-            I have also spent years finding and sharing opportunities, reviewing resumes,
-            speaking with students about recruiting, and building resources such as
-            ApplyFirst and The Unspoken Playbook. This accelerator turns those recurring
-            conversations into a focused system that combines practical tools with
-            personalized feedback.
+            Years of reviewing resumes, sharing opportunities, and building ApplyFirst
+            resources shaped this program into a practical system with personalized
+            feedback—not generic application-volume advice.
           </p>
           <ul className="rsa-credibility-list">
             <li>Software engineering experience across payments, banking, and financial technology</li>
-            <li>Firsthand perspective on SWE versus product management exploration</li>
             <li>Experience mentoring students and reviewing early-career resumes</li>
             <li>Creator of ApplyFirst recruiting resources</li>
-            <li>Focus on strategic career decisions, not generic application volume</li>
           </ul>
           <a href={program.linkedInUrl} target="_blank" rel="noreferrer" className="rsa-text-link">
             Connect with Kelly on LinkedIn <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <aside className="rsa-disclosure">
-          <strong>Independent program</strong>
+        <details className="rsa-disclosure">
+          <summary>Independent program disclosure</summary>
           <p>{independenceDisclosure}</p>
-        </aside>
+        </details>
       </section>
 
       <section className="rsa-pricing rsa-band" id="pricing" aria-labelledby="rsa-pricing-title">
         <div className="section-shell rsa-pricing-layout">
           <div>
             <ProgramSectionHeading
-              eyebrow="Founding Cohort Pricing"
-              title="One complete program. No tiers."
-              body="The founding price is intentionally accessible while the resources and experience are being refined with a small first cohort."
+              eyebrow="Pricing and dates"
+              title="One complete program. One clear timeline."
+              body="The founding price is intentionally accessible while the experience is refined with a small first cohort."
               id="rsa-pricing-title"
             />
+            <div className="rsa-compact-timeline" id="timeline" aria-labelledby="rsa-compact-timeline-title">
+              <h3 id="rsa-compact-timeline-title">Key dates</h3>
+              <ol>
+                {timeline.slice(0, 5).map(([label, date], index) => (
+                  <li key={label}>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <div>
+                      <strong>{label}</strong>
+                      <time>{date}</time>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <p>Weekly Zoom workshop time will be confirmed before payment.</p>
+            </div>
             <div className="rsa-policy-links" aria-label="Program policies">
               <a
                 href={acceleratorPaths.terms}
@@ -763,27 +706,6 @@ export function RecruitingSeasonAcceleratorPage() {
         </div>
       </section>
 
-      <section className="rsa-timeline section-shell" id="timeline" aria-labelledby="rsa-timeline-title">
-        <ProgramSectionHeading
-          eyebrow="Mark the dates"
-          title="Founding Cohort Timeline"
-          id="rsa-timeline-title"
-        />
-        <ol>
-          {timeline.map(([label, date], index) => (
-            <li key={label}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <strong>{label}</strong>
-              <time>{date}</time>
-            </li>
-          ))}
-        </ol>
-        <p className="rsa-schedule-note">
-          Weekly Zoom workshop time will be shared before applications open and confirmed
-          before payment.
-        </p>
-      </section>
-
       <section className="rsa-faq rsa-band" id="faq" aria-labelledby="rsa-faq-title">
         <div className="section-shell">
           <ProgramSectionHeading
@@ -792,7 +714,7 @@ export function RecruitingSeasonAcceleratorPage() {
             id="rsa-faq-title"
           />
           <div className="rsa-faq-list">
-            {faqs.map((faq) => (
+            {featuredFaqs.map((faq) => (
               <details
                 key={faq.question}
                 onToggle={(event) => {
@@ -806,6 +728,9 @@ export function RecruitingSeasonAcceleratorPage() {
               </details>
             ))}
           </div>
+          <a className="rsa-faq-more" href={acceleratorPaths.faq}>
+            View all program questions
+          </a>
         </div>
       </section>
 
@@ -1014,6 +939,7 @@ function PolicyPage({ pageKey, eyebrow, title, intro, sections }) {
           <a href={acceleratorPaths.terms}>Participant Terms</a>
           <a href={acceleratorPaths.privacy}>Privacy Notice</a>
           <a href={acceleratorPaths.refund}>Refund &amp; Feedback Credit</a>
+          <a href={acceleratorPaths.faq}>Program FAQ</a>
         </aside>
         <div className="rsa-policy-content">
           {sections.map((section) => (
@@ -1068,6 +994,45 @@ export function AcceleratorRefundPage() {
   );
 }
 
+export function AcceleratorFaqPage() {
+  useAcceleratorMetadata('faq');
+
+  return (
+    <article className="rsa-policy-page rsa-full-faq-page">
+      <header className="rsa-policy-hero section-shell">
+        <a className="rsa-back-link" href={acceleratorPaths.landing}>← Back to program</a>
+        <p className="eyebrow">Recruiting Season Accelerator</p>
+        <h1>Program FAQ</h1>
+        <p>
+          Detailed answers about eligibility, format, expectations, outcomes, and
+          founding-cohort policies.
+        </p>
+      </header>
+      <section className="rsa-full-faq-content rsa-faq section-shell" aria-labelledby="rsa-full-faq-title">
+        <h2 id="rsa-full-faq-title">All program questions</h2>
+        <div className="rsa-faq-list">
+          {faqs.map((faq) => (
+            <details
+              key={faq.question}
+              onToggle={(event) => {
+                if (event.currentTarget.open) {
+                  trackAcceleratorEvent('rsa_faq_expand', {
+                    question: faq.question,
+                    source: 'full-faq',
+                  });
+                }
+              }}
+            >
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </article>
+  );
+}
+
 export function AcceleratorFooter() {
   return (
     <footer className="rsa-footer">
@@ -1101,6 +1066,7 @@ export function AcceleratorFooter() {
           >
             Refund &amp; Feedback Credit
           </a>
+          <a href={acceleratorPaths.faq}>Program FAQ</a>
           <a href={program.linkedInUrl} target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </nav>
       </div>
