@@ -34,9 +34,9 @@ test('static worker serves an existing asset response unchanged', async () => {
   assert.deepEqual(requests, ['/assets/app.js']);
 });
 
-test('static worker falls back to index.html for direct HTML routes', async () => {
+test('static worker falls back to the root document for direct HTML routes', async () => {
   const { env, requests } = createEnvironment({
-    '/index.html': new Response('<!doctype html><title>Portfolio</title>', {
+    '/': new Response('<!doctype html><title>Portfolio</title>', {
       headers: { 'content-type': 'text/html' },
     }),
   });
@@ -50,7 +50,7 @@ test('static worker falls back to index.html for direct HTML routes', async () =
   assert.match(await response.text(), /Portfolio/);
   assert.deepEqual(requests, [
     '/recruiting-season-accelerator/terms',
-    '/index.html',
+    '/',
   ]);
 });
 

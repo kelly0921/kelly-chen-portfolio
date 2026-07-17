@@ -7,8 +7,8 @@ const worker = {
       return response;
     }
 
-    const indexUrl = new URL('/index.html', request.url);
-    return env.ASSETS.fetch(new Request(indexUrl, request));
+    const rootUrl = new URL('/', request.url);
+    return env.ASSETS.fetch(new Request(rootUrl, request));
   },
 };
 
