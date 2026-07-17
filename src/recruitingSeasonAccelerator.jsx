@@ -300,11 +300,21 @@ function eventForCta(kind) {
 
 function AcceleratorButton({ experience, className = 'button primary', source = 'unknown' }) {
   const isExternal = experience.ctaHref.startsWith('http');
+  const destination = useMemo(
+    () =>
+      isExternal
+        ? appendUtmParameters(
+            experience.ctaHref,
+            typeof window === 'undefined' ? '' : window.location.search,
+          )
+        : experience.ctaHref,
+    [experience.ctaHref, isExternal],
+  );
 
   return (
     <a
       className={className}
-      href={experience.ctaHref}
+      href={destination}
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noreferrer' : undefined}
       onClick={() =>
@@ -329,68 +339,21 @@ function ProgramSectionHeading({ eyebrow, title, body, id }) {
   );
 }
 
-function ApplicationEmbed({ experience }) {
-  const applicationUrl = useMemo(
-    () =>
-      appendUtmParameters(
-        program.applicationUrl,
-        typeof window === 'undefined' ? '' : window.location.search,
-      ),
-    [],
-  );
-
-  useEffect(() => {
-    if (experience.applicationUrlAvailable) {
-      trackAcceleratorEvent('rsa_application_embed_view', { state: experience.state });
-    }
-  }, [experience.applicationUrlAvailable, experience.state]);
-
-  if (!experience.applicationUrlAvailable) {
-    return (
-      <div className="rsa-application-fallback">
-        <p className="eyebrow">Application access</p>
-        <h3>Email Kelly for the current application link.</h3>
-        <p>
-          The hosted application is not available on this page right now. You can still
-          request the application without using a public checkout or sharing information
-          by email.
-        </p>
-        <a
-          className="button secondary"
-          href={`mailto:${program.contactEmail}?subject=${encodeURIComponent(
-            'Recruiting Season Accelerator question',
-          )}`}
-          onClick={() => trackAcceleratorEvent('rsa_email_click', { source: 'application-fallback' })}
-        >
-          Email Kelly
-        </a>
-      </div>
-    );
-  }
-
+function ExternalApplicationCard({ experience }) {
   return (
-    <div className="rsa-application-frame">
-      <iframe
-        src={applicationUrl}
-        title="Recruiting Season Accelerator founding cohort application"
-        loading="lazy"
-      />
+    <div className="rsa-application-fallback">
+      <p className="eyebrow">Standalone application portal</p>
+      <h3>Ready to apply?</h3>
       <p>
-        If the embedded form does not load,{' '}
-        <a
-          href={applicationUrl}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() =>
-            trackAcceleratorEvent('rsa_application_outbound_click', {
-              source: 'application-fallback-link',
-            })
-          }
-        >
-          open the application in a new tab
-        </a>
-        .
+        The application takes approximately 7–10 minutes and opens in a separate,
+        secure portal. Have your LinkedIn profile and a PDF copy of your resume ready.
       </p>
+      <AcceleratorButton
+        experience={experience}
+        className="button primary"
+        source="application-section"
+      />
+      <small>Applying does not guarantee acceptance. No payment is collected in the application.</small>
     </div>
   );
 }
@@ -810,7 +773,7 @@ export function RecruitingSeasonAcceleratorPage() {
             )}
           </div>
         ) : (
-          <ApplicationEmbed experience={experience} />
+          <ExternalApplicationCard experience={experience} />
         )}
       </section>
 

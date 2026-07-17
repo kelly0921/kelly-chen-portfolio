@@ -3848,6 +3848,15 @@
   font-size: 0.82rem;
 }
 
+.rsa-application-fallback > small {
+  display: block;
+  max-width: 620px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
 /* Program snapshot: one cohesive proof panel instead of a dense stats strip. */
 .rsa-at-a-glance {
   border-top: 1px solid var(--rsa-line);

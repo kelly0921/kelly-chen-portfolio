@@ -123,7 +123,7 @@ export function getApplicationExperience(
       ctaLabel: applicationUrlAvailable
         ? 'Apply for the Founding Cohort'
         : 'Email Kelly About Applications',
-      ctaHref: applicationUrlAvailable ? '#apply' : emailHref,
+      ctaHref: applicationUrlAvailable ? config.applicationUrl : emailHref,
       ctaKind: applicationUrlAvailable ? 'application' : 'email',
     },
     'closing-soon': {
@@ -131,7 +131,7 @@ export function getApplicationExperience(
       ctaLabel: applicationUrlAvailable
         ? 'Apply Before Applications Close'
         : 'Email Kelly About Applications',
-      ctaHref: applicationUrlAvailable ? '#apply' : emailHref,
+      ctaHref: applicationUrlAvailable ? config.applicationUrl : emailHref,
       ctaKind: applicationUrlAvailable ? 'application' : 'email',
     },
     'applications-closed': {

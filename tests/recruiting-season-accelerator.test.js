@@ -59,7 +59,7 @@ test('configured application and interest URLs are used in the correct states', 
   const futureExperience = getApplicationExperience('2026-09-07T12:00:00-04:00', config);
 
   assert.equal(openExperience.ctaKind, 'application');
-  assert.equal(openExperience.ctaHref, '#apply');
+  assert.equal(openExperience.ctaHref, 'https://tally.so/r/example');
   assert.equal(futureExperience.ctaKind, 'interest');
   assert.equal(futureExperience.ctaHref, 'https://tally.so/r/interest');
 });
@@ -116,6 +116,8 @@ test('public page includes required facts, policies, and accessible FAQ markup',
   assert.match(source, /not affiliated with, sponsored by, or endorsed by Bloomberg/);
   assert.match(source, /Small by design\. Structured for momentum\./);
   assert.match(source, /JPMorgan Chase/);
+  assert.match(source, /Standalone application portal/);
+  assert.doesNotMatch(source, /<iframe/);
   assert.match(source, /<details/);
   assert.match(source, /<summary>/);
   assert.doesNotMatch(source, /https?:\/\/(?:www\.)?stripe\.com/i);
