@@ -280,6 +280,8 @@ function HomePage() {
 
       <AudiencePathways />
 
+      <FeaturedMentorship />
+
       <section className="section-shell">
         <SectionHeading eyebrow="What I do" title="Work, Voice, Community" />
         <div className="pillar-grid">
@@ -298,6 +300,54 @@ function HomePage() {
 
       <CTASection />
     </>
+  );
+}
+
+function FeaturedMentorship() {
+  return (
+    <section className="featured-mentorship section-shell" aria-labelledby="featured-mentorship-title">
+      <div className="featured-mentorship-copy">
+        <div className="featured-mentorship-status">
+          <span>Featured mentorship program</span>
+          <strong>Founding cohort · Applications July 22–August 2</strong>
+        </div>
+        <p className="eyebrow">Recruiting Season Accelerator</p>
+        <h2 id="featured-mentorship-title">Recruiting season is here. Apply with a strategy.</h2>
+        <p>
+          A four-week, six-person program for college students pursuing software
+          engineering internships and new-grad roles—with workshops, private strategy
+          sessions, resume feedback, and a focused recruiting plan.
+        </p>
+        <div className="featured-mentorship-actions">
+          <a
+            className="button primary"
+            href="https://recruiting-accelerator-apply.pages.dev/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Explore the Program
+          </a>
+          <a
+            className="featured-mentorship-link"
+            href="https://recruiting-accelerator-apply.pages.dev/apply"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Preview the application
+          </a>
+        </div>
+        <small>
+          Independent educational program operated by Kelly Chen. Not affiliated with
+          or endorsed by Bloomberg or any current or former employer.
+        </small>
+      </div>
+      <dl className="featured-mentorship-facts">
+        <div><dt>4</dt><dd>Weekly workshops</dd></div>
+        <div><dt>3</dt><dd>Private sessions</dd></div>
+        <div><dt>6</dt><dd>Students maximum</dd></div>
+        <div><dt>$99</dt><dd>Founding price</dd></div>
+      </dl>
+    </section>
   );
 }
 

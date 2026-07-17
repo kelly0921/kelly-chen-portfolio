@@ -5,7 +5,7 @@ export const navItems = [
   { label: 'Speaking', href: '#speaking' },
   { label: 'Community', href: '#community' },
   { label: 'Content', href: '#content' },
-  { label: 'Mentorship', href: '/recruiting-season-accelerator' },
+  { label: 'Mentorship', href: 'https://recruiting-accelerator-apply.pages.dev/' },
 ];
 
 export const pillars = [

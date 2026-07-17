@@ -35,63 +35,32 @@ test('static worker serves an existing asset response unchanged', async () => {
   assert.deepEqual(requests, ['/assets/app.js']);
 });
 
-test('static worker falls back to the root document and applies route metadata', async () => {
-  const { env, requests } = createEnvironment({
-    '/': new Response(
-      '<!doctype html><html><head><meta name="description" content="Portfolio"><title>Portfolio</title></head><body></body></html>',
-      {
-      headers: { 'content-type': 'text/html' },
-      },
-    ),
-  }, {
-    RSA_APPLICATION_URL: 'https://tally.so/r/application',
-    RSA_INTEREST_URL: 'https://tally.so/r/interest',
-    RSA_PLAUSIBLE_DOMAIN: 'example.com',
-  });
+test('former program routes redirect to the unified Cloudflare microsite', async () => {
+  const { env, requests } = createEnvironment({});
   const request = new Request('https://example.com/recruiting-season-accelerator/terms', {
     headers: { accept: 'text/html' },
   });
 
   const response = await worker.fetch(request, env);
-  const html = await response.text();
 
-  assert.equal(response.status, 200);
-  assert.match(html, /<title>Participant Terms \| Recruiting Season Accelerator<\/title>/);
-  assert.match(
-    html,
-    /<link rel="canonical" href="https:\/\/example\.com\/recruiting-season-accelerator\/terms">/,
-  );
-  assert.match(html, /window\.__RSA_CONFIG__=/);
-  assert.match(html, /https:\/\/tally\.so\/r\/application/);
-  assert.match(
-    html,
-    /"canonicalUrl":"https:\/\/example\.com\/recruiting-season-accelerator"/,
-  );
-  assert.match(html, /data-domain="example\.com"/);
-  assert.deepEqual(requests, [
-    '/recruiting-season-accelerator/terms',
-    '/',
-  ]);
+  assert.equal(response.status, 301);
+  assert.equal(response.headers.get('location'), 'https://recruiting-accelerator-apply.pages.dev/terms');
+  assert.deepEqual(requests, []);
 });
 
-test('landing metadata includes social tags and structured event data', async () => {
-  const { env } = createEnvironment({
-    '/': new Response(
-      '<!doctype html><html><head><meta name="description" content="Portfolio"><title>Portfolio</title></head><body></body></html>',
-      { headers: { 'content-type': 'text/html' } },
-    ),
-  });
-  const request = new Request('https://example.com/recruiting-season-accelerator', {
+test('program redirects preserve campaign parameters', async () => {
+  const { env } = createEnvironment({});
+  const request = new Request('https://example.com/recruiting-season-accelerator?utm_source=linkedin', {
     headers: { accept: 'text/html' },
   });
 
   const response = await worker.fetch(request, env);
-  const html = await response.text();
 
-  assert.match(html, /property="og:image"/);
-  assert.match(html, /name="twitter:card" content="summary_large_image"/);
-  assert.match(html, /type="application\/ld\+json"/);
-  assert.match(html, /Recruiting Season Accelerator Founding Cohort/);
+  assert.equal(response.status, 301);
+  assert.equal(
+    response.headers.get('location'),
+    'https://recruiting-accelerator-apply.pages.dev/?utm_source=linkedin',
+  );
 });
 
 test('worker serves robots and sitemap documents for the current host', async () => {
@@ -103,10 +72,7 @@ test('worker serves robots and sitemap documents for the current host', async ()
   assert.equal(robots.headers.get('content-type'), 'text/plain; charset=utf-8');
   assert.match(await robots.text(), /Sitemap: https:\/\/example\.com\/sitemap\.xml/);
   assert.equal(sitemap.headers.get('content-type'), 'application/xml; charset=utf-8');
-  assert.match(
-    await sitemap.text(),
-    /https:\/\/example\.com\/recruiting-season-accelerator\/faq/,
-  );
+  assert.doesNotMatch(await sitemap.text(), /recruiting-season-accelerator/);
 });
 
 test('static worker preserves 404 responses for missing non-HTML assets', async () => {

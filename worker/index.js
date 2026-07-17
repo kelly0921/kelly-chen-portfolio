@@ -1,4 +1,13 @@
 const acceleratorLandingPath = '/recruiting-season-accelerator';
+const acceleratorProgramOrigin = 'https://recruiting-accelerator-apply.pages.dev';
+
+const acceleratorRedirects = {
+  [acceleratorLandingPath]: '/',
+  [`${acceleratorLandingPath}/terms`]: '/terms',
+  [`${acceleratorLandingPath}/privacy`]: '/privacy',
+  [`${acceleratorLandingPath}/refund-and-feedback-credit`]: '/refund',
+  [`${acceleratorLandingPath}/faq`]: '/faq',
+};
 
 const acceleratorMetadata = {
   [acceleratorLandingPath]: {
@@ -148,7 +157,7 @@ function applyAcceleratorMetadata(html, request, env, pathname) {
 }
 
 function sitemapXml(origin) {
-  const paths = ['/', ...Object.keys(acceleratorMetadata)];
+  const paths = ['/'];
   const urls = paths
     .map((path) => `<url><loc>${escapeAttribute(`${origin}${path}`)}</loc></url>`)
     .join('');
@@ -159,6 +168,12 @@ const worker = {
   async fetch(request, env) {
     const url = new URL(request.url);
     const pathname = normalizedPath(url.pathname);
+
+    if (request.method === 'GET' && acceleratorRedirects[pathname]) {
+      const destination = new URL(acceleratorRedirects[pathname], acceleratorProgramOrigin);
+      destination.search = url.search;
+      return Response.redirect(destination, 301);
+    }
 
     if (request.method === 'GET' && pathname === '/robots.txt') {
       return new Response(`User-agent: *\nAllow: /\nSitemap: ${url.origin}/sitemap.xml\n`, {

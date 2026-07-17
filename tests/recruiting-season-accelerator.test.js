@@ -127,5 +127,5 @@ test('portfolio navigation links directly to the mentorship program', async () =
   const source = await readFile(portfolioDataSourceUrl, 'utf8');
 
   assert.match(source, /label: 'Mentorship'/);
-  assert.match(source, /href: '\/recruiting-season-accelerator'/);
+  assert.match(source, /href: 'https:\/\/recruiting-accelerator-apply\.pages\.dev\/'/);
 });
