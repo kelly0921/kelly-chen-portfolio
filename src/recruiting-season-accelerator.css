@@ -2167,8 +2167,8 @@
 
 .rsa-scope-note {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 8px;
   margin-top: 36px;
   border: 1px solid #f1dba7;
   border-radius: 12px;
@@ -2180,6 +2180,8 @@
   color: #815e16;
   font-size: 0.82rem;
   text-transform: uppercase;
+  white-space: normal;
+  line-height: 1.35;
 }
 
 .rsa-scope-note p {

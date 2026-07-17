@@ -530,7 +530,7 @@ export function RecruitingSeasonAcceleratorPage() {
           ))}
         </div>
         <div className="rsa-scope-note">
-          <strong>Designed for students who have already started</strong>
+          <strong>Best for students already recruiting</strong>
           <p>
             Primarily sophomores, juniors, and seniors pursuing software engineering
             internships or new-grad roles. This is not a coding course, referral service,
