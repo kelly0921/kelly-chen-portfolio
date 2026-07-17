@@ -29,9 +29,9 @@
 
     <g transform="translate(360 172)">
       <rect width="226" height="226" rx="42" fill="#fffdf8" stroke="#d98b67" stroke-width="4"/>
-      <text x="113" y="98" class="metric rose" text-anchor="middle">2</text>
-      <text x="113" y="150" class="label ink" text-anchor="middle">Effects</text>
-      <text x="113" y="190" class="small muted" text-anchor="middle">same refund intent</text>
+      <text x="113" y="108" class="metric rose" text-anchor="middle">2</text>
+      <text x="113" y="158" class="label ink" text-anchor="middle">Effects</text>
+      <text x="113" y="198" class="small muted" text-anchor="middle">same refund intent</text>
     </g>
 
     <rect x="54" y="470" width="552" height="68" rx="22" fill="#fffdf8" stroke="#d98b67" stroke-width="3"/>
@@ -55,10 +55,11 @@
 
     <g transform="translate(326 178)">
       <rect width="268" height="250" rx="42" class="dark"/>
-      <text x="134" y="62" class="kicker" fill="#9edbd2" text-anchor="middle">Stable Operation</text>
-      <text x="134" y="118" class="label" fill="#fffdf8" text-anchor="middle">1 Effect</text>
-      <text x="134" y="170" class="small" fill="#d6eae7" text-anchor="middle">unknown</text>
-      <text x="134" y="204" class="small" fill="#d6eae7" text-anchor="middle">then reconciled</text>
+      <text x="134" y="54" class="kicker" fill="#9edbd2" text-anchor="middle">Stable</text>
+      <text x="134" y="86" class="kicker" fill="#9edbd2" text-anchor="middle">Operation</text>
+      <text x="134" y="136" class="label" fill="#fffdf8" text-anchor="middle">1 Effect</text>
+      <text x="134" y="188" class="small" fill="#d6eae7" text-anchor="middle">unknown</text>
+      <text x="134" y="222" class="small" fill="#d6eae7" text-anchor="middle">then reconciled</text>
     </g>
 
     <rect x="54" y="470" width="552" height="68" rx="22" fill="#fffdf8" stroke="#2d8c84" stroke-width="3"/>

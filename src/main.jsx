@@ -734,7 +734,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
           <h2>{caseStudy.decisionTitle || 'Product Decisions'}</h2>
           {caseStudy.decisionIntro ? <p>{caseStudy.decisionIntro}</p> : null}
         </div>
-        <div className="decision-rail">
+        <div className={`decision-rail decision-rail-count-${caseStudy.productDecisions.length}`}>
           {caseStudy.productDecisions.map((decision, index) => (
             <article className={`decision-item product-reveal product-reveal-delay-${Math.min(index + 1, 4)}`} key={decision.title}>
               <h3>{decision.title}</h3>

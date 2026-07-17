@@ -3549,6 +3549,10 @@ li {
   border-bottom: 1px solid color-mix(in srgb, var(--case-accent) 14%, var(--border));
 }
 
+.decision-rail-count-4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .decision-item {
   position: relative;
   display: grid;
@@ -3610,6 +3614,14 @@ li {
 }
 
 .decision-item:nth-child(3n + 1) {
+  border-left: 0;
+}
+
+.decision-rail-count-4 .decision-item:nth-child(3n + 1) {
+  border-left: 1px solid color-mix(in srgb, var(--case-accent) 13%, var(--border));
+}
+
+.decision-rail-count-4 .decision-item:nth-child(odd) {
   border-left: 0;
 }
 

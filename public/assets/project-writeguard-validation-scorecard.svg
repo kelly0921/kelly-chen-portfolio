@@ -7,12 +7,11 @@
     </style>
   </defs>
   <rect width="1600" height="1000" rx="54" class="bg"/>
-  <rect x="96" y="86" width="1408" height="828" rx="50" class="dark"/>
   <circle cx="154" cy="148" r="12" fill="#d98b67"/>
   <circle cx="196" cy="148" r="12" fill="#c79935"/>
   <circle cx="238" cy="148" r="12" fill="#2d8c84"/>
-  <text x="292" y="156" class="kicker" fill="#9edbd2">Sandbox Validation</text>
-  <text x="154" y="238" class="title cream">Sandbox evidence, not production certification.</text>
+  <text x="292" y="156" class="kicker teal">Sandbox Validation</text>
+  <text x="154" y="238" class="title ink">Sandbox evidence, not production certification.</text>
 
   <g transform="translate(154 318)">
     <rect width="360" height="190" rx="34" class="panel"/>
@@ -43,5 +42,5 @@
     <text x="305" y="58" class="kicker rose" text-anchor="middle">Stripe Test Mode</text>
     <text x="305" y="103" class="label ink" text-anchor="middle">UNKNOWN to CONFIRMED</text>
   </g>
-  <text x="800" y="824" class="body" fill="#d6eae7" text-anchor="middle">typecheck / build / migrations / install / secret scan passed</text>
+  <text x="800" y="824" class="body muted" text-anchor="middle">typecheck / build / migrations / install / secret scan passed</text>
 </svg>

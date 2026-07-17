@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
   <title id="title">WriteGuard protected operation mark</title>
   <desc id="desc">Two incoming paths merge into one protected verified operation.</desc>
-  <rect width="96" height="96" rx="24" fill="#F9F4E8"/>
+  <rect width="96" height="96" rx="24" fill="#FBF6EB"/>
   <path d="M24 30h15c7 0 10 7 15 12l4 4" fill="none" stroke="#153B4A" stroke-width="7" stroke-linecap="round"/>
   <path d="M24 66h15c7 0 10-7 15-12l4-4" fill="none" stroke="#D98B67" stroke-width="7" stroke-linecap="round"/>
   <path d="M57 47h18" fill="none" stroke="#2D8C84" stroke-width="7" stroke-linecap="round"/>
