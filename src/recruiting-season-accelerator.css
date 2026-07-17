@@ -420,28 +420,6 @@
   line-height: 1.55;
 }
 
-.rsa-scope-note {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
-  align-items: center;
-  margin-top: 22px;
-  border-radius: 16px;
-  background: var(--rsa-navy);
-  padding: 17px 20px;
-  color: #fff;
-}
-
-.rsa-scope-note strong {
-  white-space: nowrap;
-}
-
-.rsa-scope-note p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.74);
-  line-height: 1.55;
-}
-
 .rsa-focus.section-shell,
 .rsa-journey.section-shell,
 .rsa-founder.section-shell,
@@ -1437,10 +1415,6 @@
     grid-column: auto;
   }
 
-  .rsa-scope-note {
-    grid-template-columns: 1fr;
-  }
-
   .rsa-inclusion-card {
     display: block;
   }
@@ -1653,6 +1627,20 @@
   border-bottom: 1px solid var(--rsa-line);
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(18px);
+}
+
+.rsa-program-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.rsa-program-header .rsa-page-nav {
+  position: static;
+}
+
+.rsa-mobile-jump-nav {
+  display: none;
 }
 
 .rsa-page-nav-inner.section-shell {
@@ -2856,6 +2844,34 @@
     display: none;
   }
 
+  .rsa-mobile-jump-nav {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    border-top: 1px solid var(--rsa-line);
+    border-bottom: 1px solid var(--rsa-line);
+    background: rgba(255, 255, 255, 0.98);
+    padding: 0 14px;
+    scrollbar-width: none;
+  }
+
+  .rsa-mobile-jump-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rsa-mobile-jump-nav a {
+    display: inline-flex;
+    min-height: 44px;
+    flex: 0 0 auto;
+    align-items: center;
+    padding: 0 11px;
+    color: var(--rsa-copy);
+    font-size: 0.8rem;
+    font-weight: 780;
+  }
+
   .rsa-page-nav-inner.section-shell {
     width: calc(100% - 36px);
     padding-top: 9px;
@@ -3823,4 +3839,11 @@
     padding-top: 36px;
     padding-bottom: 64px;
   }
+}
+
+/* Launch hardening: keep essential legal and outcome copy comfortably readable. */
+.rsa-hero-microcopy,
+.rsa-price-card > small,
+.rsa-journey-result .rsa-outcome-disclaimer {
+  font-size: 0.82rem;
 }

@@ -11,6 +11,7 @@ import {
 import { getSiteRoute } from '../src/siteRouting.js';
 
 const componentSourceUrl = new URL('../src/recruitingSeasonAccelerator.jsx', import.meta.url);
+const portfolioDataSourceUrl = new URL('../src/portfolioData.js', import.meta.url);
 
 test('application states follow the 2026 America/New_York cohort timeline', () => {
   assert.equal(recruitingSeasonAccelerator.timezone, 'America/New_York');
@@ -63,6 +64,19 @@ test('configured application and interest URLs are used in the correct states', 
   assert.equal(futureExperience.ctaHref, 'https://tally.so/r/interest');
 });
 
+test('prelaunch reminder uses the interest list when one is configured', () => {
+  const config = {
+    ...recruitingSeasonAccelerator,
+    interestListUrl: 'https://tally.so/r/interest',
+  };
+
+  const experience = getApplicationExperience('2026-07-18T12:00:00-04:00', config);
+
+  assert.equal(experience.ctaKind, 'interest');
+  assert.equal(experience.ctaLabel, 'Get a July 22 Reminder');
+  assert.equal(experience.ctaHref, 'https://tally.so/r/interest');
+});
+
 test('only UTM campaign parameters are forwarded to the hosted form', () => {
   const result = new URL(
     appendUtmParameters(
@@ -103,4 +117,11 @@ test('public page includes required facts, policies, and accessible FAQ markup',
   assert.match(source, /<details/);
   assert.match(source, /<summary>/);
   assert.doesNotMatch(source, /https?:\/\/(?:www\.)?stripe\.com/i);
+});
+
+test('portfolio navigation links directly to the mentorship program', async () => {
+  const source = await readFile(portfolioDataSourceUrl, 'utf8');
+
+  assert.match(source, /label: 'Mentorship'/);
+  assert.match(source, /href: '\/recruiting-season-accelerator'/);
 });

@@ -1,4 +1,8 @@
 const runtimeEnv = import.meta.env ?? {};
+const browserRuntimeConfig =
+  typeof window !== 'undefined' && window.__RSA_CONFIG__
+    ? window.__RSA_CONFIG__
+    : {};
 
 export const recruitingSeasonAccelerator = Object.freeze({
   timezone: 'America/New_York',
@@ -19,9 +23,18 @@ export const recruitingSeasonAccelerator = Object.freeze({
   programStartLabel: 'Week of August 10, 2026',
   workshopPlatform: 'Zoom',
   workshopScheduleLabel: 'To be finalized',
-  applicationUrl: runtimeEnv.VITE_RSA_APPLICATION_URL?.trim() ?? '',
-  interestListUrl: runtimeEnv.VITE_RSA_INTEREST_URL?.trim() ?? '',
-  canonicalUrl: runtimeEnv.VITE_RSA_CANONICAL_URL?.trim() ?? '',
+  applicationUrl:
+    browserRuntimeConfig.applicationUrl?.trim()
+    ?? runtimeEnv.VITE_RSA_APPLICATION_URL?.trim()
+    ?? '',
+  interestListUrl:
+    browserRuntimeConfig.interestListUrl?.trim()
+    ?? runtimeEnv.VITE_RSA_INTEREST_URL?.trim()
+    ?? '',
+  canonicalUrl:
+    browserRuntimeConfig.canonicalUrl?.trim()
+    ?? runtimeEnv.VITE_RSA_CANONICAL_URL?.trim()
+    ?? '',
   linkedInUrl: 'https://www.linkedin.com/in/kellychen0921/',
   applicationsEnabled: true,
 });
@@ -98,9 +111,11 @@ export function getApplicationExperience(
     'opening-soon': {
       banner:
         'Founding Cohort applications open July 22. The four-week program begins the week of August 10.',
-      ctaLabel: 'Applications Open July 22',
-      ctaHref: '#program-details',
-      ctaKind: 'details',
+      ctaLabel: interestUrlAvailable
+        ? 'Get a July 22 Reminder'
+        : 'Details · Opens July 22',
+      ctaHref: interestUrlAvailable ? config.interestListUrl : '#apply',
+      ctaKind: interestUrlAvailable ? 'interest' : 'details',
     },
     'applications-open': {
       banner:

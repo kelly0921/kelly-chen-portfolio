@@ -45,7 +45,7 @@ const inclusionGroups = [
     items: [
       'Finalized versions of resources tested in the cohort',
       'Preferred pricing on eligible future ApplyFirst resources',
-      'One future 30-minute offer strategy session',
+      'One future 30-minute offer-evaluation strategy session',
       'Outcome follow-ups after the active program',
     ],
   },
@@ -68,7 +68,7 @@ const journeySteps = [
     number: '03',
     title: 'Continue',
     label: 'After the program',
-    body: 'Leave with a personalized 60- or 90-day plan, keep the included resources, and return for the founding offer-support session when applicable.',
+    body: 'Leave with a personalized 60- or 90-day plan, keep the included resources, and return for one offer-evaluation session if you receive an internship or new-grad offer.',
   },
 ];
 
@@ -414,25 +414,34 @@ export function RecruitingSeasonAcceleratorPage() {
         <a href="#timeline">View dates</a>
       </aside>
 
-      <nav className="rsa-page-nav" aria-label="Program sections">
-        <div className="rsa-page-nav-inner section-shell">
-          <a className="rsa-nav-brand" href="/" aria-label="Kelly Chen portfolio">
-            <img src="/assets/kelly-logo.svg" alt="" />
-            <span>
-              <strong>Recruiting Season Accelerator</strong>
-              <small>by Kelly Chen</small>
-            </span>
-          </a>
-          <div className="rsa-nav-links">
-            <a href="#program-details">Overview</a>
-            <a href="#included">Program</a>
-            <a href="#founder">Mentor</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
+      <header className="rsa-program-header">
+        <nav className="rsa-page-nav" aria-label="Program sections">
+          <div className="rsa-page-nav-inner section-shell">
+            <a className="rsa-nav-brand" href="/" aria-label="Kelly Chen portfolio">
+              <img src="/assets/kelly-logo.svg" alt="" />
+              <span>
+                <strong>Recruiting Season Accelerator</strong>
+                <small>by Kelly Chen</small>
+              </span>
+            </a>
+            <div className="rsa-nav-links">
+              <a href="#program-details">Overview</a>
+              <a href="#included">Program</a>
+              <a href="#founder">Mentor</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <AcceleratorButton experience={experience} className="button primary small" source="page-nav" />
           </div>
-          <AcceleratorButton experience={experience} className="button primary small" source="page-nav" />
-        </div>
-      </nav>
+        </nav>
+        <nav className="rsa-mobile-jump-nav" aria-label="Program section shortcuts">
+          <a href="#program-details">Overview</a>
+          <a href="#included">Program</a>
+          <a href="#founder">Mentor</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </header>
 
       <section className="rsa-hero" aria-labelledby="rsa-title">
         <div className="rsa-hero-inner section-shell">
@@ -688,7 +697,7 @@ export function RecruitingSeasonAcceleratorPage() {
               <li>Resume and additional asset feedback</li>
               <li>Slack support and ApplyFirst resources</li>
               <li>Personalized continuation plan</li>
-              <li>Future founding offer-support session</li>
+              <li>One future offer-evaluation session</li>
             </ul>
             <div className="rsa-credit-panel">
               <span>${program.feedbackCreditUsd} feedback credit</span>
@@ -699,8 +708,9 @@ export function RecruitingSeasonAcceleratorPage() {
             </div>
             <small>
               Feedback may be positive, neutral, or critical. A public testimonial and an
-              employment outcome are not required. Scholarship seats are not available for
-              this founding cohort.
+              employment outcome are not required. Scholarships are not available for this
+              first cohort; participants who complete the feedback requirements can reduce
+              their effective cost to $79.
             </small>
           </article>
         </div>
@@ -758,7 +768,15 @@ export function RecruitingSeasonAcceleratorPage() {
               Review the program details now, then return between July 22 and August 2
               to apply. The application is expected to take 7–10 minutes.
             </p>
-            <a className="button secondary" href="#included">Review What&apos;s Included</a>
+            {experience.interestUrlAvailable ? (
+              <AcceleratorButton
+                experience={experience}
+                className="button secondary"
+                source="prelaunch-reminder"
+              />
+            ) : (
+              <a className="button secondary" href="#included">Review What&apos;s Included</a>
+            )}
           </div>
         ) : (
           <ApplicationEmbed experience={experience} />
@@ -940,6 +958,7 @@ function PolicyPage({ pageKey, eyebrow, title, intro, sections }) {
           <a href={acceleratorPaths.privacy}>Privacy Notice</a>
           <a href={acceleratorPaths.refund}>Refund &amp; Feedback Credit</a>
           <a href={acceleratorPaths.faq}>Program FAQ</a>
+          <a href="/">Kelly Chen Portfolio</a>
         </aside>
         <div className="rsa-policy-content">
           {sections.map((section) => (
@@ -1067,6 +1086,7 @@ export function AcceleratorFooter() {
             Refund &amp; Feedback Credit
           </a>
           <a href={acceleratorPaths.faq}>Program FAQ</a>
+          <a href="/">Kelly Chen Portfolio</a>
           <a href={program.linkedInUrl} target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </nav>
       </div>

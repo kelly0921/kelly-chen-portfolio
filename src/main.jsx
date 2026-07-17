@@ -198,8 +198,9 @@ function App() {
 
   return (
     <>
+      <a className="site-skip-link" href="#main-content">Skip to content</a>
       {onAcceleratorRoute ? null : <Navbar activeRoute={route} />}
-      <main>{page}</main>
+      <main id="main-content">{page}</main>
       {onAcceleratorRoute ? <AcceleratorFooter /> : <Footer />}
     </>
   );
@@ -253,6 +254,11 @@ function HomePage() {
             curiosity, real user feedback, AI-assisted workflows, and
             access-minded community building.
           </p>
+          <a className="accelerator-spotlight" href="/recruiting-season-accelerator">
+            <span>Now building</span>
+            <strong>Recruiting Season Accelerator</strong>
+            <small>Founding cohort applications open July 22</small>
+          </a>
           <div className="button-row">
             <a className="button primary" href="#experience">
               View Experience
