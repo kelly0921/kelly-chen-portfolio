@@ -6328,18 +6328,30 @@ dd {
 
 /* Featured program: a portfolio entry point, not a duplicate landing page. */
 .featured-mentorship {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
   gap: clamp(40px, 7vw, 88px);
   overflow: hidden;
-  border: 1px solid rgba(90, 120, 255, 0.22);
+  scroll-margin-top: 112px;
+  border: 1px solid #d8dbe3;
   border-radius: 28px;
   background:
-    radial-gradient(circle at 90% 10%, rgba(239, 189, 88, 0.18), transparent 28%),
-    linear-gradient(135deg, #182744, #233f70);
-  box-shadow: 0 24px 70px rgba(35, 52, 83, 0.16);
+    radial-gradient(circle at 92% 8%, rgba(88, 111, 182, 0.1), transparent 30%),
+    linear-gradient(135deg, #fcfbf9, #eef0f4);
+  box-shadow: 0 20px 54px rgba(38, 49, 73, 0.09);
   padding: clamp(34px, 6vw, 68px);
-  color: white;
+  color: #263149;
+}
+
+.featured-mentorship::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #586fb6 0 62%, #bd7d91 62%);
+  content: "";
 }
 
 .featured-mentorship-status {
@@ -6348,39 +6360,41 @@ dd {
   align-items: center;
   gap: 8px 16px;
   margin-bottom: 32px;
-  color: rgba(255, 255, 255, 0.65);
+  color: #5d6574;
   font-size: 0.72rem;
   font-weight: 700;
 }
 
 .featured-mentorship-status span {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
+  border: 1px solid #cbd1e2;
+  border-radius: 8px;
   padding: 7px 10px;
-  color: #f2c66f;
+  background: rgba(255, 255, 255, 0.58);
+  color: #586fb6;
   font-size: 0.66rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .featured-mentorship .eyebrow {
-  color: #f2c66f;
+  color: #bd7d91;
 }
 
 .featured-mentorship h2 {
   max-width: 720px;
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.7rem, 5vw, 4.8rem);
-  font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.95;
+  color: #263149;
+  font-family: inherit;
+  font-size: clamp(2.45rem, 4.5vw, 4.35rem);
+  font-weight: 760;
+  letter-spacing: -0.045em;
+  line-height: 1;
 }
 
 .featured-mentorship-copy > p:not(.eyebrow) {
   max-width: 680px;
   margin: 24px 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: #5d6574;
   line-height: 1.72;
 }
 
@@ -6393,13 +6407,13 @@ dd {
 }
 
 .featured-mentorship .button.primary {
-  border-color: #f2c66f;
-  background: #f2c66f;
-  color: #192743;
+  border-color: #586fb6;
+  background: #586fb6;
+  color: white;
 }
 
 .featured-mentorship-link {
-  color: white;
+  color: #586fb6;
   font-size: 0.82rem;
   font-weight: 800;
   text-decoration: underline;
@@ -6410,7 +6424,7 @@ dd {
   display: block;
   max-width: 680px;
   margin-top: 24px;
-  color: rgba(255, 255, 255, 0.5);
+  color: #747c8b;
   font-size: 0.7rem;
   line-height: 1.55;
 }
@@ -6419,7 +6433,11 @@ dd {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-self: center;
-  gap: 12px;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid #d8dbe3;
+  border-radius: 18px;
+  background: #d8dbe3;
   margin: 0;
 }
 
@@ -6428,22 +6446,23 @@ dd {
   min-height: 138px;
   align-content: center;
   gap: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.07);
+  border: 0;
+  border-radius: 0;
+  background: rgba(252, 251, 249, 0.94);
   padding: 22px;
 }
 
 .featured-mentorship-facts dt {
-  color: #f2c66f;
-  font-family: Georgia, "Times New Roman", serif;
+  color: #586fb6;
+  font-family: inherit;
   font-size: 2.1rem;
+  font-weight: 760;
   line-height: 1;
 }
 
 .featured-mentorship-facts dd {
   margin: 0;
-  color: rgba(255, 255, 255, 0.76);
+  color: #5d6574;
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.4;
@@ -6466,7 +6485,7 @@ dd {
   }
 
   .featured-mentorship-facts {
-    gap: 9px;
+    gap: 1px;
   }
 
   .featured-mentorship-facts div {

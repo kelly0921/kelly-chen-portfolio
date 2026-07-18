@@ -161,6 +161,19 @@ function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
+  useEffect(() => {
+    if (route !== 'mentorship') return;
+
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById('mentorship')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [route]);
+
   useProductPageMotion(route);
 
   const page = useMemo(() => {
@@ -181,6 +194,8 @@ function App() {
         return <CommunityPage />;
       case 'content':
         return <MediaPage />;
+      case 'mentorship':
+        return <HomePage />;
       case 'accelerator':
         return <RecruitingSeasonAcceleratorPage />;
       case 'accelerator-terms':
@@ -305,18 +320,23 @@ function HomePage() {
 
 function FeaturedMentorship() {
   return (
-    <section className="featured-mentorship section-shell" aria-labelledby="featured-mentorship-title">
+    <section
+      className="featured-mentorship section-shell"
+      id="mentorship"
+      aria-labelledby="featured-mentorship-title"
+    >
       <div className="featured-mentorship-copy">
         <div className="featured-mentorship-status">
           <span>Featured mentorship program</span>
-          <strong>Founding cohort · Applications July 22–August 2</strong>
+          <strong>Founding cohort · Applications July 22–August 2 · 6 seats</strong>
         </div>
         <p className="eyebrow">Recruiting Season Accelerator</p>
-        <h2 id="featured-mentorship-title">Recruiting season is here. Apply with a strategy.</h2>
+        <h2 id="featured-mentorship-title">Turn recruiting effort into a focused plan.</h2>
         <p>
-          A four-week, six-person program for college students pursuing software
-          engineering internships and new-grad roles—with workshops, private strategy
-          sessions, resume feedback, and a focused recruiting plan.
+          A four-week, small-cohort mentorship program for students pursuing software
+          engineering internships or new-grad roles. Diagnose what is stuck, sharpen
+          your positioning, and leave with practical next steps through workshops,
+          private sessions, and personalized feedback.
         </p>
         <div className="featured-mentorship-actions">
           <a
@@ -344,8 +364,8 @@ function FeaturedMentorship() {
       <dl className="featured-mentorship-facts">
         <div><dt>4</dt><dd>Weekly workshops</dd></div>
         <div><dt>3</dt><dd>Private sessions</dd></div>
-        <div><dt>6</dt><dd>Students maximum</dd></div>
-        <div><dt>$99</dt><dd>Founding price</dd></div>
+        <div><dt>6</dt><dd>Participants maximum</dd></div>
+        <div><dt>$79</dt><dd>Effective cost with feedback credit</dd></div>
       </dl>
     </section>
   );

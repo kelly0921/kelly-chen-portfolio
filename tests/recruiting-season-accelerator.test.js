@@ -123,9 +123,10 @@ test('public page includes required facts, policies, and accessible FAQ markup',
   assert.doesNotMatch(source, /https?:\/\/(?:www\.)?stripe\.com/i);
 });
 
-test('portfolio navigation links directly to the mentorship program', async () => {
+test('portfolio navigation opens the mentorship feature before the program site', async () => {
   const source = await readFile(portfolioDataSourceUrl, 'utf8');
 
   assert.match(source, /label: 'Mentorship'/);
-  assert.match(source, /href: 'https:\/\/recruiting-accelerator-apply\.pages\.dev\/'/);
+  assert.match(source, /href: '#mentorship'/);
+  assert.equal(getSiteRoute('/', '#mentorship'), 'mentorship');
 });
