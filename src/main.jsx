@@ -318,49 +318,53 @@ function FeaturedMentorship() {
       className="featured-mentorship section-shell"
       aria-labelledby="featured-mentorship-title"
     >
-      <div className="featured-mentorship-copy">
-        <div className="featured-mentorship-status">
-          <img src="/assets/kelly-logo.svg" alt="" aria-hidden="true" />
-          <span>Mentorship</span>
-          <strong>Applications open July 22-August 2 / 6 students maximum</strong>
+      <div className="featured-mentorship-band">
+        <div className="featured-mentorship-label">
+          <span>Active Program</span>
+          <strong>Applications open July 22-August 2</strong>
+          <em>6-student cohort</em>
         </div>
-        <p className="eyebrow">Mentorship</p>
-        <h2 id="featured-mentorship-title">Recruiting Season Accelerator</h2>
-        <p>
-          A focused four-week mentorship program for college students pursuing
-          software engineering internships and new-grad roles. Participants receive
-          personalized recruiting strategy, direct feedback, private sessions, and a
-          clear 60- or 90-day action plan.
-        </p>
-        <div className="featured-mentorship-actions">
-          <a
-            className="button primary"
-            href="https://recruiting-accelerator-apply.pages.dev/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore the Program
-          </a>
-          <a
-            className="button secondary"
-            href="https://recruiting-accelerator-apply.pages.dev/apply"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Preview the Application
-          </a>
+        <div className="featured-mentorship-main">
+          <div className="featured-mentorship-copy">
+            <h2 id="featured-mentorship-title">Recruiting Season Accelerator</h2>
+            <strong className="featured-mentorship-promise">
+              Turn scattered recruiting effort into a focused plan.
+            </strong>
+            <p>
+              For college students pursuing software engineering roles who want
+              clearer targets, sharper materials, and weekly accountability before
+              recruiting moves fast.
+            </p>
+          </div>
+          <div className="featured-mentorship-includes">
+            <span>What's Included</span>
+            <ul className="featured-mentorship-points" aria-label="What students get">
+              <li><strong>Strategy</strong><span>Know where to focus</span></li>
+              <li><strong>Feedback</strong><span>Resume, LinkedIn, portfolio</span></li>
+              <li><strong>Support</strong><span>3 private sessions</span></li>
+              <li><strong>Plan</strong><span>60/90-day execution map</span></li>
+            </ul>
+          </div>
+          <div className="featured-mentorship-actions">
+            <a
+              className="button primary"
+              href="https://recruiting-accelerator-apply.pages.dev/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Explore the Program
+            </a>
+            <a
+              className="button secondary"
+              href="https://recruiting-accelerator-apply.pages.dev/apply"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Preview the Application
+            </a>
+          </div>
         </div>
-        <small>
-          Independent educational program operated by Kelly Chen. Not affiliated with
-          or endorsed by Bloomberg or any current or former employer.
-        </small>
       </div>
-      <dl className="featured-mentorship-facts">
-        <div><dt>4</dt><dd>Live weekly workshops</dd></div>
-        <div><dt>3</dt><dd>Private strategy sessions</dd></div>
-        <div><dt>6</dt><dd>Students maximum</dd></div>
-        <div><dt>Jul 22</dt><dd>Applications open through August 2</dd></div>
-      </dl>
     </section>
   );
 }

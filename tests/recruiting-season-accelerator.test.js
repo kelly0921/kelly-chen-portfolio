@@ -44,9 +44,15 @@ test('legacy portfolio program paths redirect away from the portfolio app', () =
 
 test('mentorship section keeps the portfolio visual system lightweight', async () => {
   const source = await readFile(stylesSourceUrl, 'utf8');
+  const mainSource = await readFile(mainSourceUrl, 'utf8');
 
+  assert.match(mainSource, /featured-mentorship-band/);
+  assert.match(mainSource, /featured-mentorship-points/);
   assert.match(source, /\.hero-program-callout/);
   assert.match(source, /\.featured-mentorship/);
+  assert.match(source, /\.featured-mentorship-band/);
   assert.match(source, /border-top: 1px solid/);
-  assert.match(source, /grid-template-columns: minmax\(0, 1\.06fr\)/);
+  assert.match(source, /grid-template-columns: minmax\(300px, 0\.86fr\)/);
+  assert.doesNotMatch(source, /\.featured-mentorship-brief/);
+  assert.doesNotMatch(source, /\.featured-mentorship-facts/);
 });
