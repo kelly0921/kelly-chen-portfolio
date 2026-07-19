@@ -1,4 +1,4 @@
-import { acceleratorPaths } from './recruitingSeasonAcceleratorConfig.js';
+const legacyAcceleratorBase = '/recruiting-season-accelerator';
 
 export const portfolioRoutes = Object.freeze([
   'home',
@@ -22,11 +22,9 @@ function normalizePath(pathname = '/') {
 export function getSiteRoute(pathname = '/', hash = '') {
   const path = normalizePath(pathname);
 
-  if (path === acceleratorPaths.terms) return 'accelerator-terms';
-  if (path === acceleratorPaths.privacy) return 'accelerator-privacy';
-  if (path === acceleratorPaths.refund) return 'accelerator-refund';
-  if (path === acceleratorPaths.faq) return 'accelerator-faq';
-  if (path === acceleratorPaths.landing) return 'accelerator';
+  if (path === legacyAcceleratorBase || path.startsWith(`${legacyAcceleratorBase}/`)) {
+    return 'accelerator-redirect';
+  }
 
   const hashRoute = hash.replace(/^#/, '').toLowerCase();
   if (hashRoute === 'media') return 'content';
@@ -34,5 +32,5 @@ export function getSiteRoute(pathname = '/', hash = '') {
 }
 
 export function isAcceleratorRoute(route) {
-  return route === 'accelerator' || route.startsWith('accelerator-');
+  return route === 'accelerator-redirect';
 }

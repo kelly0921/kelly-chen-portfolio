@@ -91,12 +91,12 @@ test('only UTM campaign parameters are forwarded to the hosted form', () => {
   assert.equal(result.searchParams.has('email'), false);
 });
 
-test('program and policy paths resolve without breaking portfolio hash routes', () => {
-  assert.equal(getSiteRoute(acceleratorPaths.landing, ''), 'accelerator');
-  assert.equal(getSiteRoute(`${acceleratorPaths.terms}/`, ''), 'accelerator-terms');
-  assert.equal(getSiteRoute(acceleratorPaths.privacy, ''), 'accelerator-privacy');
-  assert.equal(getSiteRoute(acceleratorPaths.refund, ''), 'accelerator-refund');
-  assert.equal(getSiteRoute(acceleratorPaths.faq, ''), 'accelerator-faq');
+test('legacy program paths use the external redirect without breaking portfolio hash routes', () => {
+  assert.equal(getSiteRoute(acceleratorPaths.landing, ''), 'accelerator-redirect');
+  assert.equal(getSiteRoute(`${acceleratorPaths.terms}/`, ''), 'accelerator-redirect');
+  assert.equal(getSiteRoute(acceleratorPaths.privacy, ''), 'accelerator-redirect');
+  assert.equal(getSiteRoute(acceleratorPaths.refund, ''), 'accelerator-redirect');
+  assert.equal(getSiteRoute(acceleratorPaths.faq, ''), 'accelerator-redirect');
   assert.equal(getSiteRoute('/', '#projects'), 'projects');
   assert.equal(getSiteRoute('/', '#media'), 'content');
 });

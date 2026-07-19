@@ -1,14 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
-import {
-  AcceleratorFooter,
-  AcceleratorFaqPage,
-  AcceleratorPrivacyPage,
-  AcceleratorRefundPage,
-  AcceleratorTermsPage,
-  RecruitingSeasonAcceleratorPage,
-} from './recruitingSeasonAccelerator';
 import { getSiteRoute, isAcceleratorRoute } from './siteRouting';
 import {
   beamCashCaseStudy,
@@ -197,16 +189,8 @@ function App() {
         return <MediaPage />;
       case 'mentorship':
         return <HomePage />;
-      case 'accelerator':
-        return <RecruitingSeasonAcceleratorPage />;
-      case 'accelerator-terms':
-        return <AcceleratorTermsPage />;
-      case 'accelerator-privacy':
-        return <AcceleratorPrivacyPage />;
-      case 'accelerator-refund':
-        return <AcceleratorRefundPage />;
-      case 'accelerator-faq':
-        return <AcceleratorFaqPage />;
+      case 'accelerator-redirect':
+        return <ExternalProgramRedirect />;
       default:
         return <HomePage />;
     }
@@ -217,8 +201,27 @@ function App() {
       <a className="site-skip-link" href="#main-content">Skip to content</a>
       {onAcceleratorRoute ? null : <Navbar activeRoute={route} />}
       <main id="main-content">{page}</main>
-      {onAcceleratorRoute ? <AcceleratorFooter /> : <Footer />}
+      {onAcceleratorRoute ? null : <Footer />}
     </>
+  );
+}
+
+function ExternalProgramRedirect() {
+  useEffect(() => {
+    window.location.replace('https://recruiting-accelerator-apply.pages.dev/');
+  }, []);
+
+  return (
+    <section className="section-shell external-redirect" aria-labelledby="external-redirect-title">
+      <p className="eyebrow">Mentorship</p>
+      <h1 id="external-redirect-title">Opening Recruiting Season Accelerator.</h1>
+      <p>
+        The program now lives on its dedicated application site.
+      </p>
+      <a className="button primary" href="https://recruiting-accelerator-apply.pages.dev/">
+        Open the Program
+      </a>
+    </section>
   );
 }
 
@@ -270,11 +273,6 @@ function HomePage() {
             curiosity, real user feedback, AI-assisted workflows, and
             access-minded community building.
           </p>
-          <a className="accelerator-spotlight" href="/recruiting-season-accelerator">
-            <span>Now Building</span>
-            <strong>Recruiting Season Accelerator</strong>
-            <small>Founding Cohort Applications Open July 22</small>
-          </a>
           <div className="button-row">
             <a className="button primary" href="#experience">
               View Experience
@@ -296,8 +294,6 @@ function HomePage() {
 
       <AudiencePathways />
 
-      <FeaturedMentorship />
-
       <section className="section-shell">
         <SectionHeading eyebrow="What I do" title="Work, Voice, Community" />
         <div className="pillar-grid">
@@ -311,6 +307,8 @@ function HomePage() {
         <SectionHeading eyebrow="Now" title="Current Focus" />
         <CurrentFocus items={currentFocusNotes} />
       </section>
+
+      <FeaturedMentorship />
 
       <PersonalityCollage />
 
@@ -329,16 +327,16 @@ function FeaturedMentorship() {
       <div className="featured-mentorship-copy">
         <div className="featured-mentorship-status">
           <img src="/assets/kelly-logo-mark.svg" alt="" aria-hidden="true" />
-          <span>Featured Mentorship Program</span>
-          <strong>Founding Cohort · Applications July 22–August 2 · 6 Seats</strong>
+          <span>Mentorship</span>
+          <strong>Applications open July 22-August 2 / 6 students maximum</strong>
         </div>
-        <p className="eyebrow">Recruiting Season Accelerator</p>
-        <h2 id="featured-mentorship-title">Turn Recruiting Effort Into a Focused Plan.</h2>
+        <p className="eyebrow">Mentorship</p>
+        <h2 id="featured-mentorship-title">Recruiting Season Accelerator</h2>
         <p>
-          A four-week, small-cohort mentorship program for students pursuing software
-          engineering internships or new-grad roles. Diagnose what is stuck, sharpen
-          your positioning, and leave with practical next steps through workshops,
-          private sessions, and personalized feedback.
+          A focused four-week mentorship program for college students pursuing
+          software engineering internships and new-grad roles. Participants receive
+          personalized recruiting strategy, direct feedback, private sessions, and a
+          clear 60- or 90-day action plan.
         </p>
         <div className="featured-mentorship-actions">
           <a
@@ -347,15 +345,15 @@ function FeaturedMentorship() {
             target="_blank"
             rel="noreferrer"
           >
-            Explore the Program <span aria-hidden="true">↗</span>
+            Explore the Program
           </a>
           <a
-            className="featured-mentorship-link"
+            className="button secondary"
             href="https://recruiting-accelerator-apply.pages.dev/apply"
             target="_blank"
             rel="noreferrer"
           >
-            Preview the Application <span aria-hidden="true">↗</span>
+            Preview the Application
           </a>
         </div>
         <small>
@@ -364,10 +362,10 @@ function FeaturedMentorship() {
         </small>
       </div>
       <dl className="featured-mentorship-facts">
-        <div><dt>4</dt><dd>Weekly Workshops</dd></div>
-        <div><dt>3</dt><dd>Private Sessions</dd></div>
-        <div><dt>6</dt><dd>Participants Maximum</dd></div>
-        <div><dt>$79</dt><dd>Effective Cost With Feedback Credit</dd></div>
+        <div><dt>4</dt><dd>Live weekly workshops</dd></div>
+        <div><dt>3</dt><dd>Private strategy sessions</dd></div>
+        <div><dt>6</dt><dd>Students maximum</dd></div>
+        <div><dt>Jul 22</dt><dd>Applications open through August 2</dd></div>
       </dl>
     </section>
   );

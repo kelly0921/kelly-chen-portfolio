@@ -2,10 +2,10 @@ export const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Mentorship', href: '#mentorship' },
   { label: 'Speaking', href: '#speaking' },
   { label: 'Community', href: '#community' },
   { label: 'Content', href: '#content' },
-  { label: 'Mentorship', href: '#mentorship' },
 ];
 
 export const pillars = [
