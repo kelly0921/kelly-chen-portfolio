@@ -218,7 +218,7 @@ function Navbar({ activeRoute }) {
     <header className="site-header">
       <a className="brand" href={onAcceleratorRoute ? '/' : '#home'} aria-label="Kelly Chen home">
         <span className="brand-mark" aria-hidden="true">
-          <img src="/assets/kelly-logo-mark.svg" alt="" />
+          <img src="/assets/kelly-logo.svg" alt="" />
         </span>
         <span>Kelly Chen</span>
       </a>
@@ -320,7 +320,7 @@ function FeaturedMentorship() {
     >
       <div className="featured-mentorship-copy">
         <div className="featured-mentorship-status">
-          <img src="/assets/kelly-logo-mark.svg" alt="" aria-hidden="true" />
+          <img src="/assets/kelly-logo.svg" alt="" aria-hidden="true" />
           <span>Mentorship</span>
           <strong>Applications open July 22-August 2 / 6 students maximum</strong>
         </div>
@@ -1628,7 +1628,7 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-brand">
         <span className="footer-mark" aria-hidden="true">
-          <img src="/assets/kelly-logo-mark.svg" alt="" />
+          <img src="/assets/kelly-logo.svg" alt="" />
         </span>
         <div>
           <p>Kelly Chen</p>

@@ -1,6 +1,6 @@
 # Logo Options
 
-These are alternate logo directions for Kelly's portfolio. The active compact website logo is `public/assets/kelly-logo-mark.svg`, currently using the Cream Refined direction.
+These are alternate logo directions for Kelly's portfolio. The active website logo is `public/assets/kelly-logo.svg`, using the original Cream Refined text-based `KC` direction.
 
 ## Options
 
@@ -31,4 +31,4 @@ These are alternate logo directions for Kelly's portfolio. The active compact we
 
 Kelly selected the Cream Refined direction from Option C. Keep the overlapping `KC` concept fashionable, warm, minimal, and integrated with the site's cream/pastel branding. Avoid unexplained decorative lines, busy tech diagrams, and generic app-badge styling.
 
-Keep `public/assets/kelly-logo-mark.svg` as the active compact website mark for the navbar, favicon, and small brand placements. Keep `public/assets/kelly-logo.svg` as a related logo asset, but do not swap it into the live header unless intentionally redesigning the logo.
+Keep `public/assets/kelly-logo.svg` as the active website logo for the navbar, favicon, and small brand placements. Do not replace it with path-drawn variants unless intentionally redesigning the logo.
