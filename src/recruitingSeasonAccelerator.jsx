@@ -381,7 +381,7 @@ export function RecruitingSeasonAcceleratorPage() {
         <nav className="rsa-page-nav" aria-label="Program sections">
           <div className="rsa-page-nav-inner section-shell">
             <a className="rsa-nav-brand" href="/" aria-label="Kelly Chen portfolio">
-              <img src="/assets/kelly-logo.svg" alt="" />
+              <img src="/assets/kelly-logo-mark.svg" alt="" />
               <span>
                 <strong>Recruiting Season Accelerator</strong>
                 <small>by Kelly Chen</small>

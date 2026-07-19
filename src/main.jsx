@@ -83,6 +83,7 @@ function useProductPageMotion(route) {
       '.conference-product',
       '.conference-product-includes',
       '.conference-product-previews figure',
+      '.featured-mentorship',
     ].join(', ');
 
     document.body.classList.toggle('motion-ready', isProjectStory);
@@ -229,7 +230,7 @@ function Navbar({ activeRoute }) {
     <header className="site-header">
       <a className="brand" href={onAcceleratorRoute ? '/' : '#home'} aria-label="Kelly Chen home">
         <span className="brand-mark" aria-hidden="true">
-          <img src="/assets/kelly-logo.svg" alt="" />
+          <img src="/assets/kelly-logo-mark.svg" alt="" />
         </span>
         <span>Kelly Chen</span>
       </a>
@@ -270,9 +271,9 @@ function HomePage() {
             access-minded community building.
           </p>
           <a className="accelerator-spotlight" href="/recruiting-season-accelerator">
-            <span>Now building</span>
+            <span>Now Building</span>
             <strong>Recruiting Season Accelerator</strong>
-            <small>Founding cohort applications open July 22</small>
+            <small>Founding Cohort Applications Open July 22</small>
           </a>
           <div className="button-row">
             <a className="button primary" href="#experience">
@@ -327,11 +328,12 @@ function FeaturedMentorship() {
     >
       <div className="featured-mentorship-copy">
         <div className="featured-mentorship-status">
-          <span>Featured mentorship program</span>
-          <strong>Founding cohort · Applications July 22–August 2 · 6 seats</strong>
+          <img src="/assets/kelly-logo-mark.svg" alt="" aria-hidden="true" />
+          <span>Featured Mentorship Program</span>
+          <strong>Founding Cohort · Applications July 22–August 2 · 6 Seats</strong>
         </div>
         <p className="eyebrow">Recruiting Season Accelerator</p>
-        <h2 id="featured-mentorship-title">Turn recruiting effort into a focused plan.</h2>
+        <h2 id="featured-mentorship-title">Turn Recruiting Effort Into a Focused Plan.</h2>
         <p>
           A four-week, small-cohort mentorship program for students pursuing software
           engineering internships or new-grad roles. Diagnose what is stuck, sharpen
@@ -345,7 +347,7 @@ function FeaturedMentorship() {
             target="_blank"
             rel="noreferrer"
           >
-            Explore the Program
+            Explore the Program <span aria-hidden="true">↗</span>
           </a>
           <a
             className="featured-mentorship-link"
@@ -353,7 +355,7 @@ function FeaturedMentorship() {
             target="_blank"
             rel="noreferrer"
           >
-            Preview the application
+            Preview the Application <span aria-hidden="true">↗</span>
           </a>
         </div>
         <small>
@@ -362,10 +364,10 @@ function FeaturedMentorship() {
         </small>
       </div>
       <dl className="featured-mentorship-facts">
-        <div><dt>4</dt><dd>Weekly workshops</dd></div>
-        <div><dt>3</dt><dd>Private sessions</dd></div>
-        <div><dt>6</dt><dd>Participants maximum</dd></div>
-        <div><dt>$79</dt><dd>Effective cost with feedback credit</dd></div>
+        <div><dt>4</dt><dd>Weekly Workshops</dd></div>
+        <div><dt>3</dt><dd>Private Sessions</dd></div>
+        <div><dt>6</dt><dd>Participants Maximum</dd></div>
+        <div><dt>$79</dt><dd>Effective Cost With Feedback Credit</dd></div>
       </dl>
     </section>
   );
@@ -1634,7 +1636,7 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-brand">
         <span className="footer-mark" aria-hidden="true">
-          <img src="/assets/kelly-logo.svg" alt="" />
+          <img src="/assets/kelly-logo-mark.svg" alt="" />
         </span>
         <div>
           <p>Kelly Chen</p>

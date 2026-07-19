@@ -1660,11 +1660,13 @@
 }
 
 .rsa-nav-brand img {
+  display: block;
   width: 38px;
   height: 38px;
   border: 1px solid var(--rsa-line);
   border-radius: 10px;
   background: #ffffff;
+  object-fit: contain;
 }
 
 .rsa-nav-brand span {
