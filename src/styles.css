@@ -263,6 +263,48 @@ h1 {
   max-width: 760px;
 }
 
+.hero-program-callout {
+  display: inline-grid;
+  gap: 2px;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 22px;
+  border-left: 3px solid color-mix(in srgb, var(--blue) 72%, var(--rose));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--blue) 7%, transparent), transparent 62%),
+    color-mix(in srgb, var(--paper) 88%, #ffffff);
+  padding: 10px 14px;
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.hero-program-callout:hover,
+.hero-program-callout:focus-visible {
+  border-left-color: var(--rose);
+  box-shadow: 0 12px 24px rgba(70, 91, 142, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-program-callout span {
+  color: var(--blue);
+  font-size: 0.68rem;
+  font-weight: 840;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-program-callout strong {
+  font-size: 0.96rem;
+  line-height: 1.3;
+}
+
+.hero-program-callout small {
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;

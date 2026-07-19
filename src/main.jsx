@@ -154,19 +154,6 @@ function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  useEffect(() => {
-    if (route !== 'mentorship') return;
-
-    const frame = window.requestAnimationFrame(() => {
-      document.getElementById('mentorship')?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, [route]);
-
   useProductPageMotion(route);
 
   const page = useMemo(() => {
@@ -187,8 +174,6 @@ function App() {
         return <CommunityPage />;
       case 'content':
         return <MediaPage />;
-      case 'mentorship':
-        return <HomePage />;
       case 'accelerator-redirect':
         return <ExternalProgramRedirect />;
       default:
@@ -273,6 +258,16 @@ function HomePage() {
             curiosity, real user feedback, AI-assisted workflows, and
             access-minded community building.
           </p>
+          <a
+            className="hero-program-callout"
+            href="https://recruiting-accelerator-apply.pages.dev/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Now Building</span>
+            <strong>Recruiting Season Accelerator</strong>
+            <small>Four-week recruiting strategy program for students</small>
+          </a>
           <div className="button-row">
             <a className="button primary" href="#experience">
               View Experience
@@ -321,7 +316,6 @@ function FeaturedMentorship() {
   return (
     <section
       className="featured-mentorship section-shell"
-      id="mentorship"
       aria-labelledby="featured-mentorship-title"
     >
       <div className="featured-mentorship-copy">
@@ -1649,6 +1643,9 @@ function Footer() {
         </a>
         <a href="/Kelly-Chen-Resume.pdf" target="_blank" rel="noreferrer">
           Resume
+        </a>
+        <a href="https://recruiting-accelerator-apply.pages.dev/" target="_blank" rel="noreferrer">
+          Recruiting Accelerator
         </a>
       </nav>
     </footer>

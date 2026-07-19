@@ -10,7 +10,6 @@ export const portfolioRoutes = Object.freeze([
   'speaking',
   'community',
   'content',
-  'mentorship',
   'media',
 ]);
 

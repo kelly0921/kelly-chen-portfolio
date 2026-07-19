@@ -10,6 +10,7 @@ Source of truth:
 Portfolio role:
 
 - The portfolio should include a concise Mentorship section on the homepage.
+- The portfolio should not include Mentorship as a primary navigation tab or `#mentorship` route.
 - All program CTAs should point to the external Pages site.
 - The portfolio should not maintain a duplicate program detail page, application page, policy page, or payment flow.
 
