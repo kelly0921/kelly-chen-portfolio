@@ -102,8 +102,10 @@ img {
 }
 
 .brand-mark img {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -5214,8 +5216,10 @@ dd {
 }
 
 .footer-mark img {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .footer-brand p {
@@ -6337,7 +6341,7 @@ dd {
   border: 1px solid #dedde1;
   border-radius: 28px;
   background:
-    radial-gradient(circle at 92% 8%, rgba(102, 127, 200, 0.12), transparent 30%),
+    radial-gradient(circle at 92% 8%, rgba(88, 111, 182, 0.15), transparent 30%),
     radial-gradient(circle at 8% 92%, rgba(202, 131, 153, 0.08), transparent 28%),
     linear-gradient(135deg, #fffefa, #f2f0ed);
   box-shadow: 0 20px 54px rgba(51, 64, 93, 0.08);
@@ -6351,7 +6355,7 @@ dd {
   right: 0;
   left: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667fc8 0 64%, #ca8399 64%);
+  background: linear-gradient(90deg, #586fb6 0 68%, #ca8399 68%);
   content: "";
 }
 
@@ -6371,7 +6375,7 @@ dd {
   border-radius: 8px;
   padding: 7px 10px;
   background: rgba(255, 255, 255, 0.58);
-  color: #667fc8;
+  color: #586fb6;
   font-size: 0.66rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -6408,13 +6412,13 @@ dd {
 }
 
 .featured-mentorship .button.primary {
-  border-color: #667fc8;
-  background: #667fc8;
+  border-color: #586fb6;
+  background: #586fb6;
   color: white;
 }
 
 .featured-mentorship-link {
-  color: #667fc8;
+  color: #586fb6;
   font-size: 0.82rem;
   font-weight: 800;
   text-decoration: underline;
@@ -6454,7 +6458,7 @@ dd {
 }
 
 .featured-mentorship-facts dt {
-  color: #667fc8;
+  color: #586fb6;
   font-family: inherit;
   font-size: 2.1rem;
   font-weight: 760;

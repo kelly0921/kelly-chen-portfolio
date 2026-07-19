@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
-  <title id="title">Kelly Chen cream refined monogram</title>
-  <desc id="desc">A refined cream KC monogram badge with subtle premium contrast.</desc>
+  <title id="title">Kelly Chen monogram</title>
+  <desc id="desc">A cream KC monogram badge with overlapping ink and rose letterforms.</desc>
   <rect width="96" height="96" rx="30" fill="#fff8ef"/>
   <rect x="10.5" y="10.5" width="75" height="75" rx="25" fill="none" stroke="#c8b9a5" stroke-width="1.25" opacity=".72"/>
-  <text x="20" y="65" fill="#303847" font-family="Didot, Bodoni 72, Georgia, 'Times New Roman', serif" font-size="56" font-weight="500" letter-spacing="-7">K</text>
-  <text x="42" y="66" fill="#d9829b" font-family="Didot, Bodoni 72, Georgia, 'Times New Roman', serif" font-size="56" font-weight="500" letter-spacing="-7">C</text>
+  <path d="M29 27v42" fill="none" stroke="#303847" stroke-width="7" stroke-linecap="round"/>
+  <path d="M58 27 34 49l25 20" fill="none" stroke="#303847" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M72 35c-5.2-7-16.6-8.1-24.1-1.6-8.9 7.8-8.7 22.5.4 30 7.5 6.2 18.6 5 23.7-1.9" fill="none" stroke="#d9829b" stroke-width="7" stroke-linecap="round"/>
 </svg>
