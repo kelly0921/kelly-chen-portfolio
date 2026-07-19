@@ -30,3 +30,5 @@ These are alternate logo directions for Kelly's portfolio. The active site logo 
 ## Current Preference Notes
 
 Kelly selected the Cream Refined direction from Option C. Keep the overlapping `KC` concept fashionable, warm, minimal, and integrated with the site's cream/pastel branding. Avoid unexplained decorative lines, busy tech diagrams, and generic app-badge styling.
+
+Keep `public/assets/kelly-logo-mark.svg` as the compact website mark asset, even when the active site references `public/assets/kelly-logo.svg`.
