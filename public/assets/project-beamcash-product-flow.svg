@@ -1,138 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="960" viewBox="0 0 1200 960" role="img" aria-labelledby="title desc">
-  <title id="title">BeamCash buyer and seller workflow storyboard</title>
-  <desc id="desc">Open-lane storyboard showing buyers scanning and paying without an account, and sellers setting up a reusable QR payment flow.</desc>
-  <defs>
-    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#fff7e4"/>
-      <stop offset="0.58" stop-color="#fffdf8"/>
-      <stop offset="1" stop-color="#eaf8ef"/>
-    </linearGradient>
-    <filter id="softShadow" x="-18%" y="-18%" width="136%" height="146%">
-      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#3e3425" flood-opacity="0.12"/>
-    </filter>
-    <marker id="buyerArrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
-      <path d="M1 1 L13 7 L1 13 Z" fill="#2d8f5b"/>
-    </marker>
-    <marker id="sellerArrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
-      <path d="M1 1 L13 7 L1 13 Z" fill="#c88a13"/>
-    </marker>
-  </defs>
-
-  <rect width="1200" height="960" rx="34" fill="url(#paper)"/>
-  <path d="M78 148 C230 86 368 188 514 112 C680 28 812 154 960 92 C1056 52 1118 88 1148 124" fill="none" stroke="#f3c95f" stroke-width="5" stroke-linecap="round" opacity="0.28"/>
-  <path d="M78 782 C230 710 362 814 520 732 C690 644 820 806 970 726 C1062 676 1124 706 1152 740" fill="none" stroke="#acd6bf" stroke-width="5" stroke-linecap="round" opacity="0.34"/>
-
-  <g font-family="Inter, Segoe UI, Arial, sans-serif">
-    <text x="76" y="82" fill="#121826" font-size="35" font-weight="850">BeamCash Payment Flow</text>
-    <text x="76" y="120" fill="#63706b" font-size="18" font-weight="620">Seller creates a trusted QR. Buyer scans and pays as a guest.</text>
-
-    <g transform="translate(70 160)">
-      <rect width="1060" height="306" rx="34" fill="#eff9ed" opacity="0.82"/>
-      <text x="30" y="48" fill="#2d8f5b" font-size="14" font-weight="900" letter-spacing="1.2">BUYER WORKFLOW</text>
-      <text x="30" y="76" fill="#49645b" font-size="15" font-weight="650">No BeamCash account required</text>
-
-      <g transform="translate(142 88)">
-        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
-        <rect x="24" y="54" width="78" height="66" rx="15" fill="#fffdf8" stroke="#121826" stroke-width="4"/>
-        <rect x="41" y="70" width="16" height="16" fill="#121826"/>
-        <rect x="70" y="70" width="16" height="16" fill="#121826"/>
-        <rect x="41" y="97" width="16" height="16" fill="#121826"/>
-        <rect x="67" y="95" width="10" height="10" fill="#2d8f5b"/>
-        <rect x="82" y="104" width="8" height="8" fill="#c88a13"/>
-        <text x="63" y="140" text-anchor="middle" fill="#121826" font-size="11" font-weight="900">QR SIGN</text>
-        <rect x="142" y="48" width="54" height="82" rx="13" fill="#121826"/>
-        <rect x="151" y="61" width="36" height="52" rx="7" fill="#fffdf8"/>
-        <circle cx="169" cy="122" r="4" fill="#fffdf8"/>
-        <path d="M112 88 C124 72 137 70 150 78" fill="none" stroke="#2d8f5b" stroke-width="5" stroke-linecap="round"/>
-        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Scan</text>
-        <text x="110" y="228" text-anchor="middle" fill="#596763" font-size="14" font-weight="650">Branded code feels safe</text>
-      </g>
-
-      <g transform="translate(435 88)">
-        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
-        <rect x="73" y="28" width="74" height="112" rx="17" fill="#121826"/>
-        <rect x="84" y="43" width="52" height="78" rx="10" fill="#fffdf8"/>
-        <circle cx="110" cy="62" r="10" fill="#f6d77d"/>
-        <rect x="93" y="80" width="34" height="7" rx="3.5" fill="#2d8f5b"/>
-        <rect x="91" y="96" width="38" height="13" rx="6.5" fill="#dff4df"/>
-        <rect x="42" y="133" width="136" height="34" rx="17" fill="#121826"/>
-        <text x="110" y="155" text-anchor="middle" fill="#fff8e8" font-size="13" font-weight="900">NO ACCOUNT</text>
-        <path d="M28 94 L57 94" stroke="#c88a13" stroke-width="6" stroke-linecap="round"/>
-        <path d="M43 82 L57 94 L43 106" fill="none" stroke="#c88a13" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Pay as Guest</text>
-        <text x="110" y="228" text-anchor="middle" fill="#596763" font-size="14" font-weight="650">Confirm seller and amount</text>
-      </g>
-
-      <g transform="translate(728 88)">
-        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
-        <rect x="38" y="48" width="84" height="88" rx="16" fill="#fffdf8" stroke="#f3c95f" stroke-width="4"/>
-        <line x1="58" y1="72" x2="101" y2="72" stroke="#121826" stroke-width="5" stroke-linecap="round"/>
-        <line x1="58" y1="94" x2="93" y2="94" stroke="#2d8f5b" stroke-width="5" stroke-linecap="round"/>
-        <line x1="58" y1="116" x2="88" y2="116" stroke="#c88a13" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="158" cy="86" r="42" fill="#2d8f5b"/>
-        <path d="M138 87 L153 102 L181 69" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Receipt</text>
-        <text x="110" y="228" text-anchor="middle" fill="#596763" font-size="14" font-weight="650">Buyer gets clear closure</text>
-      </g>
-
-      <g stroke="#2d8f5b" stroke-width="5" stroke-linecap="round" marker-end="url(#buyerArrow)">
-        <line x1="380" y1="172" x2="424" y2="172"/>
-        <line x1="673" y1="172" x2="717" y2="172"/>
-      </g>
-    </g>
-
-    <g transform="translate(70 510)">
-      <rect width="1060" height="306" rx="34" fill="#fff3cf" opacity="0.82"/>
-      <text x="30" y="48" fill="#a96f08" font-size="14" font-weight="900" letter-spacing="1.2">SELLER WORKFLOW</text>
-      <text x="30" y="76" fill="#675f4f" font-size="15" font-weight="650">Reusable setup for future in-person payments</text>
-
-      <g transform="translate(142 88)">
-        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
-        <rect x="43" y="42" width="112" height="88" rx="18" fill="#fffdf8" stroke="#e0bc64" stroke-width="4"/>
-        <circle cx="73" cy="72" r="15" fill="#f6d77d"/>
-        <line x1="98" y1="67" x2="136" y2="67" stroke="#121826" stroke-width="5" stroke-linecap="round"/>
-        <line x1="98" y1="88" x2="128" y2="88" stroke="#2d8f5b" stroke-width="5" stroke-linecap="round"/>
-        <line x1="59" y1="112" x2="136" y2="112" stroke="#c88a13" stroke-width="5" stroke-linecap="round"/>
-        <path d="M162 98 L194 66" stroke="#121826" stroke-width="6" stroke-linecap="round"/>
-        <path d="M178 79 L195 64" stroke="#2d8f5b" stroke-width="4" stroke-linecap="round"/>
-        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Create Profile</text>
-        <text x="110" y="228" text-anchor="middle" fill="#675f4f" font-size="14" font-weight="650">Name, photo, message</text>
-      </g>
-
-      <g transform="translate(435 88)">
-        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
-        <rect x="54" y="32" width="112" height="104" rx="18" fill="#fffdf8" stroke="#121826" stroke-width="4"/>
-        <rect x="76" y="54" width="20" height="20" fill="#121826"/>
-        <rect x="124" y="54" width="20" height="20" fill="#121826"/>
-        <rect x="76" y="96" width="20" height="20" fill="#121826"/>
-        <rect x="115" y="91" width="12" height="12" fill="#2d8f5b"/>
-        <rect x="136" y="108" width="9" height="9" fill="#c88a13"/>
-        <path d="M25 102 L47 102" stroke="#2d8f5b" stroke-width="6" stroke-linecap="round"/>
-        <path d="M37 90 L49 102 L37 114" fill="none" stroke="#2d8f5b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Display QR</text>
-        <text x="110" y="228" text-anchor="middle" fill="#675f4f" font-size="14" font-weight="650">Print, show, or share</text>
-      </g>
-
-      <g transform="translate(728 88)">
-        <circle cx="110" cy="84" r="84" fill="#ffffff" filter="url(#softShadow)"/>
-        <rect x="42" y="49" width="132" height="92" rx="18" fill="#121826"/>
-        <rect x="60" y="67" width="34" height="18" rx="6" fill="#f6d77d"/>
-        <rect x="115" y="67" width="34" height="18" rx="6" fill="#dff4df"/>
-        <polyline points="60,119 86,102 108,111 148,84" fill="none" stroke="#2d8f5b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="188" cy="46" r="12" fill="#f6d77d"/>
-        <text x="110" y="203" text-anchor="middle" fill="#121826" font-size="22" font-weight="850">Track Activity</text>
-        <text x="110" y="228" text-anchor="middle" fill="#675f4f" font-size="14" font-weight="650">Balance and recent payments</text>
-      </g>
-
-      <g stroke="#c88a13" stroke-width="5" stroke-linecap="round" marker-end="url(#sellerArrow)">
-        <line x1="380" y1="172" x2="424" y2="172"/>
-        <line x1="673" y1="172" x2="717" y2="172"/>
-      </g>
-    </g>
-
-    <g transform="translate(204 892)">
-      <rect width="792" height="34" rx="17" fill="#121826"/>
-      <text x="396" y="23" text-anchor="middle" fill="#fff8e8" font-size="15" font-weight="820">Buyer gets a no-account checkout. Seller gets a reusable payment setup.</text>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">BeamCash product flow diagram</title>
+  <desc id="desc">Diagram showing seller setup, QR sign generation, buyer checkout, payment confirmation, and seller dashboard flow.</desc>
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <text x="80" y="100" font-family="Inter,Segoe UI,Arial" font-size="44" font-weight="900" fill="#101828">BeamCash Product Flow</text>
+  <text x="80" y="140" font-family="Inter,Segoe UI,Arial" font-size="18" font-weight="600" fill="#667085">How sellers create one QR and buyers pay without joining another app.</text>
+  <defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#14D8FF"/></marker></defs>
+  <g font-family="Inter,Segoe UI,Arial">
+    <rect x="80" y="250" width="170" height="120" rx="18" fill="#f8fafc" stroke="#d0d5dd"/>
+    <text x="165" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">Seller Setup</text>
+    <text x="165" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">Profile, photo,</text><text x="165" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">payout readiness</text>
+    <rect x="315" y="250" width="170" height="120" rx="18" fill="#f8fafc" stroke="#d0d5dd"/>
+    <text x="400" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">QR Sign</text>
+    <text x="400" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">Branded code</text><text x="400" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">to display</text>
+    <rect x="550" y="250" width="170" height="120" rx="18" fill="#E6FAFF" stroke="#8EEBFF"/>
+    <text x="635" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">Buyer Checkout</text>
+    <text x="635" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#075E73">Scan, amount,</text><text x="635" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#075E73">payment method</text>
+    <rect x="785" y="250" width="170" height="120" rx="18" fill="#f8fafc" stroke="#d0d5dd"/>
+    <text x="870" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">Confirmation</text>
+    <text x="870" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">Payment, tip,</text><text x="870" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">or donation</text>
+    <rect x="1010" y="250" width="150" height="120" rx="18" fill="#f8fafc" stroke="#d0d5dd"/>
+    <text x="1085" y="295" text-anchor="middle" font-size="20" font-weight="900" fill="#101828">Dashboard</text>
+    <text x="1085" y="326" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">Activity and</text><text x="1085" y="348" text-anchor="middle" font-size="14" font-weight="600" fill="#667085">code access</text>
   </g>
+  <line x1="250" y1="310" x2="305" y2="310" stroke="#14D8FF" stroke-width="5" marker-end="url(#arrow)"/>
+  <line x1="485" y1="310" x2="540" y2="310" stroke="#14D8FF" stroke-width="5" marker-end="url(#arrow)"/>
+  <line x1="720" y1="310" x2="775" y2="310" stroke="#14D8FF" stroke-width="5" marker-end="url(#arrow)"/>
+  <line x1="955" y1="310" x2="1000" y2="310" stroke="#14D8FF" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="84" y="520" width="1032" height="120" rx="24" fill="#101828"/>
+  <text x="600" y="574" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="26" font-weight="900" fill="#ffffff">Core product idea</text>
+  <text x="600" y="615" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="18" font-weight="600" fill="#d0d5dd">One seller checkout link can work even when the buyer does not use the same payment app.</text>
 </svg>

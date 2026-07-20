@@ -1,15 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 88 88" role="img" aria-labelledby="title desc">
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="461" height="461" viewBox="0 0 461 461" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">BeamCash logo mark</title>
-  <desc id="desc">Green rounded square BeamCash mark with QR-style corners and a squared dollar sign.</desc>
-  <rect width="88" height="88" rx="8" fill="#12B76A"/>
-  <path d="M17 35 V17 H35" fill="none" stroke="#FFFFFF" stroke-width="5"/>
-  <path d="M53 17 H71 V35" fill="none" stroke="#FFFFFF" stroke-width="5"/>
-  <path d="M35 71 H17 V53" fill="none" stroke="#FFFFFF" stroke-width="5"/>
-  <path d="M71 53 V71 H53" fill="none" stroke="#FFFFFF" stroke-width="5"/>
-  <rect x="41" y="22" width="6" height="44" fill="#FFFFFF"/>
-  <rect x="29" y="26" width="30" height="6" fill="#FFFFFF"/>
-  <rect x="29" y="41" width="30" height="6" fill="#FFFFFF"/>
-  <rect x="29" y="58" width="30" height="6" fill="#FFFFFF"/>
-  <rect x="29" y="26" width="6" height="15.4" fill="#FFFFFF"/>
-  <rect x="53" y="48.6" width="6" height="15.4" fill="#FFFFFF"/>
+  <desc id="desc">Cyan BeamCash QR-dollar logo mark.</desc>
+  <rect width="461" height="461" rx="72" fill="#14D8FF"/>
+  <path d="M269.4 135.096H139.029V171.428H269.4V135.096Z" fill="white"/>
+  <path d="M175.394 213.163V135.154H139.061V213.163H175.394Z" fill="white"/>
+  <path d="M139.061 249.496H213.864V213.163H139.061V249.496Z" fill="white"/>
+  <path d="M250.197 249.496H325V213.163H250.197V249.496Z" fill="white"/>
+  <path d="M194.629 322.161H325V285.828H194.629V322.161Z" fill="white"/>
+  <path d="M213.864 170.419V213.163H250.197V170.419H213.864Z" fill="white"/>
+  <path d="M213.864 96.6843V139.429H250.197V96.6843H213.864Z" fill="white"/>
+  <path d="M213.864 249.496V357.426H250.197V249.496H213.864Z" fill="white"/>
+  <path d="M288.667 249.496V321.093H325V249.496H288.667Z" fill="white"/>
+  <path d="M139.062 285.828V322.161H175.394V285.828H139.062Z" fill="white"/>
+  <path d="M288.667 135.155V171.487H325V135.155H288.667Z" fill="white"/>
+  <path d="M357.45 45H308.4V76H357.45C372.64 76 385 88.36 385 103.55V152.6H416V103.55C416 71.27 389.73 45 357.45 45ZM45 103.55V152.6H76V103.55C76 88.36 88.36 76 103.55 76H152.6V45H103.55C71.27 45 45 71.27 45 103.55ZM385 308.4V357.45C385 372.64 372.64 385 357.45 385H308.4V416H357.45C389.73 416 416 389.73 416 357.45V308.4H385ZM103.55 385C88.36 385 76 372.64 76 357.45V308.4H45V357.45C45 389.73 71.27 416 103.55 416H152.6V385H103.55Z" fill="white"/>
 </svg>

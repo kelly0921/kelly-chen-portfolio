@@ -268,11 +268,11 @@ export const projects = [
     mark: { text: 'BC', label: 'BeamCash', tone: 'gold', src: '/assets/project-beamcash-icon.svg' },
     status: 'Seller feedback wanted',
     description:
-      'A mobile-first QR payment MVP that helps local sellers, performers, and vendors accept payments through branded checkout pages.',
-    image: '/assets/project-beamcash-seller-dashboard-mobile.png',
+      'A mobile-first QR payment MVP that lets in-person sellers collect through one branded checkout without buyers joining another payment app.',
+    image: '/assets/project-beamcash-buyer-checkout-mobile.png',
     imageFit: 'contain',
     imageFrame: 'phone',
-    imageAlt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
+    imageAlt: 'BeamCash buyer checkout screen showing seller identity, amount options, and accountless payment flow.',
     systemQuestion: 'How can a seller collect from anyone without depending on the buyer having the same payment app?',
     problem: 'Small in-person sellers lose payments when customers do not carry cash or use the same payment app.',
     user: 'Street performers, food vendors, pop-up shops, handmade sellers, nonprofits, and donation-based groups.',
@@ -713,17 +713,17 @@ export const beamCashCaseStudy = {
   ],
   images: [
     {
-      title: 'Seller Dashboard',
-      src: '/assets/project-beamcash-seller-dashboard-mobile.png',
-      alt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
-      caption: 'The seller can keep QR access, payment readiness, balance, and activity together instead of managing scattered payment handles.',
-      kind: 'mobile',
-    },
-    {
       title: 'Buyer Checkout',
       src: '/assets/project-beamcash-buyer-checkout-mobile.png',
       alt: 'BeamCash checkout screen showing a seller profile and payment amount options.',
       caption: 'The buyer can scan into checkout, confirm the seller, choose an amount, and continue without creating a BeamCash account.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Seller Dashboard',
+      src: '/assets/project-beamcash-seller-dashboard-mobile.png',
+      alt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
+      caption: 'The seller can keep QR access, payment readiness, balance, and activity together instead of managing scattered payment handles.',
       kind: 'mobile',
     },
     {

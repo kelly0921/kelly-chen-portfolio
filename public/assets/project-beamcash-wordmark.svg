@@ -1,0 +1,21 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240" role="img" aria-labelledby="title desc">
+  <title id="title">BeamCash wordmark</title>
+  <desc id="desc">BeamCash horizontal logo with the cyan QR-dollar mark and dark wordmark text.</desc>
+  <rect width="900" height="240" rx="32" fill="#FFFFFF"/>
+  <g transform="translate(56 56) scale(0.27766)">
+    <rect width="461" height="461" rx="72" fill="#14D8FF"/>
+    <path d="M269.4 135.096H139.029V171.428H269.4V135.096Z" fill="white"/>
+    <path d="M175.394 213.163V135.154H139.061V213.163H175.394Z" fill="white"/>
+    <path d="M139.061 249.496H213.864V213.163H139.061V249.496Z" fill="white"/>
+    <path d="M250.197 249.496H325V213.163H250.197V249.496Z" fill="white"/>
+    <path d="M194.629 322.161H325V285.828H194.629V322.161Z" fill="white"/>
+    <path d="M213.864 170.419V213.163H250.197V170.419H213.864Z" fill="white"/>
+    <path d="M213.864 96.6843V139.429H250.197V96.6843H213.864Z" fill="white"/>
+    <path d="M213.864 249.496V357.426H250.197V249.496H213.864Z" fill="white"/>
+    <path d="M288.667 249.496V321.093H325V249.496H288.667Z" fill="white"/>
+    <path d="M139.062 285.828V322.161H175.394V285.828H139.062Z" fill="white"/>
+    <path d="M288.667 135.155V171.487H325V135.155H288.667Z" fill="white"/>
+    <path d="M357.45 45H308.4V76H357.45C372.64 76 385 88.36 385 103.55V152.6H416V103.55C416 71.27 389.73 45 357.45 45ZM45 103.55V152.6H76V103.55C76 88.36 88.36 76 103.55 76H152.6V45H103.55C71.27 45 45 71.27 45 103.55ZM385 308.4V357.45C385 372.64 372.64 385 357.45 385H308.4V416H357.45C389.73 416 416 389.73 416 357.45V308.4H385ZM103.55 385C88.36 385 76 372.64 76 357.45V308.4H45V357.45C45 389.73 71.27 416 103.55 416H152.6V385H103.55Z" fill="white"/>
+  </g>
+  <text x="226" y="142" fill="#101828" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="76" font-weight="900">BeamCash</text>
+</svg>
