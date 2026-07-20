@@ -551,8 +551,7 @@ h1 {
 }
 
 .collage-intro {
-  position: sticky;
-  top: 104px;
+  position: relative;
 }
 
 .collage-intro h2 {
