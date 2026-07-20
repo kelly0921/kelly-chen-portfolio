@@ -322,18 +322,21 @@ function FeaturedMentorship() {
         <div className="featured-mentorship-label">
           <span>Active Program</span>
           <strong>Applications open July 22-August 2</strong>
-          <em>6-student cohort</em>
+          <em>8-student cohort</em>
         </div>
         <div className="featured-mentorship-main">
           <div className="featured-mentorship-copy">
             <h2 id="featured-mentorship-title">Recruiting Season Accelerator</h2>
+            <p className="featured-mentorship-hook">
+              Applying for SWE roles, but not sure what to fix first?
+            </p>
             <strong className="featured-mentorship-promise">
-              Turn scattered recruiting effort into a focused plan.
+              Find the bottleneck. Sharpen your positioning.
+              <span>Leave with a plan.</span>
             </strong>
             <p>
-              For college students pursuing software engineering roles who want
-              clearer targets, sharper materials, and weekly accountability before
-              recruiting moves fast.
+              A 4-week, 8-student cohort with targeted feedback, private strategy
+              sessions, and a 60/90-day recruiting map.
             </p>
           </div>
           <div className="featured-mentorship-includes">
@@ -344,6 +347,11 @@ function FeaturedMentorship() {
               <li><strong>Support</strong><span>3 private sessions</span></li>
               <li><strong>Plan</strong><span>60/90-day execution map</span></li>
             </ul>
+            <div className="featured-mentorship-mentor" aria-label="Mentor background">
+              <span>Led by Kelly Chen</span>
+              <strong>Bloomberg SWE</strong>
+              <em>SWE internships: Oracle, JPMorganChase, Visa</em>
+            </div>
           </div>
           <div className="featured-mentorship-actions">
             <a
