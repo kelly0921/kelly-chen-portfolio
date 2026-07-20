@@ -298,7 +298,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section-shell">
+      <section className="section-shell current-focus-section">
         <SectionHeading eyebrow="Now" title="Current Focus" />
         <CurrentFocus items={currentFocusNotes} />
       </section>

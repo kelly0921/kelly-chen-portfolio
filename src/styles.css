@@ -933,6 +933,10 @@ h1 {
   text-wrap: balance;
 }
 
+.current-focus-section {
+  padding-top: 58px;
+}
+
 .pillar-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -5732,6 +5736,10 @@ dd {
   .section-shell {
     width: min(100% - 28px, 1160px);
     padding: 46px 0;
+  }
+
+  .current-focus-section {
+    padding-top: 36px;
   }
 
   .hero {
