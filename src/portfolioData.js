@@ -376,8 +376,10 @@ export const projectActions = {
   ApplyFirst: {
     body:
       'ApplyFirst is in early access while I validate which opportunity signals, alerts, and student resource views are actually useful.',
-    primaryLabel: 'Join ApplyFirst Early Access',
+    primaryLabel: 'Join ApplyFirst Waitlist',
     primaryHref: 'https://applyfirst-careers.pages.dev/',
+    secondaryLabel: 'View Product Details',
+    secondaryHref: '#applyfirst',
   },
 };
 
@@ -622,6 +624,12 @@ export const beamCashCaseStudy = {
   status: 'In-progress local MVP',
   role: 'Founder, product builder, mobile app developer, and payment UX designer',
   stack: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'Stripe-ready architecture', 'QR generation', 'Express backend'],
+  heroImage: {
+    title: 'Buyer Checkout',
+    src: '/assets/project-beamcash-buyer-checkout-performer.png',
+    alt: 'BeamCash browser checkout showing a performer profile and accountless payment flow.',
+    fit: 'contain',
+  },
   valuePitch: {
     title: 'Collect from people outside your payment app.',
     body:
@@ -713,48 +721,76 @@ export const beamCashCaseStudy = {
   ],
   images: [
     {
-      title: 'Buyer Checkout',
-      src: '/assets/project-beamcash-buyer-checkout-mobile.png',
-      alt: 'BeamCash checkout screen showing a seller profile and payment amount options.',
-      caption: 'The buyer can scan into checkout, confirm the seller, choose an amount, and continue without creating a BeamCash account.',
-      kind: 'mobile',
+      title: 'Seller QR Sign',
+      src: '/assets/project-beamcash-seller-qr.png',
+      alt: 'BeamCash seller QR screen showing a ready-to-display payment profile and QR code.',
+      caption: 'The seller creates one BeamCash QR destination for pay, tip, or donation moments.',
+      fit: 'contain',
     },
     {
-      title: 'Seller Dashboard',
-      src: '/assets/project-beamcash-seller-dashboard-mobile.png',
-      alt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
-      caption: 'The seller can keep QR access, payment readiness, balance, and activity together instead of managing scattered payment handles.',
-      kind: 'mobile',
+      title: 'Accountless Checkout',
+      src: '/assets/project-beamcash-buyer-checkout-performer.png',
+      alt: 'BeamCash checkout screen showing a buyer payment flow for a performer.',
+      caption: 'The buyer scans, recognizes the seller, and starts checkout without needing a BeamCash account.',
+      fit: 'contain',
     },
     {
-      title: 'Home Entry',
-      src: '/assets/project-beamcash-home-mobile.png',
-      alt: 'BeamCash home screen with logo, seller-focused tagline, and code creation actions.',
-      caption: 'The entry screen keeps the app focused: view an existing BeamCash code or recover one quickly.',
-      kind: 'mobile',
+      title: 'Payment Confirmation',
+      src: '/assets/project-beamcash-payment-confirmation.png',
+      alt: 'BeamCash confirmation screen showing seller identity, amount, and payment method.',
+      caption: 'The buyer confirms the seller and amount before completing the payment.',
+      fit: 'contain',
     },
     {
-      title: 'Code Recovery',
-      src: '/assets/project-beamcash-find-code-mobile.png',
-      alt: 'BeamCash find code screen for recovering an existing seller payment code.',
-      caption: 'The recovery flow supports repeat use, so sellers can return to an existing payment code without rebuilding setup.',
-      kind: 'mobile',
+      title: 'Seller Readiness',
+      src: '/assets/project-beamcash-seller-payouts.png',
+      alt: 'BeamCash seller payout setup screen with readiness and account holder fields.',
+      caption: 'The seller side keeps payout readiness separate from the buyer checkout experience.',
+      fit: 'contain',
+    },
+    {
+      title: 'Payment Success',
+      src: '/assets/project-beamcash-payment-success.png',
+      alt: 'BeamCash payment success screen showing a completed support payment.',
+      caption: 'The handoff resolves into a clear success state the buyer can trust and the seller can track.',
+      fit: 'contain',
     },
   ],
   galleryImages: [
     {
-      title: 'Buyer Checkout',
-      src: '/assets/project-beamcash-buyer-checkout-mobile.png',
-      alt: 'BeamCash checkout screen showing a seller profile and payment amount options.',
-      caption: 'The buyer sees who they are paying, chooses a preset or custom amount, and moves into payment without joining another app.',
-      kind: 'mobile',
+      title: 'Seller QR Sign',
+      src: '/assets/project-beamcash-seller-qr.png',
+      alt: 'BeamCash seller QR screen showing a ready-to-display payment profile and QR code.',
+      caption: 'One seller QR can work across booth, table, performance, fundraiser, or donation moments.',
+      fit: 'contain',
     },
     {
-      title: 'Seller Dashboard',
-      src: '/assets/project-beamcash-seller-dashboard-mobile.png',
-      alt: 'BeamCash seller dashboard showing available balance, payment stats, and a branded QR code.',
-      caption: 'The seller side still matters: the dashboard gives them QR access, payment readiness, balance, and recent activity in one place.',
-      kind: 'mobile',
+      title: 'Accountless Checkout',
+      src: '/assets/project-beamcash-buyer-checkout-performer.png',
+      alt: 'BeamCash checkout screen showing a buyer payment flow for a performer.',
+      caption: 'The buyer does not need the same app or another BeamCash account to start payment.',
+      fit: 'contain',
+    },
+    {
+      title: 'Payment Success',
+      src: '/assets/project-beamcash-payment-success.png',
+      alt: 'BeamCash payment success screen showing a completed support payment.',
+      caption: 'The buyer leaves with a clear completion state; the seller keeps the activity organized.',
+      fit: 'contain',
+    },
+    {
+      title: 'Payment Confirmation',
+      src: '/assets/project-beamcash-payment-confirmation.png',
+      alt: 'BeamCash confirmation screen showing seller identity, amount, and payment method.',
+      caption: 'The confirmation step keeps the seller, amount, and payment method visible before payment completes.',
+      fit: 'contain',
+    },
+    {
+      title: 'Seller Readiness',
+      src: '/assets/project-beamcash-seller-payouts.png',
+      alt: 'BeamCash seller payout setup screen with readiness and account holder fields.',
+      caption: 'The MVP keeps payout readiness and production payment boundaries visible on the seller side.',
+      fit: 'contain',
     },
   ],
   workflowImage: {
@@ -780,6 +816,189 @@ export const beamCashCaseStudy = {
     'I am looking for sellers, vendors, performers, local groups, nonprofits, and donation-based teams who want to try or give feedback on an accountless QR checkout flow.',
   ctaLabel: 'I Want to Try BeamCash',
   ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=I%20want%20to%20try%20BeamCash',
+};
+
+export const applyFirstCaseStudy = {
+  eyebrow: 'ApplyFirst',
+  title: 'Early-Career Opportunity System',
+  subtitle:
+    'A private-beta app that helps students discover, track, and prepare for high-signal programs before applications open.',
+  status: 'Private beta / early access',
+  role: 'Product strategist, frontend MVP builder, data-model designer, and opportunity systems researcher',
+  stack: ['React', 'Vite', 'Opportunity data model', 'Search and filters', 'Shortlist workflows', 'Beta validation'],
+  heroImage: {
+    title: 'Opportunity Library',
+    src: '/assets/project-applyfirst-programs-desktop.png',
+    alt: 'ApplyFirst programs page with searchable opportunities, filters, and program details.',
+    fit: 'contain',
+  },
+  valuePitch: {
+    eyebrow: 'For emerging engineers',
+    title: 'Find early programs before they get crowded.',
+    body:
+      'ApplyFirst organizes recurring internships, fellowships, scholarships, prep programs, and communities with timing, eligibility, confidence, and next-action notes.',
+    audience: ['First-years', 'Sophomores', 'Emerging Engineers', 'Fellowship Seekers', 'Opportunity Sharers'],
+    storyboard: [
+      {
+        mark: '01',
+        label: 'Find',
+        title: 'Search high-signal programs',
+        text: 'Filter by role, class year, timing, category, status, and opportunity type.',
+      },
+      {
+        mark: '02',
+        label: 'Compare',
+        title: 'Understand why it matters',
+        text: 'Each record explains fit, timing, source confidence, and what to prepare before the window opens.',
+      },
+      {
+        mark: '03',
+        label: 'Track',
+        title: 'Save what needs follow-up',
+        text: 'Students can shortlist programs and use the product as an early-warning layer instead of a scattered link list.',
+      },
+    ],
+  },
+  systemLens: {
+    eyebrow: 'Product Lens',
+    title: 'What I Was Testing',
+    body:
+      'ApplyFirst tests whether opportunity discovery becomes more useful when it combines curation, timing, confidence, and preparation guidance.',
+    items: [
+      {
+        label: 'Student Layer',
+        text: 'Students need to know what fits their stage and what to do before applications open.',
+      },
+      {
+        label: 'Signal Layer',
+        text: 'Records track status, source trust, timing, eligibility, and readiness instead of only storing links.',
+      },
+      {
+        label: 'Community Layer',
+        text: 'Contribution flow helps surface missing or stale opportunities while keeping verification visible.',
+      },
+    ],
+  },
+  overview:
+    'I built ApplyFirst from the pattern that high-value early programs are not always hard because students lack ambition. They are hard because students discover them too late, miss the timing, or do not know which opportunities fit their stage.',
+  overviewEyebrow: 'Why I Built This',
+  overviewTitle: 'Turn scattered links into a watch system',
+  problem:
+    'Students often find internships, fellowships, scholarships, and prep programs through LinkedIn posts, Discord threads, spreadsheets, and official pages that change by season. ApplyFirst turns that discovery process into a searchable, trackable product layer.',
+  problemEyebrow: 'What Improves',
+  problemTitle: 'Make timing and fit easier to see',
+  whatIBuilt: [
+    'Opportunity library with searchable records, filters, program details, and source-status labels.',
+    'Student preference flow for class year, career direction, interests, and opportunity needs.',
+    'Saved-program behavior for opportunities that need monitoring or preparation.',
+    'Contribution flow for missing or stale records so the library can improve with user feedback.',
+    'Beta framing around confidence, verification, and alert-readiness before broader notifications.',
+  ],
+  buildLabels: ['Opportunity Library', 'Student Preferences', 'Saved Programs', 'Contribution Flow', 'Signal Model'],
+  decisionEyebrow: 'Product Logic',
+  decisionTitle: 'Why It Works This Way',
+  productDecisions: [
+    {
+      title: 'Timing Before Applications',
+      text: 'The product is designed around what students should watch and prepare for before a program officially opens.',
+    },
+    {
+      title: 'Confidence Instead of False Certainty',
+      text: 'Records can show source confidence and readiness so the product does not pretend every opportunity is fully verified.',
+    },
+    {
+      title: 'Narrower Than a Job Board',
+      text: 'ApplyFirst focuses on early-career programs, fellowships, scholarships, prep, and high-signal opportunities instead of every job posting.',
+    },
+    {
+      title: 'Feedback Becomes Product Data',
+      text: 'Contribution screens let users flag stale or missing opportunities without turning raw submissions into verified records automatically.',
+    },
+  ],
+  technicalHighlights: [
+    'React/Vite app structure for a standalone private-beta product.',
+    'Opportunity records modeled around timing, class year, role track, status, source confidence, and recommended next step.',
+    'Filter and shortlist behavior designed for student discovery rather than generic job tracking.',
+    'Contribution flow for stale or missing records, with verification still visible.',
+    'Current screenshots cover landing, opportunity library, preferences, contribution, and mobile views.',
+  ],
+  images: [
+    {
+      title: 'Opportunity Library',
+      src: '/assets/project-applyfirst-programs-desktop.png',
+      alt: 'ApplyFirst searchable opportunity library with filters and program details.',
+      caption: 'Students can search and filter high-signal programs while seeing status and recommended next steps.',
+      fit: 'contain',
+    },
+    {
+      title: 'Student Preferences',
+      src: '/assets/project-applyfirst-preferences-desktop.png',
+      alt: 'ApplyFirst preferences screen for tailoring opportunity recommendations.',
+      caption: 'Preferences make discovery stage-aware instead of dumping every opportunity into one generic list.',
+      fit: 'contain',
+    },
+    {
+      title: 'Contribution Flow',
+      src: '/assets/project-applyfirst-contribute-desktop.png',
+      alt: 'ApplyFirst contribution screen for missing or stale opportunity records.',
+      caption: 'Students can suggest missing or stale opportunities while verification remains separate from raw submissions.',
+      fit: 'contain',
+    },
+    {
+      title: 'Mobile Library',
+      src: '/assets/project-applyfirst-programs-mobile.png',
+      alt: 'ApplyFirst mobile opportunity library view.',
+      caption: 'The mobile view keeps the watchlist usable when students discover programs from posts, chats, or events.',
+      kind: 'mobile',
+    },
+  ],
+  galleryImages: [
+    {
+      title: 'Opportunity Library',
+      src: '/assets/project-applyfirst-programs-desktop.png',
+      alt: 'ApplyFirst searchable opportunity library with filters and program details.',
+      caption: 'Searchable records make opportunity discovery feel structured instead of scattered.',
+      fit: 'contain',
+    },
+    {
+      title: 'Student Preferences',
+      src: '/assets/project-applyfirst-preferences-desktop.png',
+      alt: 'ApplyFirst preferences screen for tailoring opportunity recommendations.',
+      caption: 'Students can tune the product around stage, interests, and the type of support they need.',
+      fit: 'contain',
+    },
+    {
+      title: 'Contribution Flow',
+      src: '/assets/project-applyfirst-contribute-desktop.png',
+      alt: 'ApplyFirst contribution screen for missing or stale opportunity records.',
+      caption: 'The feedback loop helps the opportunity library improve without hiding verification status.',
+      fit: 'contain',
+    },
+  ],
+  workflowImage: {
+    src: '/assets/project-applyfirst-landing-desktop.png',
+    alt: 'ApplyFirst landing page showing early-career opportunity system positioning.',
+  },
+  workflowStandalone: false,
+  screenshotEyebrow: 'Product Screens',
+  screenshotTitle: 'Opportunity Discovery Workflow',
+  technicalEyebrow: 'Build Notes',
+  technicalTitle: 'Built Around Timing, Confidence, and Next Action',
+  lessons: [
+    'A useful opportunity product is not just a list. It needs timing, eligibility, confidence, verification, and next-action guidance.',
+    'Students need stage-aware discovery because the right program for a first-year can be different from the right program for a junior or new grad.',
+    'The product should validate what students actually watch, save, and act on before adding heavier alert or subscription features.',
+  ],
+  nextSteps: [
+    'Use beta feedback to identify which opportunity categories and signals students actually trust.',
+    'Expand the data foundation with recurring programs, communities, scholarships, conference resources, and prep pathways.',
+    'Add notification or monitoring features only after the watchlist and verification workflow prove useful.',
+  ],
+  ctaTitle: 'Want to Test ApplyFirst?',
+  ctaBody:
+    'ApplyFirst is in early access while I validate which opportunity signals, filters, and student resource views actually help students prepare earlier.',
+  ctaLabel: 'Join ApplyFirst Waitlist',
+  ctaHref: 'https://applyfirst-careers.pages.dev/',
 };
 
 export const webPilotCaseStudy = {

@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './styles.css';
 import { getSiteRoute, isAcceleratorRoute } from './siteRouting';
 import {
+  applyFirstCaseStudy,
   beamCashCaseStudy,
   communityWork,
   communityMoments,
@@ -56,7 +57,7 @@ function getRoute() {
 
 function useProductPageMotion(route) {
   useEffect(() => {
-    const isProjectStory = ['beamcash', 'webpilot', 'writeguard'].includes(route);
+    const isProjectStory = ['beamcash', 'webpilot', 'writeguard', 'applyfirst'].includes(route);
     const sharedMotionSelector = [
       '.page-hero',
       '.section-heading',
@@ -168,6 +169,8 @@ function App() {
         return <ProjectCaseStudyPage caseStudy={webPilotCaseStudy} />;
       case 'writeguard':
         return <ProjectCaseStudyPage caseStudy={writeGuardCaseStudy} />;
+      case 'applyfirst':
+        return <ProjectCaseStudyPage caseStudy={applyFirstCaseStudy} />;
       case 'speaking':
         return <SpeakingPage />;
       case 'community':
@@ -211,7 +214,7 @@ function ExternalProgramRedirect() {
 }
 
 function Navbar({ activeRoute }) {
-  const navActiveRoute = ['beamcash', 'webpilot', 'writeguard'].includes(activeRoute) ? 'projects' : activeRoute;
+  const navActiveRoute = ['beamcash', 'webpilot', 'writeguard', 'applyfirst'].includes(activeRoute) ? 'projects' : activeRoute;
   const onAcceleratorRoute = isAcceleratorRoute(activeRoute);
 
   return (
