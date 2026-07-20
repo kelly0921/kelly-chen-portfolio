@@ -933,8 +933,12 @@ h1 {
   text-wrap: balance;
 }
 
+.home-pillars-section {
+  padding-bottom: 34px;
+}
+
 .current-focus-section {
-  padding-top: 48px;
+  padding-top: 34px;
 }
 
 .pillar-grid {
@@ -5738,8 +5742,12 @@ dd {
     padding: 46px 0;
   }
 
+  .home-pillars-section {
+    padding-bottom: 24px;
+  }
+
   .current-focus-section {
-    padding-top: 30px;
+    padding-top: 24px;
   }
 
   .hero {

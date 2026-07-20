@@ -289,7 +289,7 @@ function HomePage() {
 
       <AudiencePathways />
 
-      <section className="section-shell">
+      <section className="section-shell home-pillars-section">
         <SectionHeading eyebrow="What I do" title="Work, Voice, Community" />
         <div className="pillar-grid">
           {pillars.map((pillar) => (
