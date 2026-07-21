@@ -652,11 +652,26 @@ function CommunityPage() {
   );
 }
 
+function CaseStudyImage({ image, loading = 'lazy' }) {
+  const imageElement = <img src={image.src} alt={image.alt} loading={loading} />;
+
+  if (image.kind === 'mobile') {
+    return <span className="phone-device">{imageElement}</span>;
+  }
+
+  if (image.fit === 'zoom') {
+    return <span className="screenshot-zoom-frame">{imageElement}</span>;
+  }
+
+  return imageElement;
+}
+
 function ProjectCaseStudyPage({ caseStudy }) {
   const caseSlug = caseStudy.eyebrow.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const caseMark = caseStudy.eyebrow.slice(0, 2).toUpperCase();
   const heroImage = caseStudy.heroImage || caseStudy.images[0];
   const galleryImages = caseStudy.galleryImages || (heroImage?.kind === 'mobile' ? caseStudy.images : caseStudy.images.slice(1));
+  const storyboardScenes = caseStudy.storyboardScenes || [];
 
   return (
     <>
@@ -677,7 +692,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
                 heroImage.fit === 'contain' ? 'case-study-visual-contain' : '',
               ].filter(Boolean).join(' ')}
             >
-              <img src={heroImage.src} alt={heroImage.alt} loading="eager" />
+              <CaseStudyImage image={heroImage} loading="eager" />
               <figcaption>{heroImage.title}</figcaption>
             </figure>
           )}
@@ -800,27 +815,74 @@ function ProjectCaseStudyPage({ caseStudy }) {
           <p>{caseStudy.problem}</p>
         </aside>
       </section>
-      <section className="case-study-section case-study-chapter case-study-gallery-section section-shell product-reveal">
+      <section
+        className={[
+          'case-study-section',
+          'case-study-chapter',
+          'case-study-gallery-section',
+          'section-shell',
+          'product-reveal',
+          caseStudy.galleryStyle === 'storyboard' ? 'case-study-storyboard-section' : '',
+        ].filter(Boolean).join(' ')}
+      >
         <SectionHeading eyebrow={caseStudy.screenshotEyebrow || 'Product Walkthrough'} title={caseStudy.screenshotTitle} />
-        <div className="screenshot-stack">
-          {(galleryImages.length ? galleryImages : caseStudy.images).map((image) => (
-            <figure
-              className={[
-                'case-screenshot',
-                'product-shot',
-                image.kind === 'mobile' ? 'case-screenshot-mobile' : '',
-                image.kind === 'diagram' ? 'case-screenshot-diagram' : '',
-                image.fit === 'contain' ? 'case-screenshot-contain' : '',
-              ].filter(Boolean).join(' ')}
-              key={image.title}
-            >
-              <img src={image.src} alt={image.alt} loading="lazy" />
-              <figcaption>
-                <strong>{image.title}</strong>
-                <span>{image.caption}</span>
-              </figcaption>
-            </figure>
-          ))}
+        <div className={storyboardScenes.length ? 'screenshot-stack case-storyboard-stack' : 'screenshot-stack'}>
+          {storyboardScenes.length
+            ? storyboardScenes.map((scene, index) => (
+                <article className="case-storyboard-scene product-reveal" key={scene.title}>
+                  <span className="case-storyboard-scene-number" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div
+                    className={[
+                      'case-storyboard-media',
+                      scene.layout ? `case-storyboard-media-${scene.layout}` : '',
+                      `case-storyboard-media-count-${scene.images.length}`,
+                    ].filter(Boolean).join(' ')}
+                  >
+                    {scene.images.map((image) => (
+                      <figure
+                        className={[
+                          'case-storyboard-frame',
+                          'product-shot',
+                          image.kind === 'mobile' ? 'case-storyboard-frame-mobile' : '',
+                          image.kind === 'physical' ? 'case-storyboard-frame-physical' : '',
+                          image.fit === 'contain' ? 'case-storyboard-frame-contain' : '',
+                          image.fit === 'zoom' ? 'case-storyboard-frame-zoom' : '',
+                        ].filter(Boolean).join(' ')}
+                        key={image.title}
+                      >
+                        <CaseStudyImage image={image} />
+                        <figcaption>{image.title}</figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                  <div className="case-storyboard-copy">
+                    {scene.label ? <span>{scene.label}</span> : null}
+                    <h3>{scene.title}</h3>
+                    <p>{scene.caption}</p>
+                  </div>
+                </article>
+              ))
+            : (galleryImages.length ? galleryImages : caseStudy.images).map((image) => (
+                <figure
+                  className={[
+                    'case-screenshot',
+                    'product-shot',
+                    image.kind === 'mobile' ? 'case-screenshot-mobile' : '',
+                    image.kind === 'diagram' ? 'case-screenshot-diagram' : '',
+                    image.fit === 'contain' ? 'case-screenshot-contain' : '',
+                    image.fit === 'zoom' ? 'case-screenshot-zoom' : '',
+                  ].filter(Boolean).join(' ')}
+                  key={image.title}
+                >
+                  <CaseStudyImage image={image} />
+                  <figcaption>
+                    <strong>{image.title}</strong>
+                    <span>{image.caption}</span>
+                  </figcaption>
+                </figure>
+              ))}
         </div>
       </section>
       <section className="case-study-section case-study-chapter case-study-build-section section-shell product-reveal">
@@ -1175,7 +1237,7 @@ function PersonalityCollage() {
 function SectionHeading({ eyebrow, title }) {
   return (
     <div className="section-heading reveal">
-      <p className="eyebrow">{eyebrow}</p>
+      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
       <h2>{title}</h2>
     </div>
   );
@@ -1292,7 +1354,7 @@ function CompanyLogo({ logo, organization }) {
 function ProjectSection({ title, projects: projectItems, fintech = false }) {
   return (
     <section className={`section-shell project-showcase-section${fintech ? ' fintech-section' : ''}`}>
-      <SectionHeading eyebrow="Projects" title={title} />
+      <SectionHeading title={title} />
       <div className="project-showcase-list">
         {projectItems.map((project, index) => (
           <ProjectCard key={project.title} index={index} {...project} />
@@ -1314,7 +1376,13 @@ function ProjectCard({ title, mark, status, description, image, imageFit, imageF
   return (
     <article className={`project-card project-showcase${index % 2 === 1 ? ' reverse' : ''}`}>
       <div className={visualClasses}>
-        <img src={image} alt={imageAlt} loading="lazy" />
+        {imageFrame === 'phone' ? (
+          <span className="phone-device project-phone-device">
+            <img src={image} alt={imageAlt} loading="lazy" />
+          </span>
+        ) : (
+          <img src={image} alt={imageAlt} loading="lazy" />
+        )}
       </div>
       <div className="project-copy">
         <div className="project-heading">
