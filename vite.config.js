@@ -1,10 +1,21 @@
 import { fileURLToPath, URL } from 'node:url';
-import { copyFile, mkdir } from 'node:fs/promises';
+import { access, copyFile, mkdir } from 'node:fs/promises';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
 const projectRoot = fileURLToPath(new URL('.', import.meta.url));
 const outputRoot = fileURLToPath(new URL('./dist/', import.meta.url));
+const hostingConfigPath = fileURLToPath(new URL('./.openai/hosting.json', import.meta.url));
+
+async function copyIfExists(source, destination) {
+  try {
+    await access(source);
+  } catch {
+    return;
+  }
+
+  await copyFile(source, destination);
+}
 
 function sitesStaticAdapter() {
   return {
@@ -20,10 +31,7 @@ function sitesStaticAdapter() {
           fileURLToPath(new URL('./worker/index.js', import.meta.url)),
           `${outputRoot}server/index.js`,
         ),
-        copyFile(
-          fileURLToPath(new URL('./.openai/hosting.json', import.meta.url)),
-          `${outputRoot}.openai/hosting.json`,
-        ),
+        copyIfExists(hostingConfigPath, `${outputRoot}.openai/hosting.json`),
       ]);
     },
   };

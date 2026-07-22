@@ -1,0 +1,92 @@
+<svg width="1400" height="920" viewBox="0 0 1400 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="920" rx="44" fill="#FFF8EF"/>
+  <rect x="64" y="64" width="1272" height="792" rx="32" fill="#FFFDF9" stroke="#EADFCF" stroke-width="2"/>
+  <rect x="64" y="64" width="1272" height="106" rx="32" fill="#F4EFE6"/>
+  <path d="M64 138H1336" stroke="#E0D4C4" stroke-width="2"/>
+  <g transform="translate(102 92)">
+    <path d="M0 16C0 7.163 7.163 0 16 0H95C103.837 0 111 7.163 111 16V56C111 64.837 103.837 72 95 72H16C7.163 72 0 64.837 0 56V16Z" fill="#1F2430"/>
+    <path d="M14 18H97M14 54H97" stroke="#FFF8EF" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="31" cy="36" r="8" fill="#FFF8EF"/>
+    <circle cx="80" cy="36" r="8" fill="#FFF8EF"/>
+  </g>
+  <text x="244" y="126" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Ticket Assistant</text>
+  <text x="244" y="154" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600">Private workflow preview with synthetic data</text>
+  <g transform="translate(102 220)">
+    <rect width="316" height="560" rx="24" fill="#F7F2E9" stroke="#E1D6C8" stroke-width="2"/>
+    <text x="28" y="56" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Signals</text>
+    <g transform="translate(28 92)">
+      <rect width="260" height="72" rx="18" fill="#FFFDF9" stroke="#DCD1C2"/>
+      <circle cx="38" cy="36" r="16" fill="#EAF7FF"/>
+      <path d="M33 36H43M38 31V41" stroke="#2A9FD6" stroke-width="3" stroke-linecap="round"/>
+      <text x="70" y="31" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Movies</text>
+      <text x="70" y="54" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14">Showtimes and formats</text>
+    </g>
+    <g transform="translate(28 184)">
+      <rect width="260" height="72" rx="18" fill="#FFFDF9" stroke="#DCD1C2"/>
+      <circle cx="38" cy="36" r="16" fill="#FFF0F5"/>
+      <path d="M30 42L38 28L46 42H30Z" stroke="#E58AA4" stroke-width="3" stroke-linejoin="round"/>
+      <text x="70" y="31" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Live Events</text>
+      <text x="70" y="54" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14">Sale windows and status</text>
+    </g>
+    <g transform="translate(28 276)">
+      <rect width="260" height="72" rx="18" fill="#FFFDF9" stroke="#DCD1C2"/>
+      <circle cx="38" cy="36" r="16" fill="#EDF3FF"/>
+      <path d="M27 31L38 39L49 31M28 29H48V45H28V29Z" stroke="#5A78FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="70" y="31" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Inbox</text>
+      <text x="70" y="54" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14">Read-only labeled email</text>
+    </g>
+    <g transform="translate(28 396)">
+      <rect width="260" height="112" rx="18" fill="#1F2430"/>
+      <text x="24" y="36" fill="#FFF8EF" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Safety Boundary</text>
+      <text x="24" y="64" fill="#D9E2EA" font-family="Arial, Helvetica, sans-serif" font-size="14">Discover, compare, remind.</text>
+      <text x="24" y="88" fill="#D9E2EA" font-family="Arial, Helvetica, sans-serif" font-size="14">Checkout stays manual.</text>
+    </g>
+  </g>
+  <g transform="translate(470 220)">
+    <rect width="420" height="560" rx="24" fill="#FFFDF9" stroke="#E1D6C8" stroke-width="2"/>
+    <text x="34" y="56" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Workflow Core</text>
+    <text x="34" y="88" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="16">Validate, normalize, rank, and hand off.</text>
+    <g transform="translate(34 134)">
+      <rect width="352" height="74" rx="18" fill="#F7F2E9" stroke="#E1D6C8"/>
+      <text x="24" y="32" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">01</text>
+      <text x="70" y="32" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Typed Provider Adapters</text>
+      <text x="70" y="55" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14">Movie, event, and ticket signals become internal models.</text>
+    </g>
+    <g transform="translate(34 232)">
+      <rect width="352" height="74" rx="18" fill="#F7F2E9" stroke="#E1D6C8"/>
+      <text x="24" y="32" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">02</text>
+      <text x="70" y="32" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Conservative Matching</text>
+      <text x="70" y="55" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14">Ambiguous matches stay reviewable instead of guessed.</text>
+    </g>
+    <g transform="translate(34 330)">
+      <rect width="352" height="74" rx="18" fill="#F7F2E9" stroke="#E1D6C8"/>
+      <text x="24" y="32" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">03</text>
+      <text x="70" y="32" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Encrypted Persistence</text>
+      <text x="70" y="55" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14">Sensitive workflow data stays masked by default.</text>
+    </g>
+    <g transform="translate(34 428)">
+      <rect width="352" height="74" rx="18" fill="#F7F2E9" stroke="#E1D6C8"/>
+      <text x="24" y="32" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">04</text>
+      <text x="70" y="32" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Official-Site Handoff</text>
+      <text x="70" y="55" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14">The user finishes sign-in, seats, checkout, and payment.</text>
+    </g>
+  </g>
+  <g transform="translate(942 220)">
+    <rect width="356" height="560" rx="24" fill="#F7F2E9" stroke="#E1D6C8" stroke-width="2"/>
+    <text x="34" y="56" fill="#1F2430" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Private Dashboard</text>
+    <text x="34" y="88" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="16">Movies, Live Events, and Inbox.</text>
+    <rect x="34" y="132" width="288" height="354" rx="26" fill="#111827"/>
+    <rect x="50" y="154" width="256" height="310" rx="20" fill="#FFFDF9"/>
+    <rect x="70" y="182" width="116" height="12" rx="6" fill="#1F2430"/>
+    <rect x="70" y="214" width="204" height="48" rx="14" fill="#EDF3FF"/>
+    <rect x="70" y="282" width="204" height="48" rx="14" fill="#EAF7FF"/>
+    <rect x="70" y="350" width="204" height="48" rx="14" fill="#FFF6D8"/>
+    <circle cx="86" cy="238" r="5" fill="#5A78FF"/>
+    <circle cx="86" cy="306" r="5" fill="#2A9FD6"/>
+    <circle cx="86" cy="374" r="5" fill="#EFBD58"/>
+    <rect x="104" y="232" width="120" height="8" rx="4" fill="#364052"/>
+    <rect x="104" y="300" width="150" height="8" rx="4" fill="#364052"/>
+    <rect x="104" y="368" width="132" height="8" rx="4" fill="#364052"/>
+    <text x="34" y="532" fill="#606977" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">No public demo. No purchase automation.</text>
+  </g>
+</svg>

@@ -820,6 +820,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
           'case-study-section',
           'case-study-chapter',
           'case-study-gallery-section',
+          `case-study-${caseSlug}-gallery`,
           'section-shell',
           'product-reveal',
           caseStudy.galleryStyle === 'storyboard' ? 'case-study-storyboard-section' : '',
@@ -846,6 +847,7 @@ function ProjectCaseStudyPage({ caseStudy }) {
                           'case-storyboard-frame',
                           'product-shot',
                           image.kind === 'mobile' ? 'case-storyboard-frame-mobile' : '',
+                          image.kind === 'diagram' ? 'case-storyboard-frame-diagram' : '',
                           image.kind === 'physical' ? 'case-storyboard-frame-physical' : '',
                           image.fit === 'contain' ? 'case-storyboard-frame-contain' : '',
                           image.fit === 'zoom' ? 'case-storyboard-frame-zoom' : '',
@@ -885,14 +887,37 @@ function ProjectCaseStudyPage({ caseStudy }) {
               ))}
         </div>
       </section>
+      {caseStudy.demo ? (
+        <section className="case-study-demo-link section-shell product-reveal">
+          <div>
+            <p className="eyebrow">{caseStudy.demo.eyebrow || 'Demo'}</p>
+            <h2>{caseStudy.demo.title}</h2>
+            <p>{caseStudy.demo.body}</p>
+          </div>
+          <a className="button secondary-button" href={caseStudy.demo.href} target="_blank" rel="noreferrer">
+            {caseStudy.demo.label || 'Watch Demo'}
+          </a>
+        </section>
+      ) : null}
       <section className="case-study-section case-study-chapter case-study-build-section section-shell product-reveal">
-        <SectionHeading eyebrow={caseStudy.buildEyebrow || 'Build'} title={caseStudy.buildTitle || 'What I Built'} />
+        <div className="case-study-build-heading">
+          <SectionHeading eyebrow={caseStudy.buildEyebrow || 'Build'} title={caseStudy.buildTitle || 'What I Built'} />
+          <div className="case-study-build-summary">
+            <span>{caseStudy.buildSummaryLabel || 'Build Thesis'}</span>
+            <p>
+              {caseStudy.buildSummary ||
+                'A closer look at the product artifacts, technical boundaries, and proof points behind the build.'}
+            </p>
+          </div>
+        </div>
         <div className="case-study-build-list" role="list">
           {caseStudy.whatIBuilt.map((item, index) => (
             <article className={`case-study-build-item product-reveal product-reveal-delay-${Math.min(index + 1, 4)}`} key={item} role="listitem">
-              <span className="case-study-build-marker" aria-hidden="true" />
-              <span>{caseStudy.buildLabels?.[index] || 'Artifact'}</span>
-              <p>{item}</p>
+              <span className="case-study-build-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <div className="case-study-build-copy">
+                <span>{caseStudy.buildLabels?.[index] || 'Artifact'}</span>
+                <p>{item}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -1364,7 +1389,7 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
   );
 }
 
-function ProjectCard({ title, mark, status, description, image, imageFit, imageFrame, imageAlt, systemQuestion, problem, user, role, learned, proof, tags, index }) {
+function ProjectCard({ title, mark, status, description, image, imageFit, imageFrame, imageAlt, problem, user, proof, tags, index }) {
   const projectAction = projectActions[title];
   const visualClasses = [
     'project-visual',
@@ -1392,32 +1417,20 @@ function ProjectCard({ title, mark, status, description, image, imageFit, imageF
             <h3>{title}</h3>
           </div>
         </div>
-        <p>{description}</p>
-        {systemQuestion ? (
-          <div className="project-system-question">
-            <span>Core question</span>
-            <p>{systemQuestion}</p>
-          </div>
-        ) : null}
+        <div className="project-card-callout">
+          <p>{description}</p>
+        </div>
         <dl>
           <div>
             <dt>Problem</dt>
             <dd>{problem}</dd>
           </div>
           <div>
-            <dt>User</dt>
+            <dt>Built for</dt>
             <dd>{user}</dd>
           </div>
           <div>
-            <dt>Role</dt>
-            <dd>{role}</dd>
-          </div>
-          <div>
-            <dt>Learned</dt>
-            <dd>{learned}</dd>
-          </div>
-          <div>
-            <dt>Proves</dt>
+            <dt>Proof</dt>
             <dd>{proof}</dd>
           </div>
         </dl>
