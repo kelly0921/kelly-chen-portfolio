@@ -18,7 +18,6 @@ import {
   currentFocusNotes,
   navItems,
   personalityNotes,
-  pillars,
   projectActions,
   projects,
   skillGroups,
@@ -278,11 +277,8 @@ function HomePage() {
             <a className="button secondary" href="#projects">
               See Projects
             </a>
-            <a className="button secondary" href="#speaking">
-              Speaking & Events
-            </a>
-            <a className="button ghost" href="/Kelly-Chen-Resume.pdf" target="_blank" rel="noreferrer">
-              Resume
+            <a className="button ghost" href="https://www.linkedin.com/in/kellychen0921/" target="_blank" rel="noreferrer">
+              Connect
             </a>
           </div>
           <ImpactStrip />
@@ -290,21 +286,12 @@ function HomePage() {
         <PersonalSnapshot />
       </section>
 
-      <AudiencePathways />
-
-      <section className="section-shell home-pillars-section">
-        <SectionHeading eyebrow="What I do" title="Work, Voice, Community" />
-        <div className="pillar-grid">
-          {pillars.map((pillar) => (
-            <PillarCard key={pillar.id} {...pillar} />
-          ))}
-        </div>
-      </section>
-
       <section className="section-shell current-focus-section">
         <SectionHeading eyebrow="Now" title="Current Focus" />
         <CurrentFocus items={currentFocusNotes} />
       </section>
+
+      <AudiencePathways />
 
       <FeaturedMentorship />
 
@@ -1314,24 +1301,70 @@ function SignatureMark({ variant }) {
 
 function CurrentFocus({ items }) {
   return (
-    <div className="focus-matrix">
-      {items.map((item) => (
-        <HighlightCard key={item.title} {...item} />
-      ))}
+    <div className="focus-canvas">
+      <div className="focus-canvas-copy">
+        <p>
+          The current through-line is technical systems, practical product
+          validation, and access work that turns useful paths into something
+          easier to act on.
+        </p>
+        <div className="focus-thread-list">
+          {items.map((item) => (
+            <HighlightCard key={item.title} {...item} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
 
-function HighlightCard({ type, title, description, note }) {
+function HighlightCard({ type, title, description, note, visual }) {
   return (
-    <article className="focus-item">
-      <span className="focus-mode">{type}</span>
-      <div>
+    <article className={`focus-item focus-item-${visual?.kind || 'text'}`}>
+      {visual ? <FocusVisual {...visual} /> : null}
+      <div className="focus-copy">
+        <span className="focus-mode">{type}</span>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>
       <span className="focus-note">{note}</span>
     </article>
+  );
+}
+
+function FocusVisual({ kind, src, alt, kicker, points = [] }) {
+  const className = `focus-visual focus-visual-${kind}`;
+
+  if (kind === 'phone') {
+    return (
+      <span className={className}>
+        <span className="phone-device focus-phone-device">
+          <img src={src} alt={alt} loading="lazy" />
+        </span>
+      </span>
+    );
+  }
+
+  if (kind === 'program') {
+    return (
+      <span className={className} role="img" aria-label={alt}>
+        <span className="focus-program-card">
+          <span>{kicker}</span>
+          {points.map((point, index) => (
+            <b key={point}>
+              <em>{String(index + 1).padStart(2, '0')}</em>
+              {point}
+            </b>
+          ))}
+        </span>
+      </span>
+    );
+  }
+
+  return (
+    <span className={className}>
+      <img src={src} alt={alt} loading="lazy" />
+    </span>
   );
 }
 
@@ -1693,7 +1726,7 @@ function PageCTA({ eyebrow, title, body, href, label }) {
 
 function CTASection() {
   return (
-    <section className="cta-section section-shell">
+    <section className="cta-section section-shell" id="connect">
       <div className="cta-copy">
         <h2>Let's Connect</h2>
         <p>

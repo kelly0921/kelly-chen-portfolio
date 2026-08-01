@@ -42,28 +42,49 @@ export const pillars = [
 
 export const currentFocusNotes = [
   {
+    type: 'Engineering',
+    title: 'Bloomberg fixed income systems',
+    description: 'Building production habits through private securities work and bringing that reliability lens into product decisions.',
+    note: 'C++, systems, financial infrastructure',
+    visual: {
+      kind: 'logo',
+      src: '/assets/company-bloomberg.png',
+      alt: 'Bloomberg logo',
+    },
+  },
+  {
     type: 'Building',
-    title: 'BeamCash payment flow',
-    description: 'Shaping a QR checkout experience for sellers who need buyers, donors, or supporters to pay without creating another account.',
-    note: 'Seller setup, QR checkout, buyer flow',
+    title: 'BeamCash QR payments',
+    description: 'Testing a mobile-first checkout flow for sellers who need buyers, donors, or supporters to pay without joining another app.',
+    note: 'Seller feedback and product validation',
+    visual: {
+      kind: 'phone',
+      src: '/assets/project-beamcash-buyer-checkout-mobile.png',
+      alt: 'BeamCash mobile buyer checkout',
+    },
   },
   {
-    type: 'Testing',
-    title: 'Product feedback loops',
-    description: 'Using BeamCash, WebPilot, SkanPay, and Tandem as focused builds for usability feedback instead of abstract concepts.',
-    note: 'Beta conversations and case studies',
+    type: 'Resources',
+    title: 'ApplyFirst and conference tools',
+    description: 'Turning opportunity timing, conference strategy, and student access patterns into practical tools and resource bundles.',
+    note: 'Student access and timing signals',
+    visual: {
+      kind: 'desktop',
+      src: '/assets/project-applyfirst-programs-desktop.png',
+      alt: 'ApplyFirst opportunity directory screen',
+    },
   },
   {
-    type: 'Publishing',
-    title: 'Conference leverage resources',
-    description: 'Turning the LinkedIn conference series into guides, trackers, and templates once the delivery flow is clear.',
-    note: 'Resource packaging',
-  },
-  {
-    type: 'Learning',
-    title: 'Financial systems in practice',
-    description: 'Building production habits through fixed income private securities work and bringing that lens back into product decisions.',
-    note: 'C++, systems, reliability',
+    type: 'Mentorship',
+    title: 'Recruiting Season Accelerator',
+    description: 'Helping SWE students find what to fix first, sharpen their positioning, and leave with a recruiting plan they can actually execute.',
+    note: '4 weeks · 8 students · private strategy',
+    visual: {
+      kind: 'program',
+      alt: 'Recruiting Season Accelerator program snapshot',
+      kicker: 'Student sprint',
+      points: ['Diagnose', 'Position', 'Plan'],
+    },
   },
 ];
 
