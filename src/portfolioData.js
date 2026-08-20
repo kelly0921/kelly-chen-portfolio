@@ -1565,7 +1565,7 @@ export const speakingEvents = [
   },
   {
     event: 'NCWIT Career Fair',
-    status: 'Upcoming',
+    status: 'Past',
     role: 'Flash talk speaker',
     topic: 'The Unspoken Playbook',
     subtitle: 'Building Career Leverage as an Emerging Engineer',
@@ -1574,9 +1574,9 @@ export const speakingEvents = [
     format: '30-minute flash talk session',
     location: 'NCWIT Career Fair',
     description:
-      'A fast-moving version designed for a career fair setting, with concrete ways to make experience, projects, and community work compound.',
+      'A fast-moving version for a career fair setting, with concrete ways to make experience, projects, and community work compound.',
     href: 'https://ncwit.vfairs.com/?mc_cid=48683d8ae6&mc_eid=3414de5471',
-    linkLabel: 'Register for the Event',
+    linkLabel: 'View Event Page',
   },
 ];
 
@@ -1739,12 +1739,173 @@ export const communityWork = [
   },
 ];
 
+export const contentThemes = [
+  {
+    label: 'Systems',
+    tone: 'blue',
+    title: 'Engineering Judgment',
+    description:
+      'How technical systems, product boundaries, reliability habits, and MVP decisions show up in real builds.',
+  },
+  {
+    label: 'Access',
+    tone: 'gold',
+    title: 'Opportunity Access',
+    description:
+      'Programs, fellowships, scholarships, conferences, and timing patterns students often find too late.',
+  },
+  {
+    label: 'Rooms',
+    tone: 'teal',
+    title: 'Conference Strategy',
+    description:
+      'How to decide whether a room is worth entering, read sponsor signals, prepare well, and follow through.',
+  },
+  {
+    label: 'Leverage',
+    tone: 'rose',
+    title: 'Career Leverage',
+    description:
+      'Career decisions, positioning, technical confidence, and the shift from doing more to building better leverage.',
+  },
+];
+
+export const contentFeaturedItems = [
+  {
+    theme: 'Conference Strategy',
+    tone: 'teal',
+    format: 'LinkedIn series',
+    source: 'Public notes',
+    title: 'Is a Conference Worth It This Year?',
+    description:
+      'A practical framing for deciding whether a conference is worth the time, cost, and energy by looking for leverage instead of just visibility.',
+    reason:
+      'Shows the kind of content I like making: honest, useful, and grounded in what students are actually trying to decide.',
+    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
+    ctaLabel: 'Find on LinkedIn',
+  },
+  {
+    theme: 'Opportunity Access',
+    tone: 'gold',
+    format: 'Resource seed',
+    source: 'Public notes',
+    title: 'Where Conference Funding Actually Comes From',
+    description:
+      'A breakdown of funding paths students can look for before paying out of pocket: school funds, community support, company sponsorships, and backup options.',
+    reason:
+      'Turns a common hidden barrier into something students can plan around earlier.',
+    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
+    ctaLabel: 'Find on LinkedIn',
+  },
+  {
+    theme: 'Engineering Career',
+    tone: 'blue',
+    format: 'LinkedIn note',
+    source: 'Public notes',
+    title: 'Systems Thinking Is Becoming the Stronger Signal',
+    description:
+      'A note on why AI-polished resumes make technical judgment, system context, and human trust more important in career conversations.',
+    reason:
+      'Connects technical work, hiring shifts, and how emerging engineers can communicate more clearly.',
+    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
+    ctaLabel: 'Find on LinkedIn',
+  },
+  {
+    theme: 'Community',
+    tone: 'indigo',
+    format: 'Working thread',
+    source: 'Public notes',
+    title: 'The Spaces Between Booths Matter Too',
+    description:
+      'A conference note about workshops, panels, peer intel, smaller rooms, and the community layer that often creates the best career momentum.',
+    reason:
+      'Shows how my content often connects strategy with community, access, and real rooms.',
+    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
+    ctaLabel: 'Find on LinkedIn',
+  },
+];
+
+export const contentAudienceProfile = {
+  summary:
+    'The audience I write for is mostly students, emerging engineers, builders, and community organizers who want practical ways to make technical, career, and opportunity decisions less confusing.',
+  platforms: [
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
+    },
+  ],
+  metrics: [],
+  lastUpdated: null,
+  audienceGroups: [
+    {
+      label: 'Students',
+      tone: 'gold',
+      title: 'Students and Emerging Engineers',
+      description:
+        'People navigating internships, new-grad roles, conferences, fellowships, scholarships, technical confidence, and early career direction.',
+    },
+    {
+      label: 'Builders',
+      tone: 'blue',
+      title: 'Technical Builders',
+      description:
+        'Engineers and product-minded builders interested in fintech experiments, AI workflows, MVP architecture, and useful systems.',
+    },
+    {
+      label: 'Communities',
+      tone: 'indigo',
+      title: 'Community and Program Leaders',
+      description:
+        'Organizers, student leaders, and partners looking for practical sessions, resource sharing, and thoughtful access work.',
+    },
+  ],
+};
+
+export const contentCredibility = [
+  {
+    label: 'Engineer',
+    tone: 'blue',
+    title: 'Grounded in Real Technical Work',
+    description:
+      'The content sits next to software engineering experience, fintech context, and technical projects rather than being a separate creator persona.',
+    href: '#experience',
+    ctaLabel: 'See Experience',
+  },
+  {
+    label: 'Builder',
+    tone: 'teal',
+    title: 'Connected to Actual Products',
+    description:
+      'Projects like ApplyFirst, BeamCash, WebPilot, and WriteGuard keep the ideas tied to product decisions, users, and implementation.',
+    href: '#projects',
+    ctaLabel: 'See Projects',
+  },
+  {
+    label: 'Organizer',
+    tone: 'indigo',
+    title: 'Backed by Community Work',
+    description:
+      'Girls Who Code, Rewriting the Code, conference trips, and student programming keep the resource work grounded in real community needs.',
+    href: '#community',
+    ctaLabel: 'See Community',
+  },
+  {
+    label: 'Speaker',
+    tone: 'rose',
+    title: 'Built For Live Rooms Too',
+    description:
+      'The same themes show up in workshops, talks, and events around career leverage, technical growth, and opportunity access.',
+    href: '#speaking',
+    ctaLabel: 'See Speaking',
+  },
+];
+
 export const contentResourceGroups = [
   {
     status: 'Live app / private beta',
     title: 'ApplyFirst',
     description:
-      'ApplyFirst now carries the opportunity library and early-discovery product direction. It is live as a separate app while the opportunity data, filters, and beta feedback loop mature.',
+      'A live early-career opportunity app for programs, fellowships, scholarships, and high-signal resources students often find too late.',
     href: 'https://applyfirst-careers.pages.dev/',
     ctaLabel: 'Join Waitlist',
     items: [
@@ -1772,13 +1933,13 @@ export const contentPipeline = [
     tone: 'teal',
     title: 'Opportunity Timing Notes',
     description:
-      'Research on how recurring opportunities open, change, and become easier to prepare for when students know what to watch.',
+      'Notes on recurring openings, timing patterns, and what students should watch before applications go live.',
   },
   {
     tone: 'blue',
     title: 'Sponsor List Reading Guide',
     description:
-      'A practical way to understand conference sponsor lists, prioritize conversations, and prepare better questions.',
+      'A practical way to read conference sponsors, prioritize conversations, and prepare better questions.',
   },
   {
     tone: 'rose',
@@ -1794,17 +1955,56 @@ export const contentPipeline = [
   },
 ];
 
+export const contentPartnerships = {
+  title: 'Useful before Promotional',
+  description:
+    'I am open to selective collaborations when the topic already fits what I talk about and the result gives students, builders, or communities something genuinely useful.',
+  philosophyLabel: 'Partnership philosophy',
+  philosophy:
+    'A good collaboration should feel like a useful piece of content first, not an ad with a caption around it.',
+  options: [
+    {
+      label: 'Community',
+      tone: 'indigo',
+      title: 'Community and Alumni Partnerships',
+      description:
+        'Program awareness, community storytelling, alumni/community initiatives, or student outreach connected to rooms I understand.',
+    },
+    {
+      label: 'Programs',
+      tone: 'gold',
+      title: 'Program and Opportunity Campaigns',
+      description:
+        'Selective fellowships, scholarships, conferences, hackathons, education programs, or early-career opportunities that fit my audience.',
+    },
+    {
+      label: 'Events',
+      tone: 'teal',
+      title: 'Events and Conference Collaborations',
+      description:
+        'Pre-event or post-event storytelling, practical prep resources, event coverage, speaker participation, or community activation.',
+    },
+    {
+      label: 'Products',
+      tone: 'blue',
+      title: 'Selective Product Partnerships',
+      description:
+        'Developer tools, AI tools, career products, education, fintech, productivity, or startup tools I would be comfortable discussing honestly.',
+    },
+  ],
+  principles: [
+    'The topic should fit what I would naturally discuss.',
+    'The audience should get real value, not just a promotion.',
+    'My voice and honest judgment need to stay intact.',
+    'No employer or organization endorsement is implied.',
+  ],
+};
+
 export const conferencePlannerProduct = {
   label: 'Beta resource bundle',
-  status: 'Bundle assembled',
   title: 'Conference Leverage Planner',
-  tagline: 'Plan the room before you walk in.',
   description:
-    'A practical strategy kit for students deciding whether a conference is worth it, finding funding paths, reading sponsor intent, preparing for interview invites, tracking private socials, and following up after the room closes.',
-  note:
-    'The Lemon Squeezy storefront is not live yet. Until then, this is request-only beta material and not a public promise of funding, interviews, referrals, or offers.',
-  price: 'Storefront next',
-  freeLabel: 'Free Lite Kit planned',
+    'A beta strategy kit for students deciding whether a conference is worth it, finding funding paths, reading sponsor intent, and following up well.',
   primaryCta: {
     label: 'Request Beta Bundle',
     href: 'mailto:kellychenmeiyi@gmail.com?subject=Conference%20Leverage%20Planner%20Full%20Bundle',
@@ -1813,38 +2013,6 @@ export const conferencePlannerProduct = {
     label: 'Request Free Lite Kit',
     href: 'mailto:kellychenmeiyi@gmail.com?subject=Conference%20Leverage%20Planner%20Free%20Lite%20Kit',
   },
-  includes: [
-    'Full Strategy Kit PDF',
-    'Template Bank PDF',
-    'Tracker Workbook XLSX',
-    'One-Page Final Plan',
-    'Free Lite Kit',
-  ],
-  previews: [
-    {
-      src: '/assets/conference-leverage-planner/01-full-strategy-cover.png',
-      alt: 'Conference Leverage Planner full strategy kit cover.',
-      eyebrow: 'Strategy kit',
-      title: 'Decide if the conference is worth it before you spend.',
-      caption: 'A structured guide for ROI, funding, sponsors, interviews, learning, and follow-up.',
-    },
-    {
-      src: '/assets/conference-leverage-planner/06-one-page-final-plan.png',
-      alt: 'Conference Leverage Planner one-page final plan preview.',
-      eyebrow: 'Final plan',
-      title: 'Leave with one clear plan you can actually use in the room.',
-      caption: 'A blank planning preview for goals, funding status, sponsor targets, sessions, people, and follow-up.',
-      layout: 'landscape',
-    },
-    {
-      src: '/assets/conference-leverage-planner/05-tracker-workbook.png',
-      alt: 'Conference Leverage Planner tracker workbook preview.',
-      eyebrow: 'Tracker workbook',
-      title: 'Keep funding, sponsors, interviews, socials, and follow-up in one place.',
-      caption: 'A workbook preview showing the tracking system, not the full working files.',
-      layout: 'wide',
-    },
-  ],
 };
 
 export const skillGroups = [

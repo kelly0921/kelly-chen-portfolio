@@ -10,8 +10,13 @@ import {
   communityConferenceMoments,
   communityResources,
   conferencePlannerProduct,
+  contentAudienceProfile,
+  contentCredibility,
+  contentFeaturedItems,
   contentPipeline,
+  contentPartnerships,
   contentResourceGroups,
+  contentThemes,
   experiences,
   availableTopics,
   audiencePathways,
@@ -54,6 +59,51 @@ function getRoute() {
   return getSiteRoute(window.location.pathname, window.location.hash);
 }
 
+const pageMetadata = {
+  home: {
+    title: 'Kelly Chen | Systems, Stories, and Access',
+    description:
+      'Kelly Chen is a software engineer, fintech builder, and community storyteller building at the intersection of systems, stories, and access.',
+  },
+  experience: {
+    title: 'Kelly Chen | Experience',
+    description:
+      'Kelly Chen experience across software engineering, fintech systems, technical fellowships, and community leadership.',
+  },
+  projects: {
+    title: 'Kelly Chen | Projects',
+    description:
+      'Product and engineering case studies from Kelly Chen, including fintech MVPs, AI workflow tools, opportunity systems, and technical infrastructure projects.',
+  },
+  speaking: {
+    title: 'Kelly Chen | Speaking',
+    description:
+      'Talks, workshops, and events from Kelly Chen on career leverage, technical growth, opportunity access, and emerging engineering paths.',
+  },
+  community: {
+    title: 'Kelly Chen | Community',
+    description:
+      'Community organizing, student access work, and women-in-tech leadership from Kelly Chen.',
+  },
+  content: {
+    title: 'Kelly Chen | Content and Resources',
+    description:
+      'Public notes, opportunity resources, student strategy guides, and aligned collaboration paths from Kelly Chen.',
+  },
+};
+
+function usePageMetadata(route) {
+  useEffect(() => {
+    const meta = pageMetadata[route] || pageMetadata.home;
+    document.title = meta.title;
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.setAttribute('content', meta.description);
+    }
+  }, [route]);
+}
+
 function useProductPageMotion(route) {
   useEffect(() => {
     const isProjectStory = ['beamcash', 'webpilot', 'writeguard', 'applyfirst'].includes(route);
@@ -68,13 +118,11 @@ function useProductPageMotion(route) {
       '.topic-card',
       '.community-card',
       '.media-card',
-      '.content-status-column',
+      '.content-desk',
+      '.content-ready-item',
       '.content-pipeline-item',
       '.speaking-moment',
       '.community-moment',
-      '.conference-product',
-      '.conference-product-includes',
-      '.conference-product-previews figure',
       '.featured-mentorship',
     ].join(', ');
 
@@ -155,6 +203,7 @@ function App() {
   }, []);
 
   useProductPageMotion(route);
+  usePageMetadata(route);
 
   const page = useMemo(() => {
     switch (route) {
@@ -1001,63 +1050,172 @@ function MediaPage() {
       <PageHero
         eyebrow="Content"
         title="Content & Resources"
-        body="A resource desk for beta guides, practical tools, and apps like ApplyFirst. Ready pieces have clear next steps; future ideas are marked as still being built."
+        body="Notes, tools, and resources from what I am learning across software engineering, building, speaking, mentoring, and community work."
       />
-      <section className="section-shell content-status-section">
-        <ContentStatusBoard groups={contentResourceGroups} />
+      <section className="section-shell content-editorial-section">
+        <ContentDesk themes={contentThemes} tools={contentResourceGroups} product={conferencePlannerProduct} />
       </section>
-      <section className="section-shell content-product-section">
-        <ConferencePlannerProduct product={conferencePlannerProduct} />
+      <section className="section-shell content-featured-section">
+        <FeaturedContentList items={contentFeaturedItems} />
       </section>
-      <section className="section-shell">
+      <section className="section-shell content-audience-section">
+        <ContentAudienceKit profile={contentAudienceProfile} credibility={contentCredibility} />
+      </section>
+      <section className="section-shell content-pipeline-section">
         <ContentPipeline items={contentPipeline} />
       </section>
+      <section className="section-shell content-partnership-section" id="partnerships">
+        <ContentPartnerships partnerships={contentPartnerships} />
+      </section>
       <PageCTA
-        eyebrow="Follow the build"
-        title="Get Notified When New Resources Go Live"
-        body="The newsletter/storefront signup is still coming. For now, email me if you want resource updates, or follow along on LinkedIn."
-        href="mailto:kellychenmeiyi@gmail.com?subject=Resource%20updates"
-        label="Get Resource Updates"
+        eyebrow="Selective collaborations"
+        title="Have Something Genuinely Useful for This Audience?"
+        body="Reach out if the idea fits students, emerging engineers, builders, or technical communities, and still gives people something useful even before any partnership layer."
+        href="mailto:kellychenmeiyi@gmail.com?subject=Content%20collaboration"
+        label="Start the Conversation"
       />
     </>
   );
 }
 
-function ContentStatusBoard({ groups }) {
+function ContentDesk({ themes, tools, product }) {
+  const primaryTool = tools[0];
+
   return (
-    <div className="content-status-board">
-      <div>
-        <p className="eyebrow">Ready to use</p>
-        <h2>Available Tools and Requestable Resources</h2>
+    <div className="content-desk">
+      <div className="content-desk-intro">
+        <p className="eyebrow">What I talk about</p>
+        <h2>Useful Notes From Building, Working, and Organizing</h2>
         <p>
-          This area only shows things with a real next step: open the app, request the
-          beta bundle, or follow the upcoming resource pipeline below.
+          I share what I am noticing in technical work, early-career decisions,
+          product experiments, conferences, and communities. The best ideas become
+          resources people can actually use.
+        </p>
+        <div className="content-theme-chips" aria-label="Content themes">
+          {themes.map((theme) => (
+            <span className={`content-theme-chip content-tone-${theme.tone}`} key={theme.label}>
+              {theme.title}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="content-ready-list" aria-label="Ready and requestable resources">
+        <p className="content-ready-kicker">Current resource layer</p>
+        {primaryTool ? (
+          <article className="content-ready-item content-tone-blue">
+            <span>{primaryTool.status}</span>
+            <h3>{primaryTool.title}</h3>
+            <p>{primaryTool.description}</p>
+            <a className="text-link" href={primaryTool.href} target="_blank" rel="noreferrer">
+              {primaryTool.ctaLabel}
+            </a>
+          </article>
+        ) : null}
+        <article className="content-ready-item content-tone-teal">
+          <span>{product.label}</span>
+          <h3>{product.title}</h3>
+          <p>{product.description}</p>
+          <div className="content-ready-actions">
+            <a className="text-link" href={product.primaryCta.href}>
+              {product.primaryCta.label}
+            </a>
+            <a className="text-link muted-link" href={product.secondaryCta.href}>
+              {product.secondaryCta.label}
+            </a>
+          </div>
+        </article>
+        <p className="content-desk-note">
+          I only show resources here when there is a real next step.
         </p>
       </div>
-      <div className="content-status-columns">
-        {groups.map((group) => (
-          <article key={group.title} className="content-status-column">
-            <span>{group.status}</span>
-            <h3>{group.title}</h3>
-            <p>{group.description}</p>
-            {group.href ? (
-              <a className="text-link content-status-link" href={group.href} target="_blank" rel="noreferrer">
-                {group.ctaLabel}
+    </div>
+  );
+}
+
+function FeaturedContentList({ items }) {
+  return (
+    <div className="featured-content">
+      <div className="featured-content-heading">
+        <p className="eyebrow">Selected examples</p>
+        <h2>Content That Shows the Range</h2>
+        <p>
+          A few public notes that represent the voice of the page: practical,
+          specific, experience-driven, and connected to real rooms and decisions.
+        </p>
+      </div>
+      <div className="featured-content-list">
+        {items.map((item) => (
+          <article className={`featured-content-item content-tone-${item.tone}`} key={item.title}>
+            <div className="featured-content-meta">
+              <span>{item.theme}</span>
+              <em>{item.format}</em>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            {item.reason ? <p className="featured-content-reason">{item.reason}</p> : null}
+            <div className="featured-content-footer">
+              <span>{item.source}</span>
+              <a className="text-link" href={item.href} target="_blank" rel="noreferrer">
+                {item.ctaLabel}
               </a>
-            ) : null}
-            <ul>
-              {group.items.map((item) => (
-                <li key={item.title}>
-                  <div>
-                    <strong>{item.title}</strong>
-                    <em>{item.meta}</em>
-                  </div>
-                  <p>{item.description}</p>
-                </li>
-              ))}
-            </ul>
+            </div>
           </article>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function ContentAudienceKit({ profile, credibility }) {
+  const hasMetrics = profile.metrics?.some((metric) => metric.value);
+
+  return (
+    <div className="content-audience-panel">
+      <div className="content-section-intro">
+        <p className="eyebrow">Audience and credibility</p>
+        <h2>Who the Content Is For</h2>
+        <p>{profile.summary}</p>
+        <div className="creator-platforms" aria-label="Content platforms">
+          {profile.platforms.map((platform) => (
+            <a href={platform.href} key={platform.label} target="_blank" rel="noreferrer">
+              {platform.label}
+            </a>
+          ))}
+        </div>
+        {hasMetrics ? (
+          <div className="audience-metric-grid">
+            {profile.metrics
+              .filter((metric) => metric.value)
+              .map((metric) => (
+                <article key={metric.label}>
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </article>
+              ))}
+          </div>
+        ) : null}
+      </div>
+      <div className="content-audience-details">
+        <div className="audience-group-list">
+          {profile.audienceGroups.map((group) => (
+            <article className={`audience-group content-tone-${group.tone}`} key={group.title}>
+              <span>{group.label}</span>
+              <h3>{group.title}</h3>
+              <p>{group.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="content-proof-list" aria-label="Credibility beyond impressions">
+          {credibility.map((item) => (
+            <article className={`content-proof-item content-tone-${item.tone}`} key={item.title}>
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              {item.href ? <a className="text-link" href={item.href}>{item.ctaLabel}</a> : null}
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -1067,16 +1225,16 @@ function ContentPipeline({ items }) {
   return (
     <div className="content-pipeline">
       <div className="content-pipeline-heading">
-        <p className="eyebrow">Coming next</p>
-        <h2>Planned Resource Directions</h2>
+        <p className="eyebrow">In progress</p>
+        <h2>What is Still Being Shaped</h2>
         <p>
-          A preview of the resource areas I am shaping next. I only publish them
-          here when they are useful enough to share clearly.
+          These ideas stay small until they have real links, files, screenshots,
+          or a clear way to use them.
         </p>
       </div>
       <ol>
         {items.map((item) => (
-          <li className={`content-pipeline-${item.tone}`} key={item.title}>
+          <li className={`content-pipeline-item content-pipeline-${item.tone}`} key={item.title}>
             <div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
@@ -1088,93 +1246,35 @@ function ContentPipeline({ items }) {
   );
 }
 
-function ConferencePlannerProduct({ product }) {
-  const [selectedPreview, setSelectedPreview] = useState(null);
-
-  useEffect(() => {
-    if (!selectedPreview) return undefined;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setSelectedPreview(null);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedPreview]);
-
+function ContentPartnerships({ partnerships }) {
   return (
-    <>
-      <article className="conference-product" id="conference-leverage-planner">
-        <div className="conference-product-copy">
-          <span>{product.label}</span>
-          <h2>{product.title}</h2>
-          <p className="conference-product-tagline">{product.tagline}</p>
-          <p>{product.description}</p>
-          <div className="conference-product-actions">
-            <a className="button primary" href={product.primaryCta.href}>
-              {product.primaryCta.label}
-            </a>
-            <a className="button secondary" href={product.secondaryCta.href}>
-              {product.secondaryCta.label}
-            </a>
-          </div>
-          <div className="conference-product-meta" aria-label="Conference Leverage Planner product details">
-            <span>{product.status}</span>
-            <span>{product.price}</span>
-            <span>{product.freeLabel}</span>
-          </div>
-          <p className="conference-product-note">{product.note}</p>
+    <div className="content-partnerships">
+      <div className="content-section-intro">
+        <p className="eyebrow">Partnerships and collaborations</p>
+        <h2>{partnerships.title}</h2>
+        <p>{partnerships.description}</p>
+      </div>
+      <div className="partnership-body">
+        <div className="partnership-options">
+          {partnerships.options.map((option) => (
+            <article className={`partnership-option content-tone-${option.tone}`} key={option.title}>
+              <span>{option.label}</span>
+              <h3>{option.title}</h3>
+              <p>{option.description}</p>
+            </article>
+          ))}
         </div>
-
-        <div className="conference-product-side">
-          <div className="conference-product-includes" aria-label="Conference Leverage Planner included files">
-            <span>Includes</span>
-            <ul>
-              {product.includes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="conference-product-previews" aria-label="Conference Leverage Planner previews">
-            {product.previews.map((preview) => (
-              <figure className={preview.layout ? `conference-preview-${preview.layout}` : undefined} key={preview.src}>
-                <figcaption className="conference-preview-copy">
-                  <span>{preview.eyebrow}</span>
-                  <strong>{preview.title}</strong>
-                  <p>{preview.caption}</p>
-                </figcaption>
-                <button
-                  aria-label={`Open larger preview: ${preview.caption}`}
-                  className="conference-preview-button"
-                  onClick={() => setSelectedPreview(preview)}
-                  type="button"
-                >
-                  <img src={preview.src} alt={preview.alt} loading="lazy" />
-                  <span className="conference-preview-zoom">View Larger</span>
-                </button>
-              </figure>
+        <aside className="partnership-principles">
+          <span>{partnerships.philosophyLabel}</span>
+          <p>{partnerships.philosophy}</p>
+          <ul>
+            {partnerships.principles.map((principle) => (
+              <li key={principle}>{principle}</li>
             ))}
-          </div>
-        </div>
-      </article>
-
-      {selectedPreview ? (
-        <div className="preview-lightbox" role="dialog" aria-modal="true" aria-label="Conference Leverage Planner preview">
-          <button className="preview-lightbox-backdrop" onClick={() => setSelectedPreview(null)} type="button">
-            <span>Close preview</span>
-          </button>
-          <figure>
-            <button className="preview-lightbox-close" onClick={() => setSelectedPreview(null)} type="button">
-              Close
-            </button>
-            <img src={selectedPreview.src} alt={selectedPreview.alt} />
-            <figcaption>{selectedPreview.caption}</figcaption>
-          </figure>
-        </div>
-      ) : null}
-    </>
+          </ul>
+        </aside>
+      </div>
+    </div>
   );
 }
 
