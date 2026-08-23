@@ -77,13 +77,13 @@ export const currentFocusNotes = [
   {
     type: 'Mentorship',
     title: 'Recruiting Season Accelerator',
-    description: 'Helping SWE students find what to fix first, sharpen their positioning, and leave with a recruiting plan they can actually execute.',
-    note: '4 weeks · 8 students · private strategy',
+    description: 'Helping college students diagnose recruiting bottlenecks, strengthen their positioning, and build a fall opportunity strategy they can execute.',
+    note: 'Fall 2026 · 8 students · free mentorship',
     visual: {
       kind: 'program',
       alt: 'Recruiting Season Accelerator program snapshot',
-      kicker: 'Student sprint',
-      points: ['Diagnose', 'Position', 'Plan'],
+      kicker: 'Fall mentorship cohort',
+      points: ['Diagnose', 'Position', 'Apply'],
     },
   },
 ];

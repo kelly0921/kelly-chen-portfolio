@@ -317,7 +317,7 @@ function HomePage() {
           >
             <span>Now Building</span>
             <strong>Recruiting Season Accelerator</strong>
-            <small>Four-week recruiting strategy program for students</small>
+            <small>Free Fall 2026 mentorship cohort · Applications August 24–31</small>
           </a>
           <div className="button-row">
             <a className="button primary" href="#experience">
@@ -359,32 +359,32 @@ function FeaturedMentorship() {
     >
       <div className="featured-mentorship-band">
         <div className="featured-mentorship-label">
-          <span>Active Program</span>
-          <strong>Applications open July 22-August 2</strong>
-          <em>8-student cohort</em>
+          <span>Fall 2026 Founding Cohort</span>
+          <strong>Applications August 24–31</strong>
+          <em>8 mentorship spots</em>
         </div>
         <div className="featured-mentorship-main">
           <div className="featured-mentorship-copy">
             <h2 id="featured-mentorship-title">Recruiting Season Accelerator</h2>
             <p className="featured-mentorship-hook">
-              Applying for SWE roles, but not sure what to fix first?
+              Build a smarter fall opportunity strategy.
             </p>
             <strong className="featured-mentorship-promise">
-              Find the bottleneck. Sharpen your positioning.
-              <span>Leave with a plan.</span>
+              Find the bottleneck. Strengthen your positioning.
+              <span>Leave with a 60-day plan.</span>
             </strong>
             <p>
-              A 4-week, 8-student cohort with targeted feedback, private strategy
-              sessions, and a 60/90-day recruiting map.
+              A free fall-semester mentorship cohort with a four-week intensive
+              and lighter support through December 15.
             </p>
           </div>
           <div className="featured-mentorship-includes">
             <span>What's Included</span>
             <ul className="featured-mentorship-points" aria-label="What students get">
-              <li><strong>Strategy</strong><span>Know where to focus</span></li>
-              <li><strong>Feedback</strong><span>Resume, LinkedIn, portfolio</span></li>
-              <li><strong>Support</strong><span>3 private sessions</span></li>
-              <li><strong>Plan</strong><span>60/90-day execution map</span></li>
+              <li><strong>4</strong><span>Live workshops</span></li>
+              <li><strong>2</strong><span>Individual sessions</span></li>
+              <li><strong>1</strong><span>Resume re-review</span></li>
+              <li><strong>60</strong><span>Day plan</span></li>
             </ul>
             <div className="featured-mentorship-mentor" aria-label="Mentor background">
               <span>Led by Kelly Chen</span>
@@ -407,7 +407,7 @@ function FeaturedMentorship() {
               target="_blank"
               rel="noreferrer"
             >
-              Preview the Application
+              Apply for the Cohort
             </a>
           </div>
         </div>

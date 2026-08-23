@@ -26,7 +26,7 @@ test('homepage mentorship feature links to the external program site', async () 
   assert.match(source, /Recruiting Season Accelerator/);
   assert.match(source, /Now Building/);
   assert.match(source, /Explore the Program/);
-  assert.match(source, /Preview the Application/);
+  assert.match(source, /Apply for the Cohort/);
   assert.match(source, /https:\/\/recruiting-accelerator-apply\.pages\.dev\//);
   assert.match(source, /https:\/\/recruiting-accelerator-apply\.pages\.dev\/apply/);
   assert.doesNotMatch(source, /chatgpt\.site/);
