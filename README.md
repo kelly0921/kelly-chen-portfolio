@@ -71,8 +71,11 @@ docs/
   portfolio-design-system.md
   production-readiness.md
   logo-options.md
+  shared-tools-and-services.md
 ```
 
 ## Notes
 
 The site is intentionally content-driven. Placeholder or future-facing items should be tracked in `docs/production-readiness.md` instead of appearing as unfinished content on the live website.
+
+External APIs, paid services, reusable Cloudflare resources, and provider decisions are tracked in `docs/shared-tools-and-services.md` before adding new tools to portfolio-adjacent projects.

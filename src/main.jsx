@@ -480,7 +480,7 @@ function ProjectsPage() {
       <PageHero
         eyebrow="Projects"
         title="Projects & Prototypes"
-        body="Built work, active explorations, and startup concepts, shown with visual context and the skills behind each idea."
+        body="A focused index of products, technical systems, and early ideas I am building or testing through real workflows."
       />
       <ProjectSection title="Built and in Progress" projects={built} />
       <ProjectSection title="Experimental Infrastructure" projects={infrastructure} />
@@ -688,6 +688,12 @@ function CommunityPage() {
   );
 }
 
+const projectSectionNotes = {
+  'Built and in Progress': 'Real screens, active validation, and clear next steps for people who might try or evaluate the work.',
+  'Experimental Infrastructure': 'Technical systems where the useful part is the architecture, safety boundary, or operating model.',
+  'Startup Concepts': 'Market-facing concepts that test whether an idea has a clear audience before it becomes a larger build.',
+};
+
 function CaseStudyImage({ image, loading = 'lazy' }) {
   const imageElement = <img src={image.src} alt={image.alt} loading={loading} />;
 
@@ -702,30 +708,164 @@ function CaseStudyImage({ image, loading = 'lazy' }) {
   return imageElement;
 }
 
+const caseStudyPageProfiles = {
+  BeamCash: {
+    mode: 'product',
+    badge: 'Seller beta',
+    audienceEyebrow: 'For sellers collecting in person',
+    promise: 'Collect from people who do not use the same payment app.',
+    storyTitle: 'One QR, accountless buyer checkout, organized seller follow-through.',
+    storyBody:
+      'A seller can keep one branded code at the table, booth, performance, or fundraiser. The buyer scans from their own phone, confirms who they are paying, and checks out without creating a BeamCash account.',
+    proofEyebrow: 'Buyer and seller workflow',
+    proofTitle: 'The payment handoff from table to dashboard.',
+    proofBody:
+      'The workflow focuses on the moments that matter most: display the QR, let the buyer confirm and pay, then give the seller one place to track readiness and activity.',
+    signalTitle: 'Build Signal',
+    signalBody:
+      'The build connects payment reach, mobile UX, QR signage, seller readiness, and future processor boundaries into one testable checkout MVP.',
+  },
+  WebPilot: {
+    mode: 'product',
+    badge: 'Prototype',
+    audienceEyebrow: 'For website revamps',
+    promise: 'Turn scattered website feedback into reviewed work people can act on.',
+    storyTitle: 'Context, AI drafts, review state, and handoff stay connected.',
+    storyBody:
+      'The important part is not that AI can generate suggestions. It is that the suggestions become traceable, editable, reviewed, and ready for implementation.',
+    proofEyebrow: 'Workflow screens',
+    proofTitle: 'From website context to reviewed handoff.',
+    proofBody:
+      'The product surfaces the operating layer around AI: context capture, review, client-ready delivery, readiness checks, and backup evidence.',
+    signalTitle: 'Operational AI Signal',
+    signalBody:
+      'The build makes AI output accountable by tying generated work to context, evidence, review state, and implementation readiness.',
+  },
+  WriteGuard: {
+    mode: 'technical',
+    badge: 'Technical case study',
+    audienceEyebrow: 'For agent infrastructure reviewers',
+    promise: 'Keep one intended external action from becoming repeated real-world effects.',
+    storyTitle: 'A runtime boundary for uncertain writes.',
+    storyBody:
+      'When a provider may have succeeded but the worker loses confirmation, retrying blindly can repeat the external effect. WriteGuard keeps the operation traceable until evidence can close it.',
+    proofEyebrow: 'Architecture and evidence',
+    proofTitle: 'Show the system boundary clearly.',
+    proofBody:
+      'The diagrams trace where AI can recommend, where developers approve, where generation stays deterministic, and how runtime state handles UNKNOWN outcomes.',
+    signalTitle: 'Technical Proof',
+    signalBody:
+      'The engineering signal is the boundary: typed contracts, deterministic generation, verification receipts, provider limits, and recovery from uncertain external writes.',
+  },
+  ApplyFirst: {
+    mode: 'student-product',
+    badge: 'Private beta',
+    audienceEyebrow: 'For students tracking early programs',
+    promise: 'Find high-signal opportunities before the application window gets crowded.',
+    storyTitle: 'Discovery, timing, confidence, and next action in one place.',
+    storyBody:
+      'ApplyFirst gives students a clearer way to see what programs exist, whether they fit, when to watch them, and what to do next.',
+    proofEyebrow: 'Product preview',
+    proofTitle: 'A clearer way to track opportunity timing.',
+    proofBody:
+      'The preview shows searchable opportunities, preference filters, contribution loops, and the early-access shape without burying students in raw links.',
+    signalTitle: 'Product Signal',
+    signalBody:
+      'The product value comes from combining timing, eligibility, confidence, verification, and action guidance instead of stopping at a static opportunity list.',
+  },
+};
+
+function getCaseStudyPageProfile(caseStudy) {
+  return caseStudyPageProfiles[caseStudy.eyebrow] || {
+    mode: 'product',
+    badge: caseStudy.status,
+    audienceEyebrow: caseStudy.valuePitch?.eyebrow || 'Project case study',
+    promise: caseStudy.valuePitch?.title || caseStudy.title,
+    storyTitle: caseStudy.overviewTitle,
+    storyBody: caseStudy.overview,
+    proofEyebrow: caseStudy.screenshotEyebrow || 'Screens',
+    proofTitle: caseStudy.screenshotTitle,
+    proofBody: caseStudy.problem,
+    signalTitle: 'Build Signal',
+    signalBody: caseStudy.buildSummary || caseStudy.learned,
+  };
+}
+
+function compactCaseStudyImages(caseStudy, heroImage, profile) {
+  const allImages = caseStudy.galleryImages || (heroImage?.kind === 'mobile' ? caseStudy.images : caseStudy.images.slice(1));
+  const limit = profile.mode === 'technical' ? 4 : 3;
+
+  return allImages.slice(0, limit);
+}
+
+function CaseStudyAction({ href, label, secondary = false }) {
+  const isExternal = href?.startsWith('http');
+
+  return (
+    <a
+      className={secondary ? 'button secondary-button' : 'button primary'}
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noreferrer' : undefined}
+    >
+      {label}
+    </a>
+  );
+}
+
 function ProjectCaseStudyPage({ caseStudy }) {
   const caseSlug = caseStudy.eyebrow.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const caseMark = caseStudy.eyebrow.slice(0, 2).toUpperCase();
   const heroImage = caseStudy.heroImage || caseStudy.images[0];
-  const galleryImages = caseStudy.galleryImages || (heroImage?.kind === 'mobile' ? caseStudy.images : caseStudy.images.slice(1));
+  const profile = getCaseStudyPageProfile(caseStudy);
+  const galleryImages = compactCaseStudyImages(caseStudy, heroImage, profile);
   const storyboardScenes = caseStudy.storyboardScenes || [];
+  const valuePitch = caseStudy.valuePitch;
+  const valueSteps = valuePitch?.storyboard || valuePitch?.steps || [];
+  const buildHighlights = (caseStudy.whatIBuilt || []).slice(0, 3);
+  const decisionHighlights = (caseStudy.productDecisions || []).slice(0, 2);
+  const technicalNotes = caseStudy.technicalFlow?.length
+    ? [
+        caseStudy.technicalSummary ? { title: 'Summary', text: caseStudy.technicalSummary } : null,
+        ...caseStudy.technicalFlow.map((step) => ({ title: step.title, text: step.text })),
+      ].filter(Boolean).slice(0, 2)
+    : (caseStudy.technicalHighlights || []).slice(0, 2).map((text) => ({
+        title: null,
+        text,
+      }));
+  const ctaHref = caseStudy.ctaHref || 'https://www.linkedin.com/in/kellychen0921/';
+  const ctaLabel = caseStudy.ctaLabel || 'Connect';
+  const scrollToBuild = (event) => {
+    event.preventDefault();
+    document.getElementById('case-study-proof')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
 
   return (
     <>
-      <section className={`case-study-hero section-shell case-study-${caseSlug} product-page-stage`} data-mark={caseMark}>
+      <section className={`case-showcase-hero section-shell case-showcase-${caseSlug} product-page-stage`} data-mark={caseMark}>
         <a className="back-link" href="#projects">Back to Projects</a>
-        <div className="case-study-hero-copy product-reveal">
+        <div className="case-showcase-hero-copy product-reveal">
+          <p className="case-study-profile-badge">{profile.badge}</p>
           <h1>{caseStudy.eyebrow}</h1>
           <p className="case-study-product-line">{caseStudy.title}</p>
-          <p>{caseStudy.subtitle}</p>
+          <p className="case-showcase-promise">{profile.promise}</p>
+          <p>{profile.storyBody}</p>
+          <div className="case-study-hero-actions">
+            <CaseStudyAction href={ctaHref} label={ctaLabel} />
+            <a className="text-link" href="#case-study-proof" onClick={scrollToBuild}>See the Build</a>
+          </div>
         </div>
-        <div className="case-study-hero-side product-reveal product-reveal-delay-1">
+        <div className="case-showcase-hero-side product-reveal product-reveal-delay-1">
           {heroImage && (
             <figure
               className={[
-                'case-study-hero-visual',
+                'case-showcase-hero-visual',
                 'product-hero-visual',
-                heroImage.kind === 'mobile' ? 'case-study-hero-visual-mobile' : '',
-                heroImage.fit === 'contain' ? 'case-study-visual-contain' : '',
+                heroImage.kind === 'mobile' ? 'case-showcase-hero-visual-mobile' : '',
+                heroImage.fit === 'contain' ? 'case-showcase-visual-contain' : '',
               ].filter(Boolean).join(' ')}
             >
               <CaseStudyImage image={heroImage} loading="eager" />
@@ -733,151 +873,92 @@ function ProjectCaseStudyPage({ caseStudy }) {
             </figure>
           )}
         </div>
-        <div className="case-study-dossier product-reveal product-reveal-delay-2" aria-label={`${caseStudy.eyebrow} project snapshot`}>
-          <div className="case-study-dossier-item">
+        <div className="case-showcase-dossier product-reveal product-reveal-delay-2" aria-label={`${caseStudy.eyebrow} project snapshot`}>
+          <div className="case-showcase-dossier-item">
             <span>Status</span>
             <strong>{caseStudy.status}</strong>
           </div>
-          <div className="case-study-dossier-item">
+          <div className="case-showcase-dossier-item">
             <span>Role</span>
             <strong>{caseStudy.role}</strong>
           </div>
-          <div className="case-study-dossier-item case-study-dossier-focus">
-            <span>Focus</span>
-            <strong>{caseStudy.overviewTitle}</strong>
-            <p>{caseStudy.problemTitle}</p>
-          </div>
-          <div className="case-study-dossier-item case-study-dossier-stack">
+          <div className="case-showcase-dossier-item case-showcase-dossier-stack">
             <span>Stack</span>
             <TagCloud tags={caseStudy.stack} />
           </div>
         </div>
       </section>
-      {caseStudy.valuePitch && (
-        <section
-          className={[
-            'case-study-value',
-            'section-shell',
-            'product-reveal',
-            caseStudy.valuePitch.storyboard?.length > 0 ? 'case-study-value-story-mode' : '',
-          ].filter(Boolean).join(' ')}
-        >
-          <div className="case-study-value-intro">
-            {caseStudy.valuePitch.eyebrow && <p className="eyebrow">{caseStudy.valuePitch.eyebrow}</p>}
-            <h2>{caseStudy.valuePitch.title}</h2>
-            <p>{caseStudy.valuePitch.body}</p>
-            {caseStudy.valuePitch.audience?.length > 0 && (
-              <div className="case-study-audience-strip" aria-label={`${caseStudy.eyebrow} audience`}>
-                {caseStudy.valuePitch.audience.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            )}
-            <a className="button case-study-value-button" href={caseStudy.ctaHref || 'https://www.linkedin.com/in/kellychen0921/'}>
-              {caseStudy.ctaLabel || 'Connect'}
-            </a>
-          </div>
-          {caseStudy.valuePitch.storyboard?.length > 0 ? (
-            <div className="case-study-value-storyboard" aria-label={`${caseStudy.eyebrow} workflow summary`}>
-              {caseStudy.valuePitch.storyboard.map((step, index) => (
-                <article className={`product-reveal product-reveal-delay-${Math.min(index + 1, 3)}`} key={step.title}>
-                  <div className="case-study-value-story-mark" aria-hidden="true">{step.mark}</div>
-                  <span>{step.label || `Step ${index + 1}`}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
+      <section className={`case-showcase-journey section-shell case-showcase-journey-${profile.mode} product-reveal`}>
+        <div className="case-showcase-section-heading">
+          <p className="eyebrow">{profile.audienceEyebrow}</p>
+          <h2>{profile.storyTitle}</h2>
+          {valuePitch?.audience?.length > 0 ? (
+            <div className="case-study-audience-strip" aria-label={`${caseStudy.eyebrow} audience`}>
+              {valuePitch.audience.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          ) : null}
+        </div>
+        <div className="case-showcase-steps" aria-label={`${caseStudy.eyebrow} core flow`}>
+          {valueSteps.length > 0 ? (
+            <div className="case-showcase-step-list">
+              {valueSteps.slice(0, 3).map((step, index) => (
+                <article key={step.title}>
+                  <span className="case-showcase-step-mark">{step.mark || String(index + 1).padStart(2, '0')}</span>
+                  <div>
+                    <p>{step.label || `Step ${index + 1}`}</p>
+                    <h4>{step.title}</h4>
+                    <p>{step.text}</p>
+                  </div>
                 </article>
               ))}
             </div>
           ) : (
-            <>
-              <div className="case-study-value-compare" aria-label={`${caseStudy.eyebrow} target user value`}>
-                <article>
-                  <span>{caseStudy.valuePitch.beforeLabel || 'Before'}</span>
-                  <ul>
-                    {caseStudy.valuePitch.painPoints.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-                <article>
-                  <span>{caseStudy.valuePitch.afterLabel || 'After'}</span>
-                  <ul>
-                    {caseStudy.valuePitch.benefits.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-              </div>
-              <div className="case-study-value-flow" aria-label={`${caseStudy.eyebrow} workflow summary`}>
-                {caseStudy.valuePitch.steps.map((step, index) => (
-                  <article className={`product-reveal product-reveal-delay-${Math.min(index + 1, 3)}`} key={step.title}>
-                    <div className="case-study-value-step-mark" aria-hidden="true">{step.mark || String(index + 1).padStart(2, '0')}</div>
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <h3>{step.title}</h3>
-                    <p>{step.text}</p>
-                  </article>
-                ))}
-              </div>
-            </>
-          )}
-        </section>
-      )}
-      {caseStudy.systemLens ? (
-        <section className="case-study-lens case-study-chapter section-shell product-reveal">
-          <div className="case-study-lens-copy product-reveal product-reveal-delay-1">
-            <p className="eyebrow">{caseStudy.systemLens.eyebrow || 'Design Lens'}</p>
-            <h2>{caseStudy.systemLens.title}</h2>
-            <p>{caseStudy.systemLens.body}</p>
-          </div>
-          <div className="case-study-lens-grid">
-            {caseStudy.systemLens.items.map((item, index) => (
-              <article className={`product-reveal product-reveal-delay-${Math.min(index + 2, 4)}`} key={item.label}>
-                <span>{item.label}</span>
-                <p>{item.text}</p>
+            <div className="case-study-context-pair">
+              <article>
+                <span>{caseStudy.overviewEyebrow || 'Why'}</span>
+                <h4>{caseStudy.overviewTitle}</h4>
+                <p>{caseStudy.overview}</p>
               </article>
-            ))}
-          </div>
-        </section>
-      ) : null}
-      <section className="case-study-lede case-study-chapter section-shell product-reveal">
-        <article className="case-study-lede-main product-reveal product-reveal-delay-1">
-          <p className="eyebrow">{caseStudy.overviewEyebrow || 'Overview'}</p>
-          <h2>{caseStudy.overviewTitle}</h2>
-          <p>{caseStudy.overview}</p>
-        </article>
-        <aside className="case-study-problem product-reveal product-reveal-delay-2">
-          <p className="eyebrow">{caseStudy.problemEyebrow || 'Problem'}</p>
-          <h2>{caseStudy.problemTitle}</h2>
-          <p>{caseStudy.problem}</p>
-        </aside>
+              <article>
+                <span>{caseStudy.problemEyebrow || 'Improves'}</span>
+                <h4>{caseStudy.problemTitle}</h4>
+                <p>{caseStudy.problem}</p>
+              </article>
+            </div>
+          )}
+        </div>
       </section>
       <section
         className={[
-          'case-study-section',
-          'case-study-chapter',
-          'case-study-gallery-section',
-          `case-study-${caseSlug}-gallery`,
+          'case-showcase-proof',
+          `case-showcase-${caseSlug}-gallery`,
           'section-shell',
           'product-reveal',
-          caseStudy.galleryStyle === 'storyboard' ? 'case-study-storyboard-section' : '',
+          caseStudy.galleryStyle === 'storyboard' ? 'case-showcase-storyboard-section' : '',
         ].filter(Boolean).join(' ')}
+        id="case-study-proof"
       >
-        <SectionHeading eyebrow={caseStudy.screenshotEyebrow || 'Product Walkthrough'} title={caseStudy.screenshotTitle} />
-        <div className={storyboardScenes.length ? 'screenshot-stack case-storyboard-stack' : 'screenshot-stack'}>
+        <div className="case-showcase-proof-heading">
+          <div>
+            <p className="eyebrow">{profile.proofEyebrow}</p>
+            <h2>{profile.proofTitle}</h2>
+          </div>
+          <p>{profile.proofBody}</p>
+        </div>
+        <div className={storyboardScenes.length ? 'case-showcase-proof-grid case-showcase-proof-storyboard' : 'case-showcase-proof-grid'}>
           {storyboardScenes.length
-            ? storyboardScenes.map((scene, index) => (
-                <article className="case-storyboard-scene product-reveal" key={scene.title}>
-                  <span className="case-storyboard-scene-number" aria-hidden="true">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
+            ? storyboardScenes.slice(0, 3).map((scene) => (
+                <article className="case-showcase-proof-card case-showcase-proof-scene product-reveal" key={scene.title}>
                   <div
                     className={[
-                      'case-storyboard-media',
+                      'case-showcase-proof-media',
                       scene.layout ? `case-storyboard-media-${scene.layout}` : '',
                       `case-storyboard-media-count-${scene.images.length}`,
                     ].filter(Boolean).join(' ')}
                   >
-                    {scene.images.map((image) => (
+                    {scene.images.slice(0, 2).map((image) => (
                       <figure
                         className={[
                           'case-storyboard-frame',
@@ -891,11 +972,10 @@ function ProjectCaseStudyPage({ caseStudy }) {
                         key={image.title}
                       >
                         <CaseStudyImage image={image} />
-                        <figcaption>{image.title}</figcaption>
                       </figure>
                     ))}
                   </div>
-                  <div className="case-storyboard-copy">
+                  <div className="case-showcase-proof-copy">
                     {scene.label ? <span>{scene.label}</span> : null}
                     <h3>{scene.title}</h3>
                     <p>{scene.caption}</p>
@@ -905,16 +985,19 @@ function ProjectCaseStudyPage({ caseStudy }) {
             : (galleryImages.length ? galleryImages : caseStudy.images).map((image) => (
                 <figure
                   className={[
-                    'case-screenshot',
+                    'case-showcase-proof-card',
+                    'case-showcase-proof-figure',
                     'product-shot',
-                    image.kind === 'mobile' ? 'case-screenshot-mobile' : '',
-                    image.kind === 'diagram' ? 'case-screenshot-diagram' : '',
-                    image.fit === 'contain' ? 'case-screenshot-contain' : '',
-                    image.fit === 'zoom' ? 'case-screenshot-zoom' : '',
+                    image.kind === 'mobile' ? 'case-showcase-proof-mobile' : '',
+                    image.kind === 'diagram' ? 'case-showcase-proof-diagram' : '',
+                    image.fit === 'contain' ? 'case-showcase-proof-contain' : '',
+                    image.fit === 'zoom' ? 'case-showcase-proof-zoom' : '',
                   ].filter(Boolean).join(' ')}
                   key={image.title}
                 >
-                  <CaseStudyImage image={image} />
+                  <div className="case-showcase-proof-media">
+                    <CaseStudyImage image={image} />
+                  </div>
                   <figcaption>
                     <strong>{image.title}</strong>
                     <span>{image.caption}</span>
@@ -935,99 +1018,46 @@ function ProjectCaseStudyPage({ caseStudy }) {
           </a>
         </section>
       ) : null}
-      <section className="case-study-section case-study-chapter case-study-build-section section-shell product-reveal">
-        <div className="case-study-build-heading">
-          <SectionHeading eyebrow={caseStudy.buildEyebrow || 'Build'} title={caseStudy.buildTitle || 'What I Built'} />
-          <div className="case-study-build-summary">
-            <span>{caseStudy.buildSummaryLabel || 'Build Thesis'}</span>
-            <p>
-              {caseStudy.buildSummary ||
-                'A closer look at the product artifacts, technical boundaries, and proof points behind the build.'}
-            </p>
-          </div>
+      <section className={`case-showcase-readout case-showcase-readout-${profile.mode} section-shell product-reveal`}>
+        <div className="case-showcase-readout-intro">
+          <p className="eyebrow">Why it matters</p>
+          <h2>{profile.signalTitle}</h2>
+          <p>{profile.signalBody}</p>
         </div>
-        <div className="case-study-build-list" role="list">
-          {caseStudy.whatIBuilt.map((item, index) => (
-            <article className={`case-study-build-item product-reveal product-reveal-delay-${Math.min(index + 1, 4)}`} key={item} role="listitem">
-              <span className="case-study-build-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <div className="case-study-build-copy">
-                <span>{caseStudy.buildLabels?.[index] || 'Artifact'}</span>
-                <p>{item}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-      <section className="case-study-section case-study-chapter case-study-decision-section section-shell product-reveal">
-        <div className="case-study-section-kicker">
-          <p className="eyebrow">{caseStudy.decisionEyebrow || 'Product'}</p>
-          <h2>{caseStudy.decisionTitle || 'Product Decisions'}</h2>
-          {caseStudy.decisionIntro ? <p>{caseStudy.decisionIntro}</p> : null}
-        </div>
-        <div className={`decision-rail decision-rail-count-${caseStudy.productDecisions.length}`}>
-          {caseStudy.productDecisions.map((decision, index) => (
-            <article className={`decision-item product-reveal product-reveal-delay-${Math.min(index + 1, 4)}`} key={decision.title}>
-              <h3>{decision.title}</h3>
-              <p>{decision.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-      <section className="case-study-section case-study-chapter case-study-system-section section-shell product-reveal">
-        {caseStudy.workflowStandalone ? (
-          <figure className="workflow-diagram workflow-diagram-standalone product-flow-visual">
-            <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
-          </figure>
-        ) : (
-          <div className={['case-study-two-column', 'case-study-technical', caseStudy.technicalFlow ? 'case-study-technical-runtime' : ''].filter(Boolean).join(' ')}>
-            <article className={caseStudy.technicalFlow ? 'case-study-runtime-copy' : undefined}>
-              <p className="eyebrow">{caseStudy.technicalEyebrow || 'Build Notes'}</p>
-              <h2>{caseStudy.technicalTitle}</h2>
-              {caseStudy.technicalSummary ? (
-                <p>{caseStudy.technicalSummary}</p>
-              ) : (
-                <ul className="case-study-list compact">
-                  {caseStudy.technicalHighlights.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              )}
-            </article>
-            {caseStudy.technicalFlow ? (
-              <div className="case-study-runtime-flow" aria-label={`${caseStudy.eyebrow} technical flow`}>
-                {caseStudy.technicalFlow.map((step, index) => (
-                  <article className={`runtime-flow-step product-reveal product-reveal-delay-${Math.min(index + 1, 4)}`} key={step.title}>
-                    <span>{step.label}</span>
-                    <h3>{step.title}</h3>
-                    <p>{step.text}</p>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <figure className="workflow-diagram product-flow-visual">
-                <img src={caseStudy.workflowImage.src} alt={caseStudy.workflowImage.alt} loading="lazy" />
-              </figure>
-            )}
-          </div>
-        )}
-      </section>
-      <section className="case-study-section case-study-chapter case-study-reflection-section section-shell product-reveal">
-        <div className="case-study-two-column case-study-reflection">
+        <div className="case-showcase-readout-grid">
           <article>
-            <p className="eyebrow">Learned</p>
-            <h2>What This Project Taught Me</h2>
-            <ul className="case-study-list compact">
-              {caseStudy.lessons.map((item) => (
-                <li key={item}>{item}</li>
+            <span>{caseStudy.buildSummaryLabel || caseStudy.buildEyebrow || 'Built'}</span>
+            <h3>{caseStudy.buildTitle || 'What I Built'}</h3>
+            <ul>
+              {buildHighlights.map((item, index) => (
+                <li key={item}>
+                  <strong>{caseStudy.buildLabels?.[index] || 'Build'}</strong>
+                  <p>{item}</p>
+                </li>
               ))}
             </ul>
           </article>
           <article>
-            <p className="eyebrow">Next Steps</p>
-            <h2>Where It Goes Next</h2>
-            <ul className="case-study-list compact">
-              {caseStudy.nextSteps.map((item) => (
-                <li key={item}>{item}</li>
+            <span>{caseStudy.decisionEyebrow || 'Product Logic'}</span>
+            <h3>{caseStudy.decisionTitle || 'Key Decisions'}</h3>
+            <ul>
+              {decisionHighlights.map((decision) => (
+                <li key={decision.title}>
+                  <strong>{decision.title}</strong>
+                  <p>{decision.text}</p>
+                </li>
+              ))}
+            </ul>
+          </article>
+          <article>
+            <span>{caseStudy.technicalEyebrow || 'Technical Shape'}</span>
+            <h3>{caseStudy.technicalTitle || 'Implementation Notes'}</h3>
+            <ul>
+              {technicalNotes.map((item) => (
+                <li key={`${item.title || 'note'}-${item.text}`}>
+                  {item.title ? <strong>{item.title}</strong> : null}
+                  <p>{item.text}</p>
+                </li>
               ))}
             </ul>
           </article>
@@ -1037,8 +1067,8 @@ function ProjectCaseStudyPage({ caseStudy }) {
         eyebrow="Project conversation"
         title={caseStudy.ctaTitle}
         body={caseStudy.ctaBody}
-        href={caseStudy.ctaHref || 'https://www.linkedin.com/in/kellychen0921/'}
-        label={caseStudy.ctaLabel || 'Connect on LinkedIn'}
+        href={ctaHref}
+        label={ctaLabel}
       />
     </>
   );
@@ -1512,7 +1542,10 @@ function CompanyLogo({ logo, organization }) {
 function ProjectSection({ title, projects: projectItems, fintech = false }) {
   return (
     <section className={`section-shell project-showcase-section${fintech ? ' fintech-section' : ''}`}>
-      <SectionHeading title={title} />
+      <div className="project-section-header">
+        <SectionHeading title={title} />
+        {projectSectionNotes[title] ? <p>{projectSectionNotes[title]}</p> : null}
+      </div>
       <div className="project-showcase-list">
         {projectItems.map((project, index) => (
           <ProjectCard key={project.title} index={index} {...project} />
@@ -1522,8 +1555,10 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
   );
 }
 
-function ProjectCard({ title, mark, status, description, image, imageFit, imageFrame, imageAlt, problem, user, proof, tags, index }) {
+function ProjectCard({ title, mark, status, description, image, imageFit, imageFrame, imageAlt, systemQuestion, problem, user, tags }) {
   const projectAction = projectActions[title];
+  const visibleTags = tags.slice(0, 3);
+  const remainingTagCount = Math.max(tags.length - visibleTags.length, 0);
   const visualClasses = [
     'project-visual',
     imageFit === 'contain' ? 'project-visual-contain' : '',
@@ -1532,7 +1567,7 @@ function ProjectCard({ title, mark, status, description, image, imageFit, imageF
   ].filter(Boolean).join(' ');
 
   return (
-    <article className={`project-card project-showcase${index % 2 === 1 ? ' reverse' : ''}`}>
+    <article className="project-card project-showcase">
       <div className={visualClasses}>
         {imageFrame === 'phone' ? (
           <span className="phone-device project-phone-device">
@@ -1553,22 +1588,22 @@ function ProjectCard({ title, mark, status, description, image, imageFit, imageF
         <div className="project-card-callout">
           <p>{description}</p>
         </div>
-        <dl>
+        {systemQuestion ? <p className="project-core-question">{systemQuestion}</p> : null}
+        <div className="project-card-facts" aria-label={`${title} project context`}>
           <div>
-            <dt>Problem</dt>
-            <dd>{problem}</dd>
+            <span>Need</span>
+            <p>{problem}</p>
           </div>
           <div>
-            <dt>Built for</dt>
-            <dd>{user}</dd>
+            <span>For</span>
+            <p>{user}</p>
           </div>
-          <div>
-            <dt>Proof</dt>
-            <dd>{proof}</dd>
-          </div>
-        </dl>
-        <TagCloud tags={tags} />
-        {projectAction ? <ProjectAction {...projectAction} /> : null}
+        </div>
+        <div className="project-card-footer">
+          <TagCloud tags={visibleTags} />
+          {remainingTagCount > 0 ? <span className="tag tag-more">+{remainingTagCount}</span> : null}
+        </div>
+        {projectAction ? <ProjectAction {...projectAction} compact /> : null}
       </div>
     </article>
   );
@@ -1758,7 +1793,7 @@ function ResourceList({ items }) {
   );
 }
 
-function ProjectAction({ body, href, label, primaryHref, primaryLabel, secondaryHref, secondaryLabel }) {
+function ProjectAction({ body, href, label, primaryHref, primaryLabel, secondaryHref, secondaryLabel, compact = false }) {
   const actions = [
     primaryHref ? { href: primaryHref, label: primaryLabel, kind: 'primary' } : null,
     secondaryHref ? { href: secondaryHref, label: secondaryLabel, kind: 'secondary' } : null,
@@ -1766,8 +1801,8 @@ function ProjectAction({ body, href, label, primaryHref, primaryLabel, secondary
   ].filter(Boolean);
 
   return (
-    <aside className="project-action">
-      <p>{body}</p>
+    <aside className={`project-action${compact ? ' project-action-compact' : ''}`}>
+      {!compact && body ? <p>{body}</p> : null}
       <div className="project-action-links">
         {actions.map((action) => {
           const isExternal = action.href.startsWith('http');
