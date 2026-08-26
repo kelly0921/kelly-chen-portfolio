@@ -362,7 +362,7 @@ export const projects = [
     status: 'Private beta / early access',
     description:
       'An early-career opportunity system in private beta, built to help students discover, track, and prepare for high-signal programs before applications open.',
-    image: '/assets/project-applyfirst-landing-desktop.png',
+    image: '/assets/project-applyfirst-programs-desktop.png',
     imageFit: 'contain',
     imageFrame: 'desktop',
     imageAlt: 'ApplyFirst programs page showing searchable opportunity records, filters, shortlist actions, and status labels.',
@@ -1071,7 +1071,7 @@ export const applyFirstCaseStudy = {
     'Opportunity records modeled around timing, class year, role track, status, source confidence, and recommended next step.',
     'Filter and shortlist behavior designed for student discovery rather than generic job tracking.',
     'Contribution flow for stale or missing records, with verification still visible.',
-    'Current screenshots cover landing, opportunity library, preferences, contribution, and mobile views.',
+    'Current screenshots cover landing, opportunity library, status signals, preferences, and contribution views.',
   ],
   images: [
     {
@@ -1093,11 +1093,10 @@ export const applyFirstCaseStudy = {
       caption: 'Students can suggest missing or stale opportunities while verification remains separate from raw submissions.',
     },
     {
-      title: 'Mobile Library',
-      src: '/assets/project-applyfirst-programs-mobile.png',
-      alt: 'ApplyFirst mobile opportunity library view.',
-      caption: 'The mobile view keeps the watchlist usable when students discover programs from posts, chats, or events.',
-      kind: 'mobile',
+      title: 'Status Signals',
+      src: '/assets/project-applyfirst-status-mix-desktop.png',
+      alt: 'ApplyFirst library list showing open now, watching, deadline soon, and opening soon status labels.',
+      caption: 'Status labels make timing visible so students can tell what is open, worth watching, or approaching a deadline.',
     },
   ],
   galleryImages: [
@@ -1112,6 +1111,12 @@ export const applyFirstCaseStudy = {
       src: '/assets/project-applyfirst-preferences-desktop.png',
       alt: 'ApplyFirst preferences screen for tailoring opportunity recommendations.',
       caption: 'Students can tune the product around stage, interests, and the type of support they need.',
+    },
+    {
+      title: 'Status Signals',
+      src: '/assets/project-applyfirst-status-mix-desktop.png',
+      alt: 'ApplyFirst library list showing opportunity timing and source-status labels.',
+      caption: 'Open, watching, deadline-soon, and opening-soon states turn scattered opportunities into a watch system.',
     },
     {
       title: 'Contribution Flow',
