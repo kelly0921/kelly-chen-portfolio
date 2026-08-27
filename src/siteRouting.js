@@ -8,6 +8,7 @@ export const portfolioRoutes = Object.freeze([
   'webpilot',
   'writeguard',
   'applyfirst',
+  'curio',
   'speaking',
   'community',
   'content',

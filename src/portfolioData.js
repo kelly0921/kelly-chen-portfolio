@@ -255,8 +255,9 @@ export const projects = [
     status: 'Public concept site',
     description:
       'A QR-based payment and coupon redemption concept focused on reducing checkout friction.',
-    image: '/assets/project-skanpay.svg',
-    imageAlt: 'SkanPay product preview showing a QR checkout flow, coupon stack, and payment confirmation.',
+    image: '/assets/project-skanpay-storyboard.png',
+    imageAlt:
+      'SkanPay storyboard showing rewards cash, merchant voucher redemption, register QR code, and voucher applied to the bill.',
     systemQuestion: 'How can payment and redemption happen in one checkout moment without adding work for the customer or merchant?',
     problem: 'Coupons, gift cards, and payment often split into separate checkout moments.',
     user: 'Merchants and sellers who want checkout and redemption to feel like one flow.',
@@ -321,6 +322,44 @@ export const projects = [
   },
   {
     group: 'Built and in Progress',
+    title: 'ApplyFirst',
+    mark: { text: 'AF', label: 'ApplyFirst', tone: 'indigo', src: '/assets/applyfirst-mark.svg' },
+    status: 'Beta testing with students',
+    description:
+      'An early-career opportunity system in private beta, built to help students discover, track, and prepare for high-signal programs before applications open.',
+    image: '/assets/project-applyfirst-programs-desktop.png',
+    imageFit: 'contain',
+    imageFrame: 'desktop',
+    imageAlt: 'ApplyFirst programs page showing searchable opportunity records, filters, shortlist actions, and status labels.',
+    systemQuestion: 'How can early-discovery programs become easier for students to find, track, and act on before the window closes?',
+    problem: 'High-signal programs are scattered, seasonal, and easy to find too late.',
+    user: 'Early-career technical students tracking internships, fellowships, and prep programs.',
+    role: 'Product strategist, frontend MVP builder, data-model designer, and opportunity systems researcher.',
+    learned: 'A useful opportunity product is not just a list. It needs timing, eligibility, confidence, verification, and next-action guidance.',
+    proof: 'Built a standalone React/Vite MVP direction with searchable records, student preference filters, shortlist behavior, confidence labels, contribution flow, and alert-readiness framing.',
+    tags: ['React', 'Vite', 'Career tech', 'Data modeling', 'Product strategy'],
+  },
+  {
+    group: 'Built and in Progress',
+    title: 'Curio',
+    mark: { text: 'Cu', label: 'Curio', tone: 'teal' },
+    status: 'Invite-only private beta',
+    description:
+      'A mobile-first AI knowledge app that turns saved social videos and links into clear, researched, searchable resources instead of forgotten folders.',
+    image: '/assets/project-curio-library-mobile.png',
+    imageFit: 'contain',
+    imageFrame: 'phone',
+    imageAlt: 'Curio mobile Library showing organized learning resources and topic collections.',
+    systemQuestion: 'How can saved social content become living knowledge instead of forgotten folders?',
+    problem: 'Useful social videos, links, and articles are easy to save but hard to search, verify, connect, or use later.',
+    user: 'Mobile-first learners, curious generalists, and early adopters who save useful content across social platforms and the web.',
+    role: 'Founder, product designer, and founding engineer across mobile UX, AI workflow, infrastructure, and private-beta scope.',
+    learned: 'The real opportunity is not shorter summaries. It is preserving source shape, checking claims when it matters, and merging repeated saves into living resources.',
+    proof: 'Invite-only beta with Expo mobile screens, deployed Cloudflare processor, Supabase auth, D1/R2 persistence, cited research, search, For You synthesis, and 124 passing tests.',
+    tags: ['Consumer AI', 'Expo', 'React Native', 'OpenAI', 'Cloudflare'],
+  },
+  {
+    group: 'Built and in Progress',
     title: 'WebPilot',
     mark: { text: 'WP', label: 'WebPilot', tone: 'indigo', src: '/assets/project-webpilot-icon.svg' },
     status: 'Prototype feedback wanted',
@@ -354,25 +393,6 @@ export const projects = [
     learned: 'For consumer products, validation should test trust, emotional framing, and demand before building accounts, matching, chat, or app infrastructure.',
     proof: 'Built a public landing page, Ambition Archetype quiz and waitlist flow, Typeform-ready integration path, local CSV/JSON export fallback, and lightweight analytics hooks.',
     tags: ['Validation MVP', 'Landing page', 'Ambition archetypes', 'Typeform-ready', 'Consumer research'],
-  },
-  {
-    group: 'Startup Concept',
-    title: 'ApplyFirst',
-    mark: { text: 'AF', label: 'ApplyFirst', tone: 'indigo', src: '/assets/applyfirst-mark.svg' },
-    status: 'Private beta / early access',
-    description:
-      'An early-career opportunity system in private beta, built to help students discover, track, and prepare for high-signal programs before applications open.',
-    image: '/assets/project-applyfirst-programs-desktop.png',
-    imageFit: 'contain',
-    imageFrame: 'desktop',
-    imageAlt: 'ApplyFirst programs page showing searchable opportunity records, filters, shortlist actions, and status labels.',
-    systemQuestion: 'How can early-discovery programs become easier for students to find, track, and act on before the window closes?',
-    problem: 'High-signal programs are scattered, seasonal, and easy to find too late.',
-    user: 'Early-career technical students tracking internships, fellowships, and prep programs.',
-    role: 'Product strategist, frontend MVP builder, data-model designer, and opportunity systems researcher.',
-    learned: 'A useful opportunity product is not just a list. It needs timing, eligibility, confidence, verification, and next-action guidance.',
-    proof: 'Built a standalone React/Vite MVP direction with searchable records, student preference filters, shortlist behavior, confidence labels, contribution flow, and alert-readiness framing.',
-    tags: ['React', 'Vite', 'Career tech', 'Data modeling', 'Product strategy'],
   },
 ];
 
@@ -415,11 +435,19 @@ export const projectActions = {
   },
   ApplyFirst: {
     body:
-      'ApplyFirst is in early access while I validate which opportunity signals, alerts, and student resource views are actually useful.',
+      'ApplyFirst is in beta testing while I validate which opportunity signals, alerts, and student resource views are actually useful with real students.',
     primaryLabel: 'Join ApplyFirst Waitlist',
     primaryHref: 'https://applyfirst-careers.pages.dev/',
     secondaryLabel: 'View Product Details',
     secondaryHref: '#applyfirst',
+  },
+  Curio: {
+    body:
+      'Curio is an invite-only private beta. The public portfolio surface is the case study, not the protected processor or an App Store release.',
+    primaryLabel: 'View Case Study',
+    primaryHref: '#curio',
+    secondaryLabel: 'Discuss Curio Beta',
+    secondaryHref: 'mailto:kellychenmeiyi@gmail.com?subject=Curio%20private%20beta',
   },
 };
 
@@ -972,13 +1000,14 @@ export const applyFirstCaseStudy = {
   title: 'Early-Career Opportunity System',
   subtitle:
     'A private-beta app that helps students discover, track, and prepare for high-signal programs before applications open.',
-  status: 'Private beta / early access',
+  status: 'Beta testing with students',
   role: 'Product strategist, frontend MVP builder, data-model designer, and opportunity systems researcher',
   stack: ['React', 'Vite', 'Opportunity data model', 'Search and filters', 'Shortlist workflows', 'Beta validation'],
   heroImage: {
     title: 'Opportunity Library',
     src: '/assets/project-applyfirst-programs-desktop.png',
     alt: 'ApplyFirst programs page with searchable opportunities, filters, and program details.',
+    crop: 'wide',
   },
   valuePitch: {
     eyebrow: 'For emerging engineers',
@@ -1146,9 +1175,274 @@ export const applyFirstCaseStudy = {
   ],
   ctaTitle: 'Want to Test ApplyFirst?',
   ctaBody:
-    'ApplyFirst is in early access while I validate which opportunity signals, filters, and student resource views actually help students prepare earlier.',
+    'ApplyFirst is in beta testing while I validate which opportunity signals, filters, and student resource views actually help students prepare earlier.',
   ctaLabel: 'Join ApplyFirst Waitlist',
   ctaHref: 'https://applyfirst-careers.pages.dev/',
+};
+
+export const curioCaseStudy = {
+  eyebrow: 'Curio',
+  title: 'Turn Saved Content into Knowledge You Can Use',
+  subtitle:
+    'A mobile-first AI knowledge app that transforms saved social videos and links into researched, searchable, living resources.',
+  status: 'Invite-only private beta',
+  role: 'Founder, product designer, and founding engineer',
+  stack: [
+    'TypeScript',
+    'Expo',
+    'React Native',
+    'Next.js',
+    'OpenAI',
+    'Cloudflare Workers',
+    'D1',
+    'R2',
+    'Supabase Auth',
+  ],
+  heroImage: {
+    title: 'Resource Library',
+    src: '/assets/project-curio-library-mobile.png',
+    alt: 'Curio mobile Library showing organized learning resources and topic collections.',
+    caption: 'Curio organizes useful saves into a visual library of living resources instead of isolated post cards.',
+    kind: 'mobile',
+  },
+  valuePitch: {
+    eyebrow: 'For mobile-first learners',
+    title: 'Save once. Find meaning later.',
+    body:
+      'Curio starts from the behavior people already have: saving useful social content. It turns those saves into organized resources, researched context, and cross-save patterns without asking users to manually file everything.',
+    audience: ['Social Saves', 'Learning Notes', 'Travel Tips', 'Career Ideas', 'Product Research'],
+    storyboard: [
+      {
+        label: 'Capture',
+        title: 'Share or paste the source',
+        text: 'The user gives Curio one public link or supported media file. If evidence cannot be retrieved, Curio preserves a source-only save instead of inventing a summary.',
+      },
+      {
+        label: 'Synthesize',
+        title: 'Turn evidence into a resource',
+        text: 'Curio extracts what the source says, preserves named items and content shape, researches important claims, and attaches provenance.',
+      },
+      {
+        label: 'Resurface',
+        title: 'Connect saves over time',
+        text: 'Related saves strengthen living guides, glossaries, playbooks, and watchlists so repeated ideas become easier to retrieve and use.',
+      },
+    ],
+  },
+  systemLens: {
+    eyebrow: 'Design Lens',
+    title: 'What I Was Testing',
+    body:
+      'Curio tests whether saved content can become a personal knowledge system without making the user do the organization work at capture time.',
+    items: [
+      {
+        label: 'Capture',
+        text: 'The save action should stay low effort: share, paste, or upload first, then organize after the system has evidence.',
+      },
+      {
+        label: 'Knowledge',
+        text: 'The durable unit should be the concept or resource, not the original post URL.',
+      },
+      {
+        label: 'Trust',
+        text: 'Creator claims, Curio research, source evidence, and personal context need to remain separate.',
+      },
+    ],
+  },
+  overview:
+    'I built Curio from my own habit of saving useful Reels, videos, and links, then losing them inside platform folders. The product explores a simple question: what if a saved post became an input to a growing knowledge system instead of another forgotten card?',
+  overviewEyebrow: 'Why I Built This',
+  overviewTitle: 'Saving Is Easy. Using What You Saved Is Not.',
+  problem:
+    'Instagram, TikTok, and the web make saving effortless, but they do not help users search by remembered idea, connect overlapping saves, validate important claims, or turn saved content into something reusable. Curio keeps the original source attached while moving the organization into living resources.',
+  problemEyebrow: 'What Improves',
+  problemTitle: 'From Saved Folders to Living Knowledge',
+  buildEyebrow: 'Built',
+  buildTitle: 'What I Built',
+  whatIBuilt: [
+    'Minimal-input capture for public links and supported audio or video files, with source-only fallback when evidence is unavailable.',
+    'Multi-channel extraction across captions, transcripts, public metadata, visible text, and representative frames.',
+    'Researched learning resources that separate what the creator said from what Curio added through cited research.',
+    'Living resource library that merges related saves into guides, glossaries, playbooks, and watchlists with source provenance.',
+    'Meaning-oriented search and For You synthesis across resources, entries, research, transcripts, entities, and visible source text.',
+    'Invite-only private-beta foundation with Supabase passwordless auth, Cloudflare D1 persistence, R2 media storage, and server-only credentials.',
+  ],
+  buildLabels: ['Capture', 'Extraction', 'Research', 'Library', 'Retrieval', 'Private Beta'],
+  buildSummary:
+    'Curio connects capture, source evidence, AI extraction, cited research, living resources, search, and cross-save resurfacing into one mobile-first knowledge workflow.',
+  buildSummaryLabel: 'Knowledge Workflow',
+  decisionEyebrow: 'Product Logic',
+  decisionTitle: 'Why It Works This Way',
+  productDecisions: [
+    {
+      title: 'Zero Input by Default',
+      text: 'The product should not ask users to title, tag, or file a save at the exact moment they are trying to capture it.',
+    },
+    {
+      title: 'Resources over Source Cards',
+      text: 'Ten related videos should strengthen one useful guide instead of creating ten repetitive cards in the library.',
+    },
+    {
+      title: 'Concise First, Depth on Demand',
+      text: 'The first read should show the useful answer and named details. Research, caveats, provenance, and deeper explanation can expand when needed.',
+    },
+    {
+      title: 'Honest Source Boundaries',
+      text: 'Curio does not claim to analyze restricted content it could not retrieve, and it keeps the original source available from every resource.',
+    },
+  ],
+  technicalHighlights: [
+    'Expo and React Native mobile client with one-field capture, deep linking, secure sessions, sharing support, and static web preview.',
+    'Next.js processing API on Cloudflare Workers with OpenAI-powered transcription, structured extraction, cited research, and answer generation.',
+    'Cloudflare D1 and R2 persist user-scoped resources, source evidence, visual covers, and media artifacts behind Supabase identity.',
+    'Zod validation, Vitest, Node tests, ESLint, and TypeScript support 124 passing automated tests across processor and mobile behavior.',
+  ],
+  technicalEyebrow: 'Technical Signal',
+  technicalTitle: 'AI Knowledge Pipeline',
+  technicalSummary:
+    'Curio shifts complexity away from the user and into evidence retrieval, extraction, research, merge logic, provenance, and private-beta data boundaries.',
+  technicalFlow: [
+    {
+      label: 'Evidence',
+      title: 'Retrieve What Is Actually Available',
+      text: 'The processor records captions, transcripts, visible text, metadata, frames, or a source-only fallback rather than pretending every link can be fully read.',
+    },
+    {
+      label: 'Structure',
+      title: 'Preserve The Shape of The Source',
+      text: 'Lists remain lists, how-tos keep order, travel tips keep exact recommendations, and finance notes keep named companies and rationale.',
+    },
+    {
+      label: 'Synthesis',
+      title: 'Merge Repetition into Resources',
+      text: 'Related saves add evidence to living guides and For You themes instead of creating duplicate library clutter.',
+    },
+  ],
+  images: [
+    {
+      title: 'Library',
+      src: '/assets/project-curio-library-mobile.png',
+      alt: 'Curio mobile Library showing organized learning resources and topic collections.',
+      caption: 'A resource-first library organizes related saves into visual, searchable knowledge.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Capture',
+      src: '/assets/project-curio-capture-mobile.png',
+      alt: 'Curio mobile capture screen with one primary field for a social video or web link.',
+      caption: 'Share or paste a link once; Curio handles extraction and organization after capture.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Learning Resource',
+      src: '/assets/project-curio-resource-mobile.png',
+      alt: 'Curio mobile resource page showing a synthesized lesson and deeper researched context.',
+      caption: 'The resource view leads with the lesson, then offers practical detail, optional depth, and source evidence.',
+      kind: 'mobile',
+    },
+    {
+      title: 'For You',
+      src: '/assets/project-curio-for-you-mobile.png',
+      alt: 'Curio mobile For You screen showing personalized cross-save knowledge recommendations.',
+      caption: 'For You resurfaces evidence-backed themes and useful changes across multiple saves.',
+      kind: 'mobile',
+    },
+  ],
+  galleryStyle: 'storyboard',
+  galleryImages: [
+    {
+      title: 'Library',
+      src: '/assets/project-curio-library-mobile.png',
+      alt: 'Curio mobile Library showing organized learning resources and topic collections.',
+      caption: 'A resource-first library organizes related saves into visual, searchable knowledge.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Capture',
+      src: '/assets/project-curio-capture-mobile.png',
+      alt: 'Curio mobile capture screen with one primary field for a social video or web link.',
+      caption: 'Share or paste a link once; Curio handles extraction and organization after capture.',
+      kind: 'mobile',
+    },
+    {
+      title: 'Learning Resource',
+      src: '/assets/project-curio-resource-mobile.png',
+      alt: 'Curio mobile resource page showing a synthesized lesson and deeper researched context.',
+      caption: 'The resource view leads with the lesson, then offers practical detail, optional depth, and source evidence.',
+      kind: 'mobile',
+    },
+    {
+      title: 'For You',
+      src: '/assets/project-curio-for-you-mobile.png',
+      alt: 'Curio mobile For You screen showing personalized cross-save knowledge recommendations.',
+      caption: 'For You resurfaces evidence-backed themes and useful changes across multiple saves.',
+      kind: 'mobile',
+    },
+  ],
+  storyboardScenes: [
+    {
+      label: 'Capture',
+      title: 'Save Useful Content Without Filing It',
+      caption:
+        'The first action stays simple: share or paste the source, then let Curio handle the extraction and organization work after capture.',
+      layout: 'phone-single',
+      images: [
+        {
+          title: 'Capture',
+          src: '/assets/project-curio-capture-mobile.png',
+          alt: 'Curio mobile capture screen with one primary field for a social video or web link.',
+          kind: 'mobile',
+        },
+      ],
+    },
+    {
+      label: 'Resource',
+      title: 'Turn A Save Into Something Useful',
+      caption:
+        'Curio preserves the lesson, named details, research layer, and source evidence so the user can understand the idea without rewatching everything.',
+      layout: 'phone-single',
+      images: [
+        {
+          title: 'Learning Resource',
+          src: '/assets/project-curio-resource-mobile.png',
+          alt: 'Curio mobile resource page showing a synthesized lesson and deeper researched context.',
+          kind: 'mobile',
+        },
+      ],
+    },
+    {
+      label: 'Resurface',
+      title: 'Reconnect Ideas Across Saves',
+      caption:
+        'For You highlights patterns and useful changes across the library without becoming another infinite content feed.',
+      layout: 'phone-single',
+      images: [
+        {
+          title: 'For You',
+          src: '/assets/project-curio-for-you-mobile.png',
+          alt: 'Curio mobile For You screen showing personalized cross-save knowledge recommendations.',
+          kind: 'mobile',
+        },
+      ],
+    },
+  ],
+  screenshotEyebrow: 'Product Flow',
+  screenshotTitle: 'Capture, Learn, Resurface',
+  lessons: [
+    'Summarization is not enough; users need useful ideas preserved, checked when stakes justify it, and merged with what they already saved.',
+    'The hardest product decisions were about information hierarchy: too much verification feels clinical, while too little detail removes what made the source useful.',
+    'Platform access is a product constraint, so honest source-only states and robust fallbacks are part of the user experience.',
+  ],
+  nextSteps: [
+    'Validate native share-target behavior on current physical iOS and Android devices. Curio already has release profiles, but share behavior needs device-level checks.',
+    'Add public-launch requirements such as privacy policy, export, deletion, crash reporting, final store metadata, and support flows.',
+    'Move long media processing toward signed uploads, queued jobs, retries, idempotency, and rate limits before broader public use.',
+  ],
+  ctaTitle: 'Interested in Curio?',
+  ctaBody:
+    'Curio is currently an invite-only private beta. I am not linking a public processor or claiming an official social Saved-folder integration, but I am open to thoughtful product and beta conversations.',
+  ctaLabel: 'Discuss Curio Beta',
+  ctaHref: 'mailto:kellychenmeiyi@gmail.com?subject=Curio%20private%20beta',
 };
 
 export const webPilotCaseStudy = {

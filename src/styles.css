@@ -2122,6 +2122,14 @@ li {
   padding: clamp(8px, 1.4vw, 16px);
 }
 
+.project-visual-applyfirst.project-visual-desktop.project-visual-contain img {
+  object-fit: cover;
+  object-position: center 8%;
+  padding: 0;
+  transform: scale(1.12);
+  transform-origin: center top;
+}
+
 .project-visual-phone {
   display: grid;
   align-items: center;
@@ -2190,6 +2198,10 @@ li {
 
 .project-showcase:hover .project-visual img {
   transform: scale(1.025);
+}
+
+.project-showcase:hover .project-visual-applyfirst.project-visual-desktop img {
+  transform: scale(1.14);
 }
 
 .project-showcase:hover .project-visual-phone .phone-device {
@@ -6215,6 +6227,12 @@ li {
   --case-section-bg: var(--paper);
 }
 
+.case-journal.case-showcase-curio {
+  --case-accent: var(--teal);
+  --case-tint: var(--mint);
+  --case-section-bg: var(--paper);
+}
+
 .case-journal-hero {
   position: relative;
   display: grid;
@@ -6710,6 +6728,19 @@ li {
   object-fit: contain;
   object-position: top center;
   padding: 0;
+}
+
+.case-journal-hero-side .case-journal-visual-crop-wide {
+  overflow: hidden;
+}
+
+.case-journal-hero-side .case-journal-visual-crop-wide > img {
+  height: clamp(300px, 31vw, 430px);
+  max-height: none;
+  object-fit: contain;
+  object-position: top center;
+  transform: scale(1.08);
+  transform-origin: top center;
 }
 
 .case-journal-visual-physical > img {

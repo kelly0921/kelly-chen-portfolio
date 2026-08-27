@@ -17,6 +17,7 @@ import {
   contentPartnerships,
   contentResourceGroups,
   contentThemes,
+  curioCaseStudy,
   experiences,
   availableTopics,
   audiencePathways,
@@ -75,6 +76,11 @@ const pageMetadata = {
     description:
       'Product and engineering case studies from Kelly Chen, including fintech MVPs, AI workflow tools, opportunity systems, and technical infrastructure projects.',
   },
+  curio: {
+    title: 'Kelly Chen | Curio',
+    description:
+      'Curio is Kelly Chen\'s invite-only private-beta AI knowledge app for turning saved social videos and links into researched, searchable resources.',
+  },
   speaking: {
     title: 'Kelly Chen | Speaking',
     description:
@@ -106,7 +112,7 @@ function usePageMetadata(route) {
 
 function useProductPageMotion(route) {
   useEffect(() => {
-    const isProjectStory = ['beamcash', 'webpilot', 'writeguard', 'applyfirst'].includes(route);
+    const isProjectStory = ['beamcash', 'webpilot', 'writeguard', 'applyfirst', 'curio'].includes(route);
     const sharedMotionSelector = [
       '.page-hero',
       '.section-heading',
@@ -219,6 +225,8 @@ function App() {
         return <ProjectCaseStudyPage caseStudy={writeGuardCaseStudy} />;
       case 'applyfirst':
         return <ProjectCaseStudyPage caseStudy={applyFirstCaseStudy} />;
+      case 'curio':
+        return <ProjectCaseStudyPage caseStudy={curioCaseStudy} />;
       case 'speaking':
         return <SpeakingPage />;
       case 'community':
@@ -753,7 +761,7 @@ const caseStudyPageProfiles = {
   },
   ApplyFirst: {
     mode: 'student-product',
-    badge: 'Private beta',
+    badge: 'Beta testing',
     audienceEyebrow: 'For students tracking early programs',
     promise: 'Find high-signal opportunities before the application window gets crowded.',
     storyTitle: 'Discovery, timing, confidence, and next action in one place.',
@@ -766,6 +774,22 @@ const caseStudyPageProfiles = {
     signalTitle: 'Product Signal',
     signalBody:
       'The product value comes from combining timing, eligibility, confidence, verification, and action guidance instead of stopping at a static opportunity list.',
+  },
+  Curio: {
+    mode: 'product',
+    badge: 'Private beta',
+    audienceEyebrow: 'For people who save useful content',
+    promise: 'Turn saved videos and links into knowledge you can actually find again.',
+    storyTitle: 'A mobile-first knowledge layer above social saves.',
+    storyBody:
+      'Curio starts with one familiar action: save or share a useful source. From there, it extracts what the source actually says, researches important claims, preserves provenance, and folds repeated ideas into living resources.',
+    proofEyebrow: 'Mobile product flow',
+    proofTitle: 'From saved source to reusable knowledge.',
+    proofBody:
+      'The product flow focuses on the useful moments: capture a source, turn it into a researched resource, then resurface patterns across saves without creating another content feed.',
+    signalTitle: 'Product and Technical Signal',
+    signalBody:
+      'The build connects mobile capture, AI extraction, cited research, source provenance, user-scoped storage, search, and evidence-gated synthesis into a private-beta knowledge workflow.',
   },
 };
 
@@ -835,6 +859,7 @@ function CaseJournalVisual({ image, loading = 'lazy' }) {
         image.kind === 'physical' ? 'case-journal-visual-physical' : '',
         image.fit === 'contain' ? 'case-journal-visual-contain' : '',
         image.fit === 'zoom' ? 'case-journal-visual-zoom' : '',
+        image.crop === 'wide' ? 'case-journal-visual-crop-wide' : '',
       ].filter(Boolean).join(' ')}
     >
       <CaseStudyImage image={image} loading={loading} />
@@ -1589,15 +1614,17 @@ function ProjectSection({ title, projects: projectItems, fintech = false }) {
 
 function ProjectCard({ title, mark, status, description, image, imageFit, imageFrame, imageAlt, problem, user, proof, tags, index }) {
   const projectAction = projectActions[title];
+  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const visualClasses = [
     'project-visual',
+    `project-visual-${slug}`,
     imageFit === 'contain' ? 'project-visual-contain' : '',
     imageFrame === 'desktop' ? 'project-visual-desktop' : '',
     imageFrame === 'phone' ? 'project-visual-phone' : '',
   ].filter(Boolean).join(' ');
 
   return (
-    <article className={`project-card project-showcase${index % 2 === 1 ? ' reverse' : ''}`}>
+    <article className={`project-card project-showcase project-showcase-${slug}${index % 2 === 1 ? ' reverse' : ''}`}>
       <div className={visualClasses}>
         {imageFrame === 'phone' ? (
           <span className="phone-device project-phone-device">
