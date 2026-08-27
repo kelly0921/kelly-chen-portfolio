@@ -20,15 +20,18 @@ test('portfolio navigation stays focused on the main portfolio categories', asyn
   assert.equal(getSiteRoute('/', '#mentorship'), 'home');
 });
 
-test('homepage mentorship feature links to the external program site', async () => {
+test('homepage does not feature the recruiting accelerator program', async () => {
   const source = await readFile(mainSourceUrl, 'utf8');
+  const data = await readFile(portfolioDataSourceUrl, 'utf8');
 
-  assert.match(source, /Recruiting Season Accelerator/);
-  assert.match(source, /Now Building/);
-  assert.match(source, /Explore the Program/);
-  assert.match(source, /Apply for the Cohort/);
-  assert.match(source, /https:\/\/recruiting-accelerator-apply\.pages\.dev\//);
-  assert.match(source, /https:\/\/recruiting-accelerator-apply\.pages\.dev\/apply/);
+  assert.doesNotMatch(source, /hero-program-callout/);
+  assert.doesNotMatch(source, /FeaturedMentorship/);
+  assert.doesNotMatch(source, /featured-mentorship/);
+  assert.doesNotMatch(source, /Now Building/);
+  assert.doesNotMatch(source, /Explore the Program/);
+  assert.doesNotMatch(source, /Apply for the Cohort/);
+  assert.doesNotMatch(data, /type: 'Mentorship'/);
+  assert.doesNotMatch(data, /title: 'Recruiting Season Accelerator'/);
   assert.doesNotMatch(source, /chatgpt\.site/);
   assert.doesNotMatch(source, /href="\/recruiting-season-accelerator"/);
   assert.doesNotMatch(source, /id="mentorship"/);
@@ -42,17 +45,11 @@ test('legacy portfolio program paths redirect away from the portfolio app', () =
   assert.equal(isAcceleratorRoute('mentorship'), false);
 });
 
-test('mentorship section keeps the portfolio visual system lightweight', async () => {
+test('homepage mentorship feature styles are not present', async () => {
   const source = await readFile(stylesSourceUrl, 'utf8');
-  const mainSource = await readFile(mainSourceUrl, 'utf8');
 
-  assert.match(mainSource, /featured-mentorship-band/);
-  assert.match(mainSource, /featured-mentorship-points/);
-  assert.match(source, /\.hero-program-callout/);
-  assert.match(source, /\.featured-mentorship/);
-  assert.match(source, /\.featured-mentorship-band/);
-  assert.match(source, /border-top: 1px solid/);
-  assert.match(source, /grid-template-columns: minmax\(300px, 0\.86fr\)/);
-  assert.doesNotMatch(source, /\.featured-mentorship-brief/);
-  assert.doesNotMatch(source, /\.featured-mentorship-facts/);
+  assert.doesNotMatch(source, /\.hero-program-callout/);
+  assert.doesNotMatch(source, /\.featured-mentorship/);
+  assert.doesNotMatch(source, /\.focus-visual-program/);
+  assert.doesNotMatch(source, /\.focus-program-card/);
 });

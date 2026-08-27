@@ -15,6 +15,7 @@ import {
   contentFeaturedItems,
   contentPipeline,
   contentPartnerships,
+  contentPostToToolRows,
   contentResourceGroups,
   contentThemes,
   curioCaseStudy,
@@ -129,7 +130,6 @@ function useProductPageMotion(route) {
       '.content-pipeline-item',
       '.speaking-moment',
       '.community-moment',
-      '.featured-mentorship',
     ].join(', ');
 
     document.body.classList.toggle('motion-ready', isProjectStory);
@@ -317,16 +317,6 @@ function HomePage() {
             curiosity, real user feedback, AI-assisted workflows, and
             access-minded community building.
           </p>
-          <a
-            className="hero-program-callout"
-            href="https://recruiting-accelerator-apply.pages.dev/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>Now Building</span>
-            <strong>Recruiting Season Accelerator</strong>
-            <small>Free Fall 2026 mentorship cohort · Applications August 24–31</small>
-          </a>
           <div className="button-row">
             <a className="button primary" href="#experience">
               View Experience
@@ -350,77 +340,10 @@ function HomePage() {
 
       <AudiencePathways />
 
-      <FeaturedMentorship />
-
       <PersonalityCollage />
 
       <CTASection />
     </>
-  );
-}
-
-function FeaturedMentorship() {
-  return (
-    <section
-      className="featured-mentorship section-shell"
-      aria-labelledby="featured-mentorship-title"
-    >
-      <div className="featured-mentorship-band">
-        <div className="featured-mentorship-label">
-          <span>Fall 2026 Founding Cohort</span>
-          <strong>Applications August 24–31</strong>
-          <em>8 mentorship spots</em>
-        </div>
-        <div className="featured-mentorship-main">
-          <div className="featured-mentorship-copy">
-            <h2 id="featured-mentorship-title">Recruiting Season Accelerator</h2>
-            <p className="featured-mentorship-hook">
-              Build a smarter fall opportunity strategy.
-            </p>
-            <strong className="featured-mentorship-promise">
-              Find the bottleneck. Strengthen your positioning.
-              <span>Leave with a 60-day plan.</span>
-            </strong>
-            <p>
-              A free fall-semester mentorship cohort with a four-week intensive
-              and lighter support through December 15.
-            </p>
-          </div>
-          <div className="featured-mentorship-includes">
-            <span>What's Included</span>
-            <ul className="featured-mentorship-points" aria-label="What students get">
-              <li><strong>4</strong><span>Live workshops</span></li>
-              <li><strong>2</strong><span>Individual sessions</span></li>
-              <li><strong>1</strong><span>Resume re-review</span></li>
-              <li><strong>60</strong><span>Day plan</span></li>
-            </ul>
-            <div className="featured-mentorship-mentor" aria-label="Mentor background">
-              <span>Led by Kelly Chen</span>
-              <strong>Bloomberg SWE</strong>
-              <em>SWE internships: Oracle, JPMorganChase, Visa</em>
-            </div>
-          </div>
-          <div className="featured-mentorship-actions">
-            <a
-              className="button primary"
-              href="https://recruiting-accelerator-apply.pages.dev/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Explore the Program
-            </a>
-            <a
-              className="button secondary"
-              href="https://recruiting-accelerator-apply.pages.dev/apply"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apply for the Cohort
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -1148,6 +1071,9 @@ function MediaPage() {
       <section className="section-shell content-featured-section">
         <FeaturedContentList items={contentFeaturedItems} />
       </section>
+      <section className="section-shell content-product-section">
+        <ContentPostToTools rows={contentPostToToolRows} />
+      </section>
       <section className="section-shell content-audience-section">
         <ContentAudienceKit profile={contentAudienceProfile} credibility={contentCredibility} />
       </section>
@@ -1227,27 +1153,102 @@ function FeaturedContentList({ items }) {
   return (
     <div className="featured-content">
       <div className="featured-content-heading">
-        <p className="eyebrow">Selected examples</p>
-        <h2>Content That Shows the Range</h2>
+        <p className="eyebrow">Published samples</p>
+        <h2>See the Actual Content</h2>
         <p>
-          A few public notes that represent the voice of the page: practical,
-          specific, experience-driven, and connected to real rooms and decisions.
+          Real post screenshots belong here so visitors can see the format,
+          voice, and proof. I do not use recreated LinkedIn graphics or guessed
+          performance numbers.
         </p>
       </div>
       <div className="featured-content-list">
         {items.map((item) => (
           <article className={`featured-content-item content-tone-${item.tone}`} key={item.title}>
-            <div className="featured-content-meta">
-              <span>{item.theme}</span>
-              <em>{item.format}</em>
+            <div className="featured-content-visual">
+              {item.image ? (
+                <a href={item.href} target="_blank" rel="noreferrer" aria-label={`Open ${item.title}`}>
+                  <img src={item.image} alt={item.imageAlt} loading="lazy" />
+                </a>
+              ) : (
+                <div className="content-screenshot-needed" aria-label="LinkedIn post screenshot needed">
+                  <span>{item.slot}</span>
+                  <strong>Real LinkedIn screenshot needed</strong>
+                  <p>Add a cropped screenshot and exact post URL before this becomes a published proof card.</p>
+                </div>
+              )}
             </div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            {item.reason ? <p className="featured-content-reason">{item.reason}</p> : null}
-            <div className="featured-content-footer">
-              <span>{item.source}</span>
-              <a className="text-link" href={item.href} target="_blank" rel="noreferrer">
-                {item.ctaLabel}
+            <div className="featured-content-copy">
+              <div className="featured-content-meta">
+                <span>{item.theme}</span>
+                <em>{item.format}</em>
+                {item.publishedDate ? <time>{item.publishedDate}</time> : <em>Date Needed</em>}
+              </div>
+              <h3>{item.title}</h3>
+              <p className="featured-content-reason">
+                <strong>What this demonstrates:</strong> {item.demonstrates}
+              </p>
+              {item.performance?.length ? (
+                <div className="featured-performance" aria-label="Verified content performance">
+                  {item.performance.map((metric) => (
+                    <span key={metric.label}>
+                      <strong>{metric.value}</strong> {metric.label}
+                    </span>
+                  ))}
+                  {item.performanceLastUpdated ? <small>Updated {item.performanceLastUpdated}</small> : null}
+                </div>
+              ) : null}
+              <div className="featured-content-footer">
+                {item.href ? (
+                  <a className="text-link" href={item.href} target="_blank" rel="noreferrer">
+                    {item.ctaLabel}
+                  </a>
+                ) : (
+                  <span>Exact post URL needed</span>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ContentPostToTools({ rows }) {
+  return (
+    <div className="content-tool-bridge">
+      <div className="content-section-intro">
+        <p className="eyebrow">From Posts to Practical Tools</p>
+        <h2>How Public Notes Become Usable Systems</h2>
+        <p>
+          The content is not only commentary. The strongest posts become apps,
+          planning resources, workshops, and concrete student workflows.
+        </p>
+      </div>
+      <div className="content-tool-rows">
+        {rows.map((row) => (
+          <article className={`content-tool-row content-tone-${row.tone}`} key={row.toolTitle}>
+            <div className="tool-row-post">
+              <span>{row.postLabel}</span>
+              {row.postScreenshot ? (
+                <img src={row.postScreenshot} alt={row.postImageAlt} loading="lazy" />
+              ) : (
+                <div className="tool-row-placeholder">Post screenshot</div>
+              )}
+              <strong>{row.postTitle}</strong>
+            </div>
+            <div className="tool-row-product">
+              <span>{row.toolLabel}</span>
+              <figure>
+                <img src={row.toolImage} alt={row.toolImageAlt} loading="lazy" />
+              </figure>
+              <h3>{row.toolTitle}</h3>
+            </div>
+            <div className="tool-row-result">
+              <span>{row.resultTitle}</span>
+              <p>{row.result}</p>
+              <a className="text-link" href={row.href} target={row.href.startsWith('http') ? '_blank' : undefined} rel={row.href.startsWith('http') ? 'noreferrer' : undefined}>
+                {row.ctaLabel}
               </a>
             </div>
           </article>
@@ -1522,7 +1523,7 @@ function HighlightCard({ type, title, description, note, visual }) {
   );
 }
 
-function FocusVisual({ kind, src, alt, kicker, points = [] }) {
+function FocusVisual({ kind, src, alt }) {
   const className = `focus-visual focus-visual-${kind}`;
 
   if (kind === 'phone') {
@@ -1530,22 +1531,6 @@ function FocusVisual({ kind, src, alt, kicker, points = [] }) {
       <span className={className}>
         <span className="phone-device focus-phone-device">
           <img src={src} alt={alt} loading="lazy" />
-        </span>
-      </span>
-    );
-  }
-
-  if (kind === 'program') {
-    return (
-      <span className={className} role="img" aria-label={alt}>
-        <span className="focus-program-card">
-          <span>{kicker}</span>
-          {points.map((point, index) => (
-            <b key={point}>
-              <em>{String(index + 1).padStart(2, '0')}</em>
-              {point}
-            </b>
-          ))}
         </span>
       </span>
     );

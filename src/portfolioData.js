@@ -74,18 +74,6 @@ export const currentFocusNotes = [
       alt: 'ApplyFirst opportunity directory screen',
     },
   },
-  {
-    type: 'Mentorship',
-    title: 'Recruiting Season Accelerator',
-    description: 'Helping college students diagnose recruiting bottlenecks, strengthen their positioning, and build a fall opportunity strategy they can execute.',
-    note: 'Fall 2026 · 8 students · free mentorship',
-    visual: {
-      kind: 'program',
-      alt: 'Recruiting Season Accelerator program snapshot',
-      kicker: 'Fall mentorship cohort',
-      points: ['Diagnose', 'Position', 'Apply'],
-    },
-  },
 ];
 
 export const audiencePathways = [
@@ -2019,56 +2007,102 @@ export const contentThemes = [
 
 export const contentFeaturedItems = [
   {
-    theme: 'Conference Strategy',
+    slot: 'Opportunity access',
     tone: 'teal',
-    format: 'LinkedIn series',
-    source: 'Public notes',
-    title: 'Is a Conference Worth It This Year?',
-    description:
-      'A practical framing for deciding whether a conference is worth the time, cost, and energy by looking for leverage instead of just visibility.',
-    reason:
-      'Shows the kind of content I like making: honest, useful, and grounded in what students are actually trying to decide.',
-    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
-    ctaLabel: 'Find on LinkedIn',
-  },
-  {
     theme: 'Opportunity Access',
-    tone: 'gold',
-    format: 'Resource seed',
-    source: 'Public notes',
-    title: 'Where Conference Funding Actually Comes From',
-    description:
-      'A breakdown of funding paths students can look for before paying out of pocket: school funds, community support, company sponsorships, and backup options.',
-    reason:
-      'Turns a common hidden barrier into something students can plan around earlier.',
-    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
-    ctaLabel: 'Find on LinkedIn',
+    format: 'LinkedIn post / resource seed',
+    publishedDate: null,
+    title: 'Where conference funding actually comes from',
+    image: null,
+    imageAlt: '',
+    demonstrates:
+      'Turns hidden funding paths into a practical map students can act on before they pay out of pocket.',
+    href: null,
+    ctaLabel: 'Open Exact Post',
+    performance: [],
+    performanceLastUpdated: null,
   },
   {
-    theme: 'Engineering Career',
+    slot: 'Firsthand conference and community insight',
+    tone: 'gold',
+    theme: 'Conference Strategy',
+    format: 'LinkedIn series post',
+    publishedDate: null,
+    title: 'Conferences are not an equal playing field.',
+    image: null,
+    imageAlt: '',
+    demonstrates:
+      'Uses real student-stage nuance to explain why the same conference can have different ROI for different people.',
+    href: null,
+    ctaLabel: 'Open Exact Post',
+    performance: [],
+    performanceLastUpdated: null,
+  },
+  {
+    slot: 'Engineering and career judgment',
     tone: 'blue',
     format: 'LinkedIn note',
-    source: 'Public notes',
-    title: 'Systems Thinking Is Becoming the Stronger Signal',
-    description:
-      'A note on why AI-polished resumes make technical judgment, system context, and human trust more important in career conversations.',
-    reason:
-      'Connects technical work, hiring shifts, and how emerging engineers can communicate more clearly.',
-    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
-    ctaLabel: 'Find on LinkedIn',
+    publishedDate: null,
+    title: 'In 2026, your resume is being read by a robot. Your interview might be, too.',
+    image: null,
+    imageAlt: '',
+    demonstrates:
+      'Connects AI hiring shifts to systems thinking, technical judgment, and how emerging engineers communicate trust.',
+    href: 'https://www.linkedin.com/posts/kellychen0921_techconferences-aifirst-softwareengineering-activity-7435678179350167552-whFW',
+    ctaLabel: 'Open Exact Post',
+    performance: [],
+    performanceLastUpdated: null,
   },
   {
-    theme: 'Community',
+    slot: 'Building in public and resource creation',
     tone: 'indigo',
-    format: 'Working thread',
-    source: 'Public notes',
-    title: 'The Spaces Between Booths Matter Too',
-    description:
-      'A conference note about workshops, panels, peer intel, smaller rooms, and the community layer that often creates the best career momentum.',
-    reason:
-      'Shows how my content often connects strategy with community, access, and real rooms.',
-    href: 'https://www.linkedin.com/in/kellychen0921/recent-activity/all/',
-    ctaLabel: 'Find on LinkedIn',
+    theme: 'Resource Creation',
+    format: 'LinkedIn post / toolkit source',
+    publishedDate: null,
+    title: 'Is a tech conference worth $1,200 of your own money?',
+    image: null,
+    imageAlt: '',
+    demonstrates:
+      'Shows how a public post can become a downloadable planner, tracker, or workshop takeaway.',
+    href: null,
+    ctaLabel: 'Open Exact Post',
+    performance: [],
+    performanceLastUpdated: null,
+  },
+];
+
+export const contentPostToToolRows = [
+  {
+    tone: 'gold',
+    postLabel: 'Opportunity post',
+    postTitle: 'Where conference funding actually comes from',
+    postScreenshot: null,
+    postImageAlt: '',
+    toolLabel: 'ApplyFirst',
+    toolTitle: 'Opportunity intelligence students can act on earlier',
+    toolImage: '/assets/project-applyfirst-programs-desktop.png',
+    toolImageAlt: 'ApplyFirst opportunity directory with searchable programs and filters.',
+    resultTitle: 'Student use case',
+    result:
+      'A student moves from finding one post too late to tracking recurring programs, eligibility, timing, and next actions in one place.',
+    href: 'https://applyfirst-careers.pages.dev/',
+    ctaLabel: 'Join ApplyFirst Waitlist',
+  },
+  {
+    tone: 'teal',
+    postLabel: 'Conference post',
+    postTitle: 'Is a conference worth it this year?',
+    postScreenshot: null,
+    postImageAlt: '',
+    toolLabel: 'Conference Leverage Planner',
+    toolTitle: 'A planning system for rooms, sponsors, funding, and follow-up',
+    toolImage: '/assets/conference-leverage-planner/01-full-strategy-cover.png',
+    toolImageAlt: 'Conference Leverage Planner cover preview.',
+    resultTitle: 'Speaking or workshop proof',
+    result:
+      'The same thinking can become a practical session with a takeaway checklist, funding map, or sponsor-list exercise.',
+    href: 'mailto:kellychenmeiyi@gmail.com?subject=Conference%20Leverage%20Planner',
+    ctaLabel: 'Request Planner Preview',
   },
 ];
 
@@ -2203,40 +2237,40 @@ export const contentPipeline = [
 ];
 
 export const contentPartnerships = {
-  title: 'Useful before Promotional',
+  title: 'Concrete Ways to Work Together',
   description:
-    'I am open to selective collaborations when the topic already fits what I talk about and the result gives students, builders, or communities something genuinely useful.',
-  philosophyLabel: 'Partnership philosophy',
+    'The best collaborations here should create a useful artifact: a post, guide, workshop, checklist, product explainer, or event takeaway people can actually use.',
+  philosophyLabel: 'Collaboration filter',
   philosophy:
-    'A good collaboration should feel like a useful piece of content first, not an ad with a caption around it.',
+    'I care most about fit, usefulness, and honest context. If the deliverable would not help my audience without the partnership label, it is probably not the right collaboration.',
   options: [
-    {
-      label: 'Community',
-      tone: 'indigo',
-      title: 'Community and Alumni Partnerships',
-      description:
-        'Program awareness, community storytelling, alumni/community initiatives, or student outreach connected to rooms I understand.',
-    },
     {
       label: 'Programs',
       tone: 'gold',
-      title: 'Program and Opportunity Campaigns',
+      title: 'Program and Opportunity Education',
       description:
-        'Selective fellowships, scholarships, conferences, hackathons, education programs, or early-career opportunities that fit my audience.',
+        'Explain a fellowship, scholarship, student program, or early-career opportunity through a practical post, resource note, or application checklist.',
     },
     {
       label: 'Events',
       tone: 'teal',
-      title: 'Events and Conference Collaborations',
+      title: 'Event and Conference Content',
       description:
-        'Pre-event or post-event storytelling, practical prep resources, event coverage, speaker participation, or community activation.',
+        'Create pre-event prep, sponsor-list guidance, attendee takeaways, recap notes, or community content around a conference or technical event.',
+    },
+    {
+      label: 'Workshop',
+      tone: 'indigo',
+      title: 'Workshop Plus Takeaway Resource',
+      description:
+        'Pair a practical session with a worksheet, checklist, tracker, or follow-up guide so attendees leave with something concrete.',
     },
     {
       label: 'Products',
       tone: 'blue',
-      title: 'Selective Product Partnerships',
+      title: 'Selective Product Education',
       description:
-        'Developer tools, AI tools, career products, education, fintech, productivity, or startup tools I would be comfortable discussing honestly.',
+        'Translate a relevant tool, product, or workflow into a clear student/builder use case, with honest tradeoffs and no forced endorsement.',
     },
   ],
   principles: [
